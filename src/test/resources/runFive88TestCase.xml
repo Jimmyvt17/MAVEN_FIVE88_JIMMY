@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false" thread-count="2">
+
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter" />
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    <listener class-name="commons.ExtentReportListener" />
+  </listeners>
+
+  <test name="Run on Chrome">
+    <parameter name="browser" value="chrome" />
+    <packages>
+      <package name="account"/>
+      <package name="bet"/>
+      <package name="payment"/>
+    </packages>
+  </test> <!-- Test -->
+
+<!--  <test name="Run on Chrome Headless">-->
+<!--    <parameter name="browser" value="headless" />-->
+<!--    <classes>-->
+<!--      <class name="com.five88.bet.Bet_01_Quayso"/>-->
+<!--    </classes>-->
+<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
+
+<!--  <test name="Run on Firefox">-->
+<!--    <parameter name="browser" value="firefox" />-->
+<!--    <classes>-->
+<!--      <class name="com.five88.account.Account_03_LoginSuccessful"/>-->
+<!--    </classes>-->
+<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
+
+</suite> <!-- Suite -->

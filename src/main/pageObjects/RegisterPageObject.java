@@ -1,0 +1,79 @@
+package pageObjects;
+
+import commons.AbstractPage;
+import commons.Constants;
+import commons.PageFactoryManager;
+import five88.RegisterPageUI;
+import org.openqa.selenium.WebDriver;
+
+public class RegisterPageObject extends AbstractPage {
+
+    private WebDriver driver;
+
+    public RegisterPageObject(WebDriver mappingDriver) {
+        driver = mappingDriver;
+    }
+
+    public void openRegisterPage() {
+
+        openAnyUrl(driver, Constants.REGISTER_URL);
+
+    }
+
+    public void inputToUsernameTextbox(String username) {
+
+        waitForElementVisibleByLocator(driver, RegisterPageUI.usernameResgisLocator);
+        sendKeyToElement(driver, RegisterPageUI.usernameResgisLocator, username);
+
+    }
+
+    public void inputToPasswordTextbox(String password) {
+
+        waitForElementVisibleByLocator(driver, RegisterPageUI.passwordRegisLocator);
+        sendKeyToElement(driver, RegisterPageUI.passwordRegisLocator, password);
+
+    }
+
+    public void inputToPhoneTextbox(String phone) {
+
+        waitForElementVisibleByLocator(driver, RegisterPageUI.phoneRegisLocator);
+        sendKeyToElement(driver, RegisterPageUI.phoneRegisLocator, phone);
+
+    }
+
+    public AccountPageObject clickToSubmitButton() {
+
+        waitForElementVisibleByLocator(driver, RegisterPageUI.submitButtonLocator);
+        clickToElement(driver, RegisterPageUI.submitButtonLocator);
+        return PageFactoryManager.getAccountPage(driver);
+
+    }
+
+    public String  getUsernameError() {
+
+        waitForElementVisibleByLocator(driver, RegisterPageUI.usernameRegisError);
+        return getTextElement(driver, RegisterPageUI.usernameRegisError);
+
+    }
+
+    public String  getPasswordError() {
+
+        waitForElementVisibleByLocator(driver, RegisterPageUI.passwordRegisError);
+        return getTextElement(driver, RegisterPageUI.passwordRegisError);
+
+    }
+
+    public String  getPhoneError() {
+
+        waitForElementVisibleByLocator(driver, RegisterPageUI.phoneRegisError);
+        return getTextElement(driver, RegisterPageUI.phoneRegisError);
+
+    }
+
+    public void logoutToHomePage() {
+
+        logout(driver);
+
+    }
+
+}
