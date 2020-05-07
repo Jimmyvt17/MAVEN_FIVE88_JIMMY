@@ -3,7 +3,6 @@ package payment;
 import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
-import jdk.nashorn.internal.runtime.logging.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -11,7 +10,6 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.AccountPageObject;
 
-@Logger
 public class Payment_01_DepositSuccesful extends CommonsTest {
 
     WebDriver driver;
@@ -48,7 +46,7 @@ public class Payment_01_DepositSuccesful extends CommonsTest {
         verifyEquals(accountPage.getAccountPageUrl(), Constants.TRANHISTORY_URL);
 
         log.info("DepositSuccessful - Step 05: Verify deposit ticket is created");
-        verifyEquals(accountPage.getTicketStatus(), " Chờ xử lý");
+        verifyEquals(accountPage.getTicketStatus(), "Chờ xử lý");
 
         log.info("DepositSuccessful - Step 06: Return to deposit page");
         accountPage.goToSubAccount("Nạp tiền");
