@@ -9,11 +9,11 @@
 
   <test name="Run on Chrome">
     <parameter name="browser" value="chrome" />
-    <packages>
-      <package name="account"/>
-      <package name="bet"/>
-      <package name="payment"/>
-    </packages>
+    <classes>
+<!--      <package name="account"/>-->
+      <class name="payment.Payment_01_DepositSuccesful"/>
+<!--      <class name="bet.Bet_02_Lode"/>-->
+    </classes>
   </test> <!-- Test -->
 
 <!--  <test name="Run on Chrome Headless">-->

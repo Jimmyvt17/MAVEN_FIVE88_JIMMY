@@ -28,41 +28,41 @@ public class Payment_02_DepositFailed extends CommonsTest {
 
     @Test
     public void TC_01_DepositFailed() {
-        log.info("DepositSuccessful - Step 01: Go to deposit page");
+        log.info("DepositFailed - Step 01: Go to deposit page");
         accountPage.beforeDepositing();
 
-        log.info("DepositSuccessful - Step 02: Deposit without selecting bank");
+        log.info("DepositFailed - Step 02: Deposit without selecting bank");
         depositWithoutBank();
 
-        log.info("DepositSuccessful - Step 03: Verify bank error");
+        log.info("DepositFailed - Step 03: Verify bank error");
         verifyTrue(accountPage.isBankErrorDisplayed());
         log.info("Nap ko thanh cong ko chon ngan hang");
 
-        log.info("DepositSuccessful - Step 04: Deposit without inputting money");
+        log.info("DepositFailed - Step 04: Deposit without inputting money");
         depositWithoutMoney();
 
-        log.info("DepositSuccessful - Step 05: Verify Money error");
+        log.info("DepositFailed - Step 05: Verify Money error");
         verifyTrue(accountPage.isMoneyErrorDisplayed());
         log.info("Nap ko thanh cong ko nhap tien");
 
-        log.info("DepositSuccessful - Step 06: Deposit without inputting trancode");
+        log.info("DepositFailed - Step 06: Deposit without inputting trancode");
         depositWithoutCode();
 
-        log.info("DepositSuccessful - Step 07: Verify trancode error");
+        log.info("DepositFailed - Step 07: Verify trancode error");
         verifyTrue(accountPage.isCodeErrorDisplayed());
         log.info("Nap ko thanh cong ko nhap ma giao dich");
 
-        log.info("DepositSuccessful - Step 08: Deposit money under 50");
+        log.info("DepositFailed - Step 08: Deposit money under 50");
         depositMoneyUnder50();
 
-        log.info("DepositSuccessful - Step 09: Verify warning dialog");
+        log.info("DepositFailed - Step 09: Verify warning dialog");
         verifyEquals(accountPage.getDepositWarning(), "Số tiền tối thiểu là 50 K (50.000 VNĐ)");
         log.info(accountPage.getDepositWarning());
 
-        log.info("DepositSuccessful - Step 10: Close warning dialog");
+        log.info("DepositFailed - Step 10: Close warning dialog");
         accountPage.closeWarningDialog();
 
-        log.info("DepositSuccessful - Step 11: Logout");
+        log.info("DepositFailed - Step 11: Logout");
         accountPage.logoutToHomePage();
 
     }
