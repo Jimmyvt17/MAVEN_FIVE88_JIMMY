@@ -32,8 +32,8 @@ public class HomePageObject extends AbstractPage {
 
     public void closeWarningDialog() {
 
-        waitForElementVisibleByLocator(driver, HomePageUI.closeLoginWaringLocator);
-        clickToElement(driver, HomePageUI.closeLoginWaringLocator);
+        waitForElementVisibleByLocator(driver, AbstractPageUI.closeButtonLocator);
+        clickToElement(driver, AbstractPageUI.closeButtonLocator);
 
     }
 

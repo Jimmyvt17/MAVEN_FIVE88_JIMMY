@@ -8,7 +8,6 @@ public class AccountPageUI {
     public static By depositButtonLocator = By.xpath("//a[@class='btn btn-default nap-tien']");
     public static By depPromo158Locator = By.xpath("//select[@name='package_id']//option[@value='1']");
     public static By depositInformLocator = By.xpath("//div[@role='dialog']//div[@id='swal2-content']");
-    public static By depositCloseButtonLocator = By.xpath("//div[@class='swal2-header']//button");
     public static By ticketStatusLocator = By.xpath("//table[@class='table-history']//span[@class='st-3']");
 
     public static By depBankErrorLocator = By.xpath("//div[text()='Bạn chưa chọn ngân hàng']");
