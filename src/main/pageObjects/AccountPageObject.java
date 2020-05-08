@@ -67,7 +67,7 @@ public class AccountPageObject extends AbstractPage {
 
     public boolean isTicketStatusDisplayed(String... values) {
 
-        String tmp = String.format(AccountPageUI.ticketStatus, values);
+        String tmp = String.format(AccountPageUI.dynamicTicketStatus, values);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
         return isControlDisplayed(driver, By.xpath(tmp));
 
@@ -106,22 +106,25 @@ public class AccountPageObject extends AbstractPage {
 
     public boolean isBankErrorDisplayed() {
 
-        waitForElementVisibleByLocator(driver, AccountPageUI.depBankErrorLocator);
-        return isControlDisplayed(driver, AccountPageUI.depBankErrorLocator);
+        String tmp = String.format(AccountPageUI.dynamicDepositError, "bank_code_option-error");
+        waitForElementVisibleByLocator(driver, By.xpath(tmp));
+        return isControlDisplayed(driver, By.xpath(tmp));
 
     }
 
     public boolean isMoneyErrorDisplayed() {
 
-        waitForElementVisibleByLocator(driver, AccountPageUI.depMoneyErrorLocator);
-        return isControlDisplayed(driver, AccountPageUI.depMoneyErrorLocator);
+        String tmp = String.format(AccountPageUI.dynamicDepositError, "amount-money-error");
+        waitForElementVisibleByLocator(driver, By.xpath(tmp));
+        return isControlDisplayed(driver, By.xpath(tmp));
 
     }
 
     public boolean isCodeErrorDisplayed() {
 
-        waitForElementVisibleByLocator(driver, AccountPageUI.depCodeErrorLocator);
-        return isControlDisplayed(driver, AccountPageUI.depCodeErrorLocator);
+        String tmp = String.format(AccountPageUI.dynamicDepositError, "bank_trancode-error");
+        waitForElementVisibleByLocator(driver, By.xpath(tmp));
+        return isControlDisplayed(driver, By.xpath(tmp));
 
     }
 

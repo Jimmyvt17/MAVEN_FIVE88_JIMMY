@@ -10,10 +10,6 @@ public class AccountPageUI {
     public static By depositInformLocator = By.xpath("//div[@role='dialog']//div[@id='swal2-content']");
     public static By ticketStatusLocator = By.xpath("//table[@class='table-history']//span[@class='st-3']");
 
-    public static By depBankErrorLocator = By.xpath("//div[text()='Bạn chưa chọn ngân hàng']");
-    public static By depMoneyErrorLocator = By.xpath("//div[text()='Số tiền nạp không hợp lệ']");
-    public static By depCodeErrorLocator = By.xpath("//div[text()='Bạn chưa điền thông tin']");
-
     public static By userBalanceLocator = By.xpath("//div[@class='acc_meta_group']//span[@class='txt-balance-info']");
     public static By phoneConfirmWitLocator = By.xpath("//input[@name='phone']");
 
@@ -26,6 +22,7 @@ public class AccountPageUI {
     public static String dynamicTextbox = "//input[@id='%s']";
     public static String dynamicSelect = "//select[@id='%s']//option[@value='%s']";
     public static String dynamicSubAccount = "//ul[@class='panel-tabLink']//a[text()='%s']";
-    public static String ticketStatus = "//td[text()='%s']/following-sibling::td/span[text()='%s']";
+    public static String dynamicTicketStatus = "//td[text()='%s']/following-sibling::td/span[text()='%s']";
+    public static String dynamicDepositError = "//div[@id='%s']";
 
 }
