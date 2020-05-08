@@ -4,20 +4,22 @@
   <listeners>
     <listener class-name="org.uncommons.reportng.HTMLReporter" />
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
-    <listener class-name="commons.reportTest.ExtentReportListener" />
+    <listener class-name="commons.ExtentReportListener"/>
     <listener class-name="commons.retryTestFailed.RetryListener"/>
+    <listener class-name="commons.reportConfig.ExtentTestListener" />
+    <listener class-name="commons.reportConfig.ReportNGListener" />
   </listeners>
 
   <test name="Run on Chrome">
     <parameter name="browser" value="chrome" />
-    <packages>
-      <package name="account"/>
-      <package name="payment"/>
-      <package name="bet"/>
-    </packages>
-<!--    <classes>-->
-<!--      <class name="account.Account_04_LoginUnsuccessful"/>-->
-<!--    </classes>-->
+<!--    <packages>-->
+<!--      <package name="account"/>-->
+<!--      <package name="payment"/>-->
+<!--      <package name="bet"/>-->
+<!--    </packages>-->
+    <classes>
+      <class name="bet.Bet_02_Lode"/>
+    </classes>
   </test> <!-- Test -->
 
 <!--  <test name="Run on Chrome Headless">-->

@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import java.io.File;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +24,25 @@ public class CommonsTest {
 
     }
 
+    public WebDriver getDriver() {
+        return driver;
+
+    }
+
+    public void deleteAllFiles(String pathOfFiles) {
+
+        File path = new File(pathOfFiles);
+        File[] files = path.listFiles();
+        for (File file : files) {
+            log.info("Deleted filename: "+ file.getName());
+            file.delete();
+        }
+
+    }
+
     protected WebDriver openMultiBrowser(String browserName, String url) {
+        deleteAllFiles("ReportNGScreenShots");
+
         String os = System.getProperty("os.name").toLowerCase();
 
         if(os.contains("mac")) {

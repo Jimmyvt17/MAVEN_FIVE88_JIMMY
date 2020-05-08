@@ -2,7 +2,6 @@ package pageObjects;
 
 import commons.AbstractPage;
 import commons.Constants;
-import five88.AbstractPageUI;
 import five88.HomePageUI;
 import org.openqa.selenium.WebDriver;
 
@@ -20,13 +19,6 @@ public class HomePageObject extends AbstractPage {
 
         waitForElementVisibleByLocator(driver, HomePageUI.loginErrorLocator);
         return getTextElement(driver, HomePageUI.loginErrorLocator);
-
-    }
-
-    public boolean isLoginFormDisplayed() {
-
-        waitForElementVisibleByLocator(driver, AbstractPageUI.loginFormLocator);
-        return isControlDisplayed(driver, AbstractPageUI.loginFormLocator);
 
     }
 
