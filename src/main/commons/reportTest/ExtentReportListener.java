@@ -1,4 +1,4 @@
-package commons;
+package commons.reportTest;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;

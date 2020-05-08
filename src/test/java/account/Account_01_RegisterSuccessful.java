@@ -54,6 +54,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 		log.info("Register Successful With Name 6 Letters");
 
 	}
+
 	@Test(dependsOnMethods = "TC_02_RegisterSuccessfulWithName6Letters")
 	public void TC_03_RegisterSuccessfulWithName30Letters() {
 		log.info("RegisterSuccessful - Step 01: Register account with name 30 letters");
