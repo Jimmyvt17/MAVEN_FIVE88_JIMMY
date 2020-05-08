@@ -59,7 +59,7 @@ public class Payment_01_DepositSuccesful extends CommonsTest {
         log.info(accountPage.getDepositWarning());
 
         log.info("DepositSuccessful - Step 09: Close the warning dialog");
-        accountPage.closeWarningDialog();
+        accountPage.refreshAccountPage();
 
         log.info("DepositSuccessful - Step 10: Log out");
         accountPage.logoutToHomePage();

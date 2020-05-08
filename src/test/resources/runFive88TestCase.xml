@@ -10,8 +10,9 @@
   <test name="Run on Chrome">
     <parameter name="browser" value="chrome" />
     <classes>
-      <class name="account.Account_04_LoginUnsuccessful"/>
-<!--      <class name="payment.Payment_01_DepositSuccesful"/>-->
+<!--      <class name="account.Account_04_LoginUnsuccessful"/>-->
+      <class name="payment.Payment_01_DepositSuccesful"/>
+      <class name="payment.Payment_02_DepositFailed"/>
 <!--      <class name="bet.Bet_02_Lode"/>-->
     </classes>
   </test> <!-- Test -->

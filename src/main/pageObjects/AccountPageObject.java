@@ -97,10 +97,9 @@ public class AccountPageObject extends AbstractPage {
 
     }
 
-    public void closeWarningDialog() {
+    public void refreshAccountPage() {
 
-        waitForElementVisibleByLocator(driver, AbstractPageUI.closeButtonLocator);
-        clickToElement(driver, AbstractPageUI.closeButtonLocator);
+        refreshCurrentPage(driver);
 
     }
 

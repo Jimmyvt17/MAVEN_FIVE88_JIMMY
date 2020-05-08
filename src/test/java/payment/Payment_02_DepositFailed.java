@@ -60,7 +60,7 @@ public class Payment_02_DepositFailed extends CommonsTest {
         log.info(accountPage.getDepositWarning());
 
         log.info("DepositFailed - Step 10: Close warning dialog");
-        accountPage.closeWarningDialog();
+        accountPage.refreshAccountPage();
 
         log.info("DepositFailed - Step 11: Logout");
         accountPage.logoutToHomePage();
