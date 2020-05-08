@@ -9,12 +9,12 @@
 
   <test name="Run on Chrome">
     <parameter name="browser" value="chrome" />
-    <packages>
-      <package name="account"/>
-<!--      <class name="payment.Payment_01_DepositSuccesful"/>-->
-      <package name="payment"/>
-      <package name="bet"/>
-    </packages>
+    <classes>
+<!--      <package name="account"/>-->
+<!--      <package name="payment"/>-->
+<!--      <package name="bet"/>-->
+      <class name="account.Account_03_LoginSuccessful"/>
+    </classes>
   </test> <!-- Test -->
 
 <!--  <test name="Run on Chrome Headless">-->
