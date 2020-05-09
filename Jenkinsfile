@@ -1,1 +1,0 @@
-telegramSend(message: 'Hello World', chatId: -418064402)
