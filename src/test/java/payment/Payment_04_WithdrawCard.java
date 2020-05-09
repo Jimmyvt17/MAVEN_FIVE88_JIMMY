@@ -3,12 +3,15 @@ package payment;
 import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
+import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.AccountPageObject;
+
+import java.lang.reflect.Method;
 
 
 public class Payment_04_WithdrawCard extends CommonsTest {
@@ -27,7 +30,9 @@ public class Payment_04_WithdrawCard extends CommonsTest {
     }
 
     @Test
-    public void TC_01_WithdrawCard() throws Exception {
+    public void TC_01_WithdrawCard(Method method) {
+        ExtentTestManager.startTest(method.getName(), "TC_01_WithdrawCard");
+
         log.info("WithdrawBanking - Step 01: Get current balance");
         Integer curBalance = accountPage.beforeWithdrawing();
         log.info("Tai khoan truoc khi rut = " + curBalance);

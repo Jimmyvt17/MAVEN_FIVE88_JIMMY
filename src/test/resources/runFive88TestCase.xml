@@ -18,7 +18,7 @@
 <!--      <package name="bet"/>-->
 <!--    </packages>-->
     <classes>
-      <class name="bet.Bet_02_Lode"/>
+      <class name="account.Account_03_LoginSuccessful"/>
     </classes>
   </test> <!-- Test -->
 

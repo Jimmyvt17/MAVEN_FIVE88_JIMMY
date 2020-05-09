@@ -4,12 +4,15 @@ package payment;
 import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
+import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.AccountPageObject;
+
+import java.lang.reflect.Method;
 
 public class Payment_02_DepositFailed extends CommonsTest {
 
@@ -27,7 +30,9 @@ public class Payment_02_DepositFailed extends CommonsTest {
     }
 
     @Test
-    public void TC_01_DepositFailed() {
+    public void TC_01_DepositFailed(Method method) {
+        ExtentTestManager.startTest(method.getName(), "TC_01_DepositFailed");
+
         log.info("DepositFailed - Step 01: Go to deposit page");
         accountPage.beforeDepositing();
 
