@@ -3,12 +3,15 @@ package account;
 import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
+import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.HomePageObject;
+
+import java.lang.reflect.Method;
 
 
 public class Account_03_LoginSuccessful extends CommonsTest {
@@ -27,7 +30,9 @@ public class Account_03_LoginSuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_01_LoginSuccessful() {
+	public void TC_01_LoginSuccessful(Method method) {
+		ExtentTestManager.startTest(method.getName(), "TC_01_LoginSuccessful");
+
 		log.info("LoginSuccessful- Step 01: Login with valid account");
 		homePage.loginAccount();
 

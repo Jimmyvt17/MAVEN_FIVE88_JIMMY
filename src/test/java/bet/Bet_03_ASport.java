@@ -4,6 +4,7 @@ package bet;
 import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
+import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
@@ -12,6 +13,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.ASportPageObject;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 
@@ -33,7 +35,9 @@ public class Bet_03_ASport extends CommonsTest {
 	private String BET_MONEY = "50";
 
 	@Test
-	public void TC_1_ASport() {
+	public void TC_1_ASport(Method method) {
+		ExtentTestManager.startTest(method.getName(), "TC_1_ASport");
+
 		log.info("ASport - Step01: Login with valid account");
 		aSportPage.loginSportAccount();
 		try {
@@ -72,6 +76,11 @@ public class Bet_03_ASport extends CommonsTest {
 
 			int betSelect = randomNumber(listBet.size());
 			log.info("Chon bet cua thu " + betSelect + "\n");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 
 			log.info("Click to open bet panel\n");
 			aSportPage.openBetPanel(listBet.get(betSelect));

@@ -2,7 +2,6 @@ package pageObjects;
 
 import commons.AbstractPage;
 import commons.Constants;
-import five88.AbstractPageUI;
 import five88.AccountPageUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
