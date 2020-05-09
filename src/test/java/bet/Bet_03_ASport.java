@@ -12,8 +12,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.ASportPageObject;
-import pageObjects.HomePageObject;
-import sun.awt.windows.ThemeReader;
 
 import java.lang.reflect.Method;
 import java.util.List;
