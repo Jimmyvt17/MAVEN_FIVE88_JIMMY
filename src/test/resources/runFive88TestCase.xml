@@ -7,25 +7,18 @@
     <listener class-name="commons.ExtentReportListener"/>
     <listener class-name="commons.retryTestFailed.RetryListener"/>
     <listener class-name="commons.reportConfig.ExtentTestListener" />
-<!--    <listener class-name="commons.reportConfig.ReportNGListener" />-->
+    <listener class-name="commons.reportConfig.ReportNGListener" />
   </listeners>
 
   <test name="Run on Chrome">
     <parameter name="browser" value="chrome" />
-<<<<<<< HEAD
 <!--    <packages>-->
 <!--      <package name="account"/>-->
 <!--      <package name="payment"/>-->
 <!--      <package name="bet"/>-->
 <!--    </packages>-->
     <classes>
-=======
-    <classes>
-<!--      <package name="account"/>-->
-<!--      <package name="payment"/>-->
-<!--      <package name="bet"/>-->
->>>>>>> parent of 02acd1e... run all files
-      <class name="account.Account_03_LoginSuccessful"/>
+      <class name="account.Account_04_LoginUnsuccessful"/>
     </classes>
   </test> <!-- Test -->
 
