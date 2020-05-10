@@ -313,6 +313,15 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M4</version>
+                <configuration>
+                    <useFile>false</useFile>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
@@ -323,7 +332,7 @@
                 <artifactId>maven-surefire-report-plugin</artifactId>
                 <version>3.0.0-M4</version>
                 <configuration>
-                    <outputDirectory>${basedir}/target/surefire-report</outputDirectory>
+                    <outputDirectory>${basedir}/target/surefire-report/html</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>
@@ -331,7 +340,7 @@
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.9.0</version>
                 <configuration>
-                    <outputDirectory>${basedir}/target/surefire-report</outputDirectory>
+                    <outputDirectory>${basedir}/target/surefire-report/html</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>

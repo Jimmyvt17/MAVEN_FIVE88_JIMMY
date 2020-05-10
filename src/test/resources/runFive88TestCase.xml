@@ -18,7 +18,7 @@
 <!--      <package name="bet"/>-->
 <!--    </packages>-->
     <classes>
-      <class name="account.Account_04_LoginUnsuccessful"/>
+      <class name="account.Account_03_LoginSuccessful"/>
     </classes>
   </test> <!-- Test -->
 
