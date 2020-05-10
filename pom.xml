@@ -296,6 +296,8 @@
                         <value>false</value>
                     </properties>
 
+                    <useFile>false</useFile>
+
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/runFive88TestCase.xml</suiteXmlFile>
@@ -314,13 +316,13 @@
                 </configuration>
             </plugin>
 
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M4</version>
-                <configuration>
-                    <useFile>false</useFile>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <version>3.0.0-M4</version>-->
+<!--                <configuration>-->
+<!--                    <useFile>false</useFile>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
 
         </plugins>
     </build>
