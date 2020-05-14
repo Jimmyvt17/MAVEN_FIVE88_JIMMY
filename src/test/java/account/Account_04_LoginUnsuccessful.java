@@ -48,7 +48,6 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 		log.info("LoginUnsuccessfulWithoutInformation - Step 02: Verify warning dialog");
 		verifyEquals(homePage.getLoginErrorText(), usernameLoginError);
 		homePage.refreshHomePage();
-		homePage.acceptAlert(driver);
 
 		log.info("Dang nhap ko thanh cong ko nhap thong tin");
 
