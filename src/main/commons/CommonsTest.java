@@ -32,10 +32,14 @@ public class CommonsTest {
     public void deleteAllFiles(String pathOfFiles) {
 
         File path = new File(pathOfFiles);
-        File[] files = path.listFiles();
-        for (File file : files) {
-            log.info("Deleted filename: "+ file.getName());
-            file.delete();
+        if(path.exists()) {
+            File[] files = path.listFiles();
+            for (File file : files) {
+                log.info("Deleted filename: " + file.getName());
+                file.delete();
+            }
+        } else {
+            log.info("Folder " + pathOfFiles + " khong ton tai");
         }
 
     }

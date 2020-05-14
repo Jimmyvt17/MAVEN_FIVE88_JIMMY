@@ -76,8 +76,8 @@ public class ASportPageObject extends AbstractPage {
 
     public boolean isTicketDispled() {
 
-        waitForElementVisibleByLocator(driver, ASportPageUI.tickketOKASportLocator);
-        return isControlDisplayed(driver, ASportPageUI.tickketOKASportLocator);
+        waitForElementVisibleByLocator(driver, ASportPageUI.ticketOKASportLocator);
+        return isControlDisplayed(driver, ASportPageUI.ticketOKASportLocator);
 
     }
 

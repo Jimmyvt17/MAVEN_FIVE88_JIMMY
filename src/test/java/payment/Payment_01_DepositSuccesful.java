@@ -5,10 +5,7 @@ import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageObjects.AccountPageObject;
 
 import java.lang.reflect.Method;
@@ -33,10 +30,10 @@ public class Payment_01_DepositSuccesful extends CommonsTest {
         ExtentTestManager.startTest(method.getName(), "TC_01_DepositSuccessful");
 
         log.info("DepositSuccessful - Step 01: Go to deposit page");
-        accountPage.beforeDepositing();
+        accountPage.beforeDepositing(Constants.USERNAME, Constants.PASSWORD);
 
         log.info("DepositSuccessful - Step 02: Do a depositing");
-        deposit();
+        deposit(Constants.MONEY_DEP);
 
         log.info("DepositSuccessful - Step 03: Verify success warning text");
         verifyEquals(accountPage.getDepositWarning(), "Tạo phiếu nạp thành công");
@@ -57,7 +54,7 @@ public class Payment_01_DepositSuccesful extends CommonsTest {
         accountPage.goToSubAccount("Nạp tiền");
 
         log.info("DepositSuccessful - Step 07: Do a depositing more");
-        deposit();
+        deposit(Constants.MONEY_DEP);
 
         log.info("DepositSuccessful - Step 08: Verify warning text");
         verifyEquals(accountPage.getDepositWarning(), "Bạn đã tạo quá số phiếu quy định.");
@@ -73,6 +70,37 @@ public class Payment_01_DepositSuccesful extends CommonsTest {
 
     }
 
+    @Test(dataProvider= "network")
+    public void TC_02_DepositData(String userData) {
+        log.info("DepositSuccessful - Step 01: Go to deposit page");
+        accountPage.beforeDepositing(userData, "@16WINner");
+
+        log.info("DepositSuccessful - Step 02: Do a depositing");
+        deposit("10000");
+
+        log.info("DepositSuccessful - Step 03: Verify success warning text");
+        verifyEquals(accountPage.getDepositWarning(), "Tạo phiếu nạp thành công");
+        log.info(accountPage.getDepositWarning());
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        log.info("DepositSuccessful - Step 04: Verify transhistory url");
+        verifyEquals(accountPage.getAccountPageUrl(), Constants.TRANHISTORY_URL);
+
+        log.info("DepositSuccessful - Step 05: Verify deposit ticket is created");
+        verifyEquals(accountPage.getTicketStatus(), "Chờ xử lý");
+
+        log.info("DepositSuccessful - Step 10: Log out");
+        accountPage.logoutToHomePage();
+
+        log.info("Nap tien thanh cong");
+
+    }
+
+
     @AfterClass(alwaysRun=true)
     public void afterClass() {
 
@@ -80,7 +108,7 @@ public class Payment_01_DepositSuccesful extends CommonsTest {
 
     }
 
-    private void deposit() {
+    private void deposit(String value) {
         // Kiem tra chuyen den page nap tien
         verifyEquals(accountPage.getAccountPageUrl(), Constants.DEPOSIT_URL);
 
@@ -88,13 +116,35 @@ public class Payment_01_DepositSuccesful extends CommonsTest {
         accountPage.selectAnOption("bank_code_option", "VCB");
 
         // Nhap so tien nap
-        accountPage.inputToTextbox(Constants.MONEY_DEP, "amount-money");
+        accountPage.inputToTextbox(value, "amount-money");
 
         // Nhap ma giao dich
         accountPage.inputToTextbox(Constants.PHONE, "bank_trancode");
 
         // Bam button nap tien
         accountPage.clickToSubmitButton("frmDeposit");
+
+    }
+
+    @DataProvider(name = "network")
+    public static Object[][] AccountData(){
+        return new Object[][] {
+                {"seta001"},
+                {"seta002"},
+                {"seta003"},
+                {"seta004"},
+                {"seta005"},
+                {"seta006"},
+                {"seta007"},
+                {"seta008"},
+                {"seta009"},
+                {"seta010"},
+                {"seta011"},
+                {"seta012"},
+                {"seta013"},
+                {"seta014"}
+
+        };
 
     }
 

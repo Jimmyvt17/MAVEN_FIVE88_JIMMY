@@ -34,7 +34,7 @@ public class Payment_02_DepositFailed extends CommonsTest {
         ExtentTestManager.startTest(method.getName(), "TC_01_DepositFailed");
 
         log.info("DepositFailed - Step 01: Go to deposit page");
-        accountPage.beforeDepositing();
+        accountPage.beforeDepositing(Constants.USERNAME, Constants.PASSWORD);
 
         log.info("DepositFailed - Step 02: Deposit without selecting bank");
         depositWithoutBank();

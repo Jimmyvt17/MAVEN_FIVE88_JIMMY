@@ -190,9 +190,9 @@ public class AccountPageObject extends AbstractPage {
 
     }
 
-    public void beforeDepositing() {
+    public void beforeDepositing(String username, String password) {
 
-        login(driver, Constants.USERNAME, Constants.PASSWORD);
+        login(driver, username, password);
         clickToDepositButton();
 
     }
