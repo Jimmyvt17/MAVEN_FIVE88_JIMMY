@@ -297,6 +297,7 @@
                     </properties>
 
                     <useFile>false</useFile>
+                    <testFailureIgnore>true</testFailureIgnore>
 
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
