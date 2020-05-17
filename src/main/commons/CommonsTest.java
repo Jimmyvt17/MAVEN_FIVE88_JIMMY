@@ -147,7 +147,7 @@ public class CommonsTest {
 
                 WebDriverManager.edgedriver().setup();
                 ChromeOptions options = new ChromeOptions();
-                options.setBinary("/Applications/Microsoft\\ Edge.app/Contents/MacOS/Microsoft\\ Edge");
+                options.setBinary("\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\"");
                 EdgeOptions edgeOptions = new EdgeOptions().merge(options);
                 driver = new EdgeDriver(edgeOptions);
 
@@ -165,7 +165,7 @@ public class CommonsTest {
 
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
-                options.setBinary("/Applications/CocCoc.app/Contents/MacOS/CocCoc");
+                options.setBinary("C:\\Users\\Administrator\\AppData\\Local\\CocCoc\\Browser\\Application\\browser.exe");
                 driver = new ChromeDriver(options);
 
             }
