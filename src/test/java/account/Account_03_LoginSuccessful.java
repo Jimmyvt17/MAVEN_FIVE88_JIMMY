@@ -13,7 +13,6 @@ import pageObjects.HomePageObject;
 
 import java.lang.reflect.Method;
 
-
 public class Account_03_LoginSuccessful extends CommonsTest {
 
 	WebDriver driver;
@@ -30,7 +29,7 @@ public class Account_03_LoginSuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_01_LoginSuccessful(Method method) {
+	public void TC_01_LoginSuccessful(Method method){
 		ExtentTestManager.startTest(method.getName(), "TC_01_LoginSuccessful");
 
 		log.info("LoginSuccessful- Step 01: Login with valid account");

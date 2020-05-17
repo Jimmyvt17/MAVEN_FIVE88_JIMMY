@@ -3,14 +3,10 @@ package account;
 import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
-import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import pageObjects.AccountPageObject;
 import pageObjects.RegisterPageObject;
-
-import java.lang.reflect.Method;
-import java.util.Date;
 
 
 public class Account_01_RegisterSuccessful extends CommonsTest {

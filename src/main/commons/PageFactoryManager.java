@@ -47,4 +47,10 @@ public class PageFactoryManager {
 
     }
 
+    public static JackpotPageObject getJackpotPage(WebDriver driver) {
+
+        return new JackpotPageObject(driver);
+
+    }
+
 }

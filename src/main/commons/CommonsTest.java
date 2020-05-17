@@ -4,10 +4,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -28,6 +34,47 @@ public class CommonsTest {
         return driver;
 
     }
+
+    public void delayInHour(Integer delayTime, Integer timeInHour) {
+
+        int delta = 0;
+        log.info("delta = " + delta);
+
+        while (delta<delayTime) {
+
+            log.info("Delay " + timeInHour + " hour");
+            try {
+                Thread.sleep(1000*60*60*timeInHour);
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+            delta++;
+            log.info("delta = " + delta);
+
+        }
+
+    }
+
+    public void delayInMinute(Integer delayTime, Integer timeInMinute) {
+
+        int delta = 0;
+        log.info("delta = " + delta);
+
+        while (delta<delayTime) {
+
+            log.info("Delay " + timeInMinute + " minute");
+            try {
+                Thread.sleep(1000*60*timeInMinute);
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+            delta++;
+            log.info("delta = " + delta);
+
+        }
+
+    }
+
 
     public void deleteAllFiles(String pathOfFiles) {
 
@@ -56,18 +103,36 @@ public class CommonsTest {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
 
-            } else if (browserName.equalsIgnoreCase("headless")) {
+            } else if (browserName.equalsIgnoreCase("edge")) {
 
-                WebDriverManager.chromedriver().setup();
+                WebDriverManager.edgedriver().setup();
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("headless");
-                options.addArguments("window-size=3072x1920");
-                driver = new ChromeDriver(options);
+                options.setBinary("/Applications/Microsoft\\ Edge.app/Contents/MacOS/Microsoft\\ Edge");
+                EdgeOptions edgeOptions = new EdgeOptions().merge(options);
+                driver = new EdgeDriver(edgeOptions);
 
-            } else {
+            } else if (browserName.equalsIgnoreCase("firefox")){
 
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
+
+            } else  if (browserName.equalsIgnoreCase("safari")) {
+
+                driver = new SafariDriver();
+
+            } else if (browserName.equalsIgnoreCase("coc coc")) {
+
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions options = new ChromeOptions();
+                options.setBinary("/Applications/CocCoc.app/Contents/MacOS/CocCoc");
+                driver = new ChromeDriver(options);
+
+            }
+
+            else {
+
+                WebDriverManager.operadriver().setup();
+                driver = new OperaDriver();
 
             }
 
@@ -78,18 +143,37 @@ public class CommonsTest {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
 
-            } else if (browserName.equalsIgnoreCase("headless")) {
+            } else if (browserName.equalsIgnoreCase("edge")) {
 
-                WebDriverManager.chromedriver().setup();
+                WebDriverManager.edgedriver().setup();
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("headless");
-                options.addArguments("window-size=3072x1920");
-                driver = new ChromeDriver(options);
+                options.setBinary("/Applications/Microsoft\\ Edge.app/Contents/MacOS/Microsoft\\ Edge");
+                EdgeOptions edgeOptions = new EdgeOptions().merge(options);
+                driver = new EdgeDriver(edgeOptions);
 
-            } else {
+            } else if (browserName.equalsIgnoreCase("firefox")){
 
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
+
+            } else if (browserName.equalsIgnoreCase("ie")) {
+
+                WebDriverManager.iedriver().setup();
+                driver = new InternetExplorerDriver();
+
+            } else if (browserName.equalsIgnoreCase("coc coc")) {
+
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions options = new ChromeOptions();
+                options.setBinary("/Applications/CocCoc.app/Contents/MacOS/CocCoc");
+                driver = new ChromeDriver(options);
+
+            }
+
+            else {
+
+                WebDriverManager.operadriver().setup();
+                driver = new OperaDriver();
 
             }
 

@@ -3,7 +3,6 @@ package commons.reportConfig;
 import com.relevantcodes.extentreports.LogStatus;
 
 import commons.CommonsTest;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
