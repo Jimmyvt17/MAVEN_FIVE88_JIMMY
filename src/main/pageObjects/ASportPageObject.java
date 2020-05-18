@@ -102,7 +102,7 @@ public class ASportPageObject extends AbstractPage {
 
     public void switchToASportIframe() {
 
-        switchToIframe(driver);
+        switchToIframes(driver);
 
     }
 

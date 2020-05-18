@@ -22,6 +22,8 @@ public class Constants {
     public static final String USERNAME_QUAYSO = "setaquayso";
     public static final String USERNAME_LODE = "setalode";
     public static final String USERNAME_CASINO = "setacasino";
+    public static final String USERNAME_NUMBER = "setacasino";
+    public static final String USERNAME_KENO = "setacasino";
     public static final String USERNAME_LOGIN = "setalogin";
     public static final String PASSWORD = "testjimmy";
     public static final String PHONE = "1234567890";

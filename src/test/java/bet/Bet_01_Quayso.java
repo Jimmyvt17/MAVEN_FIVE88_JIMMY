@@ -39,7 +39,7 @@ public class Bet_01_Quayso extends CommonsTest {
     	quaysoPage.loginQuaysoAccount();
 		try {
 			Thread.sleep(5000);
-		} catch (InterruptedException e) {
+		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 
@@ -105,7 +105,7 @@ public class Bet_01_Quayso extends CommonsTest {
 				quaysoPage.clickBetButton();
 				try {
 					Thread.sleep(1000);
-				} catch (InterruptedException e) {
+				} catch (Throwable e) {
 					e.printStackTrace();
 				}
 
@@ -126,7 +126,7 @@ public class Bet_01_Quayso extends CommonsTest {
 				log.info("Sau do dieu kien la " + conditionRoul + "\n");
 				try {
 					Thread.sleep(9000);
-				} catch (InterruptedException e) {
+				} catch (Throwable e) {
 					e.printStackTrace();
 				}
 

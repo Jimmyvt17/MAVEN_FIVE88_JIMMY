@@ -15,27 +15,27 @@
     <parameter name="username" value="testslot001" />
     <parameter name="gameId" value="9999" />
     <classes>
-      <class name="bet.Bet_04_Jackpot"/>
+      <class name="bet.Bet_05_NumberGame"/>
     </classes>
   </test> <!-- Test -->
 
-  <test name="Run on Firefox">
-    <parameter name="browser" value="firefox" />
-    <parameter name="username" value="testslot002" />
-    <parameter name="gameId" value="9998" />
-    <classes>
-      <class name="bet.Bet_04_Jackpot"/>
-    </classes>
-  </test> <!-- Test -->
+<!--  <test name="Run on Firefox">-->
+<!--    <parameter name="browser" value="firefox" />-->
+<!--    <parameter name="username" value="testslot002" />-->
+<!--    <parameter name="gameId" value="9998" />-->
+<!--    <classes>-->
+<!--      <class name="bet.Bet_04_Jackpot"/>-->
+<!--    </classes>-->
+<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
 
-  <test name="Run on Opera">
-    <parameter name="browser" value="opera" />
-    <parameter name="username" value="testslot003" />
-    <parameter name="gameId" value="9996" />
-    <classes>
-      <class name="bet.Bet_04_Jackpot"/>
-    </classes>
-  </test> <!-- Test -->
+<!--  <test name="Run on Opera">-->
+<!--    <parameter name="browser" value="opera" />-->
+<!--    <parameter name="username" value="testslot003" />-->
+<!--    <parameter name="gameId" value="9996" />-->
+<!--    <classes>-->
+<!--      <class name="bet.Bet_04_Jackpot"/>-->
+<!--    </classes>-->
+<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
 
 <!--    <test name="Run on Safari">-->
 <!--      <parameter name="browser" value="safari" />-->

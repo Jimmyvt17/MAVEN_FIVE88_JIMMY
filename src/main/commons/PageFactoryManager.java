@@ -53,4 +53,16 @@ public class PageFactoryManager {
 
     }
 
+    public static NumberPageObject getNumberPage(WebDriver driver) {
+
+        return new NumberPageObject(driver);
+
+    }
+
+    public static KenoPageObject getKenoPage(WebDriver driver) {
+
+        return new KenoPageObject(driver);
+
+    }
+
 }
