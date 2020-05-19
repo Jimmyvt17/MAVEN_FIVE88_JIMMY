@@ -1,6 +1,5 @@
 package bet;
 
-
 import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
@@ -12,7 +11,6 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.NumberPageObject;
 import java.util.List;
-
 
 public class Bet_05_NumberGame extends CommonsTest {
 
@@ -117,7 +115,6 @@ public class Bet_05_NumberGame extends CommonsTest {
 				log.info("====================\n");
 
 			} else {
-
 				i = true;
 				log.info("Sau do dieu kien la " + i + "\n");
 				try {

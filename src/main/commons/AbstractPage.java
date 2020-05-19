@@ -389,9 +389,16 @@ public class AbstractPage {
 
     }
 
-    public void doubleClickToElement(WebDriver driver, By xPathLocator) {
+    public void doubleClickToElementByLoctor(WebDriver driver, By xPathLocator) {
 
         element = driver.findElement(xPathLocator);
+        action = new Actions(driver);
+        action.doubleClick(element).perform();
+
+    }
+
+    public void doubleClickToElement(WebDriver driver, WebElement element) {
+
         action = new Actions(driver);
         action.doubleClick(element).perform();
 

@@ -15,7 +15,7 @@
     <parameter name="username" value="testslot001" />
     <parameter name="gameId" value="9999" />
     <classes>
-      <class name="bet.Bet_05_NumberGame"/>
+      <class name="bet.Bet_06_Keno"/>
     </classes>
   </test> <!-- Test -->
 
