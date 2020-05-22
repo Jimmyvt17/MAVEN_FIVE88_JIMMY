@@ -29,23 +29,23 @@ public class Alive_05_Ezugi extends CommonsTest {
 	}
 
 	@Test
-	public void TC_1_eBet() {
-    	log.info("eBet - Step 01: Login valid account\n");
+	public void TC_1_Ezugi() {
+    	log.info("Ezugi - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();
 
-		log.info("eBet - Step 02: Switch to Casino page\n");
+		log.info("Ezugi - Step 02: Switch to Casino page\n");
 		casinoPage.openCasinoPage();
 
-		log.info("eBet - Step 03: Select eBet casino\n");
+		log.info("Ezugi - Step 03: Select Ezugi casino\n");
 		casinoPage.selectCasinoProvider("ezugi");
 
 		List<WebElement> noBanner = casinoPage.getGameBanners();
 		log.info("There are " + noBanner.size() + " game banners\n");
 
-		log.info("eBet - Step 04: Enter eBet lobby\n");
+		log.info("Ezugi - Step 04: Enter Ezugi lobby\n");
 		casinoPage.openCasinoLobby(noBanner.get(0));
 
-		log.info("eBet - Step 05: Wait for eBet lobby\n");
+		log.info("Ezugi - Step 05: Wait for Ezugi lobby\n");
 		casinoPage.waitForEzugiGame();
 
 	}
