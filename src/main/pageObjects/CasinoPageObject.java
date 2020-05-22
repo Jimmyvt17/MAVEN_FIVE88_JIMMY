@@ -83,6 +83,7 @@ public class CasinoPageObject extends AbstractPage {
 
     public void waitForVivoLobbyLoadCompleted() {
 
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
         boolean i = true;
         while (i) {
             List<WebElement> icon = driver.findElements(CasinoPageUI.vivoVideoLocator);
@@ -109,6 +110,7 @@ public class CasinoPageObject extends AbstractPage {
 
     public void waitForSexyCasino() {
 
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
         boolean i = true;
         while (i) {
             WebElement icon = driver.findElement(CasinoPageUI.logoLiveSexyCasinoLocator);
@@ -156,6 +158,7 @@ public class CasinoPageObject extends AbstractPage {
 
     public void waitForHGLobbyLoadCompleted() {
 
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
         boolean i = true;
         while (i) {
             List<WebElement> icon = driver.findElements(CasinoPageUI.hoGamingLoadingLocator);
@@ -203,6 +206,7 @@ public class CasinoPageObject extends AbstractPage {
 
     public void waitForEBetLobby() {
 
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
         boolean i = true;
         while (i) {
             List<WebElement> icon = driver.findElements(CasinoPageUI.eBetLoadingPageLocator);
@@ -230,6 +234,7 @@ public class CasinoPageObject extends AbstractPage {
 
     public void waitForEzugiGame() {
 
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
         boolean i = true;
         while (i) {
             WebElement icon = driver.findElement(CasinoPageUI.ezugiLoadingLocator);
