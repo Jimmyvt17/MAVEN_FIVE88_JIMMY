@@ -15,7 +15,7 @@
     <parameter name="username" value="testslot001" />
     <parameter name="gameId" value="9999" />
     <classes>
-      <class name="bet.Bet_06_Keno"/>
+      <class name="alive.Alive_03_HoGaming"/>
     </classes>
   </test> <!-- Test -->
 
@@ -24,7 +24,7 @@
 <!--    <parameter name="username" value="testslot002" />-->
 <!--    <parameter name="gameId" value="9998" />-->
 <!--    <classes>-->
-<!--      <class name="bet.Bet_04_Jackpot"/>-->
+<!--      <class name="alive.Alive_01_Vivo"/>-->
 <!--    </classes>-->
 <!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
 

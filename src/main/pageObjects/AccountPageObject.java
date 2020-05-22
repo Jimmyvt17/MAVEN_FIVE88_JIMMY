@@ -183,7 +183,7 @@ public class AccountPageObject extends AbstractPage {
         goToSubAccount("Rút tiền");
         try {
             Thread.sleep(3000);
-        } catch (InterruptedException e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
         return getBalance();
@@ -207,7 +207,7 @@ public class AccountPageObject extends AbstractPage {
         clickToCardWithdrawSubmitButton();
         try {
             Thread.sleep(5000);
-        } catch (InterruptedException e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
 
@@ -222,7 +222,7 @@ public class AccountPageObject extends AbstractPage {
         clickToSubmitButton("frmWitdraw");
         try {
             Thread.sleep(5000);
-        } catch (InterruptedException e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
 

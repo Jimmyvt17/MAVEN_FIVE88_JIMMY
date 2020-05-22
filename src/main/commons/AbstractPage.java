@@ -389,7 +389,7 @@ public class AbstractPage {
 
     }
 
-    public void doubleClickToElementByLoctor(WebDriver driver, By xPathLocator) {
+    public void doubleClickToElementByLocator(WebDriver driver, By xPathLocator) {
 
         element = driver.findElement(xPathLocator);
         action = new Actions(driver);
@@ -577,7 +577,7 @@ public class AbstractPage {
 
         String tmp = String.format(AbstractPageUI.dynamicSubMenu, value);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
-        clickToElement(driver, By.xpath(tmp));
+        doubleClickToElementByLocator(driver, By.xpath(tmp));
 
     }
 
@@ -590,7 +590,7 @@ public class AbstractPage {
         js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", "border: 3px solid red; border-style: dashed;");
         try {
             Thread.sleep(500);
-        } catch (InterruptedException e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
         js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
@@ -604,7 +604,7 @@ public class AbstractPage {
         js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", "border: 3px solid red; border-style: dashed;");
         try {
             Thread.sleep(500);
-        } catch (InterruptedException e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
         js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
@@ -641,7 +641,7 @@ public class AbstractPage {
 
     }
 
-    public void sendkeyToElementByJS(WebDriver driver, By xPathLocator, String value) {
+    public void sendKeyToElementByJS(WebDriver driver, By xPathLocator, String value) {
 
         element = driver.findElement(xPathLocator);
         js = (JavascriptExecutor) driver;
@@ -686,7 +686,7 @@ public class AbstractPage {
         js.executeScript("arguments[0].scrollIntoView(true);", element);
         try {
             Thread.sleep(1000);
-        } catch (InterruptedException e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
 

@@ -42,7 +42,7 @@ public class Bet_03_ASport extends CommonsTest {
 		aSportPage.loginSportAccount();
 		try {
 			Thread.sleep(5000);
-		} catch (InterruptedException e) {
+		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 
@@ -78,7 +78,7 @@ public class Bet_03_ASport extends CommonsTest {
 			log.info("Chon bet cua thu " + betSelect + "\n");
 			try {
 				Thread.sleep(1000);
-			} catch (InterruptedException e) {
+			} catch (Throwable e) {
 				e.printStackTrace();
 			}
 
@@ -98,7 +98,7 @@ public class Bet_03_ASport extends CommonsTest {
 			aSportPage.closeWarningDialog();
 			try {
 				Thread.sleep(5000);
-			} catch (InterruptedException e) {
+			} catch (Throwable e) {
 				e.printStackTrace();
 			}
 
@@ -106,7 +106,7 @@ public class Bet_03_ASport extends CommonsTest {
 			aSportPage.openBetBoard();
 			try {
 				Thread.sleep(3000);
-			} catch (InterruptedException e) {
+			} catch (Throwable e) {
 				e.printStackTrace();
 			}
 

@@ -137,7 +137,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 		accountPage = registerPage.clickToSubmitButton();
 		try {
 			Thread.sleep(1000);
-		} catch (InterruptedException e) {
+		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 		verifyEquals(accountPage.getAccountPageUrl(), Constants.DEPOSIT_URL);

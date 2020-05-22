@@ -40,7 +40,7 @@ public class Payment_01_DepositSuccesful extends CommonsTest {
         log.info(accountPage.getDepositWarning());
         try {
             Thread.sleep(5000);
-        } catch (InterruptedException e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
 
@@ -83,7 +83,7 @@ public class Payment_01_DepositSuccesful extends CommonsTest {
         log.info(accountPage.getDepositWarning());
         try {
             Thread.sleep(5000);
-        } catch (InterruptedException e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
 

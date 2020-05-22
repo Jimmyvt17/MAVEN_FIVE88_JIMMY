@@ -181,7 +181,7 @@ public class CommonsTest {
 
         driver.manage().timeouts().implicitlyWait(Constants.LONG_TIMEOUT, TimeUnit.SECONDS);
         Dimension d = new Dimension(960, 720);
-        driver.manage().window().maximize();
+        driver.manage().window().setSize(d);
         driver.get(url);
         return driver;
 

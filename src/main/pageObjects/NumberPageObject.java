@@ -2,18 +2,12 @@ package pageObjects;
 
 import commons.AbstractPage;
 import commons.Constants;
-import five88.AbstractPageUI;
-import five88.JackpotPageUI;
 import five88.NumberPageUI;
-import freemarker.template.utility.NumberUtil;
 import org.apache.commons.lang3.math.NumberUtils;
-import org.apache.velocity.tools.view.tools.AbstractPagerTool;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import javax.swing.table.TableRowSorter;
-import java.util.ConcurrentModificationException;
 import java.util.List;
 
 public class NumberPageObject extends AbstractPage {
@@ -109,7 +103,7 @@ public class NumberPageObject extends AbstractPage {
     public void inputMoneyToBet(String bet_money) {
 
         waitForElementVisibleByLocator(driver, NumberPageUI.betInputLocator);
-        sendkeyToElementByJS(driver, NumberPageUI.betInputLocator, bet_money);
+        sendKeyToElementByJS(driver, NumberPageUI.betInputLocator, bet_money);
 
     }
 

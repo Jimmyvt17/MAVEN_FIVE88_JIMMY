@@ -39,7 +39,7 @@ public class Bet_02_Lode extends CommonsTest {
 		lodePage.loginLodeAccount();
 		try {
 			Thread.sleep(5000);
-		} catch (InterruptedException e) {
+		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 
