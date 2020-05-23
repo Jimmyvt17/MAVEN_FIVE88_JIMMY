@@ -3,6 +3,7 @@ package alive;
 import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
+import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
@@ -10,6 +11,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.CasinoPageObject;
+
+import java.lang.reflect.Method;
 import java.util.List;
 
 public class Alive_02_SexyCasino extends CommonsTest {
@@ -28,7 +31,9 @@ public class Alive_02_SexyCasino extends CommonsTest {
 	}
 
 	@Test
-	public void TC_1_Sexy() {
+	public void TC_1_Sexy(Method method) {
+		ExtentTestManager.startTest(method.getName(), "TC_1_Sexy");
+
     	log.info("Sexy - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();
 

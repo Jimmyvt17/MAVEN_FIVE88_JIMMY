@@ -1,12 +1,6 @@
 package commons.reportConfig;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import commons.CommonsTest;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -45,9 +39,10 @@ public class ReportNGListener extends CommonsTest implements ITestListener {
         Object testClass = result.getInstance();
         WebDriver webDriver = ((CommonsTest) testClass).getDriver();
 
-        String screenshotPath = captureScreenshot(webDriver, result.getName());
+        String screenshot = captureScreenshotBase64(webDriver);
         Reporter.getCurrentTestResult();
-        Reporter.log("<br><a target=\"_blank\" href=\"file:///" + screenshotPath + "\">" + "<img src=\"file:///" + screenshotPath + "\" " + "height='100' width='150'/> " + "</a></br>");
+        //Reporter.log("<br><a target=\"_blank\" href=\"" + screenshot + "\">" + "<img src=\"" + screenshot + "\" " + "height='100' width='150'/> " + "</a></br>");
+        Reporter.log(ExtentTestManager.getTest().addBase64ScreenShot(screenshot));
         Reporter.setCurrentTestResult(null);
     }
 
@@ -61,15 +56,26 @@ public class ReportNGListener extends CommonsTest implements ITestListener {
         System.out.println("---------- " + result.getName() + " FAILED WITH SUCCESS PERCENTAGE test ----------");
     }
 
-    public String captureScreenshot(WebDriver driver, String screenshotName) {
+//    public String captureScreenshot(WebDriver driver, String screenshotName) {
+//        try {
+//            Calendar calendar = Calendar.getInstance();
+//            SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
+//            File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//            String fileName = screenshotName + "_" + formater.format(calendar.getTime()) + ".png";
+//            String screenPath = System.getProperty("user.dir") + "/test-output/html/Screenshots/" + fileName;
+//            FileUtils.copyFile(source, new File(screenPath));
+//            return fileName;
+//        } catch (IOException e) {
+//            System.out.println("Exception while taking screenshot: " + e.getMessage());
+//            return e.getMessage();
+//        }
+//    }
+
+    public String captureScreenshotBase64(WebDriver driver) {
         try {
-            Calendar calendar = Calendar.getInstance();
-            SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
-            File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            String screenPath = System.getProperty("user.dir") + "/ReportNGScreenShots/" + screenshotName + "_" + formater.format(calendar.getTime()) + ".png";
-            FileUtils.copyFile(source, new File(screenPath));
-            return screenPath;
-        } catch (IOException e) {
+            String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+            return base64Screenshot;
+        } catch (Throwable e) {
             System.out.println("Exception while taking screenshot: " + e.getMessage());
             return e.getMessage();
         }

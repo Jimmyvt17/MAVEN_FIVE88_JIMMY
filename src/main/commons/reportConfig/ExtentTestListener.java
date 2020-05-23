@@ -43,7 +43,8 @@ public class ExtentTestListener extends CommonsTest implements ITestListener {
         Object testClass = result.getInstance();
         WebDriver webDriver = ((CommonsTest) testClass).getDriver();
         String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BASE64);
-        ExtentTestManager.getTest().log(LogStatus.FAIL, "Test Failed", ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+        ExtentTestManager.getTest().log(LogStatus.FAIL, ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+        ExtentTestManager.getTest().log(LogStatus.FAIL, result.getThrowable());
     }
 
     @Override

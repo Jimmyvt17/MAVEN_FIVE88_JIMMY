@@ -5,12 +5,15 @@ import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import pageObjects.AccountPageObject;
 
 import java.lang.reflect.Method;
 
-public class Payment_01_DepositSuccesful extends CommonsTest {
+public class Payment_01_DepositSuccessful extends CommonsTest {
 
     WebDriver driver;
     AccountPageObject accountPage;
@@ -70,35 +73,35 @@ public class Payment_01_DepositSuccesful extends CommonsTest {
 
     }
 
-    @Test(dataProvider= "network")
-    public void TC_02_DepositData(String userData) {
-        log.info("DepositSuccessful - Step 01: Go to deposit page");
-        accountPage.beforeDepositing(userData, "@16WINner");
-
-        log.info("DepositSuccessful - Step 02: Do a depositing");
-        deposit("10000");
-
-        log.info("DepositSuccessful - Step 03: Verify success warning text");
-        verifyEquals(accountPage.getDepositWarning(), "Tạo phiếu nạp thành công");
-        log.info(accountPage.getDepositWarning());
-        try {
-            Thread.sleep(5000);
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
-
-        log.info("DepositSuccessful - Step 04: Verify transhistory url");
-        verifyEquals(accountPage.getAccountPageUrl(), Constants.TRANHISTORY_URL);
-
-        log.info("DepositSuccessful - Step 05: Verify deposit ticket is created");
-        verifyEquals(accountPage.getTicketStatus(), "Chờ xử lý");
-
-        log.info("DepositSuccessful - Step 10: Log out");
-        accountPage.logoutToHomePage();
-
-        log.info("Nap tien thanh cong");
-
-    }
+//    @Test(dataProvider= "network")
+//    public void TC_02_DepositData(String userData) {
+//        log.info("DepositSuccessful - Step 01: Go to deposit page");
+//        accountPage.beforeDepositing(userData, "@16WINner");
+//
+//        log.info("DepositSuccessful - Step 02: Do a depositing");
+//        deposit("10000");
+//
+//        log.info("DepositSuccessful - Step 03: Verify success warning text");
+//        verifyEquals(accountPage.getDepositWarning(), "Tạo phiếu nạp thành công");
+//        log.info(accountPage.getDepositWarning());
+//        try {
+//            Thread.sleep(5000);
+//        } catch (Throwable e) {
+//            e.printStackTrace();
+//        }
+//
+//        log.info("DepositSuccessful - Step 04: Verify transhistory url");
+//        verifyEquals(accountPage.getAccountPageUrl(), Constants.TRANHISTORY_URL);
+//
+//        log.info("DepositSuccessful - Step 05: Verify deposit ticket is created");
+//        verifyEquals(accountPage.getTicketStatus(), "Chờ xử lý");
+//
+//        log.info("DepositSuccessful - Step 10: Log out");
+//        accountPage.logoutToHomePage();
+//
+//        log.info("Nap tien thanh cong");
+//
+//    }
 
 
     @AfterClass(alwaysRun=true)
@@ -126,26 +129,26 @@ public class Payment_01_DepositSuccesful extends CommonsTest {
 
     }
 
-    @DataProvider(name = "network")
-    public static Object[][] AccountData(){
-        return new Object[][] {
-                {"seta001"},
-                {"seta002"},
-                {"seta003"},
-                {"seta004"},
-                {"seta005"},
-                {"seta006"},
-                {"seta007"},
-                {"seta008"},
-                {"seta009"},
-                {"seta010"},
-                {"seta011"},
-                {"seta012"},
-                {"seta013"},
-                {"seta014"}
-
-        };
-
-    }
+//    @DataProvider(name = "network")
+//    public static Object[][] AccountData(){
+//        return new Object[][] {
+//                {"seta001"},
+//                {"seta002"},
+//                {"seta003"},
+//                {"seta004"},
+//                {"seta005"},
+//                {"seta006"},
+//                {"seta007"},
+//                {"seta008"},
+//                {"seta009"},
+//                {"seta010"},
+//                {"seta011"},
+//                {"seta012"},
+//                {"seta013"},
+//                {"seta014"}
+//
+//        };
+//
+//    }
 
 }

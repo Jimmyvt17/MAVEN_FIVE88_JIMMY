@@ -3,6 +3,7 @@ package alive;
 import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
+import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
@@ -11,6 +12,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.CasinoPageObject;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 public class Alive_03_HoGaming extends CommonsTest {
@@ -29,8 +31,10 @@ public class Alive_03_HoGaming extends CommonsTest {
 	}
 
 	@Test
-	public void TC_1_Hogaming() {
-    	log.info("Hogaming - Step 01: Login valid account\n");
+	public void TC_1_Hogaming(Method method) {
+		ExtentTestManager.startTest(method.getName(), "Hogaming");
+
+		log.info("Hogaming - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();
 
 		log.info("Hogaming - Step 02: Switch to Casino page\n");

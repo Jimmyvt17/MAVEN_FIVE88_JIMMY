@@ -92,8 +92,6 @@ public class CommonsTest {
     }
 
     protected WebDriver openMultiBrowser(String browserName, String url) {
-        deleteAllFiles("ReportNGScreenShots");
-
         String os = System.getProperty("os.name").toLowerCase();
 
         if(os.contains("mac")) {

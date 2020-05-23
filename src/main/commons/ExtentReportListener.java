@@ -5,7 +5,6 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.testng.*;
 import org.testng.xml.XmlSuite;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
