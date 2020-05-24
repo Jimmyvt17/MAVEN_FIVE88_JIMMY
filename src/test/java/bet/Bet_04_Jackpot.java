@@ -44,8 +44,8 @@ public class Bet_04_Jackpot extends CommonsTest {
 		log.info("Jackpot - Step 03: Open Jackpot game");
 		jackpotPage.openJackpotGame(gameIdData);
 
-		log.info("Jackpot - Step 04: Delay 12 hours to finish");
-		delayInHour(12, 1);
+//		log.info("Jackpot - Step 04: Delay 12 hours to finish");
+//		delayInHour(12, 1);
 
 	}
 
