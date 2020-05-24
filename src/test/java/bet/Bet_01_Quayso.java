@@ -23,7 +23,7 @@ public class Bet_01_Quayso extends CommonsTest {
     @Parameters(value = "browser")
 	@BeforeClass
 	public void preConditions(String browserName) {
-		driver = openMultiBrowser(browserName, Constants.HOME_URL);
+		driver = openMultiBrowser(browserName, Constants.QUAYSO_URL);
 
 		quaysoPage = PageFactoryManager.getQuaysoPage(driver);
 
@@ -42,8 +42,6 @@ public class Bet_01_Quayso extends CommonsTest {
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
-
-		quaysoPage.openQuaysoPage();
 
 		log.info("Quayso - Step 02: Switch to iframe to play");
     	quaysoPage.switchToLotteryIframe();

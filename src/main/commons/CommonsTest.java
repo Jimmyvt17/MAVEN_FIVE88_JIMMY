@@ -16,7 +16,6 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
-
 import java.io.File;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -74,8 +73,7 @@ public class CommonsTest {
         }
 
     }
-
-
+    
     public void deleteAllFiles(String pathOfFiles) {
 
         File path = new File(pathOfFiles);
@@ -179,7 +177,7 @@ public class CommonsTest {
 
         driver.manage().timeouts().implicitlyWait(Constants.LONG_TIMEOUT, TimeUnit.SECONDS);
         Dimension d = new Dimension(960, 720);
-        driver.manage().window().setSize(d);
+        driver.manage().window().maximize();
         driver.get(url);
         return driver;
 
@@ -198,17 +196,20 @@ public class CommonsTest {
             if (driver.toString().toLowerCase().contains("chrome")) {
                 if (osName.toLowerCase().contains("mac")) {
                     cmd = "pkill chromedriver";
-                } else if (osName.toLowerCase().contains("windows")) {
+                } else {
                     cmd = "taskkill /F /FI \"IMAGENAME eq chromedriver*\"";
                 }
-            } else if (driver.toString().toLowerCase().contains("internetexplorer")) {
-                if (osName.toLowerCase().contains("window")) {
-                    cmd = "taskkill /F /FI \"IMAGENAME eq IEDriverServer*\"";
+            } else if (driver.toString().toLowerCase().contains("opera")) {
+                if (osName.toLowerCase().contains("mac")) {
+                    cmd = "pkill operadriver";
+                }
+                else {
+                    cmd = "taskkill /F /FI \"IMAGENAME eq operadriver*\"";
                 }
             } else if (driver.toString().toLowerCase().contains("firefox")) {
                 if (osName.toLowerCase().contains("mac")) {
                     cmd = "pkill geckodriver";
-                } else if (osName.toLowerCase().contains("windows")) {
+                } else {
                     cmd = "taskkill /F /FI \"IMAGENAME eq geckodriver*\"";
                 }
             }
@@ -216,7 +217,7 @@ public class CommonsTest {
             Process process = Runtime.getRuntime().exec(cmd);
             process.waitFor();
 
-            log.info("---------- QUIT BROWSER SUCCESS ----------");
+            log.info("---------- QUIT BROWSER SUCCESS ----------\n");
         } catch (Exception e) {
             log.info(e.getMessage());
         }

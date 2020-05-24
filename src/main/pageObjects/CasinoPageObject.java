@@ -125,7 +125,7 @@ public class CasinoPageObject extends AbstractPage {
                 i = true;
 
             } else {
-                System.out.println("Loading complete");
+                System.out.println("Loading complete\n");
                 i = false;
 
             }
@@ -174,7 +174,7 @@ public class CasinoPageObject extends AbstractPage {
                 i = true;
 
             } else {
-                System.out.println("Loading complete");
+                System.out.println("Loading complete\n");
                 i = false;
 
             }
@@ -222,7 +222,7 @@ public class CasinoPageObject extends AbstractPage {
                 i = true;
 
             } else {
-                System.out.println("Loading complete");
+                System.out.println("Loading complete\n");
                 i = false;
 
             }
@@ -249,7 +249,7 @@ public class CasinoPageObject extends AbstractPage {
                 i = true;
 
             } else {
-                System.out.println("Loading complete");
+                System.out.println("Loading complete\n");
                 i = false;
 
             }
