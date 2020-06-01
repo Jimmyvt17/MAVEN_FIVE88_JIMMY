@@ -75,11 +75,8 @@ public class AccountPageObject extends AbstractPage {
     public void selectAnOption(String... values) {
 
         String tmp = String.format(AccountPageUI.dynamicSelectDropBox, values);
-        System.out.println(tmp);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
         clickToElementByLocator(driver, By.xpath(tmp));
-//        waitForElementPresentByLocator(driver, By.xpath("//select[@id='to_bank_code']//option[@value='ACB']"));
-//        clickToElementByLocator(driver, By.xpath("//select[@id='to_bank_code']//option[@value='ACB']"));
 
     }
 
