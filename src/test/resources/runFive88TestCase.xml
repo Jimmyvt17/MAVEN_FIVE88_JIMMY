@@ -15,7 +15,7 @@
     <parameter name="username" value="testslot001" />
     <parameter name="gameId" value="9999" />
     <classes>
-      <class name="bet.Bet_06_Keno"/>
+      <class name="payment.Payment_04_WithdrawCard"/>
     </classes>
 <!--    <packages>-->
 <!--      <package name="account"/>-->

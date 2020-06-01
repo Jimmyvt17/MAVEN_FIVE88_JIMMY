@@ -104,7 +104,7 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 
 		log.info("LoginUnsuccessfulWithoutName - Step 01: Input data without username");
 		homePage.clearTextElement(driver, AbstractPageUI.usernameLoginLocator);
-		homePage.inputToPasswordTextbox(driver, Constants.PASSWORD);
+		homePage.inputToPasswordTextBox(driver, Constants.PASSWORD);
 		homePage.clickToLoginButton(driver);
 
 		log.info("LoginUnsuccessfulWithoutName - Step 02: Verify warning dialog");
@@ -120,7 +120,7 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 		ExtentTestManager.startTest(method.getName(), "TC_06_LoginUnsuccessfulWithoutPass");
 
 		log.info("LoginUnsuccessfulWithoutPass - Step 01: Input data without password");
-		homePage.inputToUsernameTextbox(driver, Constants.USERNAME_LOGIN);
+		homePage.inputToUsernameTextBox(driver, Constants.USERNAME_LOGIN);
 		homePage.clearTextElement(driver, AbstractPageUI.passwordLoginLocator);
 		homePage.clickToLoginButton(driver);
 

@@ -61,4 +61,20 @@ public class Payment_04_WithdrawCard extends CommonsTest {
 
     }
 
+//    public void cardWithdraw() {
+//
+//        accountPage.clickToCardWithdraw();
+//        accountPage.selectAnOption("to_telcom_code", "VIETTEL");
+//        accountPage.selectAnOption("card_amount_unit", "100000");
+//        accountPage.inputToNoCardTextBox("1");
+//        accountPage.inputCardConfirmPhone("67890");
+//        accountPage.clickToCardWithdrawSubmitButton();
+//        try {
+//            Thread.sleep(5000);
+//        } catch (Throwable e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+
 }

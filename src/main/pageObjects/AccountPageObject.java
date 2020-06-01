@@ -30,13 +30,13 @@ public class AccountPageObject extends AbstractPage {
     public void clickToDepositButton() {
 
         waitForElementVisibleByLocator(driver, AccountPageUI.depositButtonLocator);
-        clickToElement(driver, AccountPageUI.depositButtonLocator);
+        clickToElementByJSByLocator(driver, AccountPageUI.depositButtonLocator);
 
     }
 
-    public void inputToTextbox(String valueToInput, String dynamicValue) {
+    public void inputToTextBox(String valueToInput, String dynamicValue) {
 
-        String tmp = String.format(AccountPageUI.dynamicTextbox, dynamicValue);
+        String tmp = String.format(AccountPageUI.dynamicTextBox, dynamicValue);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
         sendKeyToElement(driver, By.xpath(tmp), valueToInput);
 
@@ -46,7 +46,7 @@ public class AccountPageObject extends AbstractPage {
 
         String tmp = String.format(AccountPageUI.dynamicSubmitButton, value);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
-        clickToElement(driver, By.xpath(tmp));
+        clickToElementByJSByLocator(driver, By.xpath(tmp));
 
     }
 
@@ -74,16 +74,19 @@ public class AccountPageObject extends AbstractPage {
 
     public void selectAnOption(String... values) {
 
-        String tmp = String.format(AccountPageUI.dynamicSelect, values);
+        String tmp = String.format(AccountPageUI.dynamicSelectDropBox, values);
+        System.out.println(tmp);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
-        clickToElement(driver, By.xpath(tmp));
+        clickToElementByLocator(driver, By.xpath(tmp));
+//        waitForElementPresentByLocator(driver, By.xpath("//select[@id='to_bank_code']//option[@value='ACB']"));
+//        clickToElementByLocator(driver, By.xpath("//select[@id='to_bank_code']//option[@value='ACB']"));
 
     }
 
     public void select158Promo() {
 
         waitForElementVisibleByLocator(driver, AccountPageUI.depPromo158Locator);
-        clickToElement(driver, AccountPageUI.depPromo158Locator);
+        clickToElementByJSByLocator(driver, AccountPageUI.depPromo158Locator);
 
     }
 
@@ -92,7 +95,7 @@ public class AccountPageObject extends AbstractPage {
 
         String tmp = String.format(AccountPageUI.dynamicSubAccount, value);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
-        clickToElement(driver, By.xpath(tmp));
+        clickToElementByJSByLocator(driver, By.xpath(tmp));
 
     }
 
@@ -126,9 +129,9 @@ public class AccountPageObject extends AbstractPage {
 
     }
 
-    public void clearTextbox(String value) {
+    public void clearTextBox(String value) {
 
-        String tmp = String.format(AccountPageUI.dynamicTextbox, value);
+        String tmp = String.format(AccountPageUI.dynamicTextBox, value);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
         clearTextElement(driver, By.xpath(tmp));
 
@@ -151,11 +154,11 @@ public class AccountPageObject extends AbstractPage {
     public void clickToCardWithdraw() {
 
         waitForElementVisibleByLocator(driver, AccountPageUI.cardWithdrawLocator);
-        clickToElement(driver, AccountPageUI.cardWithdrawLocator);
+        clickToElementByJSByLocator(driver, AccountPageUI.cardWithdrawLocator);
 
     }
 
-    public void inputToNoCardTextbox(String value) {
+    public void inputToNoCardTextBox(String value) {
 
         waitForElementVisibleByLocator(driver, AccountPageUI.cardNoLocator);
         sendKeyToElement(driver, AccountPageUI.cardNoLocator, value);
@@ -172,7 +175,7 @@ public class AccountPageObject extends AbstractPage {
     public void clickToCardWithdrawSubmitButton() {
 
         waitForElementVisibleByLocator(driver, AccountPageUI.cardWitSubmitLocator);
-        clickToElement(driver, AccountPageUI.cardWitSubmitLocator);
+        clickToElementByJSByLocator(driver, AccountPageUI.cardWitSubmitLocator);
 
     }
 
@@ -200,9 +203,9 @@ public class AccountPageObject extends AbstractPage {
     public void cardWithdraw() {
 
         clickToCardWithdraw();
-        selectAnOption("to_telcom_code", "VIETTEL");
+        selectAnOption("to_telcom_code", "MOBIFONE");
         selectAnOption("card_amount_unit", "100000");
-        inputToNoCardTextbox("1");
+        inputToNoCardTextBox("1");
         inputCardConfirmPhone("67890");
         clickToCardWithdrawSubmitButton();
         try {
@@ -215,9 +218,9 @@ public class AccountPageObject extends AbstractPage {
 
     public void bankWithdraw() {
 
-        inputToTextbox(Constants.PHONE, "to_bank_no");
-        inputToTextbox(Constants.MONEY_WIT, "amount");
-        selectAnOption("to_bank_code", "VCB");
+        inputToTextBox(Constants.PHONE, "to_bank_no");
+        inputToTextBox(Constants.MONEY_WIT, "amount");
+        selectAnOption("to_bank_code", "BIDV");
         inputConfirmPhone("67890");
         clickToSubmitButton("frmWitdraw");
         try {

@@ -91,7 +91,7 @@ public class AbstractPage {
     }
 
     // WebElement
-    public void clickToElement(WebDriver driver, By xPathLocator) {
+    public void clickToElementByLocator(WebDriver driver, By xPathLocator) {
 
         element = driver.findElement(xPathLocator);
         element.click();
@@ -522,19 +522,19 @@ public class AbstractPage {
     public HomePageObject openHomePage(WebDriver driver) {
 
         waitForElementVisibleByLocator(driver, AbstractPageUI.logoutButtonLocator);
-        clickToElement(driver, AbstractPageUI.logoutButtonLocator);
+        clickToElementByJSByLocator(driver, AbstractPageUI.logoutButtonLocator);
         return PageFactoryManager.getHomePage(driver);
 
     }
 
-    public void inputToUsernameTextbox(WebDriver driver, String username_test) {
+    public void inputToUsernameTextBox(WebDriver driver, String username_test) {
 
         waitForElementVisibleByLocator(driver, AbstractPageUI.usernameLoginLocator);
         sendKeyToElement(driver, AbstractPageUI.usernameLoginLocator, username_test);
 
     }
 
-    public void inputToPasswordTextbox(WebDriver driver, String password) {
+    public void inputToPasswordTextBox(WebDriver driver, String password) {
 
         waitForElementVisibleByLocator(driver, AbstractPageUI.passwordLoginLocator);
         sendKeyToElement(driver, AbstractPageUI.passwordLoginLocator, password);
@@ -544,7 +544,7 @@ public class AbstractPage {
     public AccountPageObject clickToLoginButton(WebDriver driver) {
 
         waitForElementVisibleByLocator(driver, AbstractPageUI.loginButtonLocator);
-        clickToElement(driver, AbstractPageUI.loginButtonLocator);
+        clickToElementByJSByLocator(driver, AbstractPageUI.loginButtonLocator);
         return PageFactoryManager.getAccountPage(driver);
 
     }
@@ -558,7 +558,7 @@ public class AbstractPage {
         sendKeyToElement(driver, AbstractPageUI.passwordLoginLocator, password);
 
         waitForElementVisibleByLocator(driver, AbstractPageUI.loginButtonLocator);
-        clickToElement(driver, AbstractPageUI.loginButtonLocator);
+        clickToElementByJSByLocator(driver, AbstractPageUI.loginButtonLocator);
 
     }
 
@@ -566,7 +566,7 @@ public class AbstractPage {
 
         scrollToTopPage(driver);
         waitForElementVisibleByLocator(driver, AbstractPageUI.logoutButtonLocator);
-        clickToElement(driver, AbstractPageUI.logoutButtonLocator);
+        clickToElementByJSByLocator(driver, AbstractPageUI.logoutButtonLocator);
 
         waitForElementVisibleByLocator(driver, AbstractPageUI.loginFormLocator);
         isControlDisplayed(driver, AbstractPageUI.loginFormLocator);
@@ -577,7 +577,7 @@ public class AbstractPage {
 
         String tmp = String.format(AbstractPageUI.dynamicSubMenu, value);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
-        doubleClickToElementByLocator(driver, By.xpath(tmp));
+        clickToElementByJSByLocator(driver, By.xpath(tmp));
 
     }
 

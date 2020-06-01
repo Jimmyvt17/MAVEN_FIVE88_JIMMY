@@ -134,9 +134,9 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 
 	private void register(String username, String password, String phone) {
 		registerPage.openRegisterPage();
-		registerPage.inputToUsernameTextbox(username);
-		registerPage.inputToPasswordTextbox(password);
-		registerPage.inputToPhoneTextbox(phone);
+		registerPage.inputToUsernameTextBox(username);
+		registerPage.inputToPasswordTextBox(password);
+		registerPage.inputToPhoneTextBox(phone);
 		accountPage = registerPage.clickToSubmitButton();
 		try {
 			Thread.sleep(1000);

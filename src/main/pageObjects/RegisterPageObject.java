@@ -20,21 +20,21 @@ public class RegisterPageObject extends AbstractPage {
 
     }
 
-    public void inputToUsernameTextbox(String username) {
+    public void inputToUsernameTextBox(String username) {
 
         waitForElementVisibleByLocator(driver, RegisterPageUI.usernameResgisLocator);
         sendKeyToElement(driver, RegisterPageUI.usernameResgisLocator, username);
 
     }
 
-    public void inputToPasswordTextbox(String password) {
+    public void inputToPasswordTextBox(String password) {
 
         waitForElementVisibleByLocator(driver, RegisterPageUI.passwordRegisLocator);
         sendKeyToElement(driver, RegisterPageUI.passwordRegisLocator, password);
 
     }
 
-    public void inputToPhoneTextbox(String phone) {
+    public void inputToPhoneTextBox(String phone) {
 
         waitForElementVisibleByLocator(driver, RegisterPageUI.phoneRegisLocator);
         sendKeyToElement(driver, RegisterPageUI.phoneRegisLocator, phone);
@@ -44,7 +44,7 @@ public class RegisterPageObject extends AbstractPage {
     public AccountPageObject clickToSubmitButton() {
 
         waitForElementVisibleByLocator(driver, RegisterPageUI.submitButtonLocator);
-        clickToElement(driver, RegisterPageUI.submitButtonLocator);
+        clickToElementByJSByLocator(driver, RegisterPageUI.submitButtonLocator);
         return PageFactoryManager.getAccountPage(driver);
 
     }

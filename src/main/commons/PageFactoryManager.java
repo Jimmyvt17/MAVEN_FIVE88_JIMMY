@@ -47,6 +47,12 @@ public class PageFactoryManager {
 
     }
 
+    public static TSportPageObject getTSportPage(WebDriver driver) {
+
+        return new TSportPageObject(driver);
+
+    }
+
     public static JackpotPageObject getJackpotPage(WebDriver driver) {
 
         return new JackpotPageObject(driver);

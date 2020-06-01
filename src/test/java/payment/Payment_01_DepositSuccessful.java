@@ -119,10 +119,10 @@ public class Payment_01_DepositSuccessful extends CommonsTest {
         accountPage.selectAnOption("bank_code_option", "VCB");
 
         // Nhap so tien nap
-        accountPage.inputToTextbox(value, "amount-money");
+        accountPage.inputToTextBox(value, "amount-money");
 
         // Nhap ma giao dich
-        accountPage.inputToTextbox(Constants.PHONE, "bank_trancode");
+        accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
 
         // Bam button nap tien
         accountPage.clickToSubmitButton("frmDeposit");

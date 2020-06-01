@@ -80,20 +80,16 @@ public class KenoPageObject extends AbstractPage {
 
     }
 
-    public void clickToBetPoint(WebElement element) {
+    public void openBetPanel(WebElement element) {
 
-        doubleClickToElement(driver, element);
+        clickToElementByJS(driver, element);
 
     }
 
-    public void selectMoneyToBet(String bet_money, WebElement element) {
+    public void selectMoneyToBet(String bet_money) {
 
         String tmp = String.format(KenoPageUI.dynamicBetMoney, bet_money);
-        //waitForElementVisibleByLocator(driver, By.xpath(tmp));
-        if(!isControlDisplayed(driver, By.xpath(tmp))) {
-            doubleClickToElement(driver, element);
-            clickToElementByJSByLocator(driver, By.xpath(tmp));
-        }
+        waitForElementVisibleByLocator(driver, By.xpath(tmp));
         clickToElementByJSByLocator(driver, By.xpath(tmp));
 
     }

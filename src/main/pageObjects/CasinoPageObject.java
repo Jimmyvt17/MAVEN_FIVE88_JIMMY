@@ -188,7 +188,7 @@ public class CasinoPageObject extends AbstractPage {
     public void selectHoGamingCategory(String category) {
 
         String tmp = String.format(CasinoPageUI.dynamicHoGamingCategory, category);
-        doubleClickToElementByLocator(driver, By.xpath(tmp));
+        clickToElementByJSByLocator(driver, By.xpath(tmp));
         try {
             Thread.sleep(1000);
         } catch (Throwable e) {

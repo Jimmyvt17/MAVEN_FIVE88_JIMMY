@@ -4,12 +4,15 @@ package bet;
 import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
+import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.JackpotPageObject;
+
+import java.lang.reflect.Method;
 
 
 public class Bet_04_Jackpot extends CommonsTest {
@@ -29,8 +32,10 @@ public class Bet_04_Jackpot extends CommonsTest {
 
 	@Parameters({"username", "gameId"})
 	@Test
-	public void TC_1_Jackpot(String usernameData, String gameIdData) {
-    	log.info("Jackpot - Step 01: Login test slot account");
+	public void TC_1_Jackpot(String usernameData, String gameIdData, Method method) {
+		ExtentTestManager.startTest(method.getName(), "TC_1_Jackpot");
+
+		log.info("Jackpot - Step 01: Login test slot account");
     	jackpotPage.loginTestSlot(usernameData);
 		try {
 			Thread.sleep(1000*5);

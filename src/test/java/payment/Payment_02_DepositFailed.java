@@ -74,28 +74,28 @@ public class Payment_02_DepositFailed extends CommonsTest {
 
     public void depositMoneyUnder50() {
         accountPage.selectAnOption("bank_code_option", "VCB");
-        accountPage.inputToTextbox("49", "amount-money");
-        accountPage.inputToTextbox(Constants.PHONE, "bank_trancode");
+        accountPage.inputToTextBox("49", "amount-money");
+        accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
         accountPage.clickToSubmitButton("frmDeposit");
     }
 
     public void depositWithoutCode() {
         accountPage.selectAnOption("bank_code_option", "VCB");
-        accountPage.inputToTextbox(Constants.MONEY_DEP, "amount-money");
-        accountPage.clearTextbox("bank_trancode");
+        accountPage.inputToTextBox(Constants.MONEY_DEP, "amount-money");
+        accountPage.clearTextBox("bank_trancode");
         accountPage.clickToSubmitButton("frmDeposit");
     }
 
     public void depositWithoutMoney() {
         accountPage.selectAnOption("bank_code_option", "VCB");
-        accountPage.clearTextbox("amount-money");
-        accountPage.inputToTextbox(Constants.PHONE, "bank_trancode");
+        accountPage.clearTextBox("amount-money");
+        accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
         accountPage.clickToSubmitButton("frmDeposit");
     }
 
     public void depositWithoutBank() {
-        accountPage.inputToTextbox(Constants.MONEY_DEP, "amount-money");
-        accountPage.inputToTextbox(Constants.PHONE, "bank_trancode");
+        accountPage.inputToTextBox(Constants.MONEY_DEP, "amount-money");
+        accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
         accountPage.clickToSubmitButton("frmDeposit");
     }
 

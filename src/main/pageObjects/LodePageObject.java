@@ -34,6 +34,7 @@ public class LodePageObject extends AbstractPage {
     public void selectNoBet(WebElement element) {
 
         clickToElementByJS(driver, element);
+
     }
 
     public void clickBetButton() {

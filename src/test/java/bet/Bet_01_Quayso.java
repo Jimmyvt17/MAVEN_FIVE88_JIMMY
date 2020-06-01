@@ -61,10 +61,13 @@ public class Bet_01_Quayso extends CommonsTest {
 		log.info("Quayso - Step 07: Play dragon-tiger");
 		betGameQuayso("97", "");
 
-		log.info("Quayso - Step 08: Exit iframe");
+		log.info("Quayso - Step 08: Play baccarat");
+		betGameQuayso("98", "");
+
+		log.info("Quayso - Step 09: Exit iframe");
 		quaysoPage.quitLotteryIframe();
 
-		log.info("Quayso - Step 09: Logout");
+		log.info("Quayso - Step 10: Logout");
 		quaysoPage.logoutToHomePage();
 
 		log.info("Quay so thanh cong\n================================================================================\n");

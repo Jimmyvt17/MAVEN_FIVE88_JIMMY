@@ -13,14 +13,14 @@ public class AccountPageUI {
     public static By userBalanceLocator = By.xpath("//div[@class='acc_meta_group']//span[@class='txt-balance-info']");
     public static By phoneConfirmWitLocator = By.xpath("//input[@name='phone']");
 
-    public static By cardWithdrawLocator = By.xpath("//ul[@id='payment-nav-tabs']//a[@aria-controls='tab-withdraw-card']");
+    public static By cardWithdrawLocator = By.xpath("//ul[@id='payment-nav-tabs']//a[@aria-controls='tab-withdraw-card']//i");
     public static By cardNoLocator = By.xpath("//input[@type='number']");
     public static By cardPhoneConfirmLocator = By.cssSelector("#phoneCardWD > div:nth-child(3) > div > input");
     public static By cardWitSubmitLocator = By.cssSelector("#phoneCardWD > div:nth-child(5) > div > button");
 
     public static String dynamicSubmitButton = "//form[@id='%s']//button[@type='submit']";
-    public static String dynamicTextbox = "//input[@id='%s']";
-    public static String dynamicSelect = "//select[@id='%s']//option[@value='%s']";
+    public static String dynamicTextBox = "//input[@id='%s']";
+    public static String dynamicSelectDropBox = "//select[@id='%s']//option[@value='%s']";
     public static String dynamicSubAccount = "//ul[@class='panel-tabLink']//a[text()='%s']";
     public static String dynamicTicketStatus = "//td[text()='%s']/following-sibling::td/span[text()='%s']";
     public static String dynamicDepositError = "//div[@id='%s']";

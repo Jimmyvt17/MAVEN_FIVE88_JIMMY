@@ -10,7 +10,8 @@ public class Constants {
     public static final String QUAYSO_URL = "https://five88.net/lottery.aspx";
     public static final String LODE_URL = "https://five88.net/lode.aspx";
     public static final String CASINO_URL = "https://five88.net/casino.aspx";
-    public static final String ATHETHAO_URL = "https://five88.net/fsport/live-sports";
+    public static final String ATHETHAO_URL = "https://five88.net/fsport/live-sports.aspx";
+    public static final String TTHETHAO_URL = "https://five88.net/tsports.aspx";
 
     // Timeout
     public static final int SHORT_TIMEOUT = 5;
@@ -28,18 +29,13 @@ public class Constants {
     public static final String PASSWORD = "testjimmy";
     public static final String PHONE = "1234567890";
 
-    // Driver
-    public static final String MAC_CHROME_PATH = "driver/chromedriver";
-    public static final String MAC_FIREFOX_PATH = "driver/v26";
-    public static final String WIN_CHROME_PATH = "driver/chromedriver.exe";
-    public static final String WIN_FIREFOX_PATH = "driver/geckodriver.exe";
-    public static final String DRIVER_CHROME = "webdriver.chrome.driver";
-    public static final String DRIVER_FIREFOX = "webdriver.gecko.driver";
-
     // Payment
     public static final String SENDER = "tạo phiếu để test";
     public static final String MONEY_DEP = "50";
-    public static final String MONEY_WIT = "50";
+    public static final String MONEY_WIT = "100";
+
+    // Others
+    public static final String dynamicIframe = "//iframe[@id='%s']";
 
 
 }

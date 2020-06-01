@@ -20,7 +20,6 @@ public class Payment_03_WithdrawBank extends CommonsTest {
 
     WebDriver driver;
     AccountPageObject accountPage;
-    HomePageObject homePage;
 
     @Parameters("browser")
     @BeforeClass
