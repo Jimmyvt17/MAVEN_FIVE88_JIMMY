@@ -54,7 +54,7 @@ public class KenoPageObject extends AbstractPage {
 
         String tmp = String.format(KenoPageUI.dynamicBetStart, value);
         scrollToElement(driver, By.xpath(tmp));
-        waitForElementPresentByLocator(driver, By.xpath(tmp));
+        waitForElementVisibleByLocator(driver, By.xpath(tmp));
 
     }
 
