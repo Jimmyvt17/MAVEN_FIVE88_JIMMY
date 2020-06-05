@@ -3,7 +3,6 @@ package pageObjects;
 import commons.AbstractPage;
 import commons.Constants;
 import five88.KenoPageUI;
-import five88.NumberPageUI;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -50,11 +49,34 @@ public class KenoPageObject extends AbstractPage {
 
     }
 
-    public void waitForBetTime(String value) {
+    public boolean isBetStartPresent(String value) {
+
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+        String tmp1 = String.format(KenoPageUI.dynamicBetStart, value);
+        List<WebElement> startList = getListElements(driver, By.xpath(tmp1));
+        if (startList.size() > 0) {
+            scrollToKenoGame(value);
+            Integer remainTime = getBetTimeCountDown(value);
+            if (remainTime >= 10) {
+                System.out.println("Check for game id = " + value + "\n");
+                System.out.println("Remaining time = " + remainTime + "\n");
+                return true;
+            } else {
+                System.out.println("Check for game id = " + value + "\n");
+                System.out.println("Remaining time = " + remainTime + "\n");
+                return false;
+            }
+        } else {
+            System.out.println("Check for game id = " + value + "\n");
+            return false;
+        }
+
+    }
+
+    public void scrollToKenoGame(String value) {
 
         String tmp = String.format(KenoPageUI.dynamicBetStart, value);
         scrollToElement(driver, By.xpath(tmp));
-        waitForElementVisibleByLocator(driver, By.xpath(tmp));
 
     }
 

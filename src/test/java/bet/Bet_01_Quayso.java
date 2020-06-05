@@ -11,8 +11,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.QuaysoPageObject;
-
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bet_01_Quayso extends CommonsTest {
@@ -20,7 +20,7 @@ public class Bet_01_Quayso extends CommonsTest {
 	WebDriver driver;
 	QuaysoPageObject quaysoPage;
 
-    @Parameters(value = "browser")
+	@Parameters(value = "browser")
 	@BeforeClass
 	public void preConditions(String browserName) {
 		driver = openMultiBrowser(browserName, Constants.QUAYSO_URL);
@@ -31,12 +31,12 @@ public class Bet_01_Quayso extends CommonsTest {
 
 	private Integer BET_MONEY = 10;
 
-	@Test//(invocationCount = 10)
+	@Test
 	public void TC_1_Quayso(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_Quayso");
 
 		log.info("Quayso - Step 01: Login with valid account");
-    	quaysoPage.loginQuaysoAccount();
+		quaysoPage.loginQuaysoAccount();
 		try {
 			Thread.sleep(5000);
 		} catch (Throwable e) {
@@ -44,104 +44,86 @@ public class Bet_01_Quayso extends CommonsTest {
 		}
 
 		log.info("Quayso - Step 02: Switch to iframe to play");
-    	quaysoPage.switchToLotteryIframe();
+		quaysoPage.switchToLotteryIframe();
 
-		log.info("Quayso - Step 03: Play roulette");
-		betGameQuayso("99", " game-roulette");
+		log.info("Quayso - Step 03: Play lottery");
+		betLotteryGame();
 
-		log.info("Quayso - Step 04: Play racing");
-		betGameQuayso("106", "");
-
-		log.info("Quayso - Step 05: Play taixiu");
-		betGameQuayso("101", "");
-
-		log.info("Quayso - Step 06: Play xocdia");
-		betGameQuayso("102", "");
-
-		log.info("Quayso - Step 07: Play dragon-tiger");
-		betGameQuayso("97", "");
-
-		log.info("Quayso - Step 08: Play baccarat");
-		betGameQuayso("98", "");
-
-		log.info("Quayso - Step 09: Exit iframe");
+		log.info("Quayso - Step 04: Exit iframe");
 		quaysoPage.quitLotteryIframe();
 
-		log.info("Quayso - Step 10: Logout");
+		log.info("Quayso - Step 05: Logout");
 		quaysoPage.logoutToHomePage();
 
 		log.info("Quay so thanh cong\n================================================================================\n");
 
 	}
 
-	protected void betGameQuayso(String number, String game) {
-		boolean conditionRoul = true;
+	private void betLotteryGame() {
+		List<String> listA = new ArrayList<>();
+		listA.add("97");
+		listA.add("98");
+		listA.add("99");
+		listA.add("101");
+		listA.add("102");
+		listA.add("106");
+		log.info("First game list = " + listA + "\n");
 
-		while (conditionRoul) {
-			log.info("Ban dau dieu kien la " + conditionRoul + "\n");
+		while (listA.size() > 0) {
+			for (int i = 0; i < listA.size(); i++) {
+				String x = listA.get(i);
+				if (!quaysoPage.isBetStartPresent(x)) {
+					log.info(x + " can not bet now\n====================\n");
 
-			log.info("Cho den thoi gian bet\n");
-			quaysoPage.scrollToQuaysoGame(number, game);
-			quaysoPage.waitForBetStartPresent(number, game);
-
-			Integer countDownTime = quaysoPage.getBetTimeCountDown(number, game);
-			log.info("Thoi gian bet con lai la " + countDownTime + "s\n");
-
-			if (countDownTime >= 10) {
-				String beforeBet = quaysoPage.getBalance();
-				log.info("So tien luc dau la " + beforeBet + "\n");
-
-				List<WebElement> noBet = quaysoPage.getBets(number, game);
-				log.info("Co " + noBet.size() + " cua " + "\n");
-
-				int numberRoulette = randomNumber(noBet.size());
-
-				log.info("Chon cua bet thu " + numberRoulette + "\n");
-				quaysoPage.openBetPanel(noBet.get(numberRoulette));
-
-				log.info("Chon bet so tien = " + BET_MONEY + "\n");
-				quaysoPage.selectMoneyToBet(BET_MONEY);
-
-				log.info("Bam nut Cuoc\n");
-				quaysoPage.clickBetButton();
-				try {
-					Thread.sleep(1000);
-				} catch (Throwable e) {
-					e.printStackTrace();
+				} else {
+					betALotteryGame(listA, x);
 				}
-
-				String afterBet = quaysoPage.getBalance();
-				log.info("So tien sau khi quay roulette la " + afterBet + "\n");
-
-				log.info("Kiem tra tai khoan bi tru tien sau khi bet\n");
-				verifyFalse(beforeBet==afterBet);
-
-				conditionRoul = false;
-				log.info("Sau do dieu kien la " + conditionRoul + "\n");
-
-				log.info("====================\n");
-
-			} else {
-
-				conditionRoul = true;
-				log.info("Sau do dieu kien la " + conditionRoul + "\n");
-				try {
-					Thread.sleep(9000);
-				} catch (Throwable e) {
-					e.printStackTrace();
-				}
-
 			}
-
 		}
 
 	}
 
+	private void betALotteryGame(List<String> gameList, String gameId) {
+		log.info(gameId + " can bet now\n");
+		String beforeBet = quaysoPage.getBalance();
+		log.info("Before balance = " + beforeBet + "\n");
+
+		List<WebElement> noBet = quaysoPage.getBets(gameId);
+		log.info("There are " + noBet.size() + " bet points " + "\n");
+
+		int  number = randomNumber(noBet.size() - 1);
+
+		log.info("Select bet point at order " + number + 1 + "\n");
+		quaysoPage.openBetPanel(noBet.get(number));
+
+		log.info("Select money to bet = " + BET_MONEY + "\n");
+		quaysoPage.selectMoneyToBet(BET_MONEY);
+
+		log.info("Confirm betting\n");
+		quaysoPage.clickBetButton();
+		try {
+			Thread.sleep(1000);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+
+		String afterBet = quaysoPage.getBalance();
+		log.info("After balance = " + afterBet + "\n");
+
+		log.info("Verify that balance is updated correctly\n");
+		verifyFalse(beforeBet.equals(afterBet));
+
+		log.info("Remove " + gameId + " from game list\n");
+		gameList.remove(gameId);
+		log.info("Then game list = " + gameList + "\n====================\n");
+
+	}
+
 	@AfterClass(alwaysRun=true)
-	public void afterClass() throws Exception {
-		
+	public void afterClass() {
+
 		closeBrowserAndDriver(driver);
-		
+
 	}
 
 }

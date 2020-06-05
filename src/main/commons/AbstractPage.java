@@ -446,7 +446,7 @@ public class AbstractPage {
 
     public void waitForElementPresentByLocator(WebDriver driver, By xPathLocator) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.LONG_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         try {
             waitExplicit.until(ExpectedConditions.presenceOfElementLocated(xPathLocator));
         } catch (Exception ex) {
@@ -461,7 +461,7 @@ public class AbstractPage {
 
     public void waitForElementVisibleByLocator(WebDriver driver, By xPathLocator) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.LONG_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         try {
             waitExplicit.until(ExpectedConditions.visibilityOfElementLocated(xPathLocator));
         } catch (Exception ex) {
@@ -476,7 +476,7 @@ public class AbstractPage {
 
     public void waitForElementVisible(WebDriver driver, WebElement element) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.LONG_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         try {
             waitExplicit.until(ExpectedConditions.visibilityOf(element));
         } catch (Exception ex) {
@@ -491,7 +491,7 @@ public class AbstractPage {
 
     public void waitForElementClickable(WebDriver driver, By xPathLocator) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.LONG_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         waitExplicit.until(ExpectedConditions.elementToBeClickable(xPathLocator));
         highlightElementByLocator(driver, xPathLocator);
 

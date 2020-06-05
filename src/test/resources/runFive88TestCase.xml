@@ -7,22 +7,22 @@
 <!--    <listener class-name="commons.ExtentReportListener"/>-->
 <!--    <listener class-name="commons.retryTestFailed.RetryListener"/>-->
     <listener class-name="commons.reportConfig.ExtentTestListener" />
-<!--    <listener class-name="commons.reportConfig.ReportNGListener" />-->
+    <listener class-name="commons.reportConfig.ReportNGListener" />
   </listeners>
 
   <test name="Run on Chrome">
     <parameter name="browser" value="chrome" />
     <parameter name="username" value="testslot001" />
     <parameter name="gameId" value="9999" />
-    <classes>
-      <class name="payment.Payment_04_WithdrawCard"/>
-    </classes>
-<!--    <packages>-->
+<!--    <classes>-->
+<!--      <class name="alive.Alive_02_SexyCasino"/>-->
+<!--    </classes>-->
+    <packages>
 <!--      <package name="account"/>-->
-<!--      <package name="alive"/>-->
+      <package name="alive"/>
 <!--      <package name="bet"/>-->
 <!--      <package name="payment"/>-->
-<!--    </packages>-->
+    </packages>
   </test> <!-- Test -->
 
 <!--  <test name="Run on Firefox">-->

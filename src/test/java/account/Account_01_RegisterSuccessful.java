@@ -47,7 +47,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 
 	}
 
-	@Test(dependsOnMethods = "TC_01_RegisterSuccessful")
+	@Test
 	public void TC_02_RegisterSuccessfulWithName6Letters(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_02_RegisterSuccessfulWithName6Letters");
 
@@ -60,7 +60,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 
 	}
 
-	@Test(dependsOnMethods = "TC_02_RegisterSuccessfulWithName6Letters")
+	@Test
 	public void TC_03_RegisterSuccessfulWithName30Letters(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_03_RegisterSuccessfulWithName30Letters");
 
@@ -73,7 +73,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 
 	}
 
-	@Test(dependsOnMethods = "TC_03_RegisterSuccessfulWithName30Letters")
+	@Test
 	public void TC_04_RegisterSuccessfulWithPass6Letters(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_04_RegisterSuccessfulWithPass6Letters");
 
@@ -88,7 +88,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 
 	}
 
-	@Test(dependsOnMethods = "TC_04_RegisterSuccessfulWithPass6Letters")
+	@Test
 	public void TC_05_RegisterSuccessfulWithPhone14Letters(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_05_RegisterSuccessfulWithPhone14Letters");
 

@@ -11,8 +11,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.KenoPageObject;
-
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bet_06_Keno extends CommonsTest {
@@ -51,80 +51,70 @@ public class Bet_06_Keno extends CommonsTest {
 		kenoPage.switchToKenoIframe();
 
 		log.info("Keno - Step 04: Play Quick Keno 1\n");
-		betKeno("kn-1");
+		betKenoGame();
 
-		log.info("Keno - Step 05: Play Max Keno 1\n");
-		betKeno("kn-20");
-
-		log.info("Keno - Step 06: Play Keno Xuan\n");
-		betKeno("kn-22");
-
-		log.info("Keno - Step 07: Exit Keno iframe");
+		log.info("Keno - Step 05: Exit Keno iframe");
 		kenoPage.quitKenoIframe();
 
-		log.info("Keno - Step 08: Logout");
+		log.info("Keno - Step 06: Logout");
 		kenoPage.logoutToHomePage();
 
 	}
 
-	private void betKeno(String gameId) {
-		boolean i = true;
+	private void betKenoGame() {
+		List<String> list = new ArrayList<>();
+		list.add("kn-1");
+		list.add("kn-20");
+		list.add("kn-22");
+		log.info("First game list = " + list + "\n");
 
-		while (i) {
-			log.info("First i = " + i + "\n");
-
-			log.info("Wait for bet time\n");
-			kenoPage.waitForBetTime(gameId);
-
-			Integer countDownTime = kenoPage.getBetTimeCountDown(gameId);
-			log.info("Remain time is " + countDownTime + "s\n");
-
-			if (countDownTime >= 8) {
-				String beforeBalance = kenoPage.getBalance();
-				log.info("Before balance = " + beforeBalance + "\n");
-
-				List<WebElement> noBet = kenoPage.getBet(gameId);
-				log.info("There are " + noBet.size() + " bet points\n");
-
-				int numberBet = randomNumber(noBet.size());
-
-				log.info("Select bet point in order " + numberBet + "\n");
-				kenoPage.openBetPanel(noBet.get(numberBet));
-
-				log.info("Select bet money = " + BET_MONEY + "\n");
-				kenoPage.selectMoneyToBet(BET_MONEY);
-
-				log.info("Press bet button\n");
-				kenoPage.clickBetButton();
-				try {
-					Thread.sleep(1000);
-				} catch (Throwable e) {
-					e.printStackTrace();
+		while (list.size() > 0) {
+			for (int i = 0; i < list.size(); i++) {
+				String x = list.get(i);
+				if (!kenoPage.isBetStartPresent(x)) {
+					log.info(x + " can not bet now\n====================\n");
+				} else {
+					betAKenoGame(list, x);
 				}
-
-				String afterBalance = kenoPage.getBalance();
-				log.info("After balance = " + afterBalance + "\n");
-
-				log.info("Verify balance is updated correctly\n");
-				verifyFalse(beforeBalance.equals(afterBalance));
-
-				i = false;
-				log.info("Then i = " + i + "\n");
-
-				log.info("====================\n");
-
-			} else {
-				i = true;
-				log.info("Then i = " + i + "\n");
-				try {
-					Thread.sleep(3*1000);
-				} catch (Throwable e) {
-					e.printStackTrace();
-				}
-
 			}
-
 		}
+
+	}
+
+	private void betAKenoGame(List<String> gameList, String gameId) {
+		log.info(gameId + " can bet now\n");
+		String beforeBalance = kenoPage.getBalance();
+		log.info("Before balance = " + beforeBalance + "\n");
+
+		List<WebElement> noBet = kenoPage.getBet(gameId);
+		log.info("There are " + noBet.size() + " bet points\n");
+
+		int numberBet = randomNumber(noBet.size() - 1);
+
+		log.info("Select bet point in order " + numberBet  + "\n");
+		kenoPage.openBetPanel(noBet.get(numberBet));
+
+		log.info("Select bet money = " + BET_MONEY + "\n");
+		kenoPage.selectMoneyToBet(BET_MONEY);
+
+		log.info("Press bet button\n");
+		kenoPage.clickBetButton();
+		try {
+			Thread.sleep(1000);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+
+		String afterBalance = kenoPage.getBalance();
+		log.info("After balance = " + afterBalance + "\n");
+
+		log.info("Verify balance is updated correctly\n");
+		verifyFalse(beforeBalance.equals(afterBalance));
+
+		log.info("Remove " + gameId + " from game list\n");
+		gameList.remove(gameId);
+		log.info("Then game list = " + gameList + "\n====================\n");
+
 	}
 
 	@AfterClass(alwaysRun=true)

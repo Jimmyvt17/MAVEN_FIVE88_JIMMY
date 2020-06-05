@@ -18,24 +18,41 @@ public class QuaysoPageObject extends AbstractPage {
         driver = mappingDriver;
     }
 
-    public List<WebElement> getBets(String... values) {
+    public List<WebElement> getBets(String value) {
 
-        String tmp = String.format(QuaysoPageUI.dynamicBetGame, values);
+        String tmp = String.format(QuaysoPageUI.dynamicBetGame, value);
         waitForElementPresentByLocator(driver, By.xpath(tmp));
         return getListElements(driver, By.xpath(tmp));
 
     }
 
-    public void waitForBetStartPresent(String... values) {
+    public boolean isBetStartPresent(String value) {
 
-        String tmp = String.format(QuaysoPageUI.dynamicBetStart, values);
-        waitForElementPresentByLocator(driver, By.xpath(tmp));
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+        String tmp1 = String.format(QuaysoPageUI.dynamicBetStart, value);
+        List<WebElement> startList = getListElements(driver, By.xpath(tmp1));
+        if (startList.size() > 0) {
+            scrollToQuaysoGame(value);
+            Integer remainTime = getBetTimeCountDown(value);
+             if (remainTime >= 10) {
+                 System.out.println("Check for game id = " + value + "\n");
+                 System.out.println("Remaining time = " + remainTime + "\n");
+                 return true;
+             } else {
+                 System.out.println("Check for game id = " + value + "\n");
+                 System.out.println("Remaining time = " + remainTime + "\n");
+                 return false;
+             }
+        } else {
+            System.out.println("Check for game id = " + value + "\n");
+            return false;
+        }
 
     }
 
-    public void scrollToQuaysoGame(String... values) {
+    public void scrollToQuaysoGame(String value) {
 
-        String tmp = String.format(QuaysoPageUI.dynamicBetStart, values);
+        String tmp = String.format(QuaysoPageUI.dynamicBetStart, value);
         scrollToElement(driver, By.xpath(tmp));
 
     }
@@ -48,9 +65,9 @@ public class QuaysoPageObject extends AbstractPage {
     }
 
 
-    public Integer getBetTimeCountDown(String... values) {
+    public Integer getBetTimeCountDown(String value) {
 
-        String tmp = String.format(QuaysoPageUI.dynamicBetTime, values);
+        String tmp = String.format(QuaysoPageUI.dynamicBetTime, value);
         String number = (String) showTextByJS(driver, By.xpath(tmp));
         return NumberUtils.toInt(number);
 
