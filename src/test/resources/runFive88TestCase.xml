@@ -15,13 +15,13 @@
     <parameter name="username" value="testslot001" />
     <parameter name="gameId" value="9999" />
 <!--    <classes>-->
-<!--      <class name="alive.Alive_02_SexyCasino"/>-->
+<!--      <class name="alive.Alive_04_eBet"/>-->
 <!--    </classes>-->
     <packages>
-<!--      <package name="account"/>-->
+      <package name="account"/>
       <package name="alive"/>
-<!--      <package name="bet"/>-->
-<!--      <package name="payment"/>-->
+      <package name="bet"/>
+      <package name="payment"/>
     </packages>
   </test> <!-- Test -->
 
