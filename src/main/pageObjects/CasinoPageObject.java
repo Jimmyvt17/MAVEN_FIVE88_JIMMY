@@ -7,8 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
-import javax.validation.constraints.AssertTrue;
 import java.util.List;
 
 public class CasinoPageObject extends AbstractPage {
@@ -287,7 +285,6 @@ public class CasinoPageObject extends AbstractPage {
             if (noIcon>0) {
                 System.out.println("Now loading... " + i * 3 + "s");
                 try {
-                    highlightElement(driver, icon.get(0));
                     Thread.sleep(3000);
                 } catch (Throwable e) {
                     e.printStackTrace();
