@@ -4,7 +4,7 @@ pipeline {
     agent { label 'java8' }
     // global env variables
     environment {
-        EMAIL_RECIPIENTS = 'jimmy@lcincom.com'
+        EMAIL_RECIPIENTS = 'nptvjimmy89@gmail.com'
     }
     stages {
 
