@@ -65,6 +65,7 @@ public class Bet_02_Lode extends CommonsTest {
 
 	protected void betLode() {
 		String beforeBet = lodePage.getBalance();
+		log.info("So tien truoc khi danh la " + beforeBet + "\n");
 
 		List<WebElement> betNo = lodePage.getBets();
 		log.info("Co " + betNo.size() + " so" + "\n");

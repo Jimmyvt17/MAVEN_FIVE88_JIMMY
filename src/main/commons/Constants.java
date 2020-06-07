@@ -14,7 +14,7 @@ public class Constants {
     public static final String TTHETHAO_URL = "https://five88.net/tsports.aspx";
 
     // Timeout
-    public static final int SHORT_TIMEOUT = 5;
+    public static final int SHORT_TIMEOUT = 2;
     public static final int LONG_TIMEOUT = 30;
 
     // User/pass

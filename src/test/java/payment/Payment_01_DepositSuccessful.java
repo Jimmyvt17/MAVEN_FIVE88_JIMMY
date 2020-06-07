@@ -5,12 +5,8 @@ import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageObjects.AccountPageObject;
-
 import java.lang.reflect.Method;
 
 public class Payment_01_DepositSuccessful extends CommonsTest {
@@ -76,10 +72,10 @@ public class Payment_01_DepositSuccessful extends CommonsTest {
 //    @Test(dataProvider= "network")
 //    public void TC_02_DepositData(String userData) {
 //        log.info("DepositSuccessful - Step 01: Go to deposit page");
-//        accountPage.beforeDepositing(userData, "@16WINner");
+//        accountPage.beforeDepositing(userData, "testjimmy");
 //
 //        log.info("DepositSuccessful - Step 02: Do a depositing");
-//        deposit("10000");
+//        deposit("1000");
 //
 //        log.info("DepositSuccessful - Step 03: Verify success warning text");
 //        verifyEquals(accountPage.getDepositWarning(), "Tạo phiếu nạp thành công");
@@ -132,20 +128,11 @@ public class Payment_01_DepositSuccessful extends CommonsTest {
 //    @DataProvider(name = "network")
 //    public static Object[][] AccountData(){
 //        return new Object[][] {
-//                {"seta001"},
-//                {"seta002"},
-//                {"seta003"},
-//                {"seta004"},
-//                {"seta005"},
-//                {"seta006"},
-//                {"seta007"},
-//                {"seta008"},
-//                {"seta009"},
-//                {"seta010"},
-//                {"seta011"},
-//                {"seta012"},
-//                {"seta013"},
-//                {"seta014"}
+//                {Constants.USERNAME_THETHAO},
+//                {Constants.USERNAME_KENO},
+//                {Constants.USERNAME_LODE},
+//                {Constants.USERNAME_NUMBER},
+//                {Constants.USERNAME_QUAYSO},
 //
 //        };
 //
