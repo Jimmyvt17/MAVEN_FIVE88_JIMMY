@@ -14,16 +14,16 @@
     <parameter name="browser" value="chrome" />
     <parameter name="username" value="testslot001" />
     <parameter name="gameId" value="9999" />
-<!--    <classes>-->
-<!--      <class name="alive.Alive_03_HoGaming"/>-->
+    <classes>
+      <class name="alive.Alive_03_HoGaming"/>
 <!--      <class name="bet.Bet_06_Keno"/>-->
-<!--    </classes>-->
-    <packages>
-      <package name="account"/>
-      <package name="alive"/>
-      <package name="bet"/>
-      <package name="payment"/>
-    </packages>
+    </classes>
+<!--    <packages>-->
+<!--      <package name="account"/>-->
+<!--      <package name="alive"/>-->
+<!--      <package name="bet"/>-->
+<!--      <package name="payment"/>-->
+<!--    </packages>-->
   </test> <!-- Test -->
 
 <!--  <test name="Run on Firefox">-->
