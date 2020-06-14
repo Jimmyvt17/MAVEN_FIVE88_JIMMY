@@ -53,14 +53,14 @@ public class QuaysoPageObject extends AbstractPage {
     public void scrollToQuaysoGame(String value) {
 
         String tmp = String.format(QuaysoPageUI.dynamicBetStart, value);
-        scrollToElement(driver, By.xpath(tmp));
+        scrollToElementByLocator(driver, By.xpath(tmp));
 
     }
 
     public String getBalance() {
 
         waitForElementPresentByLocator(driver, QuaysoPageUI.quaysoBalanceLocator);
-        return getTextElement(driver, QuaysoPageUI.quaysoBalanceLocator);
+        return getTextElementByLocator(driver, QuaysoPageUI.quaysoBalanceLocator);
 
     }
 

@@ -71,4 +71,10 @@ public class PageFactoryManager {
 
     }
 
+    public static SSportPageObject getSSportPage(WebDriver driver) {
+
+        return new SSportPageObject(driver);
+
+    }
+
 }

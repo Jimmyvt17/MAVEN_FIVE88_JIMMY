@@ -12,6 +12,7 @@ public class Constants {
     public static final String CASINO_URL = "https://five88.net/casino.aspx";
     public static final String ATHETHAO_URL = "https://five88.net/fsport/live-sports.aspx";
     public static final String TTHETHAO_URL = "https://five88.net/tsports.aspx";
+    public static final String STHETHAO_URL = "https://five88.net/ssport.aspx";
 
     // Timeout
     public static final int SHORT_TIMEOUT = 2;

@@ -176,9 +176,16 @@ public class AbstractPage {
 
     }
 
-    public String getTextElement(WebDriver driver, By xPathLocator) {
+    public String getTextElementByLocator(WebDriver driver, By xPathLocator) {
 
         element = driver.findElement(xPathLocator);
+        return element.getText();
+
+    }
+
+    public String getTextElement(WebDriver driver, WebElement element) {
+
+        waitForElementVisible(driver, element);
         return element.getText();
 
     }
@@ -679,9 +686,21 @@ public class AbstractPage {
 
     }
 
-    public void scrollToElement(WebDriver driver, By xPathLocator) {
+    public void scrollToElementByLocator(WebDriver driver, By xPathLocator) {
 
         element = driver.findElement(xPathLocator);
+        js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        try {
+            Thread.sleep(1000);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void scrollToElement(WebDriver driver, WebElement element) {
+
         js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
         try {

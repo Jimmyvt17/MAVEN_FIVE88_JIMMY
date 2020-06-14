@@ -20,14 +20,14 @@ public class LodePageObject extends AbstractPage {
     public String getBalance() {
 
         waitForElementPresentByLocator(driver, LodePageUI.lodeBalanceLocator);
-        return getTextElement(driver, LodePageUI.lodeBalanceLocator);
+        return getTextElementByLocator(driver, LodePageUI.lodeBalanceLocator);
 
     }
 
     public String getNumberSelected() {
 
         waitForElementPresentByLocator(driver, LodePageUI.numberSelectLocator);
-        return getTextElement(driver, LodePageUI.numberSelectLocator);
+        return getTextElementByLocator(driver, LodePageUI.numberSelectLocator);
 
     }
 

@@ -76,14 +76,14 @@ public class KenoPageObject extends AbstractPage {
     public void scrollToKenoGame(String value) {
 
         String tmp = String.format(KenoPageUI.dynamicBetStart, value);
-        scrollToElement(driver, By.xpath(tmp));
+        scrollToElementByLocator(driver, By.xpath(tmp));
 
     }
 
     public Integer getBetTimeCountDown(String value) {
 
         String tmp = String.format(KenoPageUI.dynamicBetTime, value);
-        String betTime = getTextElement(driver, By.xpath(tmp));
+        String betTime = getTextElementByLocator(driver, By.xpath(tmp));
         return NumberUtils.toInt(betTime.replace("0:", ""));
 
     }
@@ -91,7 +91,7 @@ public class KenoPageObject extends AbstractPage {
     public String getBalance() {
 
         waitForElementVisibleByLocator(driver, KenoPageUI.balanceLocator);
-        return getTextElement(driver, KenoPageUI.balanceLocator);
+        return getTextElementByLocator(driver, KenoPageUI.balanceLocator);
 
     }
 

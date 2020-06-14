@@ -21,7 +21,7 @@ public class ASportPageObject extends AbstractPage {
     public String getBalance() {
 
         waitForElementVisibleByLocator(driver, ASportPageUI.aSportBalanceLocator);
-        return getTextElement(driver, ASportPageUI.aSportBalanceLocator);
+        return getTextElementByLocator(driver, ASportPageUI.aSportBalanceLocator);
 
     }
 
@@ -41,7 +41,7 @@ public class ASportPageObject extends AbstractPage {
     public String getBetDetails() {
 
         waitForElementVisibleByLocator(driver, ASportPageUI.betOrderLocator);
-        return getTextElement(driver, ASportPageUI.betOrderLocator);
+        return getTextElementByLocator(driver, ASportPageUI.betOrderLocator);
 
     }
 
@@ -84,7 +84,7 @@ public class ASportPageObject extends AbstractPage {
     public String getTicketDetails() {
 
         waitForElementVisibleByLocator(driver, ASportPageUI.betTicketLocator);
-        return getTextElement(driver, ASportPageUI.betTicketLocator);
+        return getTextElementByLocator(driver, ASportPageUI.betTicketLocator);
 
     }
 

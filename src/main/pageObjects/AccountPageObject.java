@@ -23,7 +23,7 @@ public class AccountPageObject extends AbstractPage {
     public String getUsername() {
 
         waitForElementVisibleByLocator(driver, AccountPageUI.loginNameLocator);
-        return getTextElement(driver, AccountPageUI.loginNameLocator);
+        return getTextElementByLocator(driver, AccountPageUI.loginNameLocator);
 
     }
 
@@ -53,14 +53,14 @@ public class AccountPageObject extends AbstractPage {
     public String getDepositWarning() {
 
         waitForElementVisibleByLocator(driver, AccountPageUI.depositInformLocator);
-        return getTextElement(driver, AccountPageUI.depositInformLocator);
+        return getTextElementByLocator(driver, AccountPageUI.depositInformLocator);
 
     }
 
     public String getTicketStatus() {
 
         waitForElementVisibleByLocator(driver, AccountPageUI.ticketStatusLocator);
-        return getTextElement(driver, AccountPageUI.ticketStatusLocator);
+        return getTextElementByLocator(driver, AccountPageUI.ticketStatusLocator);
 
     }
 

@@ -10,7 +10,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.HomePageObject;
-
 import java.lang.reflect.Method;
 
 public class Account_03_LoginSuccessful extends CommonsTest {

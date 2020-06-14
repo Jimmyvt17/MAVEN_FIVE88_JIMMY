@@ -2,7 +2,6 @@ package pageObjects;
 
 import commons.AbstractPage;
 import commons.Constants;
-import five88.ASportPageUI;
 import five88.TSportPageUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +21,7 @@ public class TSportPageObject extends AbstractPage {
     public String getBalance() {
 
         waitForElementVisibleByLocator(driver, TSportPageUI.tSportBalanceLocator);
-        return getTextElement(driver, TSportPageUI.tSportBalanceLocator);
+        return getTextElementByLocator(driver, TSportPageUI.tSportBalanceLocator);
 
     }
 
@@ -42,7 +41,7 @@ public class TSportPageObject extends AbstractPage {
     public String getBetDetails() {
 
         waitForElementVisibleByLocator(driver, TSportPageUI.betOrderLocator);
-        return getTextElement(driver, TSportPageUI.betOrderLocator);
+        return getTextElementByLocator(driver, TSportPageUI.betOrderLocator);
 
     }
 
@@ -77,7 +76,7 @@ public class TSportPageObject extends AbstractPage {
 
     public String getTicketDetails() {
 
-        return getTextElement(driver, TSportPageUI.ticketOKTSportLocator);
+        return getTextElementByLocator(driver, TSportPageUI.ticketOKTSportLocator);
 
     }
 

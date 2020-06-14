@@ -54,7 +54,7 @@ public class NumberPageObject extends AbstractPage {
         String tmp = String.format(NumberPageUI.dynamicBetTime, value);
         boolean i = true;
         while (i) {
-            String betTime = getTextElement(driver, By.xpath(tmp));
+            String betTime = getTextElementByLocator(driver, By.xpath(tmp));
             if (betTime.equals("No more bets")) {
                 System.out.println("Can not bet now");
                 try {
@@ -74,7 +74,7 @@ public class NumberPageObject extends AbstractPage {
     public Integer getBetTimeCountDown(String value) {
 
         String tmp = String.format(NumberPageUI.dynamicBetTime, value);
-        String betTime = getTextElement(driver, By.xpath(tmp));
+        String betTime = getTextElementByLocator(driver, By.xpath(tmp));
         return NumberUtils.toInt(betTime.replace("s", ""));
 
     }
@@ -82,7 +82,7 @@ public class NumberPageObject extends AbstractPage {
     public String getBalance() {
 
         waitForElementVisibleByLocator(driver, NumberPageUI.balanceLocator);
-        return getTextElement(driver, NumberPageUI.balanceLocator);
+        return getTextElementByLocator(driver, NumberPageUI.balanceLocator);
 
     }
 
@@ -124,14 +124,14 @@ public class NumberPageObject extends AbstractPage {
     public String getTicketDetail() {
 
         waitForElementVisibleByLocator(driver, NumberPageUI.ticketContentLocator);
-        return getTextElement(driver, NumberPageUI.ticketContentLocator);
+        return getTextElementByLocator(driver, NumberPageUI.ticketContentLocator);
 
     }
 
     public String getBetDetail() {
 
         waitForElementVisibleByLocator(driver, NumberPageUI.betContentLocator);
-        return getTextElement(driver, NumberPageUI.betContentLocator);
+        return getTextElementByLocator(driver, NumberPageUI.betContentLocator);
 
     }
 }

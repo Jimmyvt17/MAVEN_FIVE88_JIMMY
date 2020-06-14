@@ -18,7 +18,7 @@ public class HomePageObject extends AbstractPage {
     public String getLoginErrorText() {
 
         waitForElementVisibleByLocator(driver, HomePageUI.loginErrorLocator);
-        return getTextElement(driver, HomePageUI.loginErrorLocator);
+        return getTextElementByLocator(driver, HomePageUI.loginErrorLocator);
 
     }
 

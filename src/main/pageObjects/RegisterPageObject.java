@@ -52,21 +52,21 @@ public class RegisterPageObject extends AbstractPage {
     public String  getUsernameError() {
 
         waitForElementVisibleByLocator(driver, RegisterPageUI.usernameRegisError);
-        return getTextElement(driver, RegisterPageUI.usernameRegisError);
+        return getTextElementByLocator(driver, RegisterPageUI.usernameRegisError);
 
     }
 
     public String  getPasswordError() {
 
         waitForElementVisibleByLocator(driver, RegisterPageUI.passwordRegisError);
-        return getTextElement(driver, RegisterPageUI.passwordRegisError);
+        return getTextElementByLocator(driver, RegisterPageUI.passwordRegisError);
 
     }
 
     public String  getPhoneError() {
 
         waitForElementVisibleByLocator(driver, RegisterPageUI.phoneRegisError);
-        return getTextElement(driver, RegisterPageUI.phoneRegisError);
+        return getTextElementByLocator(driver, RegisterPageUI.phoneRegisError);
 
     }
 
