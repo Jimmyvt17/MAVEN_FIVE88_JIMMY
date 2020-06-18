@@ -15,7 +15,6 @@ import pageObjects.SSportPageObject;
 import java.lang.reflect.Method;
 import java.util.List;
 
-
 public class Bet_08_SSport extends CommonsTest {
 
 	WebDriver driver;
@@ -36,20 +35,25 @@ public class Bet_08_SSport extends CommonsTest {
 	@Test
 	public void TC_1_SSport(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_SSport");
-
 		log.info("SSport - Step01: Login with valid account\n");
-		sSportPage.loginSportAccount();
 		try {
-			Thread.sleep(5000);
+			sSportPage.loginSportAccount();
 		} catch (Throwable e) {
-			e.printStackTrace();
+			String error = "Failed test case: \n" + getClass().getName() + "\n" + method.getName() + "\n" + e.toString();
+			sendBot(error);
+			throw e;
 		}
 
 		log.info("SSport - Step02: Navigate sport iframe to play\n");
 		sSportPage.navigateSSportIframe();
 
-		log.info("SSport - Step03: Betting\n");
-		betSSport();
+//		log.info("SSport - Step03: Betting\n");
+//		try {
+//			betSSport();
+//		} catch (Throwable e) {
+//			String error = getClass().getName() + "\n" + method.getName() + "\n" + e.toString();
+//			sendBot(error);
+//		}
 
 		log.info("The thao S thanh cong\n====================\n");
 
@@ -58,11 +62,11 @@ public class Bet_08_SSport extends CommonsTest {
 	protected void betSSport() {
 		log.info("Bet Asia version\n");
 		betAsiaSport();
+		log.info("\n====================\n");
 
 		log.info("Bet Euro version\n");
 		sSportPage.switchToEUMode();
 		betEUSport();
-
 
 	}
 
@@ -123,8 +127,6 @@ public class Bet_08_SSport extends CommonsTest {
 			}
 
 		}
-
-
 
 	}
 

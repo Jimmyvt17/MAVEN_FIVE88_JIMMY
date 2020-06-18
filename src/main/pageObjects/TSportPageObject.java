@@ -6,6 +6,7 @@ import five88.TSportPageUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -80,6 +81,13 @@ public class TSportPageObject extends AbstractPage {
 
     }
 
+
+    public String getBetTicketDetails() {
+
+        return getTextElementByLocator(driver, TSportPageUI.betTicketLocator);
+
+    }
+
     public void logoutToHomePage() {
 
         logout(driver);
@@ -101,6 +109,13 @@ public class TSportPageObject extends AbstractPage {
     public void quitTSportIframe() {
 
         backToTopWindow(driver);
+
+    }
+
+    public void verifyMinBet() {
+
+        Assert.assertTrue(isControlDisplayed(driver, TSportPageUI.minBetTSportLocator)==true);
+        System.out.println("-------------------------- PASSED --------------------------");
 
     }
 

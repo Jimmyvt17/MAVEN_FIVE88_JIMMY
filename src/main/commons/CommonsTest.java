@@ -1,6 +1,10 @@
 package commons;
 
+import com.pengrad.telegrambot.TelegramBot;
+import com.pengrad.telegrambot.request.SendMessage;
+import com.pengrad.telegrambot.response.SendResponse;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import okhttp3.OkHttpClient;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -16,7 +20,13 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -32,6 +42,50 @@ public class CommonsTest {
     public WebDriver getDriver() {
         return driver;
 
+    }
+
+    public void sendBot(String text) {
+        OkHttpClient client = new OkHttpClient();
+
+        TelegramBot bot = new TelegramBot.Builder(Constants.FIVE88BOT).okHttpClient(client).build();
+
+        long chatId = Constants.FIVE88_FAIL_ROOM_ID;
+
+        //SendResponse response = bot.execute(new SendMessage(chatId, text));
+        SendMessage request = new SendMessage(chatId, text);
+//                .parseMode(ParseMode.HTML)
+//                .disableWebPagePreview(true)
+//                .disableNotification(false)
+//                .replyToMessageId(1)
+//                .replyMarkup(new ForceReply());
+//
+        // sync
+        SendResponse sendResponse = bot.execute(request);
+//        boolean ok = sendResponse.isOk();
+//        Message message = sendResponse.message();
+
+//        // async
+//        bot.execute(request, new Callback<SendMessage, SendResponse>() {
+//            @Override
+//            public void onResponse(SendMessage request, SendResponse response) {}
+//
+//            @Override
+//            public void onFailure(SendMessage request, IOException e) {}
+//        });
+    }
+
+    public static void sendToTelegram(String botToken, long chatId, String text) {
+        String urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s";
+
+        urlString = String.format(urlString, botToken, chatId, text);
+
+        try {
+            URL url = new URL(urlString);
+            URLConnection conn = url.openConnection();
+            InputStream is = new BufferedInputStream(conn.getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void delayInHour(Integer delayTime, Integer timeInHour) {

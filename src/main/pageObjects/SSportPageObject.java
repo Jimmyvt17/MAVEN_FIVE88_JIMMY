@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.Reporter;
-
 import java.util.List;
 
 public class SSportPageObject extends AbstractPage {
@@ -55,6 +54,7 @@ public class SSportPageObject extends AbstractPage {
 
     public boolean isTicketCreated() {
 
+        scrollToElementByLocator(driver, SSportPageUI.betSelectedLocator);
         return isControlDisplayed(driver, SSportPageUI.betSelectedLocator);
 
     }
@@ -110,6 +110,7 @@ public class SSportPageObject extends AbstractPage {
 
     public void verifyBetSuccess() {
 
+        overrideTimeout(driver, Constants.LONG_TIMEOUT);
         waitForElementVisibleByLocator(driver, SSportPageUI.ticketOKSSportLocator);
 
     }
@@ -117,6 +118,12 @@ public class SSportPageObject extends AbstractPage {
     public void loginSportAccount() {
 
         login(driver, Constants.USERNAME_THETHAO, Constants.PASSWORD);
+        acceptAlert(driver);
+        try {
+            Thread.sleep(5000);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
 
     }
 

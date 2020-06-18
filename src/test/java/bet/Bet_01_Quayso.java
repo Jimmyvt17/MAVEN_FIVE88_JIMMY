@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.QuaysoPageObject;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;

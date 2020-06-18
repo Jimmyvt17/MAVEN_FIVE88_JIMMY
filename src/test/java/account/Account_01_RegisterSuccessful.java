@@ -5,9 +5,13 @@ import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import pageObjects.AccountPageObject;
 import pageObjects.RegisterPageObject;
+
 import java.lang.reflect.Method;
 import java.util.Date;
 

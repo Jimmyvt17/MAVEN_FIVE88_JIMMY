@@ -35,6 +35,11 @@ public class Constants {
     public static final String MONEY_DEP = "50";
     public static final String MONEY_WIT = "100";
 
+    // Telegram
+    public static final String FIVE88BOT = "1229608956:AAGPgFoYgcb2nMH0V36vPGEFSO9EOwPU92U";
+    public static final long FIVE88_FAIL_ROOM_ID = -459749874;
+    public static final long FIVE88_PROCESS_ROOM_ID = -418064402;
+
     // Others
     public static final String dynamicIframe = "//iframe[@id='%s']";
 

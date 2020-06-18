@@ -14,7 +14,6 @@ import pageObjects.TSportPageObject;
 import java.lang.reflect.Method;
 import java.util.List;
 
-
 public class Bet_07_TSport extends CommonsTest {
 
 	WebDriver driver;
@@ -36,7 +35,7 @@ public class Bet_07_TSport extends CommonsTest {
 	public void TC_1_TSport(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_TSport");
 
-		log.info("TSport - Step01: Login with valid account");
+		log.info("TSport - Step01: Login with valid account\n");
 		tSportPage.loginSportAccount();
 		try {
 			Thread.sleep(5000);
@@ -44,23 +43,26 @@ public class Bet_07_TSport extends CommonsTest {
 			e.printStackTrace();
 		}
 
-		log.info("TSport - Step02: Switch to sport iframe to play");
+		log.info("TSport - Step02: Switch to sport iframe to play\n");
 		tSportPage.switchToTSportIframe();
 
-		log.info("TSport - Step03: Betting");
-		betASport();
+		log.info("TSport - Step03: Betting\n");
+		betTSport();
 
-		log.info("TSport - Step04: Exit iframe");
+		log.info("TSport - Step04: Verify min bet and max bet\n");
+		verifyTSport();
+
+		log.info("TSport - Step05: Exit iframe\n");
 		tSportPage.quitTSportIframe();
 
-		log.info("TSport - Step05: Logout");
+		log.info("TSport - Step06: Logout\n");
 		tSportPage.logoutToHomePage();
 
 		log.info("The thao T thanh cong\n====================\n");
 
 	}
 
-	protected void betASport() {
+	protected void betTSport() {
 		boolean i = true;
 
 		while (i) {
@@ -82,6 +84,11 @@ public class Bet_07_TSport extends CommonsTest {
 
 			log.info("Click to open bet panel\n");
 			tSportPage.openBetPanel(listBet.get(betSelect));
+			try {
+				Thread.sleep(15 * 1000);
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
 
 			String betOrderDetails = tSportPage.getBetDetails();
 			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
@@ -92,7 +99,7 @@ public class Bet_07_TSport extends CommonsTest {
 			log.info("Confirm betting\n");
 			tSportPage.confirmBet();
 			try {
-				Thread.sleep(5000);
+				Thread.sleep(5 * 1000);
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
@@ -100,7 +107,7 @@ public class Bet_07_TSport extends CommonsTest {
 			log.info("Open bet board\n");
 			tSportPage.openBetBoard();
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(3 * 1000);
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
@@ -108,11 +115,11 @@ public class Bet_07_TSport extends CommonsTest {
 			if(tSportPage.isTicketDisplayed()){
 				log.info("Bet ticket in process\n");
 
-				String betTicketDetails = tSportPage.getTicketDetails();
-				log.info("Noi dung ve cuoc la\n" + betTicketDetails + "\n");
+				String ticketDetails = tSportPage.getTicketDetails();
+				log.info("Noi dung ve cuoc la\n" + ticketDetails + "\n");
 
 				log.info("Verify ticket is correct\n");
-				verifyEquals(betOrderDetails, betTicketDetails);
+				verifyEquals(betOrderDetails, ticketDetails);
 
 				String afterBalance = tSportPage.getBalance();
 				log.info("So tien sau khi bet la " + afterBalance + "\n");
@@ -135,6 +142,45 @@ public class Bet_07_TSport extends CommonsTest {
 
 		}
 	}
+
+	protected void verifyTSport() {
+		for (int i = 0; i < 10; i++) {
+			log.info("i = " + i + "\n");
+
+			List<WebElement> listBet = tSportPage.getBets();
+			log.info("So luong cua bet la " + listBet.size() + "\n");
+
+			int betSelect = randomNumber(listBet.size());
+			log.info("Chon bet cua thu " + betSelect + "\n");
+			try {
+				Thread.sleep(1000);
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
+
+			log.info("Click to open bet panel\n");
+			tSportPage.openBetPanel(listBet.get(betSelect));
+
+			String betOrderDetails = tSportPage.getBetDetails();
+			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
+
+			String betTicketDetails = tSportPage.getBetTicketDetails();
+			log.info("Noi dung ve cuoc la\n" + betTicketDetails + "\n");
+
+			log.info("Verify ticket is correct\n");
+			verifyEquals(betOrderDetails, betTicketDetails);
+			try {
+				Thread.sleep(10 * 1000);
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
+
+			log.info("Verify min bet exist\n");
+			tSportPage.verifyMinBet();
+
+		}
+	}
+
 
 	@AfterClass(alwaysRun=true)
 	public void afterClass() {

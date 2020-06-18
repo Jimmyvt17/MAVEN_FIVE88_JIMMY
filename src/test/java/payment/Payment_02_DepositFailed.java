@@ -1,6 +1,5 @@
 package payment;
 
-
 import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;

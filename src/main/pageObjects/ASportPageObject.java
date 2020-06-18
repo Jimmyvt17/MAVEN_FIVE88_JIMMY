@@ -17,7 +17,6 @@ public class ASportPageObject extends AbstractPage {
         driver = mappingDriver;
     }
 
-
     public String getBalance() {
 
         waitForElementVisibleByLocator(driver, ASportPageUI.aSportBalanceLocator);

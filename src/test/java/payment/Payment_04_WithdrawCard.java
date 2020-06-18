@@ -13,7 +13,6 @@ import pageObjects.AccountPageObject;
 
 import java.lang.reflect.Method;
 
-
 public class Payment_04_WithdrawCard extends CommonsTest {
 
     WebDriver driver;
