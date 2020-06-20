@@ -96,6 +96,7 @@ public class SSportPageObject extends AbstractPage {
 
     public void confirmBet() {
 
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
         waitForElementVisibleByLocator(driver, SSportPageUI.betConfirmSSportLocator);
         clickToElementByJSByLocator(driver, SSportPageUI.betConfirmSSportLocator);
 
@@ -118,7 +119,6 @@ public class SSportPageObject extends AbstractPage {
     public void loginSportAccount() {
 
         login(driver, Constants.USERNAME_THETHAO, Constants.PASSWORD);
-        acceptAlert(driver);
         try {
             Thread.sleep(5000);
         } catch (Throwable e) {

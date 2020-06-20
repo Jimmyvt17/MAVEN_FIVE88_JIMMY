@@ -1,6 +1,6 @@
 package bet;
 
-import commons.CommonsTest;
+import commons.BaseTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
@@ -9,14 +9,13 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 import pageObjects.LodePageObject;
 
 import java.lang.reflect.Method;
 import java.util.List;
 
 
-public class Bet_02_Lode extends CommonsTest {
+public class Bet_02_Lode extends BaseTest {
 
 	WebDriver driver;
 	LodePageObject lodePage;
@@ -31,8 +30,8 @@ public class Bet_02_Lode extends CommonsTest {
 
 	}
 
-	@Test
-	public void TC_1_Lode(Method method) {
+	@Override
+	public void Run(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_Lode");
 
 		log.info("Lode - Step 01: Login with valid account");

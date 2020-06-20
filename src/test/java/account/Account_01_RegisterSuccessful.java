@@ -11,10 +11,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.AccountPageObject;
 import pageObjects.RegisterPageObject;
-
 import java.lang.reflect.Method;
 import java.util.Date;
-
 
 public class Account_01_RegisterSuccessful extends CommonsTest {
 
@@ -137,20 +135,20 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 	}
 
 	private void register(String username, String password, String phone) {
-		registerPage.openRegisterPage();
-		registerPage.inputToUsernameTextBox(username);
-		registerPage.inputToPasswordTextBox(password);
-		registerPage.inputToPhoneTextBox(phone);
-		accountPage = registerPage.clickToSubmitButton();
-		try {
-			Thread.sleep(1000);
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
-		verifyEquals(accountPage.getAccountPageUrl(), Constants.DEPOSIT_URL);
-		String userName = accountPage.getUsername();
-		verifyEquals(userName, username.toUpperCase());
-		log.info("Ten nguoi dung la " + userName);
+			registerPage.openRegisterPage();
+			registerPage.inputToUsernameTextBox(username);
+			registerPage.inputToPasswordTextBox(password);
+			registerPage.inputToPhoneTextBox(phone);
+			accountPage = registerPage.clickToSubmitButton();
+			try {
+				Thread.sleep(1000);
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
+			verifyEquals(accountPage.getAccountPageUrl(), Constants.DEPOSIT_URL);
+			String userName = accountPage.getUsername();
+			verifyEquals(userName, username.toUpperCase());
+			log.info("Ten nguoi dung la " + userName);
 
 	}
 

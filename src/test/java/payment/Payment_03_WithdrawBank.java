@@ -1,6 +1,6 @@
 package payment;
 
-import commons.CommonsTest;
+import commons.BaseTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
@@ -9,12 +9,11 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 import pageObjects.AccountPageObject;
 
 import java.lang.reflect.Method;
 
-public class Payment_03_WithdrawBank extends CommonsTest {
+public class Payment_03_WithdrawBank extends BaseTest {
 
     WebDriver driver;
     AccountPageObject accountPage;
@@ -29,8 +28,8 @@ public class Payment_03_WithdrawBank extends CommonsTest {
 
     }
 
-    @Test
-    public void TC_01_WithdrawBanking(Method method) {
+    @Override
+    public void Run(Method method) {
         ExtentTestManager.startTest(method.getName(), "TC_01_WithdrawBanking");
 
         log.info("WithdrawBanking - Step 01: Get current balance");

@@ -35,13 +35,10 @@ public class ReportNGListener extends CommonsTest implements ITestListener {
     public void onTestFailure(ITestResult result) {
         System.out.println("---------- " + result.getName() + " FAILED test ----------");
         System.setProperty("org.uncommons.reportng.escape-output", "false");
-
         Object testClass = result.getInstance();
         WebDriver webDriver = ((CommonsTest) testClass).getDriver();
-
         String screenshot = captureScreenshotBase64(webDriver);
         Reporter.getCurrentTestResult();
-        //Reporter.log("<br><a target=\"_blank\" href=\"" + screenshot + "\">" + "<img src=\"" + screenshot + "\" " + "height='100' width='150'/> " + "</a></br>");
         Reporter.log(ExtentTestManager.getTest().addBase64ScreenShot(screenshot));
         Reporter.setCurrentTestResult(null);
     }

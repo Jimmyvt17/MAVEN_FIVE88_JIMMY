@@ -1,6 +1,6 @@
 package bet;
 
-import commons.CommonsTest;
+import commons.BaseTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
@@ -10,12 +10,11 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 import pageObjects.SSportPageObject;
 import java.lang.reflect.Method;
 import java.util.List;
 
-public class Bet_08_SSport extends CommonsTest {
+public class Bet_08_SSport extends BaseTest {
 
 	WebDriver driver;
 	SSportPageObject sSportPage;
@@ -32,28 +31,17 @@ public class Bet_08_SSport extends CommonsTest {
 
 	private String BET_MONEY = "30";
 
-	@Test
-	public void TC_1_SSport(Method method) {
+	@Override
+	public void Run(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_SSport");
 		log.info("SSport - Step01: Login with valid account\n");
-		try {
-			sSportPage.loginSportAccount();
-		} catch (Throwable e) {
-			String error = "Failed test case: \n" + getClass().getName() + "\n" + method.getName() + "\n" + e.toString();
-			sendBot(error);
-			throw e;
-		}
+		sSportPage.loginSportAccount();
 
 		log.info("SSport - Step02: Navigate sport iframe to play\n");
 		sSportPage.navigateSSportIframe();
 
-//		log.info("SSport - Step03: Betting\n");
-//		try {
-//			betSSport();
-//		} catch (Throwable e) {
-//			String error = getClass().getName() + "\n" + method.getName() + "\n" + e.toString();
-//			sendBot(error);
-//		}
+		log.info("SSport - Step03: Betting\n");
+		betSSport();
 
 		log.info("The thao S thanh cong\n====================\n");
 
@@ -208,5 +196,6 @@ public class Bet_08_SSport extends CommonsTest {
 		closeBrowserAndDriver(driver);
 		
 	}
+
 
 }
