@@ -84,14 +84,14 @@ public class Bet_07_TSport extends BaseTest {
 
 			log.info("Click to open bet panel\n");
 			tSportPage.openBetPanel(listBet.get(betSelect));
+
+			String betOrderDetails = tSportPage.getBetDetails();
+			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
 			try {
 				Thread.sleep(5 * 1000);
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
-
-			String betOrderDetails = tSportPage.getBetDetails();
-			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
 
 			log.info("Select money to bet = " + BET_MONEY + "\n");
 			tSportPage.inputBetMoney(BET_MONEY);
