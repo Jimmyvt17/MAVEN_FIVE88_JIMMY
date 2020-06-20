@@ -85,7 +85,7 @@ public class Bet_07_TSport extends BaseTest {
 			log.info("Click to open bet panel\n");
 			tSportPage.openBetPanel(listBet.get(betSelect));
 			try {
-				Thread.sleep(15 * 1000);
+				Thread.sleep(5 * 1000);
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
@@ -170,7 +170,7 @@ public class Bet_07_TSport extends BaseTest {
 			log.info("Verify ticket is correct\n");
 			verifyEquals(betOrderDetails, betTicketDetails);
 			try {
-				Thread.sleep(10 * 1000);
+				Thread.sleep(5 * 1000);
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
