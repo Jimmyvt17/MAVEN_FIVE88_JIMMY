@@ -6,6 +6,7 @@ import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -70,13 +71,17 @@ public class Bet_01_Quayso extends BaseTest {
 		log.info("First game list = " + listA + "\n");
 
 		while (listA.size() > 0) {
-			for (int i = 0; i < listA.size(); i++) {
-				String x = listA.get(i);
-				if (!quaysoPage.isBetStartPresent(x)) {
-					log.info(x + " can not bet now\n====================\n");
+			for (int count = 1; count <= 20; count++) {
+				for (int i = 0; i < listA.size(); i++) {
+					String x = listA.get(i);
+					if (!quaysoPage.isBetStartPresent(x)) {
+						log.info(x + " can not bet now\n====================\n");
 
-				} else {
-					betALotteryGame(listA, x);
+					} else {
+						betALotteryGame(listA, x);
+					}
+					log.info("count = " + count + "\n====================\n");
+					Assert.assertTrue(count < 20);
 				}
 			}
 		}

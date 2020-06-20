@@ -6,6 +6,7 @@ import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -69,12 +70,16 @@ public class Bet_06_Keno extends BaseTest {
 		log.info("First game list = " + list + "\n");
 
 		while (list.size() > 0) {
-			for (int i = 0; i < list.size(); i++) {
-				String x = list.get(i);
-				if (!kenoPage.isBetStartPresent(x)) {
-					log.info(x + " can not bet now\n====================\n");
-				} else {
-					betAKenoGame(list, x);
+			for (int count = 1; count <= 20; count++) {
+				for (int i = 0; i < list.size(); i++) {
+					String x = list.get(i);
+					if (!kenoPage.isBetStartPresent(x)) {
+						log.info(x + " can not bet now\n");
+					} else {
+						betAKenoGame(list, x);
+					}
+					log.info("count = " + count + "\n====================\n");
+					Assert.assertTrue(count < 20);
 				}
 			}
 		}
@@ -113,7 +118,7 @@ public class Bet_06_Keno extends BaseTest {
 
 		log.info("Remove " + gameId + " from game list\n");
 		gameList.remove(gameId);
-		log.info("Then game list = " + gameList + "\n====================\n");
+		log.info("Then game list = " + gameList + "\n");
 
 	}
 
