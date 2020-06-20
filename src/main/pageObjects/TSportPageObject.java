@@ -3,7 +3,6 @@ package pageObjects;
 import commons.AbstractPage;
 import commons.Constants;
 import five88.TSportPageUI;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -46,11 +45,11 @@ public class TSportPageObject extends AbstractPage {
 
     }
 
-    public void selectBetMoney(String value) {
+    public void inputBetMoney(String value) {
 
-        String tmp = String.format(TSportPageUI.dynamicBetMoney, value);
-        waitForElementVisibleByLocator(driver, By.xpath(tmp));
-        clickToElementByJSByLocator(driver, By.xpath(tmp));
+        sendKeyToElement(driver, TSportPageUI.inputBetMoneyLocator, value);
+        waitForElementVisibleByLocator(driver, TSportPageUI.betButtonLocator);
+        clickToElementByLocator(driver, TSportPageUI.betButtonLocator);
 
     }
 

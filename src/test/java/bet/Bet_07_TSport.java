@@ -94,7 +94,7 @@ public class Bet_07_TSport extends BaseTest {
 			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
 
 			log.info("Select money to bet = " + BET_MONEY + "\n");
-			tSportPage.selectBetMoney(BET_MONEY);
+			tSportPage.inputBetMoney(BET_MONEY);
 
 			log.info("Confirm betting\n");
 			tSportPage.confirmBet();

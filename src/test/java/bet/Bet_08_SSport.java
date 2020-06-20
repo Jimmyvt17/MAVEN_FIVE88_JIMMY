@@ -50,11 +50,11 @@ public class Bet_08_SSport extends BaseTest {
 	protected void betSSport() {
 		log.info("Bet Asia version\n");
 		betAsiaSport();
-		log.info("\n====================\n");
-
-		log.info("Bet Euro version\n");
-		sSportPage.switchToEUMode();
-		betEUSport();
+//		log.info("\n====================\n");
+//
+//		log.info("Bet Euro version\n");
+//		sSportPage.switchToEUMode();
+//		betEUSport();
 
 	}
 

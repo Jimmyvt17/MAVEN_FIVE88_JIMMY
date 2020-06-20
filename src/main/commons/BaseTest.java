@@ -12,7 +12,7 @@ public abstract class BaseTest extends CommonsTest {
         try {
             Run(method);
         } catch (Throwable e) {
-            String error = "Failed test case: \n" + getClass().getName() + "\n" + e.toString();
+            String error = "Failed test case: \n" + getClass().getName() + "\n" + e.toString() + "\n==================================================\n";
             sendBot(error);
             throw e;
         }
