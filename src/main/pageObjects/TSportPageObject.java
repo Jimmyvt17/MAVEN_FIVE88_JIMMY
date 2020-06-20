@@ -48,6 +48,11 @@ public class TSportPageObject extends AbstractPage {
     public void inputBetMoney(String value) {
 
         sendKeyToElement(driver, TSportPageUI.inputBetMoneyLocator, value);
+
+    }
+
+    public void clickToBetButton() {
+
         waitForElementVisibleByLocator(driver, TSportPageUI.betButtonLocator);
         clickToElementByLocator(driver, TSportPageUI.betButtonLocator);
 

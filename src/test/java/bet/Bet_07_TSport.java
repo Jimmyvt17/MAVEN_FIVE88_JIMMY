@@ -93,8 +93,11 @@ public class Bet_07_TSport extends BaseTest {
 				e.printStackTrace();
 			}
 
-			log.info("Select money to bet = " + BET_MONEY + "\n");
+			log.info("Input money to bet = " + BET_MONEY + "\n");
 			tSportPage.inputBetMoney(BET_MONEY);
+
+			log.info("Click bet button\n");
+			tSportPage.clickToBetButton();
 
 			log.info("Confirm betting\n");
 			tSportPage.confirmBet();
