@@ -1,6 +1,7 @@
 package commons;
 
 import org.testng.annotations.Test;
+
 import java.lang.reflect.Method;
 
 public abstract class BaseTest extends CommonsTest {
@@ -12,8 +13,9 @@ public abstract class BaseTest extends CommonsTest {
         try {
             Run(method);
         } catch (Throwable e) {
-            String error = "Failed test case: \n" + getClass().getName() + "\n" + e.toString() + "\n==================================================\n";
-            sendBot(error);
+            String error = e.toString().substring(0, e.toString().indexOf("\n"));
+            String err = "Failed test case: \n" + getClass().getName() + "\n" + error + "\n==================================================\n";
+            sendBot(err);
             throw e;
         }
 
