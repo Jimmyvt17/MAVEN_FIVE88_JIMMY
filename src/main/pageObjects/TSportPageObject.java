@@ -69,6 +69,8 @@ public class TSportPageObject extends AbstractPage {
 
         waitForElementVisibleByLocator(driver, TSportPageUI.betBoardTSportLocator);
         clickToElementByJSByLocator(driver, TSportPageUI.betBoardTSportLocator);
+        waitForElementVisibleByLocator(driver, TSportPageUI.inProcessTicketTSportLocator);
+        clickToElementByJSByLocator(driver, TSportPageUI.inProcessTicketTSportLocator);
 
     }
 

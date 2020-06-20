@@ -99,8 +99,8 @@ public class Bet_07_TSport extends BaseTest {
 			log.info("Click bet button\n");
 			tSportPage.clickToBetButton();
 
-			log.info("Confirm betting\n");
-			tSportPage.confirmBet();
+//			log.info("Confirm betting\n");
+//			tSportPage.confirmBet();
 			try {
 				Thread.sleep(5 * 1000);
 			} catch (Throwable e) {
