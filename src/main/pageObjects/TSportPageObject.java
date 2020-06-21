@@ -34,7 +34,7 @@ public class TSportPageObject extends AbstractPage {
 
     public void openBetPanel(WebElement element) {
 
-        clickToElementByJS(driver, element);
+        clickToElement(driver, element);
 
     }
 
@@ -61,23 +61,23 @@ public class TSportPageObject extends AbstractPage {
     public void confirmBet() {
 
         waitForElementVisibleByLocator(driver, TSportPageUI.betConfirmTSportLocator);
-        clickToElementByJSByLocator(driver, TSportPageUI.betConfirmTSportLocator);
+        clickToElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
 
     }
 
     public void openBetBoard() {
 
         waitForElementVisibleByLocator(driver, TSportPageUI.betBoardTSportLocator);
-        clickToElementByJSByLocator(driver, TSportPageUI.betBoardTSportLocator);
+        clickToElementByLocator(driver, TSportPageUI.betBoardTSportLocator);
         waitForElementVisibleByLocator(driver, TSportPageUI.inProcessTicketTSportLocator);
-        clickToElementByJSByLocator(driver, TSportPageUI.inProcessTicketTSportLocator);
+        clickToElementByLocator(driver, TSportPageUI.inProcessTicketTSportLocator);
 
     }
 
     public boolean isTicketDisplayed() {
 
-        waitForElementVisibleByLocator(driver, TSportPageUI.ticketOKTSportLocator);
-        return isControlDisplayed(driver, TSportPageUI.ticketOKTSportLocator);
+        List<WebElement> noBetTicket = driver.findElements(TSportPageUI.ticketOKTSportLocator);
+        return noBetTicket.size() > 0;
 
     }
 

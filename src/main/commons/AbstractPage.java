@@ -98,6 +98,12 @@ public class AbstractPage {
 
     }
 
+    public void clickToElement(WebDriver driver, WebElement element) {
+
+        element.click();
+
+    }
+
     public void clearTextElement(WebDriver driver, By xPathLocator) {
 
         element = driver.findElement(xPathLocator);

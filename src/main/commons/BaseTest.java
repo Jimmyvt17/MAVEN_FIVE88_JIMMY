@@ -29,12 +29,11 @@ public abstract class BaseTest extends CommonsTest {
                 } else {
                     err = "Failed test case: \n" + getClass().getName() + "\nLoading time is too long to bet\n==================================================\n";
                 }
-                sendBot(err);
-                throw e;
             } else {
-                e.printStackTrace();
-                driver.navigate().refresh();
+                err = "Failed test case: \n" + getClass().getName() + "\nElement is removed in DOM\n==================================================\n";
             }
+            sendBot(err);
+            throw e;
         }
 
     }
