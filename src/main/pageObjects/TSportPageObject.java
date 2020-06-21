@@ -34,7 +34,8 @@ public class TSportPageObject extends AbstractPage {
 
     public void openBetPanel(WebElement element) {
 
-        clickToElement(driver, element);
+        //clickToElement(driver, element);
+        clickToElementByJS(driver, element);
 
     }
 
@@ -54,14 +55,16 @@ public class TSportPageObject extends AbstractPage {
     public void clickToBetButton() {
 
         waitForElementVisibleByLocator(driver, TSportPageUI.betButtonLocator);
-        clickToElementByLocator(driver, TSportPageUI.betButtonLocator);
+        //clickToElementByLocator(driver, TSportPageUI.betButtonLocator);
+        clickToElementByJSByLocator(driver, TSportPageUI.betButtonLocator);
 
     }
 
     public void confirmBet() {
 
         waitForElementVisibleByLocator(driver, TSportPageUI.betConfirmTSportLocator);
-        clickToElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
+        //clickToElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
+        clickToElementByJSByLocator(driver, TSportPageUI.betConfirmTSportLocator);
 
     }
 
