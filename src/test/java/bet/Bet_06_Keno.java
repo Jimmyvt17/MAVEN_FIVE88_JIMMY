@@ -34,7 +34,7 @@ public class Bet_06_Keno extends CommonsTest {
 
 	String BET_MONEY = "10";
 
-	@Test(invocationCount = 10)
+	@Test
 	public void Run(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_Keno");
 
