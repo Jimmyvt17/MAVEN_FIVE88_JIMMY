@@ -49,25 +49,40 @@ public class KenoPageObject extends AbstractPage {
 
     }
 
-    public boolean isBetStartPresent(String value) {
+    public boolean isBetTimePresent(String value) {
 
         overrideTimeout(driver, Constants.SHORT_TIMEOUT);
-        String tmp1 = String.format(KenoPageUI.dynamicBetStart, value);
-        List<WebElement> startList = getListElements(driver, By.xpath(tmp1));
-        if (startList.size() > 0) {
+        String tmp = String.format(KenoPageUI.dynamicBetTime, value);
+//        List<WebElement> startList = getListElements(driver, By.xpath(tmp));
+//        System.out.println("The number of " + value + " = " + startList.size());
+//        System.out.println(tmp);
+//        if (startList.size() > 0) {
+//            scrollToKenoGame(value);
+//            Integer remainTime = getBetTimeCountDown(value);
+//            if (remainTime >= 10) {
+//                System.out.println("Check for game id = " + value + "\n");
+//                System.out.println("Remaining time = " + remainTime + "\n");
+//                return true;
+//            } else {
+//                System.out.println("Check for game id = " + value + "\n");
+//                System.out.println("Remaining time = " + remainTime + "\n");
+//                return false;
+//            }
+//        } else {
+//            System.out.println("Check for game id = " + value + "\n");
+//            return false;
+//        }
+        String betTime = getTextElementByLocator(driver, By.xpath(tmp));
+        Integer remainTime = NumberUtils.toInt(betTime.replace("0:", ""));
+        if (remainTime >= 10) {
             scrollToKenoGame(value);
-            Integer remainTime = getBetTimeCountDown(value);
-            if (remainTime >= 10) {
-                System.out.println("Check for game id = " + value + "\n");
-                System.out.println("Remaining time = " + remainTime + "\n");
-                return true;
-            } else {
-                System.out.println("Check for game id = " + value + "\n");
-                System.out.println("Remaining time = " + remainTime + "\n");
-                return false;
-            }
-        } else {
             System.out.println("Check for game id = " + value + "\n");
+            System.out.println("Remaining time = " + remainTime + "\n");
+            return true;
+        } else {
+            scrollToKenoGame(value);
+            System.out.println("Check for game id = " + value + "\n");
+            System.out.println("Remaining time = " + remainTime + "\n");
             return false;
         }
 
@@ -75,7 +90,7 @@ public class KenoPageObject extends AbstractPage {
 
     public void scrollToKenoGame(String value) {
 
-        String tmp = String.format(KenoPageUI.dynamicBetStart, value);
+        String tmp = String.format(KenoPageUI.dynamicBetTime, value);
         scrollToElementByLocator(driver, By.xpath(tmp));
 
     }

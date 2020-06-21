@@ -73,15 +73,14 @@ public class Bet_01_Quayso extends BaseTest {
 		while (listA.size() > 0) {
 			for (int count = 1; count <= 20; count++) {
 				for (int i = 0; i < listA.size(); i++) {
+					log.info("count = " + count + "\n====================\n");
 					String x = listA.get(i);
 					if (!quaysoPage.isBetStartPresent(x)) {
 						log.info(x + " can not bet now\n====================\n");
-
+						Assert.assertTrue(count < 20);
 					} else {
 						betALotteryGame(listA, x);
 					}
-					log.info("count = " + count + "\n====================\n");
-					Assert.assertTrue(count < 20);
 				}
 			}
 		}

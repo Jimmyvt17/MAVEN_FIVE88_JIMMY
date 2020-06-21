@@ -1,6 +1,6 @@
 package bet;
 
-import commons.BaseTest;
+import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
@@ -10,13 +10,14 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import pageObjects.KenoPageObject;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bet_06_Keno extends BaseTest {
+public class Bet_06_Keno extends CommonsTest {
 
 	WebDriver driver;
 	KenoPageObject kenoPage;
@@ -33,7 +34,7 @@ public class Bet_06_Keno extends BaseTest {
 
 	String BET_MONEY = "10";
 
-	@Override
+	@Test(invocationCount = 10)
 	public void Run(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_Keno");
 
@@ -72,14 +73,14 @@ public class Bet_06_Keno extends BaseTest {
 		while (list.size() > 0) {
 			for (int count = 1; count <= 20; count++) {
 				for (int i = 0; i < list.size(); i++) {
+					log.info("count = " + count + "\n====================\n");
 					String x = list.get(i);
-					if (!kenoPage.isBetStartPresent(x)) {
+					if (!kenoPage.isBetTimePresent(x)) {
 						log.info(x + " can not bet now\n");
+						Assert.assertTrue(count < 20);
 					} else {
 						betAKenoGame(list, x);
 					}
-					log.info("count = " + count + "\n====================\n");
-					Assert.assertTrue(count < 20);
 				}
 			}
 		}

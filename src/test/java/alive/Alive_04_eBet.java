@@ -31,7 +31,7 @@ public class Alive_04_eBet extends BaseTest {
 
 	@Override
 	public void Run(Method method) {
-		ExtentTestManager.startTest(method.getName(), "eBet");
+		ExtentTestManager.startTest(method.getName(), "TC_1_eBet");
 
 		log.info("eBet - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();
