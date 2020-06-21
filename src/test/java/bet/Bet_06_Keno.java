@@ -71,12 +71,12 @@ public class Bet_06_Keno extends BaseTest {
 
 		while (list.size() > 0) {
 			for (int count = 1; count <= 20; count++) {
+				log.info("count = " + count + "\n========================================\n");
 				for (int i = 0; i < list.size(); i++) {
-					log.info("count = " + count + "\n====================\n");
+					Assert.assertTrue(count < 20);
 					String x = list.get(i);
 					if (!kenoPage.isBetTimePresent(x)) {
-						log.info(x + " can not bet now\n");
-						Assert.assertTrue(count < 20);
+						log.info(x + " can not bet now\n====================\n");
 					} else {
 						betAKenoGame(list, x);
 					}

@@ -1,5 +1,6 @@
 package commons;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
@@ -7,6 +8,9 @@ import java.lang.reflect.Method;
 public abstract class BaseTest extends CommonsTest {
 
     String error, err;
+
+    WebDriver driver;
+
     protected abstract void Run(Method method);
 
     @Test
@@ -19,9 +23,18 @@ public abstract class BaseTest extends CommonsTest {
             } else {
                 error = e.toString().substring(0, e.toString().indexOf("\n"));
             }
-            err = "Failed test case: \n" + getClass().getName() + "\n" + error + "\n==================================================\n";
-            sendBot(err);
-            throw e;
+            if (!error.contains("StaleElementReferenceException")) {
+                if (!error.contains("AssertionError")) {
+                    err = "Failed test case: \n" + getClass().getName() + "\n" + error + "\n==================================================\n";
+                } else {
+                    err = "Failed test case: \n" + getClass().getName() + "\nLoading time is too long to bet\n==================================================\n";
+                }
+                sendBot(err);
+                throw e;
+            } else {
+                e.printStackTrace();
+                driver.navigate().refresh();
+            }
         }
 
     }
