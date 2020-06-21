@@ -8,7 +8,7 @@ public class TSportPageUI {
     public static By betTSportLocator = By.xpath("//div[@class='odd-item ']//div");
     public static By minBetTSportLocator = By.xpath("//div[text()='Mức cược tối thiểu']");
     public static By inputBetMoneyLocator = By.xpath("//bet-slip-component[@data-radium='true']//input[@type='tel']");
-    public static By betButtonLocator = By.xpath("//bet-slip-component[@data-radium='true']//div[@class='btn-hover']");
+    public static By betButtonLocator = By.xpath("//bet-slip-component[@data-radium='true']//div[text()='Đặt cược ngay']");
     public static By betConfirmTSportLocator = By.xpath("//div[@id='yes-betting-btn']");
     public static By betBoardTSportLocator = By.xpath("//div[text()='Bảng Cược']");
     public static By inProcessTicketTSportLocator = By.xpath("//div[text()='Đang diễn ra']");
