@@ -633,9 +633,13 @@ public class AbstractPage {
 
     public Object showTextByJS(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
-        js = (JavascriptExecutor) driver;
-        return (String) js.executeScript("return arguments[0].textContent.toString()", element);
+        elements = driver.findElements(xPathLocator);
+        if (elements.size() > 0) {
+            js = (JavascriptExecutor) driver;
+            return (String) js.executeScript("return arguments[0].textContent.toString()", elements.get(0));
+        } else {
+            return "-1";
+        }
 
     }
 
