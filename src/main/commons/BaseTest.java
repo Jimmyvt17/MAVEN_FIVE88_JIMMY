@@ -1,16 +1,11 @@
 package commons;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-
 import java.lang.reflect.Method;
 
 public abstract class BaseTest extends CommonsTest {
 
     String error, err;
-
-    WebDriver driver;
-
     protected abstract void Run(Method method);
 
     @Test
@@ -27,10 +22,10 @@ public abstract class BaseTest extends CommonsTest {
                 if (!error.contains("AssertionError")) {
                     err = "Failed test case: \n" + getClass().getName() + "\n" + error + "\n==================================================\n";
                 } else {
-                    err = "Failed test case: \n" + getClass().getName() + "\nLoading time is too long to bet\n==================================================\n";
+                    err = "Failed test case: \n" + getClass().getName() + "\nLoading time is too long to bet. Please try again manually\n==================================================\n";
                 }
             } else {
-                err = "Failed test case: \n" + getClass().getName() + "\nElement is removed in DOM\n==================================================\n";
+                err = "Failed test case: \n" + getClass().getName() + "\nElement is removed in DOM. Please try again manually\n==================================================\n";
             }
             sendBot(err);
             throw e;

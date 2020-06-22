@@ -4,6 +4,7 @@ import commons.BaseTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
+import five88.CasinoPageUI;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
@@ -49,7 +50,7 @@ public class Alive_04_eBet extends BaseTest {
 		casinoPage.openCasinoLobby(noBanner.get(0));
 
 		log.info("eBet - Step 05: Wait for eBet lobby\n");
-		casinoPage.waitForEBetLobby();
+		casinoPage.waitForCasinoGame(CasinoPageUI.eBetLoadingPageLocator, CasinoPageUI.eBetLobbyLocator);
 
 	}
 

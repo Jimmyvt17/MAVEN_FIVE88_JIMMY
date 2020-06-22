@@ -20,7 +20,7 @@ public class QuaysoPageObject extends AbstractPage {
 
     public List<WebElement> getBets(String value) {
 
-        String tmp = String.format(QuaysoPageUI.dynamicBetGame, value);
+        String tmp = String.format(QuaysoPageUI.dynamicGameOdd, value);
         waitForElementPresentByLocator(driver, By.xpath(tmp));
         return getListElements(driver, By.xpath(tmp));
 
@@ -52,7 +52,7 @@ public class QuaysoPageObject extends AbstractPage {
 
     public void scrollToQuaysoGame(String value) {
 
-        String tmp = String.format(QuaysoPageUI.dynamicBetStart, value);
+        String tmp = String.format(QuaysoPageUI.dynamicQuaysoGame, value);
         scrollToElementByLocator(driver, By.xpath(tmp));
 
     }

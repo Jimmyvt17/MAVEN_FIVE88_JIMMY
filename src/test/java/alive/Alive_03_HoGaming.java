@@ -4,6 +4,7 @@ import commons.BaseTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
+import five88.CasinoPageUI;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
@@ -49,7 +50,7 @@ public class Alive_03_HoGaming extends BaseTest {
 		casinoPage.openCasinoLobby(noBanner.get(0));
 
 		log.info("Hogaming - Step 05: Wait for Hogaming lobby\n");
-		casinoPage.waitForHGLobbyLoadCompleted();
+		casinoPage.waitForCasinoGame(CasinoPageUI.hoGamingLoadingLocator, CasinoPageUI.hoGamingLobbyMenuLocator);
 
 		log.info("Hogaming - Step 06: Verify Baccarat games alive\n");
 		verifyHoGaimgGameAlive("Bài cào 3 lá");
