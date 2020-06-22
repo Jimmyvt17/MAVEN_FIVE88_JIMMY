@@ -38,7 +38,7 @@ public class KenoPageObject extends AbstractPage {
 
     public void switchToKenoIframe() {
 
-        switchToIframe(driver, "/Users/jimmyvuong/Downloads", "LoadingTimeOfIframeInFive88.xlsx", "Keno");
+        switchToIframe(driver, Constants.windowsFilePath, Constants.loadingTimeFile, "Keno");
 
     }
 

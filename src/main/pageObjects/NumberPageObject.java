@@ -38,7 +38,7 @@ public class NumberPageObject extends AbstractPage {
 
     public void switchToNumberIframe() {
 
-        switchToIframe(driver, "/Users/jimmyvuong/Downloads", "LoadingTimeOfIframeInFive88.xlsx", "Number");
+        switchToIframe(driver, Constants.windowsFilePath, Constants.loadingTimeFile, "Number");
 
     }
 

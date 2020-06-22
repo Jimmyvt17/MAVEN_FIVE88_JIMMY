@@ -26,6 +26,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -38,6 +39,7 @@ public class AbstractPage {
     WebDriverWait waitExplicit;
     Actions action;
     Instant a, b;
+    LocalDateTime x;
 
     // WebDriver
     public void openAnyUrl(WebDriver driver, String url) {
@@ -379,6 +381,7 @@ public class AbstractPage {
     public void switchToIframe(WebDriver driver, String filePath, String fileName, String sheetName) {
 
         a = Instant.now();
+        x = LocalDateTime.now();
         waitForElementPresentByLocator(driver, By.tagName("iframe"));
         int size = getSizeElements(driver, By.tagName("iframe"));
         System.out.println("Total iframes --" + size);
@@ -388,16 +391,27 @@ public class AbstractPage {
         long c = Duration.between(a, b).toMillis();
         System.out.println("Duration = " + c + "\n");
         try {
-            writeToExcelFile(filePath, fileName, sheetName, a.toString(), String.valueOf(c));
+            writeToExcelFile(filePath, fileName, sheetName, x.toString(), String.valueOf(c));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
+    public void switchToIframe(WebDriver driver) {
+
+        waitForElementPresentByLocator(driver, By.tagName("iframe"));
+        int size = getSizeElements(driver, By.tagName("iframe"));
+        System.out.println("Total iframes --" + size);
+        driver.switchTo().frame(0);
+        System.out.println("Switch to outer iframe\n");
+
+    }
+
     public void switchToIframes(WebDriver driver, String filePath, String fileName, String sheetName) {
 
         a = Instant.now();
+        x = LocalDateTime.now();
         waitForElementPresentByLocator(driver, By.tagName("iframe"));
         int size = getSizeElements(driver, By.tagName("iframe"));
         System.out.println("Total iframes --" + size);
@@ -414,9 +428,26 @@ public class AbstractPage {
         long c = Duration.between(a, b).toMillis();
         System.out.println("Duration = " + c + "\n");
         try {
-            writeToExcelFile(filePath, fileName, sheetName, a.toString(), String.valueOf(c));
+            writeToExcelFile(filePath, fileName, sheetName, x.toString(), String.valueOf(c));
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+    }
+
+    public void switchToIframes(WebDriver driver) {
+
+        waitForElementPresentByLocator(driver, By.tagName("iframe"));
+        int size = getSizeElements(driver, By.tagName("iframe"));
+        System.out.println("Total iframes --" + size);
+        driver.switchTo().frame(0);
+        System.out.println("Switch to outer iframe");
+        size = getSizeElements(driver, By.tagName("iframe"));
+        System.out.println("Total  inner iframes --" + size);
+        if (size > 0) {
+            driver.switchTo().frame(0);
+            System.out.println("Switch to inner iframe\n");
+
         }
 
     }
@@ -871,11 +902,11 @@ public class AbstractPage {
 
         //Prepare the path of excel file
 
-        String filePath = "/Users/jimmyvuong/Downloads";
+        String filePath = Constants.windowsFilePath;
 
         //Call read file method of the class to read data
 
-        objExcelFile.readExcel(filePath,"LoadingTimeOfIframeInFive88.xlsx","Quayso");
+        objExcelFile.readExcel(filePath,Constants.loadingTimeFile,"Quayso");
 
     }
 
@@ -973,7 +1004,7 @@ public class AbstractPage {
 
         //Write the file using file name, sheet name and the data to be filled
 
-        objExcelFile.writeExcel("/Users/jimmyvuong/Downloads", "LoadingTimeOfIframeInFive88.xlsx", "Quayso", valueToWrite);
+        objExcelFile.writeExcel(Constants.windowsFilePath, Constants.loadingTimeFile, "Quayso", valueToWrite);
 
     }
 

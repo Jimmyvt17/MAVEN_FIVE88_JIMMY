@@ -40,6 +40,11 @@ public class Constants {
     public static final long FIVE88_FAIL_ROOM_ID = -459749874;
     public static final long FIVE88_PROCESS_ROOM_ID = -418064402;
 
+    // Excel
+    public static final String iOSFilePath = "/Users/jimmyvuong/Downloads";
+    public static final String windowsFilePath = "\\Documents";
+    public static final String loadingTimeFile = "LoadingTimeOfIframeInFive88.xlsx";
+
     // Others
     public static final String dynamicIframe = "//iframe[@id='%s']";
 
