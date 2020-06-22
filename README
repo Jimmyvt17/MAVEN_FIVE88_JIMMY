@@ -1,0 +1,19 @@
+Chuẩn bị cho việc test loading iframe của site five88:
+1. Phần cứng:
+- Máy tính windows 10
+- Mạng wifi: Viettel, VNPT, FPT
+- Mạng 4g: Viettel, Mobifone, Vinaphone,...
+
+2. Phần mềm:
+- Jenkins https://www.jenkins.io/download/
+- Maven https://apachemirror.sg.wuchna.com/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip
+- Java https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html#license-lightbox
+- Source code https://github.com/Jimmyvt17/MAVEN_FIVE88_JIMMY/tree/loading_time (*)
+
+3. Thực hiện:
+- Cài đặt jenkins, maven, java trên máy test
+- Lấy code từ link (*) về máy
+- Copy file src/main/commons/excelConfigs/LoadingTimeOfIframeInFive88.xlsx vào thư mục Documents (**)
+- Thiết lập jenkins job chạy code đã lấy ở trên. Chạy trong 7 ngày. Mỗi lần chạy cách nhau 1h
+- Kiểm tra sau khi job chạy xong có ghi dữ liệu vào file trong thư mục (**)
+
