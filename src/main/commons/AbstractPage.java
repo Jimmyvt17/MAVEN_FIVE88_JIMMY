@@ -906,7 +906,7 @@ public class AbstractPage {
 
         //Call read file method of the class to read data
 
-        objExcelFile.readExcel(filePath,Constants.loadingTimeFile,"Quayso");
+        objExcelFile.readExcel(filePath, Constants.loadingTimeFile,"Quayso");
 
     }
 
@@ -1004,7 +1004,7 @@ public class AbstractPage {
 
         //Write the file using file name, sheet name and the data to be filled
 
-        objExcelFile.writeExcel(Constants.windowsFilePath, Constants.loadingTimeFile, "Quayso", valueToWrite);
+        objExcelFile.writeExcel(filePath, fileName, sheetName, valueToWrite);
 
     }
 
