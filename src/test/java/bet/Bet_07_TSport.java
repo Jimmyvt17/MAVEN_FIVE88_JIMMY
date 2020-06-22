@@ -50,10 +50,10 @@ public class Bet_07_TSport extends BaseTest {
 		tSportPage.switchToTSportIframe();
 
 		log.info("TSport - Step04: Betting\n");
-		//betTSport();
+		betTSport();
 
 		log.info("TSport - Step05: Verify min bet and max bet\n");
-		//verifyTSport();
+		verifyTSport();
 
 		log.info("TSport - Step06: Exit iframe\n");
 		tSportPage.quitTSportIframe();

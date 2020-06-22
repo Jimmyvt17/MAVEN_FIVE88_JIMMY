@@ -51,7 +51,7 @@ public class Bet_03_ASport extends BaseTest {
 		aSportPage.switchToASportIframe();
 
 		log.info("ASport - Step04: Betting");
-		//betASport();
+		betASport();
 
 		log.info("ASport - Step05: Exit iframe");
 		aSportPage.quitASportIframe();

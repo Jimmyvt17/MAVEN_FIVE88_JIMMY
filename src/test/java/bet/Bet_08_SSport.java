@@ -45,7 +45,7 @@ public class Bet_08_SSport extends BaseTest {
 		sSportPage.navigateSSportIframe();
 
 		log.info("SSport - Step04: Betting\n");
-		//betSSport();
+		betSSport();
 
 		log.info("The thao S thanh cong\n====================\n");
 

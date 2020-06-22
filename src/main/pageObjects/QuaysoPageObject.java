@@ -113,7 +113,7 @@ public class QuaysoPageObject extends AbstractPage {
 
     public void switchToLotteryIframe() {
 
-        switchToIframe(driver, Constants.windowsFilePath, Constants.loadingTimeFile, "Quayso");
+        switchToIframe(driver);
 
     }
 

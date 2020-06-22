@@ -1,2 +1,0 @@
-TEST=$(curl --user "jimmyauto:jimmyvt17" http://30.10.1.225:8080/job/MAVEN_FIVE88_JIMMY/lastBuild/consoleText | grep "FAILURE")
-curl -s -d "chat_id=-459749874&text=${TEST}&disable_web_page_preview=true&parse_mode=markdown" https://api.telegram.org/bot1229608956:AAGPgFoYgcb2nMH0V36vPGEFSO9EOwPU92U/sendMessage > /dev/null
