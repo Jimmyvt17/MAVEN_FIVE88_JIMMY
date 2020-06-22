@@ -1004,7 +1004,7 @@ public class AbstractPage {
 
         //Write the file using file name, sheet name and the data to be filled
 
-        objExcelFile.writeExcel(Constants.windowsFilePath, Constants.loadingTimeFile, "Quayso", valueToWrite);
+        objExcelFile.writeExcel(filePath, fileName, sheetName, valueToWrite);
 
     }
 
