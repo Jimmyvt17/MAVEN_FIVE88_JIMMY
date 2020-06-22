@@ -39,9 +39,8 @@ public class Payment_01_DepositSuccessful extends BaseTest {
 
         log.info("DepositSuccessful - Step 03: Verify success warning text");
         verifyEquals(accountPage.getDepositWarning(), "Tạo phiếu nạp thành công");
-        log.info(accountPage.getDepositWarning());
         try {
-            Thread.sleep(5000);
+            Thread.sleep(5 * 1000);
         } catch (Throwable e) {
             e.printStackTrace();
         }
@@ -60,7 +59,6 @@ public class Payment_01_DepositSuccessful extends BaseTest {
 
         log.info("DepositSuccessful - Step 08: Verify warning text");
         verifyEquals(accountPage.getDepositWarning(), "Bạn đã tạo quá số phiếu quy định.");
-        log.info(accountPage.getDepositWarning());
 
         log.info("DepositSuccessful - Step 09: Close the warning dialog");
         accountPage.refreshAccountPage();

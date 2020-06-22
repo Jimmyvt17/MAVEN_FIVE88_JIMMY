@@ -1,16 +1,31 @@
 package commons;
 
+import commons.excelConfigs.ReadExcelFile;
+import commons.excelConfigs.WriteExcelFile;
 import five88.AbstractPageUI;
 import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.Reporter;
 import pageObjects.AccountPageObject;
 import pageObjects.HomePageObject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -22,6 +37,7 @@ public class AbstractPage {
     JavascriptExecutor js;
     WebDriverWait waitExplicit;
     Actions action;
+    Instant a, b;
 
     // WebDriver
     public void openAnyUrl(WebDriver driver, String url) {
@@ -360,18 +376,28 @@ public class AbstractPage {
 
     }
 
-    public void switchToIframe(WebDriver driver) {
+    public void switchToIframe(WebDriver driver, String filePath, String fileName, String sheetName) {
 
+        a = Instant.now();
         waitForElementPresentByLocator(driver, By.tagName("iframe"));
         int size = getSizeElements(driver, By.tagName("iframe"));
         System.out.println("Total iframes --" + size);
         driver.switchTo().frame(0);
         System.out.println("Switch to outer iframe\n");
+        b = Instant.now();
+        long c = Duration.between(a, b).toMillis();
+        System.out.println("Duration = " + c + "\n");
+        try {
+            writeToExcelFile(filePath, fileName, sheetName, a.toString(), String.valueOf(c));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    public void switchToIframes(WebDriver driver) {
+    public void switchToIframes(WebDriver driver, String filePath, String fileName, String sheetName) {
 
+        a = Instant.now();
         waitForElementPresentByLocator(driver, By.tagName("iframe"));
         int size = getSizeElements(driver, By.tagName("iframe"));
         System.out.println("Total iframes --" + size);
@@ -383,6 +409,14 @@ public class AbstractPage {
             driver.switchTo().frame(0);
             System.out.println("Switch to inner iframe\n");
 
+        }
+        b = Instant.now();
+        long c = Duration.between(a, b).toMillis();
+        System.out.println("Duration = " + c + "\n");
+        try {
+            writeToExcelFile(filePath, fileName, sheetName, a.toString(), String.valueOf(c));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
@@ -522,6 +556,16 @@ public class AbstractPage {
     public void overrideTimeout(WebDriver driver, long timeout) {
 
         driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
+
+    }
+
+    public void openSportPage(WebDriver driver, String url, String... values) {
+
+        openSubMenu(driver, "Thể thao");
+        String tmp = String.format(AbstractPageUI.dynamicSportButton, values);
+        waitForElementVisibleByLocator(driver, By.xpath(tmp));
+        clickToElementByLocator(driver, By.xpath(tmp));
+        Assert.assertEquals(getCurrentPageUrl(driver), url);
 
     }
 
@@ -750,6 +794,186 @@ public class AbstractPage {
         js = (JavascriptExecutor) driver;
         String textActual = (String) js.executeScript("return document.documentElement.innerText.match('" + textExpected + "')[0]");
         return textActual.equals(textExpected);
+
+    }
+
+    // Excel
+    public void readExcel(String filePath,String fileName,String sheetName) throws IOException {
+
+        //Create an object of File class to open xlsx file
+
+        File file =   new File(filePath+"/"+fileName);
+
+        //Create an object of FileInputStream class to read excel file
+
+        FileInputStream inputStream = new FileInputStream(file);
+
+        Workbook sampleWorkbook = null;
+
+        //Find the file extension by splitting file name in substring  and getting only extension name
+
+        String fileExtensionName = fileName.substring(fileName.indexOf("."));
+
+        //Check condition if the file is xlsx file
+
+        if(fileExtensionName.equals(".xlsx")){
+
+            //If it is xlsx file then create object of XSSFWorkbook class
+
+            sampleWorkbook = new XSSFWorkbook(inputStream);
+
+        }
+
+        //Check condition if the file is xls file
+
+        else if(fileExtensionName.equals(".xls")){
+
+            //If it is xls file then create object of HSSFWorkbook class
+
+            sampleWorkbook = new HSSFWorkbook(inputStream);
+
+        }
+
+        //Read sheet inside the workbook by its name
+
+        Sheet guru99Sheet = sampleWorkbook.getSheet(sheetName);
+
+        //Find number of rows in excel file
+
+        int rowCount = guru99Sheet.getLastRowNum()-guru99Sheet.getFirstRowNum();
+
+        //Create a loop over all the rows of excel file to read it
+
+        for (int i = 0; i < rowCount+1; i++) {
+
+            Row row = guru99Sheet.getRow(i);
+
+            //Create a loop to print cell values in a row
+
+            for (int j = 0; j < row.getLastCellNum(); j++) {
+
+                //Print Excel data in console
+
+                System.out.print(row.getCell(j).getStringCellValue()+"|| ");
+
+            }
+
+            System.out.println();
+        }
+
+    }
+
+    public static void readFromExcelFile() throws IOException{
+
+        //Create an object of ReadGuru99ExcelFile class
+
+        ReadExcelFile objExcelFile = new ReadExcelFile();
+
+        //Prepare the path of excel file
+
+        String filePath = "/Users/jimmyvuong/Downloads";
+
+        //Call read file method of the class to read data
+
+        objExcelFile.readExcel(filePath,"LoadingTimeOfIframeInFive88.xlsx","Quayso");
+
+    }
+
+    public void writeExcel(String filePath, String fileName, String sheetName, String[] dataToWrite) throws IOException {
+
+        //Create an object of File class to open xlsx file
+
+        File file = new File(filePath + "/" + fileName);
+
+        //Create an object of FileInputStream class to read excel file
+
+        FileInputStream inputStream = new FileInputStream(file);
+
+        Workbook sampleWorkbook = null;
+
+        //Find the file extension by splitting  file name in substring and getting only extension name
+
+        String fileExtensionName = fileName.substring(fileName.indexOf("."));
+
+        //Check condition if the file is xlsx file
+
+        if (fileExtensionName.equals(".xlsx")) {
+
+            //If it is xlsx file then create object of XSSFWorkbook class
+
+            sampleWorkbook = new XSSFWorkbook(inputStream);
+
+        }
+
+        //Check condition if the file is xls file
+
+        else if (fileExtensionName.equals(".xls")) {
+
+            //If it is xls file then create object of XSSFWorkbook class
+
+            sampleWorkbook = new HSSFWorkbook(inputStream);
+
+        }
+
+        //Read excel sheet by sheet name
+
+        Sheet sheet = sampleWorkbook.getSheet(sheetName);
+
+        //Get the current count of rows in excel file
+
+        int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
+
+        //Get the first row from the sheet
+
+        Row row = sheet.getRow(0);
+
+        //Create a new row and append it at last of sheet
+
+        Row newRow = sheet.createRow(rowCount + 1);
+
+        //Create a loop over the cell of newly created Row
+
+        for (int j = 0; j < row.getLastCellNum(); j++) {
+
+            //Fill data in row
+
+            Cell cell = newRow.createCell(j);
+
+            cell.setCellValue(dataToWrite[j]);
+
+        }
+
+        //Close input stream
+
+        inputStream.close();
+
+        //Create an object of FileOutputStream class to create write data in excel file
+
+        FileOutputStream outputStream = new FileOutputStream(file);
+
+        //write data in the excel file
+
+        sampleWorkbook.write(outputStream);
+
+        //close output stream
+
+        outputStream.close();
+
+    }
+
+    public static void writeToExcelFile(String filePath, String fileName, String sheetName, String... values) throws IOException {
+
+        //Create an array with the data in the same order in which you expect to be filled in excel file
+
+        String[] valueToWrite = values;
+
+        //Create an object of current class
+
+        WriteExcelFile objExcelFile = new WriteExcelFile();
+
+        //Write the file using file name, sheet name and the data to be filled
+
+        objExcelFile.writeExcel("/Users/jimmyvuong/Downloads", "LoadingTimeOfIframeInFive88.xlsx", "Quayso", valueToWrite);
 
     }
 

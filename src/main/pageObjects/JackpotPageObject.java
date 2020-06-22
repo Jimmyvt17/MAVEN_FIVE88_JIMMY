@@ -1,8 +1,6 @@
 package pageObjects;
 
 import commons.AbstractPage;
-import commons.Constants;
-import five88.AccountPageUI;
 import five88.JackpotPageUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,12 +16,17 @@ public class JackpotPageObject extends AbstractPage {
     public void loginTestSlot(String username) {
 
         login(driver, username, "@16WINner");
+        try {
+            Thread.sleep(1000*5);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
 
     }
 
     public void openJackpotPage() {
 
-        openSubMenu(driver, "icon_slots_game");
+        openSubMenu(driver, "Nổ hũ");
 
     }
 

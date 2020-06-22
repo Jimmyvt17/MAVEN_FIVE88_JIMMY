@@ -103,12 +103,17 @@ public class QuaysoPageObject extends AbstractPage {
     public void loginQuaysoAccount() {
 
         login(driver, Constants.USERNAME_QUAYSO, Constants.PASSWORD);
+        try {
+            Thread.sleep(5 * 1000);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
 
     }
 
     public void switchToLotteryIframe() {
 
-        switchToIframe(driver);
+        switchToIframe(driver, "/Users/jimmyvuong/Downloads", "LoadingTimeOfIframeInFive88.xlsx", "Quayso");
 
     }
 

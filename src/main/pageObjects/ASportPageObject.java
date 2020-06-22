@@ -101,13 +101,19 @@ public class ASportPageObject extends AbstractPage {
 
     public void switchToASportIframe() {
 
-        switchToIframes(driver);
+        switchToIframes(driver, "/Users/jimmyvuong/Downloads", "LoadingTimeOfIframeInFive88.xlsx", "ASport");
 
     }
 
     public void quitASportIframe() {
 
         backToTopWindow(driver);
+
+    }
+
+    public void openASportPage(String... values) {
+
+        openSportPage(driver, Constants.ATHETHAO_URL, values);
 
     }
 

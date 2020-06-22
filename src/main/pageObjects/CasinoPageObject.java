@@ -30,7 +30,7 @@ public class CasinoPageObject extends AbstractPage {
 
     public void openCasinoPage() {
 
-        openSubMenu(driver, "icon-mcasino");
+        openSubMenu(driver, "Sòng bài");
 
     }
 

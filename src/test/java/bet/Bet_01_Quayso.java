@@ -24,7 +24,7 @@ public class Bet_01_Quayso extends BaseTest {
 	@Parameters(value = "browser")
 	@BeforeClass
 	public void preConditions(String browserName) {
-		driver = openMultiBrowser(browserName, Constants.QUAYSO_URL);
+		driver = openMultiBrowser(browserName, Constants.HOME_URL);
 
 		quaysoPage = PageFactoryManager.getQuaysoPage(driver);
 
@@ -38,22 +38,20 @@ public class Bet_01_Quayso extends BaseTest {
 
 		log.info("Quayso - Step 01: Login with valid account");
 		quaysoPage.loginQuaysoAccount();
-		try {
-			Thread.sleep(5000);
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
 
-		log.info("Quayso - Step 02: Switch to iframe to play");
+		log.info("Quayso - Step 02: Switch to Quayso page");
+		quaysoPage.openQuaysoPage();
+
+		log.info("Quayso - Step 03: Switch to iframe to play");
 		quaysoPage.switchToLotteryIframe();
 
-		log.info("Quayso - Step 03: Play lottery");
+		log.info("Quayso - Step 04: Play lottery");
 		betLotteryGame();
 
-		log.info("Quayso - Step 04: Exit iframe");
+		log.info("Quayso - Step 05: Exit iframe");
 		quaysoPage.quitLotteryIframe();
 
-		log.info("Quayso - Step 05: Logout");
+		log.info("Quayso - Step 06: Logout");
 		quaysoPage.logoutToHomePage();
 
 		log.info("Quay so thanh cong\n================================================================================\n");

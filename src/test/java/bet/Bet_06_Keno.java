@@ -39,11 +39,6 @@ public class Bet_06_Keno extends BaseTest {
 
 		log.info("Keno - Step 01: Login valid account\n");
     	kenoPage.loginKenoAccount();
-		try {
-			Thread.sleep(5*1000);
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
 
 		log.info("Keno - Step 02: Switch to Keno page\n");
 		kenoPage.openKenoPage();

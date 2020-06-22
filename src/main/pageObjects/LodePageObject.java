@@ -80,7 +80,7 @@ public class LodePageObject extends AbstractPage {
 
     public void switchToLodeIframe() {
 
-        switchToIframe(driver);
+        switchToIframes(driver, "/Users/jimmyvuong/Downloads", "LoadingTimeOfIframeInFive88.xlsx", "Lode");
 
     }
 
@@ -93,6 +93,17 @@ public class LodePageObject extends AbstractPage {
     public void loginLodeAccount() {
 
         login(driver, Constants.USERNAME_LODE, Constants.PASSWORD);
+        try {
+            Thread.sleep(5000);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void openLodePage() {
+
+        openSubMenu(driver, "Lô đề");
 
     }
 }

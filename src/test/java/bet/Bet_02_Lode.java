@@ -24,7 +24,7 @@ public class Bet_02_Lode extends BaseTest {
 	@BeforeClass
 	public void preConditions(String browserName) {
 
-		driver = openMultiBrowser(browserName, Constants.LODE_URL);
+		driver = openMultiBrowser(browserName, Constants.HOME_URL);
 
 		lodePage = PageFactoryManager.getLodePage(driver);
 
@@ -36,26 +36,24 @@ public class Bet_02_Lode extends BaseTest {
 
 		log.info("Lode - Step 01: Login with valid account");
 		lodePage.loginLodeAccount();
-		try {
-			Thread.sleep(5000);
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
 
-		log.info("Lode - Step 02: Switch to iframe to play");
+		log.info("Lode - Step 02: Switch to Lode page");
+		lodePage.openLodePage();
+
+		log.info("Lode - Step 03: Switch to iframe to play");
 		lodePage.switchToLodeIframe();
 
-		log.info("Lode - Step 03: Play Lode 2 so");
+		log.info("Lode - Step 04: Play Lode 2 so");
 		betLode();
 
-		log.info("Lode - Step 04: Play Lode 3 so");
+		log.info("Lode - Step 05: Play Lode 3 so");
 		lodePage.switchToLo3So();
 		betLode();
 
-		log.info("Lode - Step 05: Exit iframe");
+		log.info("Lode - Step 06: Exit iframe");
 		lodePage.quitLodeIframe();
 
-		log.info("Lode - Step 06: Logout");
+		log.info("Lode - Step 07: Logout");
 		lodePage.logoutToHomePage();
 
 		log.info("Lo de thanh cong");

@@ -22,18 +22,23 @@ public class KenoPageObject extends AbstractPage {
     public void loginKenoAccount() {
 
         login(driver, Constants.USERNAME_KENO, Constants.PASSWORD);
+        try {
+            Thread.sleep(5*1000);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
 
     }
 
     public void openKenoPage() {
 
-        openSubMenu(driver, "icon-mkeno");
+        openSubMenu(driver, "Keno");
 
     }
 
     public void switchToKenoIframe() {
 
-        switchToIframe(driver);
+        switchToIframe(driver, "/Users/jimmyvuong/Downloads", "LoadingTimeOfIframeInFive88.xlsx", "Keno");
 
     }
 

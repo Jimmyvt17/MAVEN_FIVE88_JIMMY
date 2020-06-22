@@ -12,6 +12,7 @@ import org.testng.annotations.Parameters;
 import pageObjects.NumberPageObject;
 
 import java.lang.reflect.Method;
+import java.time.Instant;
 import java.util.List;
 
 public class Bet_05_NumberGame extends BaseTest {
@@ -29,6 +30,7 @@ public class Bet_05_NumberGame extends BaseTest {
 
 	}
 
+	Instant a, b, c;
 	String BET_MONEY = "10";
 
 	@Override
@@ -37,23 +39,24 @@ public class Bet_05_NumberGame extends BaseTest {
 
 		log.info("NumberGame - Step 01: Login valid account\n");
     	numberPage.loginNumberAccount();
-		try {
-			Thread.sleep(1000*5);
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
 
 		log.info("NumberGame - Step 02: Switch to Number page\n");
 		numberPage.openNumberGamePage();
+//		a = Instant.now();
+//		log.info("Start time = " + a);
 
 		log.info("NumberGame - Step 03: Switch to number iframe\n");
 		numberPage.switchToNumberIframe();
+//		b = Instant.now();
+//		log.info("End time = " + b);
+//		Duration c = Duration.between(a, b);
+//		log.info(c);
 
 		log.info("NumberGame - Step 04: Play Turbo Number Game\n");
-		betNumberGame("nb-100123");
+//		betNumberGame("nb-100123");
 
 		log.info("NumberGame - Step 05: Play Number Game\n");
-		betNumberGame("nb-100127");
+		//betNumberGame("nb-100127");
 
 		log.info("NumberGame - Step 06: Exit Number iframe");
 		numberPage.quitNumberIframe();

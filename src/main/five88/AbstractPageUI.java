@@ -11,6 +11,7 @@ public class AbstractPageUI {
     public static By logoutButtonLocator = By.xpath("//a[text()='THOÁT']");
     public static By closeButtonLocator = By.xpath("//button[@aria-label='Close this dialog']");
 
-    public static String dynamicSubMenu = "//ul[@class='nav navbar-nav']//i[@class='%s']";
+    public static String dynamicSubMenu = "//ul[@class='nav navbar-nav']//a[@title='%s']";
+    public static String dynamicSportButton = "//div[@class='%s']//div[@class='%s']/following-sibling::div//a[text()='Chơi Ngay']";
 
 }

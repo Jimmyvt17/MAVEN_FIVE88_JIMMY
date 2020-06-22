@@ -22,18 +22,23 @@ public class NumberPageObject extends AbstractPage {
     public void loginNumberAccount() {
 
         login(driver, Constants.USERNAME_NUMBER, Constants.PASSWORD);
+        try {
+            Thread.sleep(1000*5);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
 
     }
 
     public void openNumberGamePage() {
 
-        openSubMenu(driver, "icon-mnbg");
+        openSubMenu(driver, "Number game");
 
     }
 
     public void switchToNumberIframe() {
 
-        switchToIframe(driver);
+        switchToIframe(driver, "/Users/jimmyvuong/Downloads", "LoadingTimeOfIframeInFive88.xlsx", "Number");
 
     }
 

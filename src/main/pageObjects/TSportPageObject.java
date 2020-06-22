@@ -111,7 +111,7 @@ public class TSportPageObject extends AbstractPage {
 
     public void switchToTSportIframe() {
 
-        switchToIframe(driver);
+        switchToIframe(driver, "/Users/jimmyvuong/Downloads", "LoadingTimeOfIframeInFive88.xlsx", "TSport");
 
     }
 
@@ -125,6 +125,12 @@ public class TSportPageObject extends AbstractPage {
 
         Assert.assertTrue(isControlDisplayed(driver, TSportPageUI.minBetTSportLocator)==true);
         System.out.println("-------------------------- PASSED --------------------------");
+
+    }
+
+    public void openTSportPage(String... values) {
+
+        openSportPage(driver, Constants.TTHETHAO_URL, values);
 
     }
 

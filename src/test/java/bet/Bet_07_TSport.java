@@ -23,7 +23,7 @@ public class Bet_07_TSport extends BaseTest {
 	@BeforeClass
 	public void preConditions(String browserName) {
 
-		driver = openMultiBrowser(browserName, Constants.TTHETHAO_URL);
+		driver = openMultiBrowser(browserName, Constants.HOME_URL);
 
 		tSportPage = PageFactoryManager.getTSportPage(driver);
 
@@ -43,19 +43,22 @@ public class Bet_07_TSport extends BaseTest {
 			e.printStackTrace();
 		}
 
-		log.info("TSport - Step02: Switch to sport iframe to play\n");
+		log.info("TSport - Step02: Open TSport page");
+		tSportPage.openTSportPage("item-sb tsport", "icon-vi-s");
+
+		log.info("TSport - Step03: Switch to sport iframe to play\n");
 		tSportPage.switchToTSportIframe();
 
-		log.info("TSport - Step03: Betting\n");
-		betTSport();
+		log.info("TSport - Step04: Betting\n");
+		//betTSport();
 
-		log.info("TSport - Step04: Verify min bet and max bet\n");
-		verifyTSport();
+		log.info("TSport - Step05: Verify min bet and max bet\n");
+		//verifyTSport();
 
-		log.info("TSport - Step05: Exit iframe\n");
+		log.info("TSport - Step06: Exit iframe\n");
 		tSportPage.quitTSportIframe();
 
-		log.info("TSport - Step06: Logout\n");
+		log.info("TSport - Step07: Logout\n");
 		tSportPage.logoutToHomePage();
 
 		log.info("The thao T thanh cong\n====================\n");

@@ -37,11 +37,6 @@ public class Bet_04_Jackpot extends CommonsTest {
 
 		log.info("Jackpot - Step 01: Login test slot account");
     	jackpotPage.loginTestSlot(usernameData);
-		try {
-			Thread.sleep(1000*5);
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
 
 		log.info("Jackpot - Step 02: Switch to Jackpot page");
 		jackpotPage.openJackpotPage();

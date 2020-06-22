@@ -60,7 +60,6 @@ public class Payment_02_DepositFailed extends BaseTest {
 
         log.info("DepositFailed - Step 09: Verify warning dialog");
         verifyEquals(accountPage.getDepositWarning(), "Số tiền tối thiểu là 50 K (50.000 VNĐ)");
-        log.info(accountPage.getDepositWarning());
 
         log.info("DepositFailed - Step 10: Close warning dialog");
         accountPage.refreshAccountPage();

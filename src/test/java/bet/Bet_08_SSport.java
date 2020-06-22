@@ -24,7 +24,7 @@ public class Bet_08_SSport extends BaseTest {
 	@BeforeClass
 	public void preConditions(String browserName) {
 
-		driver = openMultiBrowser(browserName, Constants.STHETHAO_URL);
+		driver = openMultiBrowser(browserName, Constants.HOME_URL);
 
 		sSportPage = PageFactoryManager.getSSportPage(driver);
 
@@ -38,11 +38,14 @@ public class Bet_08_SSport extends BaseTest {
 		log.info("SSport - Step01: Login with valid account\n");
 		sSportPage.loginSportAccount();
 
-		log.info("SSport - Step02: Navigate sport iframe to play\n");
+		log.info("TSport - Step02: Open SSport page\n");
+		sSportPage.openSSportPage("item-sb ssport", "icon-vi-s");
+
+		log.info("SSport - Step03: Navigate sport iframe to play\n");
 		sSportPage.navigateSSportIframe();
 
-		log.info("SSport - Step03: Betting\n");
-		betSSport();
+		log.info("SSport - Step04: Betting\n");
+		//betSSport();
 
 		log.info("The thao S thanh cong\n====================\n");
 

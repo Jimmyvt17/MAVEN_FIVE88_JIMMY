@@ -24,7 +24,7 @@ public class Bet_03_ASport extends BaseTest {
 	@BeforeClass
 	public void preConditions(String browserName) {
 
-		driver = openMultiBrowser(browserName, Constants.ATHETHAO_URL);
+		driver = openMultiBrowser(browserName, Constants.HOME_URL);
 
 		aSportPage = PageFactoryManager.getASportPage(driver);
 
@@ -44,16 +44,19 @@ public class Bet_03_ASport extends BaseTest {
 			e.printStackTrace();
 		}
 
-		log.info("ASport - Step02: Switch to sport iframe to play");
+		log.info("ASport - Step02: Open ASport page");
+		aSportPage.openASportPage("item-sb asport", "icon-vi-a");
+
+		log.info("ASport - Step03: Switch to sport iframe to play");
 		aSportPage.switchToASportIframe();
 
-		log.info("ASport - Step03: Betting");
-		betASport();
+		log.info("ASport - Step04: Betting");
+		//betASport();
 
-		log.info("ASport - Step04: Exit iframe");
+		log.info("ASport - Step05: Exit iframe");
 		aSportPage.quitASportIframe();
 
-		log.info("ASport - Step05: Logout");
+		log.info("ASport - Step06: Logout");
 		aSportPage.logoutToHomePage();
 
 		log.info("The thao A thanh cong\n====================\n");
