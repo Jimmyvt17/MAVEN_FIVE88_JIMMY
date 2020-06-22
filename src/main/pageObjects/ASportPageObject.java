@@ -17,6 +17,12 @@ public class ASportPageObject extends AbstractPage {
         driver = mappingDriver;
     }
 
+    public void minimizeLiveChatBox() {
+
+        minimizeLiveChat(driver);
+
+    }
+
     public String getBalance() {
 
         waitForElementVisibleByLocator(driver, ASportPageUI.aSportBalanceLocator);

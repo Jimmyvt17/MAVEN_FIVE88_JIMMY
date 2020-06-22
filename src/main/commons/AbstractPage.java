@@ -661,6 +661,13 @@ public class AbstractPage {
 
     }
 
+    public void minimizeLiveChat(WebDriver driver) {
+
+        waitForElementVisibleByLocator(driver, AbstractPageUI.minimizeLiveChatLocator);
+        clickToElementByJSByLocator(driver, AbstractPageUI.minimizeLiveChatLocator);
+
+    }
+
     public void openSubMenu(WebDriver driver, String value) {
 
         String tmp = String.format(AbstractPageUI.dynamicSubMenu, value);
