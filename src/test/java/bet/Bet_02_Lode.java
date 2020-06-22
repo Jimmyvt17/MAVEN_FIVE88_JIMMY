@@ -44,11 +44,11 @@ public class Bet_02_Lode extends BaseTest {
 		lodePage.switchToLodeIframe();
 
 		log.info("Lode - Step 04: Play Lode 2 so");
-		betLode();
+		//betLode();
 
 		log.info("Lode - Step 05: Play Lode 3 so");
 		lodePage.switchToLo3So();
-		betLode();
+		//betLode();
 
 		log.info("Lode - Step 06: Exit iframe");
 		lodePage.quitLodeIframe();

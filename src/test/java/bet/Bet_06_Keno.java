@@ -47,7 +47,7 @@ public class Bet_06_Keno extends BaseTest {
 		kenoPage.switchToKenoIframe();
 
 		log.info("Keno - Step 04: Play Quick Keno 1\n");
-		betKenoGame();
+		//betKenoGame();
 
 		log.info("Keno - Step 05: Exit Keno iframe");
 		kenoPage.quitKenoIframe();

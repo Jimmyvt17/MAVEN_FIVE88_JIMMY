@@ -46,7 +46,7 @@ public class Bet_01_Quayso extends BaseTest {
 		quaysoPage.switchToLotteryIframe();
 
 		log.info("Quayso - Step 04: Play lottery");
-		betLotteryGame();
+		//betLotteryGame();
 
 		log.info("Quayso - Step 05: Exit iframe");
 		quaysoPage.quitLotteryIframe();

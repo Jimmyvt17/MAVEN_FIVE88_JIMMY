@@ -42,18 +42,12 @@ public class Bet_05_NumberGame extends BaseTest {
 
 		log.info("NumberGame - Step 02: Switch to Number page\n");
 		numberPage.openNumberGamePage();
-//		a = Instant.now();
-//		log.info("Start time = " + a);
 
 		log.info("NumberGame - Step 03: Switch to number iframe\n");
 		numberPage.switchToNumberIframe();
-//		b = Instant.now();
-//		log.info("End time = " + b);
-//		Duration c = Duration.between(a, b);
-//		log.info(c);
 
 		log.info("NumberGame - Step 04: Play Turbo Number Game\n");
-//		betNumberGame("nb-100123");
+		//betNumberGame("nb-100123");
 
 		log.info("NumberGame - Step 05: Play Number Game\n");
 		//betNumberGame("nb-100127");

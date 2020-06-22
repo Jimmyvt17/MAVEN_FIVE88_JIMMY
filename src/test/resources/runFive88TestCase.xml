@@ -15,17 +15,18 @@
     <parameter name="username" value="testslot001" />
     <parameter name="gameId" value="9999" />
     <classes>
-<!--      <class name="bet.Bet_08_SSport"/>-->
-<!--      <class name="bet.Bet_07_TSport"/>-->
-<!--      <class name="bet.Bet_01_Quayso"/>-->
-<!--      <class name="alive.Alive_03_HoGaming"/>-->
-<!--      <class name="account.SendMessageToTelegram"/>-->
+        <class name="bet.Bet_07_TSport"/>
+        <class name="bet.Bet_03_ASport"/>
+        <class name="bet.Bet_05_NumberGame"/>
+        <class name="bet.Bet_06_Keno"/>
+        <class name="bet.Bet_02_Lode"/>
+        <class name="bet.Bet_01_Quayso"/>
     </classes>
     <packages>
-      <package name="account"/>
-      <package name="alive"/>
-      <package name="bet"/>
-      <package name="payment"/>
+<!--      <package name="account"/>-->
+<!--      <package name="alive"/>-->
+<!--      <package name="bet"/>-->
+<!--      <package name="payment"/>-->
     </packages>
   </test> <!-- Test -->
 
