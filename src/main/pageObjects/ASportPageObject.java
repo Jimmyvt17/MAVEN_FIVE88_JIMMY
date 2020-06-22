@@ -111,9 +111,9 @@ public class ASportPageObject extends AbstractPage {
 
     }
 
-    public void openASportPage(String... values) {
+    public void openASportPage() {
 
-        openSportPage(driver, Constants.ATHETHAO_URL, values);
+        openAnyUrl(driver, Constants.ATHETHAO_URL);
 
     }
 
