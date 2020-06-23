@@ -69,9 +69,6 @@ public class Bet_03_ASport extends BaseTest {
 		while (i) {
 			log.info("Ban dau dieu kien la " + i + "\n");
 
-			log.info("Thu nho cua so live chat\n");
-			aSportPage.minimizeLiveChatBox();
-
 			String beforeBalance = aSportPage.getBalance();
 			log.info("So tien luc dau la " + beforeBalance + "\n");
 
