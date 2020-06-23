@@ -165,4 +165,10 @@ public class SSportPageObject extends AbstractPage {
 
     }
 
+    public void switchToSSportIframe() {
+
+        switchToIframe(driver, Constants.windowsFilePath, Constants.loadingTimeFile, "SSport");
+
+    }
+
 }

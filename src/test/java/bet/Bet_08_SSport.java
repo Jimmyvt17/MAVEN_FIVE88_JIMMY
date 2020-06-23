@@ -41,8 +41,8 @@ public class Bet_08_SSport extends BaseTest {
 		log.info("TSport - Step02: Open SSport page\n");
 		sSportPage.openSSportPage("item-sb ssport", "icon-vi-s");
 
-		log.info("SSport - Step03: Navigate sport iframe to play\n");
-		sSportPage.navigateSSportIframe();
+		log.info("SSport - Step03: Switch to sport iframe to play\n");
+		sSportPage.switchToSSportIframe();
 
 		log.info("SSport - Step04: Betting\n");
 		//betSSport();

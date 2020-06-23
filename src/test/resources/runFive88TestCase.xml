@@ -15,6 +15,7 @@
     <parameter name="username" value="testslot001" />
     <parameter name="gameId" value="9999" />
     <classes>
+        <class name="bet.Bet_08_SSport"/>
         <class name="bet.Bet_07_TSport"/>
         <class name="bet.Bet_03_ASport"/>
         <class name="bet.Bet_05_NumberGame"/>
