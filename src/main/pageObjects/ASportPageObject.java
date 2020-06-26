@@ -79,7 +79,7 @@ public class ASportPageObject extends AbstractPage {
 
     }
 
-    public boolean isTicketDispled() {
+    public boolean isTicketDisplayed() {
 
         waitForElementVisibleByLocator(driver, ASportPageUI.ticketOKASportLocator);
         return isControlDisplayed(driver, ASportPageUI.ticketOKASportLocator);
@@ -102,6 +102,11 @@ public class ASportPageObject extends AbstractPage {
     public void loginSportAccount() {
 
         login(driver, Constants.USERNAME_THETHAO, Constants.PASSWORD);
+        try {
+            Thread.sleep(5 * 1000);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
 
     }
 

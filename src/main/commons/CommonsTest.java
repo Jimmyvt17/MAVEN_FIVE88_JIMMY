@@ -88,6 +88,15 @@ public class CommonsTest {
         }
     }
 
+    public void convertExceptionToErrorText(Throwable e, String errorText) {
+        String exceptionText = e.toString();
+        if (errorText.contains("StaleElementReferenceException")) {
+            throw new RuntimeException(Constants.elementIsRemoved);
+        } else {
+            throw new RuntimeException(errorText);
+        }
+    }
+
     public void delayInHour(Integer delayTime, Integer timeInHour) {
 
         int delta = 0;
