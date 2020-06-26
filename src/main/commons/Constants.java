@@ -38,7 +38,7 @@ public class Constants {
     // Telegram
     public static final String FIVE88BOT = "1229608956:AAGPgFoYgcb2nMH0V36vPGEFSO9EOwPU92U";
     public static final long FIVE88_FAIL_ROOM_ID = -459749874;
-    public static final long FIVE88_PROCESS_ROOM_ID = -418064402;
+    public static final long FIVE88_PROCESS_ROOM_ID = -332719282;
 
     // Excel
     public static final String iOSFilePath = "/Users/jimmyvuong/Downloads";
@@ -49,8 +49,8 @@ public class Constants {
     public static final String dynamicIframe = "//iframe[@id='%s']";
     public static final String iframeContentError = "There is nothing in iframe. Please try again manually";
     public static final String iframeNoLoad = "There is no iframe. Please try again manually";
-    public static final String elementIsRemoved = "Loading time is too long to bet. Please try again manually";
-    public static final String loadingTimeTooLong = "Element is removed in DOM. Please try again manually";
+    public static final String elementIsRemoved = "Element is removed in DOM. Please try again manually";
+    public static final String loadingTimeTooLong = "Loading time is too long to bet. Please try again manually";
     public static final String betUnsuccessful = "Betting unsuccessfully. Please try again manually";
     public static final String elementIsOverlaying = "Banking under maintenance";
 
