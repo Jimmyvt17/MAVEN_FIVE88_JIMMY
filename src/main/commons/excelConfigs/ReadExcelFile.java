@@ -91,7 +91,7 @@ public class ReadExcelFile {
 
         //Call read file method of the class to read data
 
-        objExcelFile.readExcel(filePath,"LoadingTimeOfIframeInFive88.xlsx","Quayso");
+        objExcelFile.readExcel(filePath,"LoadingTimeOfIframeInFive88.xlsx","ASport");
 
     }
 

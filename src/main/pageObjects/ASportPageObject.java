@@ -73,7 +73,7 @@ public class ASportPageObject extends AbstractPage {
 
     }
 
-    public boolean isTicketDispled() {
+    public boolean isTicketDisplayed() {
 
         waitForElementVisibleByLocator(driver, ASportPageUI.ticketOKASportLocator);
         return isControlDisplayed(driver, ASportPageUI.ticketOKASportLocator);
@@ -101,7 +101,8 @@ public class ASportPageObject extends AbstractPage {
 
     public void switchToASportIframe() {
 
-        switchToIframes(driver, Constants.windowsFilePath, Constants.loadingTimeFile, "ASport");
+        //witchToIframes(driver, Constants.windowsFilePath, Constants.loadingTimeFile, "ASport");
+        getIframesLoadingTime(driver, ASportPageUI.aSportBalanceLocator, "ASport");
 
     }
 

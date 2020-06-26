@@ -80,7 +80,8 @@ public class LodePageObject extends AbstractPage {
 
     public void switchToLodeIframe() {
 
-        switchToIframe(driver, Constants.windowsFilePath, Constants.loadingTimeFile, "Lode");
+        //switchToIframe(driver, Constants.windowsFilePath, Constants.loadingTimeFile, "Lode");
+        getIframeLoadingTime(driver, LodePageUI.lodeBalanceLocator, "Lode");
 
     }
 

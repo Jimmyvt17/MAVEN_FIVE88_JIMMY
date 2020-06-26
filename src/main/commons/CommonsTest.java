@@ -49,7 +49,7 @@ public class CommonsTest {
 
         TelegramBot bot = new TelegramBot.Builder(Constants.FIVE88BOT).okHttpClient(client).build();
 
-        long chatId = Constants.FIVE88_FAIL_ROOM_ID;
+        long chatId = Constants.FIVE88_LOADING_IFRAME_ROOM_ID;
 
         //SendResponse response = bot.execute(new SendMessage(chatId, text));
         SendMessage request = new SendMessage(chatId, text);

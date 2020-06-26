@@ -378,6 +378,62 @@ public class AbstractPage {
 
     }
 
+    public void getIframeLoadingTime(WebDriver driver, By xPathLocator, String sheetName) {
+
+        a = Instant.now();
+        x = LocalDateTime.now();
+        try {
+            switchToIframe(driver);
+            waitForElementVisibleByLocator(driver, xPathLocator);
+        } catch (Throwable e) {
+            String exceptionText = e.toString();
+            if (exceptionText.contains("StaleElementReferenceException")) {
+                throw new RuntimeException(Constants.elementIsRemoved);
+            } else if (exceptionText.contains("iframe")) {
+                throw new RuntimeException(Constants.iframeNoLoad);
+            } else {
+                throw new RuntimeException(Constants.iframeContentError);
+            }
+        }
+        b = Instant.now();
+        long c = Duration.between(a, b).toMillis();
+        System.out.println("Duration = " + c + "\n");
+        try {
+            writeToExcelFile(Constants.windowsFilePath, Constants.loadingTimeFile, sheetName, x.toString(), String.valueOf(c));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void getIframesLoadingTime(WebDriver driver, By xPathLocator, String sheetName) {
+
+        a = Instant.now();
+        x = LocalDateTime.now();
+        try {
+            switchToIframes(driver);
+            waitForElementVisibleByLocator(driver, xPathLocator);
+        } catch (Throwable e) {
+            String exceptionText = e.toString();
+            if (exceptionText.contains("StaleElementReferenceException")) {
+                throw new RuntimeException(Constants.elementIsRemoved);
+            } else if (exceptionText.contains("iframe")) {
+                throw new RuntimeException(Constants.iframeNoLoad);
+            } else {
+                throw new RuntimeException(Constants.iframeContentError);
+            }
+        }
+        b = Instant.now();
+        long c = Duration.between(a, b).toMillis();
+        System.out.println("Duration = " + c + "\n");
+        try {
+            writeToExcelFile(Constants.windowsFilePath, Constants.loadingTimeFile, sheetName, x.toString(), String.valueOf(c));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void switchToIframe(WebDriver driver, String filePath, String fileName, String sheetName) {
 
         a = Instant.now();

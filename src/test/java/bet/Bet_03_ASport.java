@@ -111,7 +111,7 @@ public class Bet_03_ASport extends BaseTest {
 				e.printStackTrace();
 			}
 
-			if(aSportPage.isTicketDispled()){
+			if(aSportPage.isTicketDisplayed()){
 				log.info("Bet ticket in process\n");
 
 				String betTicketDetails = aSportPage.getTicketDetails();
