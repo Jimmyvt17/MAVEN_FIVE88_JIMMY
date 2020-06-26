@@ -38,11 +38,6 @@ public class Bet_03_ASport extends BaseTest {
 
 		log.info("ASport - Step01: Login with valid account");
 		aSportPage.loginSportAccount();
-		try {
-			Thread.sleep(5000);
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
 
 		log.info("ASport - Step02: Open ASport page");
 		aSportPage.openASportPage();
@@ -68,7 +63,6 @@ public class Bet_03_ASport extends BaseTest {
 
 		while (i) {
 			log.info("Ban dau dieu kien la " + i + "\n");
-
 			String beforeBalance = aSportPage.getBalance();
 			log.info("So tien luc dau la " + beforeBalance + "\n");
 
@@ -98,7 +92,7 @@ public class Bet_03_ASport extends BaseTest {
 			log.info("Close bet panel\n");
 			aSportPage.closeWarningDialog();
 			try {
-				Thread.sleep(5000);
+				Thread.sleep(5 * 1000);
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
@@ -106,12 +100,12 @@ public class Bet_03_ASport extends BaseTest {
 			log.info("Open bet board\n");
 			aSportPage.openBetBoard();
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(3 * 1000);
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
 
-			if(aSportPage.isTicketDispled()){
+			if(aSportPage.isTicketDisplayed()){
 				log.info("Bet ticket in process\n");
 
 				String betTicketDetails = aSportPage.getTicketDetails();

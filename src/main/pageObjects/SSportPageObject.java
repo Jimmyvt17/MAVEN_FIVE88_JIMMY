@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.Reporter;
+
 import java.util.List;
 
 public class SSportPageObject extends AbstractPage {
@@ -120,17 +121,16 @@ public class SSportPageObject extends AbstractPage {
 
         login(driver, Constants.USERNAME_THETHAO, Constants.PASSWORD);
         try {
-            Thread.sleep(5000);
+            Thread.sleep(5 * 1000);
         } catch (Throwable e) {
             e.printStackTrace();
         }
 
     }
 
-    public void navigateSSportIframe() {
+    public void switchToSSportIframe() {
 
-        String iframeLink = getAttributeValue(driver, By.xpath("//iframe[@id='iframe']"), "src");
-        openAnyUrl(driver, iframeLink);
+        switchToIframe(driver);
 
     }
 
