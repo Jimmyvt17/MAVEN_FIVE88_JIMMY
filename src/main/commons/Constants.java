@@ -42,7 +42,7 @@ public class Constants {
 
     // Excel
     public static final String iOSFilePath = "/Users/jimmyvuong/Downloads";
-    public static final String windowsFilePath = "\\Documents";
+    public static final String windowsFilePath = "C:\\Users\\Administrator\\Documents";
     public static final String loadingTimeFile = "LoadingTimeOfIframeInFive88.xlsx";
 
     // Others

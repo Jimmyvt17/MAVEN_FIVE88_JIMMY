@@ -134,6 +134,13 @@ public class SSportPageObject extends AbstractPage {
 
     }
 
+    public void navigateToSSportIframe() {
+
+        String iframeLink = getAttributeValue(driver, By.id("iframe"), "src");
+        openAnyUrl(driver, iframeLink);
+
+    }
+
     public void switchToEUMode() {
 
         waitForElementVisibleByLocator(driver, SSportPageUI.modeUILocator);
