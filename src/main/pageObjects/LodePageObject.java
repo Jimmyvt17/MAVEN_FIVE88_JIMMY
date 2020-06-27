@@ -80,7 +80,7 @@ public class LodePageObject extends AbstractPage {
 
     public void switchToLodeIframe() {
 
-        switchToIframe(driver);
+        verifyIframeLoading(driver, LodePageUI.lodeBalanceLocator);
 
     }
 

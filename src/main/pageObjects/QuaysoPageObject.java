@@ -113,7 +113,7 @@ public class QuaysoPageObject extends AbstractPage {
 
     public void switchToLotteryIframe() {
 
-        switchToIframe(driver);
+        verifyIframeLoading(driver, QuaysoPageUI.quaysoBalanceLocator);
 
     }
 

@@ -116,7 +116,7 @@ public class TSportPageObject extends AbstractPage {
 
     public void switchToTSportIframe() {
 
-        switchToIframe(driver);
+        verifyIframeLoading(driver, TSportPageUI.tSportBalanceLocator);
 
     }
 

@@ -38,7 +38,7 @@ public class KenoPageObject extends AbstractPage {
 
     public void switchToKenoIframe() {
 
-        switchToIframe(driver);
+        verifyIframeLoading(driver, KenoPageUI.balanceLocator);
 
     }
 

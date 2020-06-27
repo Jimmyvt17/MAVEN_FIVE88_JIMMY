@@ -21,20 +21,16 @@ public abstract class BaseTest extends CommonsTest {
             }
             if (!error.contains("StaleElementReferenceException")) {
                 if (!error.contains("AssertionError")) {
-                    if (!error.contains("iframe")) {
-                        if (!error.contains("ElementNotInteractableException")) {
-                            err = prefix + error + "\n==================================================\n";
-                        } else {
-                            err = prefix + Constants.elementIsOverlaying + "\n==================================================\n";
-                        }
+                    if (!error.contains("ElementNotInteractableException")) {
+                        err = prefix + error + "\n==================================================\n";
                     } else {
-                        err = prefix + Constants.iframeNoLoad + "\n==================================================\n";
+                        err = prefix + Constants.elementIsOverlaying + "\n==================================================\n";
                     }
                 } else {
                     err = prefix + Constants.loadingTimeTooLong + "\n==================================================\n";
                 }
             } else {
-                err = prefix +Constants.elementIsRemoved + "\n==================================================\n";
+                err = prefix + Constants.elementIsRemoved + "\n==================================================\n";
             }
             if (getClass().getName().contains("TSport")) {
                 sendBotReplyToUser(err, Constants.BASTIAN_MESSAGE);

@@ -38,7 +38,7 @@ public class NumberPageObject extends AbstractPage {
 
     public void switchToNumberIframe() {
 
-        switchToIframe(driver);
+        verifyIframeLoading(driver, NumberPageUI.balanceLocator);
 
     }
 

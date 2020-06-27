@@ -112,7 +112,7 @@ public class ASportPageObject extends AbstractPage {
 
     public void switchToASportIframe() {
 
-        switchToIframes(driver);
+        verifyIframesLoading(driver, ASportPageUI.aSportBalanceLocator);
 
     }
 

@@ -24,7 +24,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -378,26 +377,6 @@ public class AbstractPage {
 
     }
 
-    public void switchToIframe(WebDriver driver, String filePath, String fileName, String sheetName) {
-
-        a = Instant.now();
-        x = LocalDateTime.now();
-        waitForElementPresentByLocator(driver, By.tagName("iframe"));
-        int size = getSizeElements(driver, By.tagName("iframe"));
-        System.out.println("Total iframes --" + size);
-        driver.switchTo().frame(0);
-        System.out.println("Switch to outer iframe\n");
-        b = Instant.now();
-        long c = Duration.between(a, b).toMillis();
-        System.out.println("Duration = " + c + "\n");
-        try {
-            writeToExcelFile(filePath, fileName, sheetName, x.toString(), String.valueOf(c));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
     public void switchToIframe(WebDriver driver) {
 
         waitForElementPresentByLocator(driver, By.tagName("iframe"));
@@ -408,29 +387,20 @@ public class AbstractPage {
 
     }
 
-    public void switchToIframes(WebDriver driver, String filePath, String fileName, String sheetName) {
+    public void verifyIframeLoading(WebDriver driver, By xPathLocator) {
 
-        a = Instant.now();
-        x = LocalDateTime.now();
-        waitForElementPresentByLocator(driver, By.tagName("iframe"));
-        int size = getSizeElements(driver, By.tagName("iframe"));
-        System.out.println("Total iframes --" + size);
-        driver.switchTo().frame(0);
-        System.out.println("Switch to outer iframe");
-        size = getSizeElements(driver, By.tagName("iframe"));
-        System.out.println("Total  inner iframes --" + size);
-        if (size > 0) {
-            driver.switchTo().frame(0);
-            System.out.println("Switch to inner iframe\n");
-
-        }
-        b = Instant.now();
-        long c = Duration.between(a, b).toMillis();
-        System.out.println("Duration = " + c + "\n");
         try {
-            writeToExcelFile(filePath, fileName, sheetName, x.toString(), String.valueOf(c));
-        } catch (IOException e) {
-            e.printStackTrace();
+            switchToIframe(driver);
+            waitForElementVisibleByLocator(driver, xPathLocator);
+        } catch (Throwable e) {
+            String exceptionText = e.toString();
+            if (exceptionText.contains("StaleElementReferenceException")) {
+                throw new RuntimeException(Constants.elementIsRemoved);
+            } else if (exceptionText.contains("iframe")) {
+                throw new RuntimeException(Constants.iframeNoLoad);
+            } else {
+                throw new RuntimeException(Constants.iframeContentError);
+            }
         }
 
     }
@@ -447,7 +417,24 @@ public class AbstractPage {
         if (size > 0) {
             driver.switchTo().frame(0);
             System.out.println("Switch to inner iframe\n");
+        }
 
+    }
+
+    public void verifyIframesLoading(WebDriver driver, By xPathLocator) {
+
+        try {
+            switchToIframes(driver);
+            waitForElementVisibleByLocator(driver, xPathLocator);
+        } catch (Throwable e) {
+            String exceptionText = e.toString();
+            if (exceptionText.contains("StaleElementReferenceException")) {
+                throw new RuntimeException(Constants.elementIsRemoved);
+            } else if (exceptionText.contains("iframe")) {
+                throw new RuntimeException(Constants.iframeNoLoad);
+            } else {
+                throw new RuntimeException(Constants.iframeContentError);
+            }
         }
 
     }
