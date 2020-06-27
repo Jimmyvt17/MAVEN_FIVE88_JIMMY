@@ -106,6 +106,11 @@ public class TSportPageObject extends AbstractPage {
     public void loginSportAccount() {
 
         login(driver, Constants.USERNAME_THETHAO, Constants.PASSWORD);
+        try {
+            Thread.sleep(5 * 1000);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
 
     }
 

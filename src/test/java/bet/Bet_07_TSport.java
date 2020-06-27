@@ -37,11 +37,6 @@ public class Bet_07_TSport extends BaseTest {
 
 		log.info("TSport - Step01: Login with valid account\n");
 		tSportPage.loginSportAccount();
-		try {
-			Thread.sleep(5000);
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
 
 		log.info("TSport - Step02: Open TSport page");
 		tSportPage.openTSportPage("item-sb tsport", "icon-vi-s");

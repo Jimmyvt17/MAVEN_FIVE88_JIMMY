@@ -1,6 +1,7 @@
 package commons;
 
 import com.pengrad.telegrambot.TelegramBot;
+import com.pengrad.telegrambot.model.request.ParseMode;
 import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.SendResponse;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -51,27 +52,23 @@ public class CommonsTest {
 
         long chatId = Constants.FIVE88_FAIL_ROOM_ID;
 
-        //SendResponse response = bot.execute(new SendMessage(chatId, text));
         SendMessage request = new SendMessage(chatId, text);
-//                .parseMode(ParseMode.HTML)
-//                .disableWebPagePreview(true)
-//                .disableNotification(false)
-//                .replyToMessageId(1)
-//                .replyMarkup(new ForceReply());
-//
         // sync
         SendResponse sendResponse = bot.execute(request);
-//        boolean ok = sendResponse.isOk();
-//        Message message = sendResponse.message();
 
-//        // async
-//        bot.execute(request, new Callback<SendMessage, SendResponse>() {
-//            @Override
-//            public void onResponse(SendMessage request, SendResponse response) {}
-//
-//            @Override
-//            public void onFailure(SendMessage request, IOException e) {}
-//        });
+    }
+
+    public void sendBotReplyToUser(String text, int userId) {
+        OkHttpClient client = new OkHttpClient();
+
+        TelegramBot bot = new TelegramBot.Builder(Constants.FIVE88BOT).okHttpClient(client).build();
+
+        long chatId = Constants.FIVE88_FAIL_ROOM_ID;
+
+        SendMessage request = new SendMessage(chatId, text).parseMode(ParseMode.Markdown).replyToMessageId(userId);
+        // sync
+        SendResponse sendResponse = bot.execute(request);
+
     }
 
     public static void sendToTelegram(String botToken, long chatId, String text) {
@@ -282,6 +279,25 @@ public class CommonsTest {
 
             log.info("---------- QUIT BROWSER SUCCESS ----------\n");
         } catch (Exception e) {
+            log.info(e.getMessage());
+        }
+
+    }
+
+    protected void switchToSpecificNetwork(String networkName, String networkPass) {
+        try {
+            String osName = System.getProperty("os.name").toLowerCase();
+            String cmd;
+            if (osName.toLowerCase().contains("mac")) {
+                cmd = "networksetup -setairportnetwork en0 " + networkName + " " + networkPass;
+                Process process = Runtime.getRuntime().exec(cmd);
+                process.waitFor();
+            } else {
+                cmd = "ipconfig /renew " + networkName;
+                Process process = Runtime.getRuntime().exec(cmd);
+                process.waitFor();
+            }
+        } catch (Throwable e) {
             log.info(e.getMessage());
         }
 

@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 public abstract class BaseTest extends CommonsTest {
 
     String error, err;
+    String prefix = "Failed test case: \n" + getClass().getName() + "\n";;
     protected abstract void Run(Method method);
 
     @Test
@@ -22,20 +23,24 @@ public abstract class BaseTest extends CommonsTest {
                 if (!error.contains("AssertionError")) {
                     if (!error.contains("iframe")) {
                         if (!error.contains("ElementNotInteractableException")) {
-                            err = "Failed test case: \n" + getClass().getName() + "\n" + error + "\n==================================================\n";
+                            err = prefix + error + "\n==================================================\n";
                         } else {
-                            err = "Failed test case: \n" + getClass().getName() + "\n" + Constants.elementIsOverlaying + "\n==================================================\n";
+                            err = prefix + Constants.elementIsOverlaying + "\n==================================================\n";
                         }
                     } else {
-                        err = "Failed test case: \n" + getClass().getName() + "\n" + Constants.iframeNoLoad + "\n==================================================\n";
+                        err = prefix + Constants.iframeNoLoad + "\n==================================================\n";
                     }
                 } else {
-                    err = "Failed test case: \n" + getClass().getName() + "\n" + Constants.loadingTimeTooLong + "\n==================================================\n";
+                    err = prefix + Constants.loadingTimeTooLong + "\n==================================================\n";
                 }
             } else {
-                err = "Failed test case: \n" + getClass().getName() + "\n" +Constants.elementIsRemoved + "\n==================================================\n";
+                err = prefix +Constants.elementIsRemoved + "\n==================================================\n";
             }
-            sendBot(err);
+            if (getClass().getName().contains("TSport")) {
+                sendBotReplyToUser(err, Constants.BASTIAN_MESSAGE);
+            } else {
+                sendBot(err);
+            }
             throw e;
         }
 
