@@ -14,6 +14,8 @@ Chuẩn bị cho việc test loading iframe của site five88:
 - Cài đặt jenkins, maven, java trên máy test
 - Lấy code từ link (*) về máy
 - Copy file src/main/commons/excelConfigs/LoadingTimeOfIframeInFive88.xlsx vào thư mục Documents (**)
+- Tạo bản copy của file trên, đặt tên theo nhà mạng cần test (***)
+- Thay thế (***) vào parameter "file" của file runFive88TestCase.xml nằm trong foler src/test/resources
 - Thiết lập jenkins job chạy code đã lấy ở trên. Chạy trong 7 ngày. Mỗi lần chạy cách nhau 1h
 - Kiểm tra sau khi job chạy xong có ghi dữ liệu vào file trong thư mục (**)
 
