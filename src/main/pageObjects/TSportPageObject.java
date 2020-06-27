@@ -55,7 +55,6 @@ public class TSportPageObject extends AbstractPage {
     public void clickToBetButton() {
 
         waitForElementVisibleByLocator(driver, TSportPageUI.betButtonLocator);
-        //clickToElementByLocator(driver, TSportPageUI.betButtonLocator);
         clickToElementByJSByLocator(driver, TSportPageUI.betButtonLocator);
 
     }
@@ -63,7 +62,6 @@ public class TSportPageObject extends AbstractPage {
     public void confirmBet() {
 
         waitForElementVisibleByLocator(driver, TSportPageUI.betConfirmTSportLocator);
-        //clickToElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
         clickToElementByJSByLocator(driver, TSportPageUI.betConfirmTSportLocator);
 
     }
@@ -105,7 +103,7 @@ public class TSportPageObject extends AbstractPage {
 
     public void loginSportAccount() {
 
-        login(driver, Constants.USERNAME_THETHAO, Constants.PASSWORD);
+        login(driver, "setagamma", Constants.PASSWORD);
         try {
             Thread.sleep(5 * 1000);
         } catch (Throwable e) {
