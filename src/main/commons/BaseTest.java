@@ -32,11 +32,7 @@ public abstract class BaseTest extends CommonsTest {
             } else {
                 err = prefix + Constants.elementIsRemoved + "\n==================================================\n";
             }
-            if (getClass().getName().contains("TSport")) {
-                sendBotReplyToUser(err, Constants.BASTIAN_MESSAGE);
-            } else {
-                sendBot(err);
-            }
+            sendBot(err);
             throw e;
         }
 
