@@ -7,6 +7,7 @@ import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import pageObjects.AccountPageObject;
 
@@ -71,7 +72,8 @@ public class Payment_01_DepositSuccessful extends BaseTest {
     }
 
 //    @Test(dataProvider= "network")
-//    public void TC_02_DepositData(String userData) {
+//    public void TC_02_DepositData(Method method, String userData) {
+//        ExtentTestManager.startTest(method.getName(), "TC_02_DepositData");
 //        log.info("DepositSuccessful - Step 01: Go to deposit page");
 //        accountPage.beforeDepositing(userData, "testjimmy");
 //
@@ -93,7 +95,7 @@ public class Payment_01_DepositSuccessful extends BaseTest {
 //        log.info("DepositSuccessful - Step 05: Verify deposit ticket is created");
 //        verifyEquals(accountPage.getTicketStatus(), "Chờ xử lý");
 //
-//        log.info("DepositSuccessful - Step 10: Log out");
+//        log.info("DepositSuccessful - Step 06: Log out");
 //        accountPage.logoutToHomePage();
 //
 //        log.info("Nap tien thanh cong");
@@ -126,17 +128,16 @@ public class Payment_01_DepositSuccessful extends BaseTest {
 
     }
 
-//    @DataProvider(name = "network")
-//    public static Object[][] AccountData(){
-//        return new Object[][] {
-//                {Constants.USERNAME_THETHAO},
-//                {Constants.USERNAME_KENO},
-//                {Constants.USERNAME_LODE},
-//                {Constants.USERNAME_NUMBER},
-//                {Constants.USERNAME_QUAYSO},
-//
-//        };
-//
-//    }
+    @DataProvider(name = "network")
+    public static Object[][] AccountData(){
+        return new Object[][] {
+                {Constants.USERNAME_CASINO},
+                {Constants.USERNAME_THETHAO},
+                {Constants.USERNAME_LODE},
+                {Constants.USERNAME_QUAYSO},
+
+        };
+
+    }
 
 }
