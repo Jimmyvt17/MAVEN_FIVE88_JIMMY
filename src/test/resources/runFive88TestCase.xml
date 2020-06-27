@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite" parallel="tests" thread-count="5">
+<suite name="Suite" parallel="false" thread-count="5">
 
   <listeners>
     <listener class-name="org.uncommons.reportng.HTMLReporter" />
@@ -10,7 +10,9 @@
     <listener class-name="commons.reportConfig.ReportNGListener" />
   </listeners>
 
-  <test name="Run on Chrome">
+  <test name="Run on PPCloud network">
+    <parameter name="network" value="PhnompenhCloud" />
+    <parameter name="pass" value="wifikhongpass" />
     <parameter name="browser" value="chrome" />
     <parameter name="username" value="testslot001" />
     <parameter name="gameId" value="9999" />
@@ -18,16 +20,37 @@
 <!--      <class name="bet.Bet_08_SSport"/>-->
 <!--      <class name="bet.Bet_07_TSport"/>-->
 <!--      <class name="bet.Bet_01_Quayso"/>-->
-<!--      <class name="alive.Alive_03_HoGaming"/>-->
-<!--      <class name="account.SendMessageToTelegram"/>-->
+<!--      <class name="alive.Alive_02_SexyCasino"/>-->
+      <class name="bet.Bet_03_ASport"/>
     </classes>
     <packages>
-      <package name="account"/>
-      <package name="alive"/>
-      <package name="bet"/>
-      <package name="payment"/>
+<!--      <package name="account"/>-->
+<!--      <package name="alive"/>-->
+<!--      <package name="bet"/>-->
+<!--      <package name="payment"/>-->
     </packages>
   </test> <!-- Test -->
+
+<!--  <test name="Run on jimmyqc network">-->
+<!--    <parameter name="network" value="jimmyqc" />-->
+<!--    <parameter name="pass" value="quocMinh17" />-->
+<!--    <parameter name="browser" value="chrome" />-->
+<!--    <parameter name="username" value="testslot001" />-->
+<!--    <parameter name="gameId" value="9999" />-->
+<!--    <classes>-->
+<!--      <class name="bet.Bet_08_SSport"/>-->
+<!--      &lt;!&ndash;      <class name="bet.Bet_07_TSport"/>&ndash;&gt;-->
+<!--      &lt;!&ndash;      <class name="bet.Bet_01_Quayso"/>&ndash;&gt;-->
+<!--      &lt;!&ndash;      <class name="alive.Alive_03_HoGaming"/>&ndash;&gt;-->
+<!--      &lt;!&ndash;      <class name="account.SendMessageToTelegram"/>&ndash;&gt;-->
+<!--    </classes>-->
+<!--    <packages>-->
+<!--      &lt;!&ndash;      <package name="account"/>&ndash;&gt;-->
+<!--      &lt;!&ndash;      <package name="alive"/>&ndash;&gt;-->
+<!--      &lt;!&ndash;      <package name="bet"/>&ndash;&gt;-->
+<!--      &lt;!&ndash;      <package name="payment"/>&ndash;&gt;-->
+<!--    </packages>-->
+<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
 
 <!--  <test name="Run on Firefox">-->
 <!--    <parameter name="browser" value="firefox" />-->
