@@ -1,6 +1,6 @@
 package bet;
 
-import commons.BaseTest;
+import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
@@ -10,19 +10,22 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import pageObjects.SSportPageObject;
 
 import java.lang.reflect.Method;
 import java.util.List;
 
-public class Bet_08_SSport extends BaseTest {
+public class Bet_08_SSport extends CommonsTest {
 
 	WebDriver driver;
 	SSportPageObject sSportPage;
 
-    @Parameters(value = "browser")
+	@Parameters({"network", "pass", "browser"})
 	@BeforeClass
-	public void preConditions(String browserName) {
+	public void preConditions(String networkName, String networkPass, String browserName) {
+
+		switchToSpecificNetwork(networkName, networkPass);
 
 		driver = openMultiBrowser(browserName, Constants.HOME_URL);
 
@@ -32,8 +35,9 @@ public class Bet_08_SSport extends BaseTest {
 
 	private String BET_MONEY = "30";
 
-	@Override
-	public void Run(Method method) {
+	@Parameters(value = "file")
+	@Test
+	public void Run(Method method, String fileName) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_SSport");
 		log.info("SSport - Step01: Login with valid account\n");
 		sSportPage.loginSportAccount();
@@ -42,7 +46,7 @@ public class Bet_08_SSport extends BaseTest {
 		sSportPage.openSSportPage("item-sb ssport", "icon-vi-s");
 
 		log.info("SSport - Step03: Switch to sport iframe to play\n");
-		sSportPage.switchToSSportIframe();
+		sSportPage.switchToSSportIframe(fileName);
 
 		log.info("SSport - Step04: Betting\n");
 		//betSSport();

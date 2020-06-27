@@ -1,6 +1,6 @@
 package bet;
 
-import commons.BaseTest;
+import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
@@ -10,20 +10,23 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import pageObjects.KenoPageObject;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bet_06_Keno extends BaseTest {
+public class Bet_06_Keno extends CommonsTest {
 
 	WebDriver driver;
 	KenoPageObject kenoPage;
 
-    @Parameters(value = "browser")
+	@Parameters({"network", "pass", "browser"})
 	@BeforeClass
-	public void preConditions(String browserName) {
+	public void preConditions(String networkName, String networkPass, String browserName) {
+
+		switchToSpecificNetwork(networkName, networkPass);
 
 		driver = openMultiBrowser(browserName, Constants.HOME_URL);
 
@@ -33,8 +36,9 @@ public class Bet_06_Keno extends BaseTest {
 
 	String BET_MONEY = "10";
 
-	@Override
-	public void Run(Method method) {
+	@Parameters(value = "file")
+	@Test
+	public void Run(Method method, String fileName) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_Keno");
 
 		log.info("Keno - Step 01: Login valid account\n");
@@ -44,10 +48,9 @@ public class Bet_06_Keno extends BaseTest {
 		kenoPage.openKenoPage();
 
 		log.info("Keno - Step 03: Switch to keno iframe\n");
-		kenoPage.switchToKenoIframe();
+		kenoPage.switchToKenoIframe(fileName);
 
 		log.info("Keno - Step 04: Play Quick Keno 1\n");
-		//betKenoGame();
 
 		log.info("Keno - Step 05: Exit Keno iframe");
 		kenoPage.quitKenoIframe();

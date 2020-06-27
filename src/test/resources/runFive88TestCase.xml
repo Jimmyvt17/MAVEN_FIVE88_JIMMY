@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite" parallel="tests" thread-count="5">
+<suite name="Suite" parallel="false" thread-count="5">
 
   <listeners>
     <listener class-name="org.uncommons.reportng.HTMLReporter" />
@@ -10,26 +10,37 @@
     <listener class-name="commons.reportConfig.ReportNGListener" />
   </listeners>
 
-  <test name="Run on Chrome">
-    <parameter name="browser" value="chrome" />
-    <parameter name="username" value="testslot001" />
-    <parameter name="gameId" value="9999" />
-    <classes>
-        <class name="bet.Bet_08_SSport"/>
-        <class name="bet.Bet_07_TSport"/>
-        <class name="bet.Bet_03_ASport"/>
-        <class name="bet.Bet_05_NumberGame"/>
-        <class name="bet.Bet_06_Keno"/>
-        <class name="bet.Bet_02_Lode"/>
-        <class name="bet.Bet_01_Quayso"/>
-    </classes>
-    <packages>
-<!--      <package name="account"/>-->
-<!--      <package name="alive"/>-->
-<!--      <package name="bet"/>-->
-<!--      <package name="payment"/>-->
-    </packages>
+    <test name="Run on PPCloud">
+        <parameter name="network" value="PhnompenhCloud" />
+        <parameter name="pass" value="wifikhongpass" />
+        <parameter name="browser" value="chrome" />
+        <parameter name="file" value="PPC_LoadingTimeOfIframeInFive88.xlsx" />
+        <classes>
+            <class name="bet.Bet_08_SSport"/>
+            <class name="bet.Bet_07_TSport"/>
+            <class name="bet.Bet_03_ASport"/>
+            <class name="bet.Bet_05_NumberGame"/>
+            <class name="bet.Bet_06_Keno"/>
+            <class name="bet.Bet_02_Lode"/>
+            <class name="bet.Bet_01_Quayso"/>
+        </classes>
   </test> <!-- Test -->
+
+    <test name="Run on jimmyqc">
+        <parameter name="network" value="jimmyqc" />
+        <parameter name="pass" value="quocMinh17" />
+        <parameter name="browser" value="chrome" />
+        <parameter name="file" value="JM_LoadingTimeOfIframeInFive88.xlsx" />
+        <classes>
+            <class name="bet.Bet_08_SSport"/>
+            <class name="bet.Bet_07_TSport"/>
+            <class name="bet.Bet_03_ASport"/>
+            <class name="bet.Bet_05_NumberGame"/>
+            <class name="bet.Bet_06_Keno"/>
+            <class name="bet.Bet_02_Lode"/>
+            <class name="bet.Bet_01_Quayso"/>
+        </classes>
+    </test> <!-- Test -->
 
 <!--  <test name="Run on Firefox">-->
 <!--    <parameter name="browser" value="firefox" />-->

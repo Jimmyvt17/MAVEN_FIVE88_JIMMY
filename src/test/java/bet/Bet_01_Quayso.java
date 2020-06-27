@@ -1,6 +1,6 @@
 package bet;
 
-import commons.BaseTest;
+import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
@@ -10,20 +10,24 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import pageObjects.QuaysoPageObject;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bet_01_Quayso extends BaseTest {
+public class Bet_01_Quayso extends CommonsTest {
 
 	WebDriver driver;
 	QuaysoPageObject quaysoPage;
 
-	@Parameters(value = "browser")
+	@Parameters({"network", "pass", "browser"})
 	@BeforeClass
-	public void preConditions(String browserName) {
+	public void preConditions(String networkName, String networkPass, String browserName) {
+
+		switchToSpecificNetwork(networkName, networkPass);
+
 		driver = openMultiBrowser(browserName, Constants.HOME_URL);
 
 		quaysoPage = PageFactoryManager.getQuaysoPage(driver);
@@ -32,8 +36,9 @@ public class Bet_01_Quayso extends BaseTest {
 
 	private Integer BET_MONEY = 10;
 
-	@Override
-	public void Run(Method method) {
+	@Parameters(value = "file")
+	@Test
+	public void Run(Method method, String fileName) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_Quayso");
 
 		log.info("Quayso - Step 01: Login with valid account");
@@ -43,10 +48,9 @@ public class Bet_01_Quayso extends BaseTest {
 		quaysoPage.openQuaysoPage();
 
 		log.info("Quayso - Step 03: Switch to iframe to play");
-		quaysoPage.switchToLotteryIframe();
+		quaysoPage.switchToLotteryIframe(fileName);
 
 		log.info("Quayso - Step 04: Play lottery");
-		//betLotteryGame();
 
 		log.info("Quayso - Step 05: Exit iframe");
 		quaysoPage.quitLotteryIframe();

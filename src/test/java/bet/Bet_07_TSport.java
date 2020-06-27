@@ -1,6 +1,6 @@
 package bet;
 
-import commons.BaseTest;
+import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
@@ -9,19 +9,22 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import pageObjects.TSportPageObject;
 
 import java.lang.reflect.Method;
 import java.util.List;
 
-public class Bet_07_TSport extends BaseTest {
+public class Bet_07_TSport extends CommonsTest {
 
 	WebDriver driver;
 	TSportPageObject tSportPage;
 
-    @Parameters(value = "browser")
+    @Parameters({"network", "pass", "browser"})
 	@BeforeClass
-	public void preConditions(String browserName) {
+	public void preConditions(String networkName, String networkPass, String browserName) {
+
+    	switchToSpecificNetwork(networkName, networkPass);
 
 		driver = openMultiBrowser(browserName, Constants.HOME_URL);
 
@@ -31,8 +34,9 @@ public class Bet_07_TSport extends BaseTest {
 
 	private String BET_MONEY = "30";
 
-	@Override
-	public void Run(Method method) {
+    @Parameters(value = "file")
+	@Test
+	public void Run(Method method, String fileName) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_TSport");
 
 		log.info("TSport - Step01: Login with valid account\n");
@@ -47,7 +51,7 @@ public class Bet_07_TSport extends BaseTest {
 		tSportPage.openTSportPage("item-sb tsport", "icon-vi-s");
 
 		log.info("TSport - Step03: Switch to sport iframe to play\n");
-		tSportPage.switchToTSportIframe();
+		tSportPage.switchToTSportIframe(fileName);
 
 		log.info("TSport - Step04: Betting\n");
 		//betTSport();

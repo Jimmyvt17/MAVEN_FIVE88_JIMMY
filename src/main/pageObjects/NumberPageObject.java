@@ -36,10 +36,10 @@ public class NumberPageObject extends AbstractPage {
 
     }
 
-    public void switchToNumberIframe() {
+    public void switchToNumberIframe(String fileName) {
 
         //switchToIframe(driver, Constants.windowsFilePath, Constants.loadingTimeFile, "Number");
-        getIframeLoadingTime(driver, NumberPageUI.balanceLocator, "Number");
+        getIframeLoadingTime(driver, NumberPageUI.balanceLocator, fileName, "Number");
 
     }
 

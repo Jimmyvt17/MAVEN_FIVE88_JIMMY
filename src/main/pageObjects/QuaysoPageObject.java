@@ -111,10 +111,10 @@ public class QuaysoPageObject extends AbstractPage {
 
     }
 
-    public void switchToLotteryIframe() {
+    public void switchToLotteryIframe(String fileName) {
 
         //switchToIframe(driver, Constants.windowsFilePath, Constants.loadingTimeFile, "Quayso");
-        getIframeLoadingTime(driver, QuaysoPageUI.quaysoBalanceLocator, "Quayso");
+        getIframeLoadingTime(driver, QuaysoPageUI.quaysoBalanceLocator, fileName, "Quayso");
 
     }
 

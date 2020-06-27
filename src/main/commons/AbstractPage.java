@@ -378,7 +378,7 @@ public class AbstractPage {
 
     }
 
-    public void getIframeLoadingTime(WebDriver driver, By xPathLocator, String sheetName) {
+    public void getIframeLoadingTime(WebDriver driver, By xPathLocator, String fileName, String sheetName) {
 
         a = Instant.now();
         x = LocalDateTime.now();
@@ -399,14 +399,14 @@ public class AbstractPage {
         long c = Duration.between(a, b).toMillis();
         System.out.println("Duration = " + c + "\n");
         try {
-            writeToExcelFile(Constants.windowsFilePath, Constants.loadingTimeFile, sheetName, x.toString(), String.valueOf(c));
+            writeToExcelFile(Constants.windowsFilePath, fileName, sheetName, x.toString(), String.valueOf(c));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-    public void getIframesLoadingTime(WebDriver driver, By xPathLocator, String sheetName) {
+    public void getIframesLoadingTime(WebDriver driver, By xPathLocator, String fileName, String sheetName) {
 
         a = Instant.now();
         x = LocalDateTime.now();
@@ -427,7 +427,7 @@ public class AbstractPage {
         long c = Duration.between(a, b).toMillis();
         System.out.println("Duration = " + c + "\n");
         try {
-            writeToExcelFile(Constants.windowsFilePath, Constants.loadingTimeFile, sheetName, x.toString(), String.valueOf(c));
+            writeToExcelFile(Constants.windowsFilePath, fileName, sheetName, x.toString(), String.valueOf(c));
         } catch (IOException e) {
             e.printStackTrace();
         }

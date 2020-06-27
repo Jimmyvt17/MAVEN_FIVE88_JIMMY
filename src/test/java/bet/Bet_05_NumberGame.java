@@ -1,6 +1,6 @@
 package bet;
 
-import commons.BaseTest;
+import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
@@ -9,20 +9,23 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import pageObjects.NumberPageObject;
 
 import java.lang.reflect.Method;
 import java.time.Instant;
 import java.util.List;
 
-public class Bet_05_NumberGame extends BaseTest {
+public class Bet_05_NumberGame extends CommonsTest {
 
 	WebDriver driver;
 	NumberPageObject numberPage;
 
-    @Parameters(value = "browser")
+	@Parameters({"network", "pass", "browser"})
 	@BeforeClass
-	public void preConditions(String browserName) {
+	public void preConditions(String networkName, String networkPass, String browserName) {
+
+		switchToSpecificNetwork(networkName, networkPass);
 
 		driver = openMultiBrowser(browserName, Constants.HOME_URL);
 
@@ -33,8 +36,9 @@ public class Bet_05_NumberGame extends BaseTest {
 	Instant a, b, c;
 	String BET_MONEY = "10";
 
-	@Override
-	public void Run(Method method) {
+	@Parameters(value = "file")
+	@Test
+	public void Run(Method method, String fileName) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_NumberGame");
 
 		log.info("NumberGame - Step 01: Login valid account\n");
@@ -44,7 +48,7 @@ public class Bet_05_NumberGame extends BaseTest {
 		numberPage.openNumberGamePage();
 
 		log.info("NumberGame - Step 03: Switch to number iframe\n");
-		numberPage.switchToNumberIframe();
+		numberPage.switchToNumberIframe(fileName);
 
 		log.info("NumberGame - Step 04: Play Turbo Number Game\n");
 		//betNumberGame("nb-100123");

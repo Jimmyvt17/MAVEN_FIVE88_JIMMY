@@ -99,10 +99,10 @@ public class ASportPageObject extends AbstractPage {
 
     }
 
-    public void switchToASportIframe() {
+    public void switchToASportIframe(String fileName) {
 
         //witchToIframes(driver, Constants.windowsFilePath, Constants.loadingTimeFile, "ASport");
-        getIframesLoadingTime(driver, ASportPageUI.aSportBalanceLocator, "ASport");
+        getIframesLoadingTime(driver, ASportPageUI.aSportBalanceLocator, fileName, "ASport");
 
     }
 

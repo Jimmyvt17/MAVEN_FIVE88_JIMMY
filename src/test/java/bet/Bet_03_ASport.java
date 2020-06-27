@@ -1,7 +1,7 @@
 package bet;
 
 
-import commons.BaseTest;
+import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
@@ -10,19 +10,22 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import pageObjects.ASportPageObject;
 
 import java.lang.reflect.Method;
 import java.util.List;
 
-public class Bet_03_ASport extends BaseTest {
+public class Bet_03_ASport extends CommonsTest {
 
 	WebDriver driver;
 	ASportPageObject aSportPage;
 
-    @Parameters(value = "browser")
+	@Parameters({"network", "pass", "browser"})
 	@BeforeClass
-	public void preConditions(String browserName) {
+	public void preConditions(String networkName, String networkPass, String browserName) {
+
+		switchToSpecificNetwork(networkName, networkPass);
 
 		driver = openMultiBrowser(browserName, Constants.HOME_URL);
 
@@ -32,8 +35,9 @@ public class Bet_03_ASport extends BaseTest {
 
 	private String BET_MONEY = "50";
 
-	@Override
-	public void Run(Method method) {
+	@Parameters(value = "file")
+	@Test
+	public void Run(Method method, String fileName) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_ASport");
 
 		log.info("ASport - Step01: Login with valid account");
@@ -48,10 +52,9 @@ public class Bet_03_ASport extends BaseTest {
 		aSportPage.openASportPage();
 
 		log.info("ASport - Step03: Switch to sport iframe to play");
-		aSportPage.switchToASportIframe();
+		aSportPage.switchToASportIframe(fileName);
 
 		log.info("ASport - Step04: Betting");
-		//betASport();
 
 		log.info("ASport - Step05: Exit iframe");
 		aSportPage.quitASportIframe();
