@@ -293,7 +293,7 @@ public class CommonsTest {
                 Process process = Runtime.getRuntime().exec(cmd);
                 process.waitFor();
             } else {
-                cmd = "ipconfig /renew " + networkName;
+                cmd = "netsh wlan connect ssid=" + networkName + " name=" + networkName;
                 Process process = Runtime.getRuntime().exec(cmd);
                 process.waitFor();
             }
