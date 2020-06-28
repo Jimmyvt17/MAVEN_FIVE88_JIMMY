@@ -73,7 +73,7 @@ public class Bet_07_TSport extends BaseTest {
 			List<WebElement> listBet = tSportPage.getBets();
 			log.info("So luong cua bet la " + listBet.size() + "\n");
 
-			int betSelect = randomNumber(100);
+			int betSelect = randomNumber(listBet.size());
 			log.info("Chon bet cua thu " + betSelect + "\n");
 			try {
 				Thread.sleep(1000);

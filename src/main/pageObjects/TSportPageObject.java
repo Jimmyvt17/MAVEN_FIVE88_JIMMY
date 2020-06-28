@@ -89,6 +89,7 @@ public class TSportPageObject extends AbstractPage {
 
     public boolean isTicketDisplayed() {
 
+        overrideTimeout(driver, Constants.MID_TIMEOUT);
         List<WebElement> noBetTicket = driver.findElements(TSportPageUI.ticketOKTSportLocator);
         return noBetTicket.size() > 0;
 
