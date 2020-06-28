@@ -46,6 +46,7 @@ public class Bet_07_TSport extends BaseTest {
 
 		log.info("TSport - Step04: Betting\n");
 		betTSport();
+		//betTSportManyTimes();
 
 		log.info("TSport - Step05: Verify min bet and max bet\n");
 		verifyTSport();
@@ -72,7 +73,7 @@ public class Bet_07_TSport extends BaseTest {
 			List<WebElement> listBet = tSportPage.getBets();
 			log.info("So luong cua bet la " + listBet.size() + "\n");
 
-			int betSelect = randomNumber(listBet.size());
+			int betSelect = randomNumber(100);
 			log.info("Chon bet cua thu " + betSelect + "\n");
 			try {
 				Thread.sleep(1000);
@@ -86,27 +87,18 @@ public class Bet_07_TSport extends BaseTest {
 			String betOrderDetails = tSportPage.getBetDetails();
 			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
 			try {
-				Thread.sleep(5 * 1000);
+				Thread.sleep(3 * 1000);
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
-
-			log.info("Input money to bet = " + BET_MONEY + "\n");
-			tSportPage.inputBetMoney(BET_MONEY);
-
-			log.info("Click bet button\n");
-			tSportPage.clickToBetButton();
 
 			log.info("Confirm betting\n");
-			tSportPage.confirmBet();
-			try {
-				Thread.sleep(5 * 1000);
-			} catch (Throwable e) {
-				e.printStackTrace();
-			}
+			tSportPage.confirmBet(BET_MONEY);
 
+			log.info("Verify cuoc thanh cong\n");
 			if(tSportPage.isTicketDisplayed()){
-				log.info("Bet ticket in process\n");
+				log.info("Mo bang cuoc dang dien ra\n");
+				tSportPage.openBetBoard();
 
 				String ticketDetails = tSportPage.getTicketDetails();
 				log.info("Noi dung ve cuoc la\n" + ticketDetails + "\n");
@@ -123,18 +115,71 @@ public class Bet_07_TSport extends BaseTest {
 				i = false;
 
 				log.info("Sau do dieu kien la " + i + "\n");
-
 			} else {
-
 				i = true;
 				log.info("Sau do dieu kien la " + i + "\n");
 
 				log.info("Bet ko thanh cong, thu lai\n==========\n");
-
 			}
 
 		}
 	}
+
+	protected void betTSportManyTimes() {
+		boolean i = true;
+
+		while (i) {
+			log.info("Ban dau dieu kien la " + i + "\n");
+
+			String beforeBalance = tSportPage.getBalance();
+			log.info("So tien luc dau la " + beforeBalance + "\n");
+
+			List<WebElement> listBet = tSportPage.getBets();
+			log.info("So luong cua bet la " + listBet.size() + "\n");
+
+			int betSelect = randomNumber(100);
+			log.info("Chon bet cua thu " + betSelect + "\n");
+			try {
+				Thread.sleep(1000);
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
+
+			log.info("Click to open bet panel\n");
+			tSportPage.openBetPanel(listBet.get(betSelect));
+
+			String betOrderDetails = tSportPage.getBetDetails();
+			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
+
+			log.info("Confirm betting\n");
+			tSportPage.confirmBet(BET_MONEY);
+
+			log.info("Verify cuoc thanh cong\n");
+			if(tSportPage.isTicketDisplayed()){
+				log.info("Mo bang cuoc dang dien ra\n");
+				tSportPage.openBetBoard();
+
+				String ticketDetails = tSportPage.getTicketDetails();
+				log.info("Noi dung ve cuoc la\n" + ticketDetails + "\n");
+
+				log.info("Verify ticket is correct\n");
+				verifyEquals(betOrderDetails, ticketDetails);
+
+				String afterBalance = tSportPage.getBalance();
+				log.info("So tien sau khi bet la " + afterBalance + "\n");
+
+				log.info("Verify balance is updated correct\n");
+				verifyFalse(beforeBalance==afterBalance);
+
+				i = true;
+			} else {
+				i = true;
+				log.info("Bet ko thanh cong, thu lai\n==========\n");
+			}
+
+		}
+	}
+
 
 	protected void verifyTSport() {
 		for (int i = 0; i < 10; i++) {
@@ -163,7 +208,7 @@ public class Bet_07_TSport extends BaseTest {
 			log.info("Verify ticket is correct\n");
 			verifyEquals(betOrderDetails, betTicketDetails);
 			try {
-				Thread.sleep(5 * 1000);
+				Thread.sleep(3 * 1000);
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}

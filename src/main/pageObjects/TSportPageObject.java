@@ -59,17 +59,29 @@ public class TSportPageObject extends AbstractPage {
 
     }
 
-    public void confirmBet() {
+    public void confirmBet(String value) {
 
-        waitForElementVisibleByLocator(driver, TSportPageUI.betConfirmTSportLocator);
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Input money to bet = " + value + "\n");
+            inputBetMoney(value);
+            System.out.println("Click bet button\n");
+            clickToBetButton();
+            List<WebElement> noConfirmButton = driver.findElements(TSportPageUI.betConfirmTSportLocator);
+            if (noConfirmButton.size() > 0) {
+                highlightElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
+                break;
+            } else {
+                Assert.assertFalse(i==10);
+                System.out.println("Not success, please try again\n");
+            }
+        }
+        System.out.println("Confirm betting\n");
         clickToElementByJSByLocator(driver, TSportPageUI.betConfirmTSportLocator);
 
     }
 
     public void openBetBoard() {
 
-        waitForElementVisibleByLocator(driver, TSportPageUI.betBoardTSportLocator);
-        clickToElementByLocator(driver, TSportPageUI.betBoardTSportLocator);
         waitForElementVisibleByLocator(driver, TSportPageUI.inProcessTicketTSportLocator);
         clickToElementByLocator(driver, TSportPageUI.inProcessTicketTSportLocator);
 
@@ -84,7 +96,7 @@ public class TSportPageObject extends AbstractPage {
 
     public String getTicketDetails() {
 
-        return getTextElementByLocator(driver, TSportPageUI.ticketOKTSportLocator);
+        return getTextElementByLocator(driver, TSportPageUI.ticketDetailTSportLocator);
 
     }
 
@@ -103,7 +115,7 @@ public class TSportPageObject extends AbstractPage {
 
     public void loginSportAccount() {
 
-        login(driver, "setagamma", Constants.PASSWORD);
+        login(driver, Constants.USERNAME_THETHAO, Constants.PASSWORD);
         try {
             Thread.sleep(5 * 1000);
         } catch (Throwable e) {
