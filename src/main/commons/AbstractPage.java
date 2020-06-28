@@ -707,7 +707,7 @@ public class AbstractPage {
             js = (JavascriptExecutor) driver;
             return (String) js.executeScript("return arguments[0].textContent.toString()", elements.get(0));
         } else {
-            return "-1";
+            return "0";
         }
 
     }

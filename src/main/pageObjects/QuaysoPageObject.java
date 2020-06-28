@@ -34,15 +34,19 @@ public class QuaysoPageObject extends AbstractPage {
         if (startList.size() > 0) {
             scrollToQuaysoGame(value);
             Integer remainTime = getBetTimeCountDown(value);
-             if (remainTime >= 10) {
-                 System.out.println("Check for game id = " + value + "\n");
-                 System.out.println("Remaining time = " + remainTime + "\n");
-                 return true;
-             } else {
-                 System.out.println("Check for game id = " + value + "\n");
-                 System.out.println("Remaining time = " + remainTime + "\n");
-                 return false;
-             }
+            if (remainTime < 0) {
+                System.out.println("Check for game id = " + value + "\n");
+                System.out.println("Remaining time = " + remainTime + "\n");
+                throw new RuntimeException("game id = " + value + " has negative countdown time");
+            } else if (remainTime >= 10) {
+                       System.out.println("Check for game id = " + value + "\n");
+                       System.out.println("Remaining time = " + remainTime + "\n");
+                       return true;
+                   } else {
+                       System.out.println("Check for game id = " + value + "\n");
+                       System.out.println("Remaining time = " + remainTime + "\n");
+                       return false;
+                   }
         } else {
             System.out.println("Check for game id = " + value + "\n");
             return false;
