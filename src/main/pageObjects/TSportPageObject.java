@@ -75,7 +75,7 @@ public class TSportPageObject extends AbstractPage {
                 System.out.println("Not success, please try again\n");
             }
         }
-        System.out.println("Confirm betting\n");
+        System.out.println("Click to confirm\n");
         clickToElementByJSByLocator(driver, TSportPageUI.betConfirmTSportLocator);
 
     }
@@ -90,7 +90,7 @@ public class TSportPageObject extends AbstractPage {
     public boolean isTicketDisplayed() {
 
         overrideTimeout(driver, Constants.MID_TIMEOUT);
-        List<WebElement> noBetTicket = driver.findElements(TSportPageUI.ticketOKTSportLocator);
+        List<WebElement> noBetTicket = driver.findElements(TSportPageUI.ticketDetailTSportLocator);
         return noBetTicket.size() > 0;
 
     }

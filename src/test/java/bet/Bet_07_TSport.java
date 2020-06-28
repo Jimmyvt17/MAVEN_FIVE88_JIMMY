@@ -97,8 +97,8 @@ public class Bet_07_TSport extends BaseTest {
 
 			log.info("Verify cuoc thanh cong\n");
 			if(tSportPage.isTicketDisplayed()){
-				log.info("Mo bang cuoc dang dien ra\n");
-				tSportPage.openBetBoard();
+//				log.info("Mo bang cuoc dang dien ra\n");
+//				tSportPage.openBetBoard();
 
 				String ticketDetails = tSportPage.getTicketDetails();
 				log.info("Noi dung ve cuoc la\n" + ticketDetails + "\n");
