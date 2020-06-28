@@ -391,7 +391,15 @@ public class AbstractPage {
 
         try {
             switchToIframe(driver);
-            waitForElementVisibleByLocator(driver, xPathLocator);
+            List<WebElement> noElement = driver.findElements(xPathLocator);
+            for (int i = 0; i <= 20; i++) {
+                if (noElement.size() > 0) {
+                    break;
+                } else {
+                    Assert.assertFalse(i < 20);
+                    Thread.sleep(3 * 1000);
+                }
+            }
         } catch (Throwable e) {
             String exceptionText = e.toString();
             if (exceptionText.contains("StaleElementReferenceException")) {

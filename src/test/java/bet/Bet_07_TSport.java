@@ -96,7 +96,7 @@ public class Bet_07_TSport extends BaseTest {
 			tSportPage.confirmBet(BET_MONEY);
 
 			log.info("Verify cuoc thanh cong\n");
-			if(tSportPage.isTicketDisplayed()){
+			if (tSportPage.isTicketDisplayed()) {
 //				log.info("Mo bang cuoc dang dien ra\n");
 //				tSportPage.openBetBoard();
 
@@ -155,7 +155,7 @@ public class Bet_07_TSport extends BaseTest {
 			tSportPage.confirmBet(BET_MONEY);
 
 			log.info("Verify cuoc thanh cong\n");
-			if(tSportPage.isTicketDisplayed()){
+			if (tSportPage.isTicketDisplayed()) {
 				log.info("Mo bang cuoc dang dien ra\n");
 				tSportPage.openBetBoard();
 

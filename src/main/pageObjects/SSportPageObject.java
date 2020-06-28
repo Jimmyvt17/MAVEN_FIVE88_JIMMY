@@ -55,8 +55,9 @@ public class SSportPageObject extends AbstractPage {
 
     public boolean isTicketCreated() {
 
-        scrollToElementByLocator(driver, SSportPageUI.betSelectedLocator);
-        return isControlDisplayed(driver, SSportPageUI.betSelectedLocator);
+        overrideTimeout(driver, Constants.MID_TIMEOUT);
+        List<WebElement> noBetSelect = driver.findElements(SSportPageUI.oddSelectedLocator);
+        return noBetSelect.size() > 0;
 
     }
 
@@ -110,11 +111,34 @@ public class SSportPageObject extends AbstractPage {
 
     }
 
-    public void verifyBetSuccess() {
+    public boolean isBetSuccess(String value) {
 
-        overrideTimeout(driver, Constants.LONG_TIMEOUT);
-        waitForElementVisibleByLocator(driver, SSportPageUI.ticketOKSSportLocator);
-
+        for (int i = 0; i <= 10; i++) {
+            List<WebElement> noBetInput = driver.findElements(SSportPageUI.inputBetSSportMoney);
+            if (noBetInput.size() > 0) {
+                System.out.println("Nhap so tien cuoc = " + value + "\n");
+                inputBetMoney(value);
+                System.out.println("Xac nhan cuoc\n");
+                confirmBet();
+                acceptConfirmAlert();
+                try {
+                    Thread.sleep(5 * 1000);
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Kiem tra cuoc thanh cong\n");
+                List<WebElement> noSuccessText = driver.findElements(SSportPageUI.ticketOKSSportLocator);
+                if (noSuccessText.size() > 0) {
+                    System.out.println("Cuoc thanh cong\n");
+                    return true;
+                } else {
+                    System.out.println("Cuoc loi. Thu lai\n");
+                }
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 
     public void loginSportAccount() {

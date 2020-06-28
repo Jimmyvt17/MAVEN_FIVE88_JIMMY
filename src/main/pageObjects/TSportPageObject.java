@@ -61,7 +61,7 @@ public class TSportPageObject extends AbstractPage {
 
     public void confirmBet(String value) {
 
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 0; i <= 10; i++) {
             System.out.println("Input money to bet = " + value + "\n");
             inputBetMoney(value);
             System.out.println("Click bet button\n");

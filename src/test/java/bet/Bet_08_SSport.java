@@ -82,37 +82,26 @@ public class Bet_08_SSport extends BaseTest {
 			log.info("Tao phieu cuoc\n");
 			sSportPage.createBetOder(listBet.get(betSelect));
 
-			boolean condition = sSportPage.isTicketCreated();
-			log.info("Phieu cuoc duoc tao: " + condition + "\n");
-
-			if (condition = true) {
+			log.info("Verify tao phieu cuoc thanh cong\n");
+			if (sSportPage.isTicketCreated()) {
 				String oddSelect = sSportPage.getOddSelect();
 				log.info("Ty le cuoc trong phieu la " + oddSelect + "\n");
 
 				log.info("Kiem tra ty le cuoc da chon va ty le cuoc trong phieu bang nhau");
 				verifyEquals(oddBet, oddSelect);
 
-				log.info("Nhap so tien cuoc = " + BET_MONEY + "\n");
-				sSportPage.inputBetMoney(BET_MONEY);
+//				String totalReturn = sSportPage.getReturn();
+//				log.info("Tien thang cuoc = " + totalReturn + "\n");
+//
+//				log.info("Kiem tra tien thang cuoc chinh xac\n");
+//				sSportPage.verifyReturn(totalReturn, oddSelect, BET_MONEY);
 
-				String totalReturn = sSportPage.getReturn();
-				log.info("Tien thang cuoc = " + totalReturn + "\n");
-
-				log.info("Kiem tra tien thang cuoc chinh xac\n");
-				sSportPage.verifyReturn(totalReturn, oddSelect, BET_MONEY);
-
-				log.info("Xac nhan cuoc\n");
-				sSportPage.confirmBet();
-				sSportPage.acceptConfirmAlert();
-				try {
-					Thread.sleep(5000);
-				} catch (Throwable e) {
-					e.printStackTrace();
+				log.info("Thuc hien cuoc\n");
+				if (sSportPage.isBetSuccess(BET_MONEY)) {
+					i = false;
+				} else {
+					i = true;
 				}
-
-				log.info("Kiem tra cuoc thanh cong\n");
-				sSportPage.verifyBetSuccess();
-				i = false;
 			} else {
 				log.info("Phieu cuoc chua duoc tao\n");
 				i = true;
@@ -149,10 +138,8 @@ public class Bet_08_SSport extends BaseTest {
 			log.info("Tao phieu cuoc\n");
 			sSportPage.createBetOder(listBet.get(betSelect));
 
-			boolean condition = sSportPage.isTicketCreated();
-			log.info("Phieu cuoc duoc tao: " + condition + "\n");
-
-			if (condition = true) {
+			log.info("Verify tao phieu cuoc thanh cong\n");
+			if (sSportPage.isTicketCreated()) {
 				String oddSelect = sSportPage.getOddSelect();
 				log.info("Ty le cuoc trong phieu la: " + oddSelect + "\n");
 
@@ -165,25 +152,14 @@ public class Bet_08_SSport extends BaseTest {
 				log.info("Kiem tra noi dung cuoc da chon va noi dung trong phieu cuoc giong nhau");
 				verifyEquals(contentBet, contentSelect);
 
-				log.info("Nhap so tien cuoc = " + BET_MONEY + "\n");
-				sSportPage.inputBetMoney(BET_MONEY);
+//				String totalReturn = sSportPage.getReturn();
+//				log.info("Tien thang cuoc = " + totalReturn + "\n");
+//
+//				log.info("Kiem tra tien thang cuoc chinh xac\n");
+//				sSportPage.verifyReturn(totalReturn, oddSelect, BET_MONEY);
 
-				String totalReturn = sSportPage.getReturn();
-				log.info("Tien thang cuoc = " + totalReturn + "\n");
-
-				log.info("Kiem tra tien thang cuoc chinh xac\n");
-				sSportPage.verifyReturn(totalReturn, oddSelect, BET_MONEY);
-
-				log.info("Xac nhan cuoc\n");
-				sSportPage.confirmBet();
-				try {
-					Thread.sleep(5000);
-				} catch (Throwable e) {
-					e.printStackTrace();
-				}
-
-				log.info("Kiem tra cuoc thanh cong\n");
-				sSportPage.verifyBetSuccess();
+				log.info("Thuc hien cuoc\n");
+				sSportPage.isBetSuccess(BET_MONEY);
 				i = false;
 			} else {
 				log.info("Phieu cuoc chua duoc tao\n");
