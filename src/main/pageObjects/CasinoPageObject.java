@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CasinoPageObject extends AbstractPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public CasinoPageObject(WebDriver mappingDriver) {
         driver = mappingDriver;
@@ -110,19 +110,7 @@ public class CasinoPageObject extends AbstractPage {
         overrideTimeout(driver, Constants.SHORT_TIMEOUT);
         for (int i = 1; i <= 20; i++) {
             WebElement icon = driver.findElement(CasinoPageUI.logoLiveSexyCasinoLocator);
-            if (icon.isDisplayed()) {
-                System.out.println("Now loading... " + i * 3 + "s");
-                try {
-                    highlightElement(driver, icon);
-                    Thread.sleep(3000);
-                } catch (Throwable e) {
-                    e.printStackTrace();
-                }
-            } else {
-                System.out.println("Loading complete\n");
-                break;
-            }
-            Assert.assertTrue(i < 20);
+            if (verifyIconDisplayed(i, icon)) break;
         }
         waitForElementVisibleByLocator(driver, CasinoPageUI.vivoGameToolBarLocator);
         try {
@@ -149,29 +137,29 @@ public class CasinoPageObject extends AbstractPage {
     }
 
 
-    public void waitForHGLobbyLoadCompleted() {
-
-        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
-        for (int i = 1; i <= 20; i++) {
-            List<WebElement> icon = driver.findElements(CasinoPageUI.hoGamingLoadingLocator);
-            int noIcon = icon.size();
-            if (noIcon>0) {
-                System.out.println("Now loading... " + i * 3 + "s");
-                try {
-                    highlightElement(driver, icon.get(0));
-                    Thread.sleep(3000);
-                } catch (Throwable e) {
-                    e.printStackTrace();
-                }
-            } else {
-                System.out.println("Loading complete\n");
-                break;
-            }
-            Assert.assertTrue(i < 20);
-        }
-        waitForElementVisibleByLocator(driver, CasinoPageUI.hoGamingLobbyMenuLocator);
-
-    }
+//    public void waitForHGLobbyLoadCompleted() {
+//
+//        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+//        for (int i = 1; i <= 20; i++) {
+//            List<WebElement> icon = driver.findElements(CasinoPageUI.hoGamingLoadingLocator);
+//            int noIcon = icon.size();
+//            if (noIcon>0) {
+//                System.out.println("Now loading... " + i * 3 + "s");
+//                try {
+//                    highlightElement(driver, icon.get(0));
+//                    Thread.sleep(3000);
+//                } catch (Throwable e) {
+//                    e.printStackTrace();
+//                }
+//            } else {
+//                System.out.println("Loading complete\n");
+//                break;
+//            }
+//            Assert.assertTrue(i < 20);
+//        }
+//        waitForElementVisibleByLocator(driver, CasinoPageUI.hoGamingLobbyMenuLocator);
+//
+//    }
 
 
     public void selectHoGamingCategory(String category) {
@@ -193,59 +181,47 @@ public class CasinoPageObject extends AbstractPage {
 
     }
 
-    public void waitForEBetLobby() {
-
-        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
-        for (int i = 1; i <= 20; i++) {
-            List<WebElement> icon = driver.findElements(CasinoPageUI.eBetLoadingPageLocator);
-            if (icon.size() > 0) {
-                System.out.println("Now loading... " + i * 3 + "s");
-                try {
-                    Thread.sleep(3000);
-                } catch (Throwable e) {
-                    e.printStackTrace();
-                }
-            } else {
-                System.out.println("Loading complete\n");
-                break;
-            }
-            Assert.assertTrue(i < 20);
-        }
-        for (int i = 1; i <= 20; i++) {
-            List<WebElement> lobbies = driver.findElements(CasinoPageUI.eBetLobbyLocator);
-            if (lobbies.size() == 0) {
-                System.out.println("Wait for Ezugi lobby... " + i * 3 + "s");
-                try {
-                    Thread.sleep(3000);
-                } catch (Throwable e) {
-                    e.printStackTrace();
-                }
-            } else {
-                System.out.println("Ezugi lobby complete\n");
-                break;
-            }
-            Assert.assertTrue(i < 20);
-        }
-
-    }
+//    public void waitForEBetLobby() {
+//
+//        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+//        for (int i = 1; i <= 20; i++) {
+//            List<WebElement> icon = driver.findElements(CasinoPageUI.eBetLoadingPageLocator);
+//            if (icon.size() > 0) {
+//                System.out.println("Now loading... " + i * 3 + "s");
+//                try {
+//                    Thread.sleep(3000);
+//                } catch (Throwable e) {
+//                    e.printStackTrace();
+//                }
+//            } else {
+//                System.out.println("Loading complete\n");
+//                break;
+//            }
+//            Assert.assertTrue(i < 20);
+//        }
+//        for (int i = 1; i <= 20; i++) {
+//            List<WebElement> lobbies = driver.findElements(CasinoPageUI.eBetLobbyLocator);
+//            if (lobbies.size() == 0) {
+//                System.out.println("Wait for Ezugi lobby... " + i * 3 + "s");
+//                try {
+//                    Thread.sleep(3000);
+//                } catch (Throwable e) {
+//                    e.printStackTrace();
+//                }
+//            } else {
+//                System.out.println("Ezugi lobby complete\n");
+//                break;
+//            }
+//            Assert.assertTrue(i < 20);
+//        }
+//
+//    }
 
     public void waitForEzugiGame() {
 
         for (int i = 1; i <= 20; i++) {
             WebElement icon = driver.findElement(CasinoPageUI.ezugiLoadingLocator);
-            if (icon.isDisplayed()) {
-                System.out.println("Now loading... " + i * 3 + "s");
-                try {
-                    highlightElement(driver, icon);
-                    Thread.sleep(3000);
-                } catch (Throwable e) {
-                    e.printStackTrace();
-                }
-            } else {
-                System.out.println("Loading complete\n");
-                break;
-            }
-            Assert.assertTrue(i < 20);
+            if (verifyIconDisplayed(i, icon)) break;
         }
         for (int i = 1; i <= 20; i++) {
             List<WebElement> lobbies = driver.findElements(CasinoPageUI.ezugiHeaderLocator);
@@ -263,6 +239,23 @@ public class CasinoPageObject extends AbstractPage {
             Assert.assertTrue(i < 20);
         }
 
+    }
+
+    private boolean verifyIconDisplayed(int i, WebElement icon) {
+        if (icon.isDisplayed()) {
+            System.out.println("Now loading... " + i * 3 + "s");
+            try {
+                highlightElement(driver, icon);
+                Thread.sleep(3000);
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Loading complete\n");
+            return true;
+        }
+        Assert.assertTrue(i < 20);
+        return false;
     }
 
     public void waitForCasinoGame(By xPathLocator1, By xPathLocator2) {

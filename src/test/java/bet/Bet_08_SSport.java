@@ -30,7 +30,7 @@ public class Bet_08_SSport extends BaseTest {
 
 	}
 
-	private String BET_MONEY = "30";
+	private final String BET_MONEY = "30";
 
 	@Override
 	public void Run(Method method) {
@@ -97,11 +97,7 @@ public class Bet_08_SSport extends BaseTest {
 //				sSportPage.verifyReturn(totalReturn, oddSelect, BET_MONEY);
 
 				log.info("Thuc hien cuoc\n");
-				if (sSportPage.isBetSuccess(BET_MONEY)) {
-					i = false;
-				} else {
-					i = true;
-				}
+				i = !sSportPage.isBetSuccess(BET_MONEY);
 			} else {
 				log.info("Phieu cuoc chua duoc tao\n");
 				i = true;

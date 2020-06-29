@@ -30,8 +30,6 @@ public class Bet_03_ASport extends BaseTest {
 
 	}
 
-	private String BET_MONEY = "50";
-
 	@Override
 	public void Run(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_ASport");
@@ -83,6 +81,7 @@ public class Bet_03_ASport extends BaseTest {
 			String betOrderDetails = aSportPage.getBetDetails();
 			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
 
+			String BET_MONEY = "50";
 			log.info("Select money to bet = " + BET_MONEY + "\n");
 			aSportPage.selectBetMoney(BET_MONEY);
 

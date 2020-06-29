@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class JackpotPageObject extends AbstractPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public JackpotPageObject(WebDriver mappingDriver) {
         driver = mappingDriver;

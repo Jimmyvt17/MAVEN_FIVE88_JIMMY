@@ -12,7 +12,7 @@ import java.util.List;
 
 public class QuaysoPageObject extends AbstractPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public QuaysoPageObject(WebDriver mappingDriver) {
         driver = mappingDriver;

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ASportPageObject extends AbstractPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public ASportPageObject(WebDriver mappingDriver) {
         driver = mappingDriver;

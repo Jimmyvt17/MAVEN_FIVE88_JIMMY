@@ -86,8 +86,11 @@ public class TSportPageObject extends AbstractPage {
                 highlightElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
                 break;
             } else {
-                Assert.assertNotEquals(i, 10);
-                System.out.println("Not success, please try again\n");
+                if (i==10) {
+                    throw new RuntimeException("There is error when get odd. Please try again manually");
+                } else {
+                    System.out.println("Not success, please try again\n");
+                }
             }
         }
         System.out.println("Click to confirm\n");

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AccountPageObject extends AbstractPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public AccountPageObject(WebDriver mappingDriver) {
         driver = mappingDriver;

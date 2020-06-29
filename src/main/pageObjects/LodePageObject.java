@@ -11,7 +11,7 @@ import java.util.List;
 public class LodePageObject extends AbstractPage {
 
     public String getBalance;
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public LodePageObject(WebDriver mappingDriver) {
         driver = mappingDriver;

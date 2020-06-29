@@ -12,7 +12,7 @@ import java.util.List;
 
 public class KenoPageObject extends AbstractPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public KenoPageObject(WebDriver mappingDriver) {
         driver = mappingDriver;
@@ -78,7 +78,7 @@ public class KenoPageObject extends AbstractPage {
 //            return false;
 //        }
         String betTime = getTextElementByLocator(driver, By.xpath(tmp));
-        Integer remainTime = NumberUtils.toInt(betTime.replace("0:", ""));
+        int remainTime = NumberUtils.toInt(betTime.replace("0:", ""));
         if (remainTime >= 10) {
             scrollToKenoGame(value);
             System.out.println("Check for game id = " + value + "\n");

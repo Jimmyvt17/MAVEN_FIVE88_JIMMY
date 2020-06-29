@@ -30,8 +30,6 @@ public class Bet_01_Quayso extends BaseTest {
 
 	}
 
-	private Integer BET_MONEY = 10;
-
 	@Override
 	public void Run(Method method) {
 		ExtentTestManager.startTest(method.getName(), "TC_1_Quayso");
@@ -98,6 +96,7 @@ public class Bet_01_Quayso extends BaseTest {
 		log.info("Select bet point at order " + number + 1 + "\n");
 		quaysoPage.openBetPanel(noBet.get(number));
 
+		Integer BET_MONEY = 10;
 		log.info("Select money to bet = " + BET_MONEY + "\n");
 		quaysoPage.selectMoneyToBet(BET_MONEY);
 

@@ -12,7 +12,6 @@ import org.testng.annotations.Parameters;
 import pageObjects.NumberPageObject;
 
 import java.lang.reflect.Method;
-import java.time.Instant;
 import java.util.List;
 
 public class Bet_05_NumberGame extends BaseTest {
@@ -30,7 +29,6 @@ public class Bet_05_NumberGame extends BaseTest {
 
 	}
 
-	Instant a, b, c;
 	String BET_MONEY = "10";
 
 	@Override

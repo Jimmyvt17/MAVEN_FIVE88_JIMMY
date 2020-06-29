@@ -12,7 +12,7 @@ import java.util.List;
 
 public class NumberPageObject extends AbstractPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public NumberPageObject(WebDriver mappingDriver) {
         driver = mappingDriver;

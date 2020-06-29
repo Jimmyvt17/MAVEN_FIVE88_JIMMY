@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePageObject extends AbstractPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public HomePageObject(WebDriver mappingDriver) {
 
