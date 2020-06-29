@@ -29,7 +29,7 @@ public class Bet_07_TSport extends BaseTest {
 
 	}
 
-	private String BET_MONEY = "30";
+	private final String BET_MONEY = "30";
 
 	@Override
 	public void Run(Method method) {
@@ -81,36 +81,36 @@ public class Bet_07_TSport extends BaseTest {
 				e.printStackTrace();
 			}
 
-			log.info("Click to open bet panel\n");
-			tSportPage.openBetPanel(listBet.get(betSelect));
+//			log.info("Click to open bet panel\n");
+//			tSportPage.openBetPanel(listBet.get(betSelect));
 
-			String betOrderDetails = tSportPage.getBetDetails();
-			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
-			try {
-				Thread.sleep(3 * 1000);
-			} catch (Throwable e) {
-				e.printStackTrace();
-			}
+//			String betOrderDetails = tSportPage.getBetDetails();
+//			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
+//			try {
+//				Thread.sleep(3 * 1000);
+//			} catch (Throwable e) {
+//				e.printStackTrace();
+//			}
 
 			log.info("Confirm betting\n");
-			tSportPage.confirmBet(BET_MONEY);
+			tSportPage.confirmBet(listBet.get(betSelect), BET_MONEY);
 
 			log.info("Verify cuoc thanh cong\n");
 			if (tSportPage.isTicketDisplayed()) {
 //				log.info("Mo bang cuoc dang dien ra\n");
 //				tSportPage.openBetBoard();
-
-				String ticketDetails = tSportPage.getTicketDetails();
-				log.info("Noi dung ve cuoc la\n" + ticketDetails + "\n");
-
-				log.info("Verify ticket is correct\n");
-				verifyEquals(betOrderDetails, ticketDetails);
+//
+//				String ticketDetails = tSportPage.getTicketDetails();
+//				log.info("Noi dung ve cuoc la\n" + ticketDetails + "\n");
+//
+//				log.info("Verify ticket is correct\n");
+//				verifyEquals(betOrderDetails, ticketDetails);
 
 				String afterBalance = tSportPage.getBalance();
 				log.info("So tien sau khi bet la " + afterBalance + "\n");
 
 				log.info("Verify balance is updated correct\n");
-				verifyFalse(beforeBalance==afterBalance);
+				verifyFalse(beforeBalance.equals(afterBalance));
 
 				i = false;
 
@@ -145,31 +145,31 @@ public class Bet_07_TSport extends BaseTest {
 				e.printStackTrace();
 			}
 
-			log.info("Click to open bet panel\n");
-			tSportPage.openBetPanel(listBet.get(betSelect));
-
-			String betOrderDetails = tSportPage.getBetDetails();
-			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
+//			log.info("Click to open bet panel\n");
+//			tSportPage.openBetPanel(listBet.get(betSelect));
+//
+//			String betOrderDetails = tSportPage.getBetDetails();
+//			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
 
 			log.info("Confirm betting\n");
-			tSportPage.confirmBet(BET_MONEY);
+			tSportPage.confirmBet(listBet.get(betSelect), BET_MONEY);
 
 			log.info("Verify cuoc thanh cong\n");
 			if (tSportPage.isTicketDisplayed()) {
-				log.info("Mo bang cuoc dang dien ra\n");
-				tSportPage.openBetBoard();
-
-				String ticketDetails = tSportPage.getTicketDetails();
-				log.info("Noi dung ve cuoc la\n" + ticketDetails + "\n");
-
-				log.info("Verify ticket is correct\n");
-				verifyEquals(betOrderDetails, ticketDetails);
+//				log.info("Mo bang cuoc dang dien ra\n");
+//				tSportPage.openBetBoard();
+//
+//				String ticketDetails = tSportPage.getTicketDetails();
+//				log.info("Noi dung ve cuoc la\n" + ticketDetails + "\n");
+//
+//				log.info("Verify ticket is correct\n");
+//				verifyEquals(betOrderDetails, ticketDetails);
 
 				String afterBalance = tSportPage.getBalance();
 				log.info("So tien sau khi bet la " + afterBalance + "\n");
 
 				log.info("Verify balance is updated correct\n");
-				verifyFalse(beforeBalance==afterBalance);
+				verifyFalse(beforeBalance.equals(afterBalance));
 
 				i = true;
 			} else {

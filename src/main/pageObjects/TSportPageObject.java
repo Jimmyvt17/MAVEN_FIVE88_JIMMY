@@ -11,7 +11,7 @@ import java.util.List;
 
 public class TSportPageObject extends AbstractPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public TSportPageObject(WebDriver mappingDriver) {
         driver = mappingDriver;
@@ -67,9 +67,16 @@ public class TSportPageObject extends AbstractPage {
 
     }
 
-    public void confirmBet(String value) {
+    public void confirmBet(WebElement element, String value) {
 
         for (int i = 0; i <= 10; i++) {
+            System.out.println("Click to open bet panel\n");
+            openBetPanel(element);
+            try {
+                Thread.sleep(3 * 1000);
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
             System.out.println("Input money to bet = " + value + "\n");
             inputBetMoney(value);
             System.out.println("Click bet button\n");
@@ -79,7 +86,7 @@ public class TSportPageObject extends AbstractPage {
                 highlightElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
                 break;
             } else {
-                Assert.assertFalse(i==10);
+                Assert.assertNotEquals(i, 10);
                 System.out.println("Not success, please try again\n");
             }
         }
@@ -153,7 +160,7 @@ public class TSportPageObject extends AbstractPage {
 
     public void verifyMinBet() {
 
-        Assert.assertTrue(isControlDisplayed(driver, TSportPageUI.minBetTSportLocator)==true);
+        Assert.assertTrue(isControlDisplayed(driver, TSportPageUI.minBetTSportLocator));
         System.out.println("-------------------------- PASSED --------------------------");
 
     }
