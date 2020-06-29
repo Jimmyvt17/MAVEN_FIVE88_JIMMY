@@ -2,8 +2,10 @@ package commons;
 
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.request.ParseMode;
+import com.pengrad.telegrambot.request.GetFile;
 import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.SendResponse;
+import commons.utility.VideoRecorder;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import okhttp3.OkHttpClient;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -22,12 +24,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -71,18 +68,16 @@ public class CommonsTest {
 
     }
 
-    public static void sendToTelegram(String botToken, long chatId, String text) {
-        String urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s";
+    public void sendVideoTelegramBot(String text, int userId) {
+        OkHttpClient client = new OkHttpClient();
 
-        urlString = String.format(urlString, botToken, chatId, text);
+        TelegramBot bot = new TelegramBot.Builder(Constants.FIVE88BOT).okHttpClient(client).build();
 
-        try {
-            URL url = new URL(urlString);
-            URLConnection conn = url.openConnection();
-            InputStream is = new BufferedInputStream(conn.getInputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        long chatId = Constants.FIVE88_FAIL_ROOM_ID;
+
+        GetFile requestFile = new GetFile("bet.Bet_07_TSport-2020-06-29 20.42.58");
+
+
     }
 
     public void convertExceptionToErrorText(Throwable e, String errorText) {
@@ -140,8 +135,10 @@ public class CommonsTest {
         if(path.exists()) {
             File[] files = path.listFiles();
             for (File file : files) {
-                log.info("Deleted filename: " + file.getName());
-                file.delete();
+                if (file.getName().contains(getClass().getName())) {
+                    log.info("Deleted filename: " + file.getName());
+                    file.delete();
+                }
             }
         } else {
             log.info("Folder " + pathOfFiles + " khong ton tai");
@@ -150,6 +147,13 @@ public class CommonsTest {
     }
 
     protected WebDriver openMultiBrowser(String browserName, String url) {
+        deleteAllFiles(Constants.videoRecordPathName);
+        try {
+            VideoRecorder.startRecord(getClass().getName());
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
         String os = System.getProperty("os.name").toLowerCase();
 
         if(os.contains("mac")) {
@@ -244,6 +248,12 @@ public class CommonsTest {
     }
 
     protected void closeBrowserAndDriver(WebDriver driver) {
+        try {
+            VideoRecorder.stopRecord();
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
         try {
             String osName = System.getProperty("os.name").toLowerCase();
             log.info("OS name = " + osName);

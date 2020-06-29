@@ -1,6 +1,6 @@
 package alive;
 
-import commons.BaseTest;
+import commons.utility.BaseTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
