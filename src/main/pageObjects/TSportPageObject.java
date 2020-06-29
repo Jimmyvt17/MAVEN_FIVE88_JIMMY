@@ -34,8 +34,16 @@ public class TSportPageObject extends AbstractPage {
 
     public void openBetPanel(WebElement element) {
 
-        //clickToElement(driver, element);
-        clickToElementByJS(driver, element);
+        for (int i = 0; i <= 10; i++) {
+            clickToElementByJS(driver, element);
+            List<WebElement> noBetPanel = driver.findElements(TSportPageUI.betPanelLocator);
+            if (noBetPanel.size() > 0) {
+                highlightElementByLocator(driver, TSportPageUI.betPanelLocator);
+                break;
+            } else if (i==10) {
+                throw new RuntimeException("Can not open bet panel");
+            }
+        }
 
     }
 
@@ -91,7 +99,13 @@ public class TSportPageObject extends AbstractPage {
 
         overrideTimeout(driver, Constants.MID_TIMEOUT);
         List<WebElement> noBetTicket = driver.findElements(TSportPageUI.ticketDetailTSportLocator);
-        return noBetTicket.size() > 0;
+        if (noBetTicket.size() > 0) {
+            System.out.println("Tao phieu cuoc thanh cong\n");
+            return true;
+        } else {
+            System.out.println("Tao phieu cuoc loi. Thu lai\n");
+            return false;
+        }
 
     }
 
