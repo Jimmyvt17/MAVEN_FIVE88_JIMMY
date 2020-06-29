@@ -56,5 +56,7 @@ public class Constants {
     public static final String betUnsuccessful = "Betting unsuccessfully. Please try again manually";
     public static final String elementIsOverlaying = "Banking under maintenance";
 
+    // Utility
+    public static final String videoRecordPathName = "AutoRecordedVideo";
 
 }

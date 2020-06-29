@@ -2,7 +2,6 @@ package commons;
 
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.request.ParseMode;
-import com.pengrad.telegrambot.request.GetFile;
 import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.SendResponse;
 import commons.utility.VideoRecorder;
@@ -65,18 +64,6 @@ public class CommonsTest {
         SendMessage request = new SendMessage(chatId, text).parseMode(ParseMode.Markdown).replyToMessageId(userId);
         // sync
         SendResponse sendResponse = bot.execute(request);
-
-    }
-
-    public void sendVideoTelegramBot(String text, int userId) {
-        OkHttpClient client = new OkHttpClient();
-
-        TelegramBot bot = new TelegramBot.Builder(Constants.FIVE88BOT).okHttpClient(client).build();
-
-        long chatId = Constants.FIVE88_FAIL_ROOM_ID;
-
-        GetFile requestFile = new GetFile("bet.Bet_07_TSport-2020-06-29 20.42.58");
-
 
     }
 
