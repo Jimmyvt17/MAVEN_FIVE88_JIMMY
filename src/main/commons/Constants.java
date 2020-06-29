@@ -2,17 +2,17 @@ package commons;
 
 public class Constants {
     // Url
-    public static final String HOME_URL = "https://five88.us/";
-    public static final String REGISTER_URL = "https://five88.us/register.aspx";
-    public static final String DEPOSIT_URL = "https://five88.us/deposit.aspx";
-    public static final String WITHDRAW_URL = "https://five88.us/withdraw.aspx";
-    public static final String TRANHISTORY_URL = "https://five88.us/history/lsgd.aspx";
-    public static final String QUAYSO_URL = "https://five88.us/lottery.aspx";
-    public static final String LODE_URL = "https://five88.us/lode.aspx";
-    public static final String CASINO_URL = "https://five88.us/casino.aspx";
-    public static final String ATHETHAO_URL = "https://five88.us/fsport/live-sports.aspx";
-    public static final String TTHETHAO_URL = "https://five88.us/tsports.aspx";
-    public static final String STHETHAO_URL = "https://five88.us/ssport.aspx";
+    public static final String HOME_URL = "https://five88.biz/";
+    public static final String REGISTER_URL = "https://five88.biz/register.aspx";
+    public static final String DEPOSIT_URL = "https://five88.biz/deposit.aspx";
+    public static final String WITHDRAW_URL = "https://five88.biz/withdraw.aspx";
+    public static final String TRANHISTORY_URL = "https://five88.biz/history/lsgd.aspx";
+    public static final String QUAYSO_URL = "https://five88.biz/lottery.aspx";
+    public static final String LODE_URL = "https://five88.biz/lode.aspx";
+    public static final String CASINO_URL = "https://five88.biz/casino.aspx";
+    public static final String ATHETHAO_URL = "https://five88.biz/fsport/live-sports.aspx";
+    public static final String TTHETHAO_URL = "https://five88.biz/tsports.aspx";
+    public static final String STHETHAO_URL = "https://five88.biz/ssport.aspx";
 
     // Timeout
     public static final int SHORT_TIMEOUT = 2;
