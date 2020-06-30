@@ -28,7 +28,7 @@
 
     <test name="Run on jimmyqc">
         <parameter name="network" value="jimmyqc" />
-        <parameter name="pass" value="quocMinh17" />
+        <parameter name="pass" value="alohaha" />
         <parameter name="browser" value="chrome" />
         <parameter name="file" value="JM_LoadingTimeOfIframeInFive88.xlsx" />
         <classes>
