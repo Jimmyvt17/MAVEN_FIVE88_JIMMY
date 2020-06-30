@@ -52,13 +52,15 @@ public class Bet_08_SSport extends BaseTest {
 	}
 
 	protected void betSSport() {
-		log.info("Bet Asia version\n");
-		betAsiaSport();
-//		log.info("\n====================\n");
-//
-//		log.info("Bet Euro version\n");
-//		sSportPage.switchToEUMode();
-//		betEUSport();
+		String viewMode = sSportPage.getViewMode();
+
+		if (viewMode.equalsIgnoreCase("Version Châu Âu")) {
+			log.info("Bet Asia version\n");
+			betAsiaSport();
+		} else {
+			log.info("Bet Euro version\n");
+			betEUSport();
+		}
 
 	}
 
@@ -97,7 +99,7 @@ public class Bet_08_SSport extends BaseTest {
 //				sSportPage.verifyReturn(totalReturn, oddSelect, BET_MONEY);
 
 				log.info("Thuc hien cuoc\n");
-				i = !sSportPage.isBetSuccess(BET_MONEY);
+				i = !sSportPage.isAsiaBetSuccess(BET_MONEY);
 			} else {
 				log.info("Phieu cuoc chua duoc tao\n");
 				i = true;
@@ -155,8 +157,7 @@ public class Bet_08_SSport extends BaseTest {
 //				sSportPage.verifyReturn(totalReturn, oddSelect, BET_MONEY);
 
 				log.info("Thuc hien cuoc\n");
-				sSportPage.isBetSuccess(BET_MONEY);
-				i = false;
+				i = !sSportPage.isEUBetSuccess(BET_MONEY);
 			} else {
 				log.info("Phieu cuoc chua duoc tao\n");
 				i = true;

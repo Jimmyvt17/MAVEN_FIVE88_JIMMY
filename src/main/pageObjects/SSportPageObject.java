@@ -111,7 +111,7 @@ public class SSportPageObject extends AbstractPage {
 
     }
 
-    public boolean isBetSuccess(String value) {
+    public boolean isAsiaBetSuccess(String value) {
 
         for (int i = 0; i <= 10; i++) {
             List<WebElement> noBetInput = driver.findElements(SSportPageUI.inputBetSSportMoney);
@@ -121,6 +121,35 @@ public class SSportPageObject extends AbstractPage {
                 System.out.println("Xac nhan cuoc\n");
                 confirmBet();
                 acceptConfirmAlert();
+                try {
+                    Thread.sleep(5 * 1000);
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Kiem tra cuoc thanh cong\n");
+                List<WebElement> noSuccessText = driver.findElements(SSportPageUI.ticketOKSSportLocator);
+                if (noSuccessText.size() > 0) {
+                    System.out.println("Cuoc thanh cong\n");
+                    return true;
+                } else {
+                    System.out.println("Cuoc loi. Thu lai\n");
+                }
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public boolean isEUBetSuccess(String value) {
+
+        for (int i = 0; i <= 10; i++) {
+            List<WebElement> noBetInput = driver.findElements(SSportPageUI.inputBetSSportMoney);
+            if (noBetInput.size() > 0) {
+                System.out.println("Nhap so tien cuoc = " + value + "\n");
+                inputBetMoney(value);
+                System.out.println("Xac nhan cuoc\n");
+                confirmBet();
                 try {
                     Thread.sleep(5 * 1000);
                 } catch (Throwable e) {
@@ -165,12 +194,19 @@ public class SSportPageObject extends AbstractPage {
 
     }
 
-    public void switchToEUMode() {
+    public String getViewMode() {
 
         waitForElementVisibleByLocator(driver, SSportPageUI.modeUILocator);
-        clickToElementByLocator(driver, SSportPageUI.modeUILocator);
+        return getTextElementByLocator(driver, SSportPageUI.modeUILocator);
 
     }
+
+//    public void switchToEUMode() {
+//
+//        waitForElementVisibleByLocator(driver, SSportPageUI.modeUILocator);
+//        clickToElementByLocator(driver, SSportPageUI.modeUILocator);
+//
+//    }
 
     public String getEuroOddBet(WebElement element) {
 
