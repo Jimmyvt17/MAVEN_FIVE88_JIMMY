@@ -135,11 +135,6 @@ public class CommonsTest {
 
     protected WebDriver openMultiBrowser(String browserName, String url) {
         deleteAllFiles(Constants.videoRecordPathName);
-        try {
-            VideoRecorder.startRecord(getClass().getName());
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
 
         String os = System.getProperty("os.name").toLowerCase();
 
@@ -230,6 +225,13 @@ public class CommonsTest {
         Dimension d = new Dimension(960, 720);
         driver.manage().window().maximize();
         driver.get(url);
+
+        try {
+            VideoRecorder.startRecord(getClass().getName());
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
         return driver;
 
     }
