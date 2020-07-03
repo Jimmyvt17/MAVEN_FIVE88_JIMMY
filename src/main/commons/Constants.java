@@ -20,13 +20,13 @@ public class Constants {
 
     // User/pass
     public static final String USERNAME = "setajim";
-    public static final String USERNAME_THETHAO = "setathethao";
-    public static final String USERNAME_QUAYSO = "setaquayso";
-    public static final String USERNAME_LODE = "setalode";
-    public static final String USERNAME_CASINO = "setacasino";
-    public static final String USERNAME_NUMBER = "setacasino";
-    public static final String USERNAME_KENO = "setacasino";
-    public static final String USERNAME_LOGIN = "setalogin";
+    public static final String USERNAME_THETHAO = "setajim";
+    public static final String USERNAME_QUAYSO = "setajim";
+    public static final String USERNAME_LODE = "setajim";
+    public static final String USERNAME_CASINO = "setajim";
+    public static final String USERNAME_NUMBER = "setajim";
+    public static final String USERNAME_KENO = "setajim";
+    public static final String USERNAME_LOGIN = "setajim";
     public static final String PASSWORD = "testjimmy";
     public static final String PHONE = "1234567890";
 
