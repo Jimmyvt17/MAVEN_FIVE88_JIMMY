@@ -11,10 +11,10 @@
   </listeners>
 
     <test name="Run on PPCloud">
-        <parameter name="network" value="PhnompenhCloud" />
-        <parameter name="pass" value="wifikhongpass" />
+        <parameter name="network" value="nameofnetwork" />
+        <parameter name="pass" value="passofnetwork" />
         <parameter name="browser" value="chrome" />
-        <parameter name="file" value="PPC_LoadingTimeOfIframeInFive88.xlsx" />
+        <parameter name="file" value="nameoffile" />
         <classes>
             <class name="bet.Bet_08_SSport"/>
             <class name="bet.Bet_07_TSport"/>
