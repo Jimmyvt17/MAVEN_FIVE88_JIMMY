@@ -12,7 +12,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import pageObjects.KenoPageObject;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +33,8 @@ public class Bet_06_Keno extends BaseTest {
 	String BET_MONEY = "10";
 
 	@Override
-	public void Run(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_1_Keno");
+	public void Run() {
+		ExtentTestManager.startTest("TC_1_Keno", "TC_1_Keno");
 
 		log.info("Keno - Step 01: Login valid account\n");
     	kenoPage.loginKenoAccount();

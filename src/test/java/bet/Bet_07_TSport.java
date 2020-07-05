@@ -11,7 +11,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import pageObjects.TSportPageObject;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
 public class Bet_07_TSport extends BaseTest {
@@ -32,8 +31,8 @@ public class Bet_07_TSport extends BaseTest {
 	private final String BET_MONEY = "30";
 
 	@Override
-	public void Run(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_1_TSport");
+	public void Run() {
+		ExtentTestManager.startTest("TC_1_TSport", "TC_1_TSport");
 
 		log.info("TSport - Step01: Login with valid account\n");
 		tSportPage.loginSportAccount();

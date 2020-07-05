@@ -3,20 +3,19 @@ package commons.utility;
 import commons.CommonsTest;
 import commons.Constants;
 import org.testng.annotations.Test;
-import java.lang.reflect.Method;
 
 public abstract class BaseTest extends CommonsTest {
 
     String error, err;
     String prefix = "Failed test case: \n" + getClass().getName() + "\n";;
-    protected abstract void Run(Method method);
+    protected abstract void Run();
 
     @Test
-    public void play(Method method) {
+    public void play() {
         try {
-            Run(method);
+            Run();
         } catch (Throwable e) {
-            if (e.toString().indexOf("\n")==-1) {
+            if (!e.toString().contains("\n")) {
                 error = e.toString();
             } else {
                 error = e.toString().substring(0, e.toString().indexOf("\n"));

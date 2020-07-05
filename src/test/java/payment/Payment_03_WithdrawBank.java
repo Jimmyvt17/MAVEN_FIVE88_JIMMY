@@ -11,8 +11,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import pageObjects.AccountPageObject;
 
-import java.lang.reflect.Method;
-
 public class Payment_03_WithdrawBank extends BaseTest {
 
     WebDriver driver;
@@ -29,8 +27,8 @@ public class Payment_03_WithdrawBank extends BaseTest {
     }
 
     @Override
-    public void Run(Method method) {
-        ExtentTestManager.startTest(method.getName(), "TC_01_WithdrawBanking");
+    public void Run() {
+        ExtentTestManager.startTest("TC_01_WithdrawBanking", "TC_01_WithdrawBanking");
 
         log.info("WithdrawBanking - Step 01: Get current balance");
         Integer curBalance = accountPage.beforeWithdrawing();

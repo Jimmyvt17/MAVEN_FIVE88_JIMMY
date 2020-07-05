@@ -11,8 +11,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import pageObjects.AccountPageObject;
 
-import java.lang.reflect.Method;
-
 public class Payment_01_DepositSuccessful extends BaseTest {
 
     WebDriver driver;
@@ -29,8 +27,8 @@ public class Payment_01_DepositSuccessful extends BaseTest {
     }
 
     @Override
-    public void Run(Method method) {
-        ExtentTestManager.startTest(method.getName(), "TC_01_DepositSuccessful");
+    public void Run() {
+        ExtentTestManager.startTest("TC_01_DepositSuccessful", "TC_01_DepositSuccessful");
 
         log.info("DepositSuccessful - Step 01: Go to deposit page");
         accountPage.beforeDepositing(Constants.USERNAME, Constants.PASSWORD);

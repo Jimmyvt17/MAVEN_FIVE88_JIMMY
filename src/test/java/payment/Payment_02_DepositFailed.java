@@ -10,8 +10,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import pageObjects.AccountPageObject;
 
-import java.lang.reflect.Method;
-
 public class Payment_02_DepositFailed extends BaseTest {
 
     WebDriver driver;
@@ -28,8 +26,8 @@ public class Payment_02_DepositFailed extends BaseTest {
     }
 
     @Override
-    public void Run(Method method) {
-        ExtentTestManager.startTest(method.getName(), "TC_01_DepositFailed");
+    public void Run() {
+        ExtentTestManager.startTest("TC_01_DepositFailed", "TC_01_DepositFailed");
 
         log.info("DepositFailed - Step 01: Go to deposit page");
         accountPage.beforeDepositing(Constants.USERNAME, Constants.PASSWORD);

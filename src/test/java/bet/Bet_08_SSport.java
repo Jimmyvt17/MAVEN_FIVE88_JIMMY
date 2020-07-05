@@ -12,7 +12,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import pageObjects.SSportPageObject;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
 public class Bet_08_SSport extends BaseTest {
@@ -33,8 +32,8 @@ public class Bet_08_SSport extends BaseTest {
 	private final String BET_MONEY = "30";
 
 	@Override
-	public void Run(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_1_SSport");
+	public void Run() {
+		ExtentTestManager.startTest("TC_1_SSport", "TC_1_SSport");
 		log.info("SSport - Step01: Login with valid account\n");
 		sSportPage.loginSportAccount();
 
