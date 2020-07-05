@@ -31,7 +31,7 @@ public class Alive_05_Ezugi extends BaseTest {
 
 	@Override
 	public void Run(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_1_Ezugi");
+		ExtentTestManager.startTest("TC_1_Ezugi", "TC_1_Ezugi");
 
 		log.info("Ezugi - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();

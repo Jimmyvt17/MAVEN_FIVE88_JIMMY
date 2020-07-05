@@ -31,7 +31,7 @@ public class Alive_02_SexyCasino extends BaseTest {
 
 	@Override
 	public void Run(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_1_Sexy");
+		ExtentTestManager.startTest("TC_1_Sexy", "TC_1_Sexy");
     	log.info("Sexy - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();
 
