@@ -31,7 +31,7 @@ public class Alive_01_Vivo extends BaseTest {
 
 	@Override
 	public void Run(Method method) {
-		ExtentTestManager.startTest("TC_1_Vivo", "TC_1_Vivo");
+		ExtentTestManager.startTest(method.getName(), "TC_1_Vivo");
 
     	log.info("Vivo - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();

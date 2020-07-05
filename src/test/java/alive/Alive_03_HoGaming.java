@@ -32,7 +32,7 @@ public class Alive_03_HoGaming extends BaseTest {
 
 	@Override
 	public void Run(Method method) {
-		ExtentTestManager.startTest("TC_1_Hogaming", "TC_1_Hogaming");
+		ExtentTestManager.startTest(method.getName(), "TC_1_Hogaming");
 
 		log.info("Hogaming - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();
