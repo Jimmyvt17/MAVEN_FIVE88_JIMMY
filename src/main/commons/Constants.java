@@ -9,24 +9,24 @@ public class Constants {
     public static final String TRANHISTORY_URL = "https://five88.biz/history/lsgd.aspx";
     public static final String QUAYSO_URL = "https://five88.biz/lottery.aspx";
     public static final String LODE_URL = "https://five88.biz/lode.aspx";
-    public static final String CASINO_URL = "https://five88.biz/casino.aspx";
+    public static final String CASINO_URL = "https://five88v.biz/casino.aspx";
     public static final String ATHETHAO_URL = "https://five88.biz/fsport/live-sports.aspx";
     public static final String TTHETHAO_URL = "https://five88.biz/tsports.aspx";
     public static final String STHETHAO_URL = "https://five88.biz/ssport.aspx";
 
     // Timeout
     public static final int SHORT_TIMEOUT = 2;
-    public static final int LONG_TIMEOUT = 30;
+    public static final int LONG_TIMEOUT = 60;
 
     // User/pass
-    public static final String USERNAME = "setajim";
-    public static final String USERNAME_THETHAO = "setajim";
-    public static final String USERNAME_QUAYSO = "setajim";
-    public static final String USERNAME_LODE = "setajim";
-    public static final String USERNAME_CASINO = "setajim";
-    public static final String USERNAME_NUMBER = "setajim";
-    public static final String USERNAME_KENO = "setajim";
-    public static final String USERNAME_LOGIN = "setajim";
+    public static final String USERNAME = "setajim1";
+    public static final String USERNAME_THETHAO = "setajim1";
+    public static final String USERNAME_QUAYSO = "setajim1";
+    public static final String USERNAME_LODE = "setajim1";
+    public static final String USERNAME_CASINO = "setajim1";
+    public static final String USERNAME_NUMBER = "setajim1";
+    public static final String USERNAME_KENO = "setajim1";
+    public static final String USERNAME_LOGIN = "setajim1";
     public static final String PASSWORD = "testjimmy";
     public static final String PHONE = "1234567890";
 
@@ -43,7 +43,7 @@ public class Constants {
 
     // Excel
     public static final String iOSFilePath = "/Users/jimmyvuong/Downloads";
-    public static final String windowsFilePath = "C:\\Users\\Administrator\\Documents";
+    public static final String windowsFilePath = "C:\\Users\\DELL\\Documents";
     public static final String loadingTimeFile = "LoadingTimeOfIframeInFive88.xlsx";
 
     // Others

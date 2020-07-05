@@ -1,36 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite" parallel="false" thread-count="5">
 
-  <listeners>
-    <listener class-name="org.uncommons.reportng.HTMLReporter" />
-    <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
-<!--    <listener class-name="commons.ExtentReportListener"/>-->
-<!--    <listener class-name="commons.retryTestFailed.RetryListener"/>-->
-    <listener class-name="commons.reportConfig.ExtentTestListener" />
-    <listener class-name="commons.reportConfig.ReportNGListener" />
-  </listeners>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <!--    <listener class-name="commons.ExtentReportListener"/>-->
+        <!--    <listener class-name="commons.retryTestFailed.RetryListener"/>-->
+        <listener class-name="commons.reportConfig.ExtentTestListener" />
+        <listener class-name="commons.reportConfig.ReportNGListener" />
+    </listeners>
 
-    <test name="Run on PPCloud">
-        <parameter name="network" value="nameofnetwork" />
-        <parameter name="pass" value="passofnetwork" />
+    <test name="Run on Viettel">
+        <parameter name="network" value="Atlantech" />
+        <parameter name="pass" value="atlantech0108" />
         <parameter name="browser" value="chrome" />
-        <parameter name="file" value="nameoffile" />
-        <classes>
-            <class name="bet.Bet_08_SSport"/>
-            <class name="bet.Bet_07_TSport"/>
-            <class name="bet.Bet_03_ASport"/>
-            <class name="bet.Bet_05_NumberGame"/>
-            <class name="bet.Bet_06_Keno"/>
-            <class name="bet.Bet_02_Lode"/>
-            <class name="bet.Bet_01_Quayso"/>
-        </classes>
-  </test> <!-- Test -->
-
-    <test name="Run on jimmyqc">
-        <parameter name="network" value="jimmyqc" />
-        <parameter name="pass" value="alohaha" />
-        <parameter name="browser" value="chrome" />
-        <parameter name="file" value="JM_LoadingTimeOfIframeInFive88.xlsx" />
+        <parameter name="file" value="Viettel_LoadingTimeOfIframeInFive88.xlsx" />
         <classes>
             <class name="bet.Bet_08_SSport"/>
             <class name="bet.Bet_07_TSport"/>
@@ -42,52 +26,19 @@
         </classes>
     </test> <!-- Test -->
 
-<!--  <test name="Run on Firefox">-->
-<!--    <parameter name="browser" value="firefox" />-->
-<!--    <parameter name="username" value="testslot002" />-->
-<!--    <parameter name="gameId" value="9998" />-->
-<!--    <classes>-->
-<!--      <class name="alive.Alive_01_Vivo"/>-->
-<!--    </classes>-->
-<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
-
-<!--  <test name="Run on Opera">-->
-<!--    <parameter name="browser" value="opera" />-->
-<!--    <parameter name="username" value="testslot003" />-->
-<!--    <parameter name="gameId" value="9996" />-->
-<!--    <classes>-->
-<!--      <class name="bet.Bet_04_Jackpot"/>-->
-<!--    </classes>-->
-<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
-
-<!--    <test name="Run on Safari">-->
-<!--      <parameter name="browser" value="safari" />-->
-<!--      <parameter name="username" value="testslot004" />-->
-<!--      <parameter name="gameId" value="9988" />-->
-<!--      <classes>-->
-<!--        <class name="bet.Bet_04_Jackpot"/>-->
-<!--      </classes>-->
-<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
-
-<!--  <test name="Run on Coc Coc">-->
-<!--    <parameter name="browser" value="coc coc" />-->
-<!--    <classes>-->
-<!--      <class name="account.Account_03_LoginSuccessful"/>-->
-<!--    </classes>-->
-<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
-
-<!--    <test name="Run on Edge">-->
-<!--      <parameter name="browser" value="edge" />-->
-<!--      <classes>-->
-<!--        <class name="account.Account_03_LoginSuccessful"/>-->
-<!--      </classes>-->
-<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
-
-  <!--  <test name="Run on IE">-->
-  <!--    <parameter name="browser" value="ie" />-->
-  <!--    <classes>-->
-  <!--      <class name="account.Account_03_LoginSuccessful"/>-->
-  <!--    </classes>-->
-  <!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
-
+    <test name="Run on VNPT">
+        <parameter name="network" value="Long Quang" />
+        <parameter name="pass" value="tech0108" />
+        <parameter name="browser" value="chrome" />
+        <parameter name="file" value="VNPT_LoadingTimeOfIframeInFive88.xlsx" />
+        <classes>
+            <class name="bet.Bet_08_SSport"/>
+            <class name="bet.Bet_07_TSport"/>
+            <class name="bet.Bet_03_ASport"/>
+            <class name="bet.Bet_05_NumberGame"/>
+            <class name="bet.Bet_06_Keno"/>
+            <class name="bet.Bet_02_Lode"/>
+            <class name="bet.Bet_01_Quayso"/>
+        </classes>
+    </test> <!-- Test -->
 </suite> <!-- Suite -->
