@@ -1,31 +1,30 @@
 package bet;
 
-import commons.utility.BaseTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
+import commons.utility.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
-import pageObjects.QuaysoPageObject;
+import pageObjects.Quayso2PageObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bet_01_Quayso extends BaseTest {
+public class Bet_09_Quayso2 extends BaseTest {
 
 	WebDriver driver;
-	QuaysoPageObject quaysoPage;
+	Quayso2PageObject quayso2Page;
 
 	@Parameters(value = "browser")
 	@BeforeClass
 	public void preConditions(String browserName) {
 		driver = openMultiBrowser(browserName, Constants.HOME_URL);
-
-		quaysoPage = PageFactoryManager.getQuaysoPage(driver);
+		quayso2Page = PageFactoryManager.getQuayso2Page(driver);
 
 	}
 
@@ -34,22 +33,22 @@ public class Bet_01_Quayso extends BaseTest {
 		ExtentTestManager.startTest("TC_1_Quayso", "TC_1_Quayso");
 
 		log.info("Quayso - Step 01: Login with valid account");
-		quaysoPage.loginQuaysoAccount();
+		quayso2Page.loginQuaysoAccount();
 
 		log.info("Quayso - Step 02: Switch to Quayso page");
-		quaysoPage.openQuaysoPage();
+		quayso2Page.openQuayso2Page();
 
 		log.info("Quayso - Step 03: Switch to iframe to play");
-		quaysoPage.switchToLotteryIframe();
+		quayso2Page.switchToLottery2Iframe();
 
 		log.info("Quayso - Step 04: Play lottery");
 		betLotteryGame();
 
 		log.info("Quayso - Step 05: Exit iframe");
-		quaysoPage.quitLotteryIframe();
+		quayso2Page.quitLottery2Iframe();
 
 		log.info("Quayso - Step 06: Logout");
-		quaysoPage.logoutToHomePage();
+		quayso2Page.logoutToHomePage();
 
 		log.info("Quay so thanh cong\n================================================================================\n");
 
@@ -60,9 +59,7 @@ public class Bet_01_Quayso extends BaseTest {
 		listA.add("97");
 		listA.add("98");
 		listA.add("99");
-		listA.add("101");
-		listA.add("102");
-		listA.add("106");
+		listA.add("100");
 		log.info("First game list = " + listA + "\n");
 
 		while (listA.size() > 0) {
@@ -71,7 +68,7 @@ public class Bet_01_Quayso extends BaseTest {
 				for (int i = 0; i < listA.size(); i++) {
 					Assert.assertTrue(count < 20);
 					String x = listA.get(i);
-					if (!quaysoPage.isBetStartPresent(x)) {
+					if (!quayso2Page.isBetStartPresent(x)) {
 						log.info(x + " can not bet now\n====================\n");
 					} else {
 						betALotteryGame(listA, x);
@@ -84,34 +81,30 @@ public class Bet_01_Quayso extends BaseTest {
 
 	private void betALotteryGame(List<String> gameList, String gameId) {
 		log.info(gameId + " can bet now\n");
-		String beforeBet = quaysoPage.getBalance();
+		String beforeBet = quayso2Page.getBalance();
 		log.info("Before balance = " + beforeBet + "\n");
 
-		List<WebElement> noBet = quaysoPage.getBets(gameId);
+		List<WebElement> noBet = quayso2Page.getBets(gameId);
 		log.info("There are " + noBet.size() + " bet points " + "\n");
 
 		int  number = randomNumber(noBet.size() - 1);
 
 		log.info("Select bet point at order " + number + 1 + "\n");
-		quaysoPage.openBetPanel(noBet.get(number));
-
-		Integer BET_MONEY = 10;
-		log.info("Select money to bet = " + BET_MONEY + "\n");
-		quaysoPage.selectMoneyToBet(BET_MONEY);
+		quayso2Page.selectOddBet(noBet.get(number));
 
 		log.info("Confirm betting\n");
-		quaysoPage.clickBetButton();
+		quayso2Page.clickBetButton();
 		try {
 			Thread.sleep(1000);
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 
-		String afterBet = quaysoPage.getBalance();
+		String afterBet = quayso2Page.getBalance();
 		log.info("After balance = " + afterBet + "\n");
 
 		log.info("Verify that balance is updated correctly\n");
-		quaysoPage.verifyBalanceUpdated(beforeBet, afterBet);
+		quayso2Page.verifyBalanceUpdated(beforeBet, afterBet);
 
 		log.info("Remove " + gameId + " from game list\n");
 		gameList.remove(gameId);

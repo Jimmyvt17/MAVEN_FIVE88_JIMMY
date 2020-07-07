@@ -83,7 +83,7 @@ public class AccountPageObject extends AbstractPage {
     public void select158Promo() {
 
         waitForElementVisibleByLocator(driver, AccountPageUI.depPromo158Locator);
-        clickToElementByJSByLocator(driver, AccountPageUI.depPromo158Locator);
+        clickToElementByLocator(driver, AccountPageUI.depPromo158Locator);
 
     }
 

@@ -77,4 +77,8 @@ public class PageFactoryManager {
 
     }
 
+    public static Quayso2PageObject getQuayso2Page(WebDriver driver) {
+        return new Quayso2PageObject(driver);
+
+    }
 }

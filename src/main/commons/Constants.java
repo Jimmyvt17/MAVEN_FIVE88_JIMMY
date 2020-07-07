@@ -8,6 +8,7 @@ public class Constants {
     public static final String WITHDRAW_URL = "https://five88.biz/withdraw.aspx";
     public static final String TRANHISTORY_URL = "https://five88.biz/history/lsgd.aspx";
     public static final String QUAYSO_URL = "https://five88.biz/lottery.aspx";
+    public static final String QUAYSO2_URL = "https://five88.biz/lotte2.aspx";
     public static final String LODE_URL = "https://five88.biz/lode.aspx";
     public static final String CASINO_URL = "https://five88.biz/casino.aspx";
     public static final String ATHETHAO_URL = "https://five88.biz/fsport/live-sports.aspx";
@@ -21,6 +22,7 @@ public class Constants {
 //    public static final String WITHDRAW_URL = "https://fm88.com/withdraw.aspx";
 //    public static final String TRANHISTORY_URL = "https://fm88.com/history/lsgd.aspx";
 //    public static final String QUAYSO_URL = "https://fm88.com/lottery.aspx";
+//    public static final String QUAYSO2_URL = "https://fm88.com/lotte2.aspx";
 //    public static final String LODE_URL = "https://fm88.com/lode.aspx";
 //    public static final String CASINO_URL = "https://fm88.com/casino.aspx";
 //    public static final String ATHETHAO_URL = "https://fm88.com/fsport/live-sports.aspx";

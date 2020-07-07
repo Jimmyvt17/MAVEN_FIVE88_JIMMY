@@ -2,7 +2,7 @@ package pageObjects;
 
 import commons.AbstractPage;
 import commons.Constants;
-import five88.QuaysoPageUI;
+import five88.Quayso2PageUI;
 import org.apache.commons.lang.math.NumberUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,17 +11,17 @@ import org.testng.Assert;
 
 import java.util.List;
 
-public class QuaysoPageObject extends AbstractPage {
+public class Quayso2PageObject extends AbstractPage {
 
     private final WebDriver driver;
 
-    public QuaysoPageObject(WebDriver mappingDriver) {
+    public Quayso2PageObject(WebDriver mappingDriver) {
         driver = mappingDriver;
     }
 
     public List<WebElement> getBets(String value) {
 
-        String tmp = String.format(QuaysoPageUI.dynamicGameOdd, value);
+        String tmp = String.format(Quayso2PageUI.dynamicGameOdd, value);
         waitForElementPresentByLocator(driver, By.xpath(tmp));
         return getListElements(driver, By.xpath(tmp));
 
@@ -30,16 +30,16 @@ public class QuaysoPageObject extends AbstractPage {
     public boolean isBetStartPresent(String value) {
 
         overrideTimeout(driver, Constants.SHORT_TIMEOUT);
-        String tmp1 = String.format(QuaysoPageUI.dynamicBetStart, value);
+        String tmp1 = String.format(Quayso2PageUI.dynamicBetStart, value);
         List<WebElement> startList = getListElements(driver, By.xpath(tmp1));
         if (startList.size() > 0) {
             scrollToQuaysoGame(value);
-            Integer remainTime = getBetTimeCountDown(value);
+            int remainTime = getBetTimeCountDown(value);
             if (remainTime < 0) {
                 System.out.println("Check for game id = " + value + "\n");
                 System.out.println("Remaining time = " + remainTime + "\n");
                 throw new RuntimeException("game id = " + value + " has negative countdown time");
-            } else if (remainTime >= 10) {
+            } else if (remainTime >= 18) {
                        System.out.println("Check for game id = " + value + "\n");
                        System.out.println("Remaining time = " + remainTime + "\n");
                        return true;
@@ -57,36 +57,35 @@ public class QuaysoPageObject extends AbstractPage {
 
     public void scrollToQuaysoGame(String value) {
 
-        String tmp = String.format(QuaysoPageUI.dynamicQuaysoGame, value);
+        String tmp = String.format(Quayso2PageUI.dynamicQuayso2Game, value);
         scrollToElementByLocator(driver, By.xpath(tmp));
 
     }
 
     public String getBalance() {
 
-        waitForElementPresentByLocator(driver, QuaysoPageUI.quaysoBalanceLocator);
-        return getTextElementByLocator(driver, QuaysoPageUI.quaysoBalanceLocator);
+        waitForElementPresentByLocator(driver, Quayso2PageUI.quayso2BalanceLocator);
+        return getTextElementByLocator(driver, Quayso2PageUI.quayso2BalanceLocator);
 
     }
 
 
     public Integer getBetTimeCountDown(String value) {
-
-        String tmp = String.format(QuaysoPageUI.dynamicBetTime, value);
+        String tmp = String.format(Quayso2PageUI.dynamicBetTime, value);
+        highlightElementByLocator(driver, By.xpath(tmp));
         String number = (String) showTextByJS(driver, By.xpath(tmp));
-        return NumberUtils.toInt(number);
+        return NumberUtils.toInt(number.replace(" ", ""));
 
     }
 
-    public void openBetPanel(WebElement element) {
-
+    public void selectOddBet(WebElement element) {
         clickToElementByJS(driver, element);
 
     }
 
     public void selectMoneyToBet(Integer value) {
 
-        String tmp = String.format(QuaysoPageUI.dynamicBetMoney, value);
+        String tmp = String.format(Quayso2PageUI.dynamicBetMoney, value);
         waitForElementPresentByLocator(driver, By.xpath(tmp));
         clickToElementByJSByLocator(driver, By.xpath(tmp));
 
@@ -94,8 +93,8 @@ public class QuaysoPageObject extends AbstractPage {
 
     public void clickBetButton() {
 
-        waitForElementPresentByLocator(driver, QuaysoPageUI.betQuaysoButtonLocator);
-        clickToElementByJSByLocator(driver, QuaysoPageUI.betQuaysoButtonLocator);
+        waitForElementPresentByLocator(driver, Quayso2PageUI.betQuayso2ButtonLocator);
+        clickToElementByJSByLocator(driver, Quayso2PageUI.betQuayso2ButtonLocator);
 
     }
 
@@ -116,21 +115,20 @@ public class QuaysoPageObject extends AbstractPage {
 
     }
 
-    public void switchToLotteryIframe() {
+    public void switchToLottery2Iframe() {
 
-        verifyIframeLoading(driver, QuaysoPageUI.quaysoBalanceLocator);
+        verifyIframeLoading(driver, Quayso2PageUI.quayso2BalanceLocator);
 
     }
 
-    public void quitLotteryIframe() {
+    public void quitLottery2Iframe() {
 
         backToTopWindow(driver);
 
     }
 
-    public void openQuaysoPage() {
-
-        openSubMenu(driver, "Lottery");
+    public void openQuayso2Page() {
+        openAnyUrl(driver, Constants.QUAYSO2_URL);
 
     }
 
