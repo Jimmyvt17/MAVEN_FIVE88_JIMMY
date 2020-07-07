@@ -12,8 +12,6 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.HomePageObject;
 
-import java.lang.reflect.Method;
-
 
 public class Account_04_LoginUnsuccessful extends CommonsTest {
 
@@ -25,11 +23,9 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 	public void preConditions(String browserName) {
 
 		driver = openMultiBrowser(browserName, Constants.HOME_URL);
-
 		homePage = PageFactoryManager.getHomePage(driver);
 
 	}
-
 
 	private final String USERNAME_INVALID = "setainvalid";
 	private final String PASSWORD_INVALID = "testjimmyinvalid";
@@ -38,8 +34,8 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 			"Quên mật khẩu";
 
 	@Test
-	public void TC_01_LoginUnsuccessfulWithoutInformation(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_01_LoginUnsuccessfulWithoutInformation");
+	public void TC_01_LoginUnsuccessfulWithoutInformation() {
+		ExtentTestManager.startTest("TC_01_LoginUnsuccessfulWithoutInformation", "TC_01_LoginUnsuccessfulWithoutInformation");
 
 		log.info("LoginUnsuccessfulWithoutInformation - Step 01: Click login button without inputting data");
 		homePage.clickToLoginButton(driver);
@@ -53,8 +49,8 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_02_LoginUnsuccessfulWithInvalidName(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_02_LoginUnsuccessfulWithInvalidName");
+	public void TC_02_LoginUnsuccessfulWithInvalidName() {
+		ExtentTestManager.startTest("TC_02_LoginUnsuccessfulWithInvalidName", "TC_02_LoginUnsuccessfulWithInvalidName");
 
 		log.info("LoginUnsuccessfulWithInvalidName - Step 01: Input invalid username");
 		homePage.login(driver, USERNAME_INVALID, Constants.PASSWORD);
@@ -68,8 +64,8 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_03_LoginUnsuccessfulWithInvalidPass(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_03_LoginUnsuccessfulWithInvalidPass");
+	public void TC_03_LoginUnsuccessfulWithInvalidPass() {
+		ExtentTestManager.startTest("TC_03_LoginUnsuccessfulWithInvalidPass", "TC_03_LoginUnsuccessfulWithInvalidPass");
 
 		log.info("LoginUnsuccessfulWithInvalidPass - Step 01: Input invalid password");
 		homePage.login(driver, Constants.USERNAME_LOGIN, PASSWORD_INVALID);
@@ -83,8 +79,8 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_04_LoginUnsuccessfulWithInvalidNamePass(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_04_LoginUnsuccessfulWithInvalidNamePass");
+	public void TC_04_LoginUnsuccessfulWithInvalidNamePass() {
+		ExtentTestManager.startTest("TC_04_LoginUnsuccessfulWithInvalidNamePass", "TC_04_LoginUnsuccessfulWithInvalidNamePass");
 
 		log.info("LoginUnsuccessfulWithInvalidNamePass - Step 01: Input invalid username and password");
 		homePage.login(driver, USERNAME_INVALID, PASSWORD_INVALID);
@@ -98,8 +94,8 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_05_LoginUnsuccessfulWithoutName(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_05_LoginUnsuccessfulWithoutName");
+	public void TC_05_LoginUnsuccessfulWithoutName() {
+		ExtentTestManager.startTest("TC_05_LoginUnsuccessfulWithoutName", "TC_05_LoginUnsuccessfulWithoutName");
 
 		log.info("LoginUnsuccessfulWithoutName - Step 01: Input data without username");
 		homePage.clearTextElement(driver, AbstractPageUI.usernameLoginLocator);
@@ -115,8 +111,8 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_06_LoginUnsuccessfulWithoutPass(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_06_LoginUnsuccessfulWithoutPass");
+	public void TC_06_LoginUnsuccessfulWithoutPass() {
+		ExtentTestManager.startTest("TC_06_LoginUnsuccessfulWithoutPass", "TC_06_LoginUnsuccessfulWithoutPass");
 
 		log.info("LoginUnsuccessfulWithoutPass - Step 01: Input data without password");
 		homePage.inputToUsernameTextBox(driver, Constants.USERNAME_LOGIN);

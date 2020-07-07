@@ -5,13 +5,10 @@ import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageObjects.AccountPageObject;
 import pageObjects.RegisterPageObject;
-import java.lang.reflect.Method;
+
 import java.util.Date;
 
 public class Account_01_RegisterSuccessful extends CommonsTest {
@@ -35,8 +32,8 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 	private final String PHONE_14 = randomString(14, false, true);
 
 	@Test
-	public void TC_01_RegisterSuccessful(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_01_RegisterSuccessful");
+	public void TC_01_RegisterSuccessful() {
+		ExtentTestManager.startTest("TC_01_RegisterSuccessful", "TC_01_RegisterSuccessful");
 
 		String USERNAME_TODAY = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 
@@ -50,8 +47,8 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_02_RegisterSuccessfulWithName6Letters(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_02_RegisterSuccessfulWithName6Letters");
+	public void TC_02_RegisterSuccessfulWithName6Letters() {
+		ExtentTestManager.startTest("TC_02_RegisterSuccessfulWithName6Letters", "TC_02_RegisterSuccessfulWithName6Letters");
 
 		log.info("RegisterSuccessful - Step 01: Register account with name 6 letters");
 		register(USERNAME_6, Constants.PASSWORD, Constants.PHONE);
@@ -63,8 +60,8 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_03_RegisterSuccessfulWithName30Letters(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_03_RegisterSuccessfulWithName30Letters");
+	public void TC_03_RegisterSuccessfulWithName30Letters() {
+		ExtentTestManager.startTest("TC_03_RegisterSuccessfulWithName30Letters", "TC_03_RegisterSuccessfulWithName30Letters");
 
 		log.info("RegisterSuccessful - Step 01: Register account with name 30 letters");
 		register(USERNAME_30, Constants.PASSWORD, Constants.PHONE);
@@ -76,8 +73,8 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_04_RegisterSuccessfulWithPass6Letters(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_04_RegisterSuccessfulWithPass6Letters");
+	public void TC_04_RegisterSuccessfulWithPass6Letters() {
+		ExtentTestManager.startTest("TC_04_RegisterSuccessfulWithPass6Letters", "TC_04_RegisterSuccessfulWithPass6Letters");
 
 		String USERNAME_PASS6 = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 
@@ -91,8 +88,8 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_05_RegisterSuccessfulWithPhone14Letters(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_05_RegisterSuccessfulWithPhone14Letters");
+	public void TC_05_RegisterSuccessfulWithPhone14Letters() {
+		ExtentTestManager.startTest("TC_05_RegisterSuccessfulWithPhone14Letters", "TC_05_RegisterSuccessfulWithPhone14Letters");
 
 		String USERNAME_PHONE14 = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 
@@ -107,25 +104,31 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 
 //	@Test(dataProvider = "network")
 //	public void TC_06_RegisterData(String usernameData) {
+//		ExtentTestManager.startTest("TC_06_RegisterData", "TC_06_RegisterData");
+//
 //		log.info("RegisterData - Step 01: Register account");
-//		register(usernameData, "@16WINner", Constants.PHONE);
+//		register(usernameData, Constants.PASSWORD, Constants.PHONE);
 //
 //		log.info("RegisterData - Step 02: Logout");
 //		accountPage.logoutToHomePage();
 //
 //	}
-//
-//	@DataProvider(name = "network")
-//	public static Object[][] AccountData(){
-//		return new Object[][] {
-//				{"seta011"},
-//				{"seta012"},
-//				{"seta013"},
-//				{"seta014"}
-//
-//		};
-//
-//	}
+
+	@DataProvider(name = "network")
+	public static Object[][] AccountData(){
+		return new Object[][] {
+				{Constants.USERNAME},
+				{Constants.USERNAME_CASINO},
+				{Constants.USERNAME_KENO},
+				{Constants.USERNAME_LODE},
+				{Constants.USERNAME_LOGIN},
+				{Constants.USERNAME_NUMBER},
+				{Constants.USERNAME_QUAYSO},
+				{Constants.USERNAME_THETHAO}
+
+		};
+
+	}
 
 	@AfterClass(alwaysRun=true)
 	public void afterClass() {

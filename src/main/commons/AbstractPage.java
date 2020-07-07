@@ -423,7 +423,7 @@ public class AbstractPage {
         size = getSizeElements(driver, By.tagName("iframe"));
         System.out.println("Total  inner iframes --" + size);
         if (size > 0) {
-            driver.switchTo().frame(0);
+            driver.switchTo().frame("sportsFrame");
             System.out.println("Switch to inner iframe\n");
         }
 

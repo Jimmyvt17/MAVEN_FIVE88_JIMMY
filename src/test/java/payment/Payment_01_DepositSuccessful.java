@@ -1,9 +1,9 @@
 package payment;
 
-import commons.utility.BaseTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
+import commons.utility.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -70,33 +70,31 @@ public class Payment_01_DepositSuccessful extends BaseTest {
     }
 
 //    @Test(dataProvider= "network")
-//    public void TC_02_DepositData(Method method, String userData) {
-//        ExtentTestManager.startTest(method.getName(), "TC_02_DepositData");
-//        log.info("DepositSuccessful - Step 01: Go to deposit page");
-//        accountPage.beforeDepositing(userData, "testjimmy");
+//    public void TC_02_DepositData(String userData) {
+//        ExtentTestManager.startTest("TC_02_DepositData", "TC_02_DepositData");
+//        log.info("DepositData - Step 01: Go to deposit page");
+//        accountPage.beforeDepositing(userData, Constants.PASSWORD);
 //
-//        log.info("DepositSuccessful - Step 02: Do a depositing");
-//        deposit("1000");
+//        log.info("DepositData - Step 02: Do a depositing");
+//        deposit("500");
 //
-//        log.info("DepositSuccessful - Step 03: Verify success warning text");
+//        log.info("DepositData - Step 03: Verify success warning text");
 //        verifyEquals(accountPage.getDepositWarning(), "Tạo phiếu nạp thành công");
 //        log.info(accountPage.getDepositWarning());
 //        try {
-//            Thread.sleep(5000);
+//            Thread.sleep(5 * 1000);
 //        } catch (Throwable e) {
 //            e.printStackTrace();
 //        }
 //
-//        log.info("DepositSuccessful - Step 04: Verify transhistory url");
+//        log.info("DepositData - Step 04: Verify transhistory url");
 //        verifyEquals(accountPage.getAccountPageUrl(), Constants.TRANHISTORY_URL);
 //
-//        log.info("DepositSuccessful - Step 05: Verify deposit ticket is created");
+//        log.info("DepositData - Step 05: Verify deposit ticket is created");
 //        verifyEquals(accountPage.getTicketStatus(), "Chờ xử lý");
 //
-//        log.info("DepositSuccessful - Step 06: Log out");
+//        log.info("DepositData - Step 06: Log out");
 //        accountPage.logoutToHomePage();
-//
-//        log.info("Nap tien thanh cong");
 //
 //    }
 
@@ -109,19 +107,18 @@ public class Payment_01_DepositSuccessful extends BaseTest {
     }
 
     private void deposit(String value) {
-        // Kiem tra chuyen den page nap tien
         verifyEquals(accountPage.getAccountPageUrl(), Constants.DEPOSIT_URL);
 
-        // Chon VCB
         accountPage.selectAnOption("bank_code_option", "VCB");
 
-        // Nhap so tien nap
+        //accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
+
         accountPage.inputToTextBox(value, "amount-money");
 
-        // Nhap ma giao dich
         accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
 
-        // Bam button nap tien
+        //accountPage.select158Promo();
+
         accountPage.clickToSubmitButton("frmDeposit");
 
     }
@@ -129,10 +126,13 @@ public class Payment_01_DepositSuccessful extends BaseTest {
     @DataProvider(name = "network")
     public static Object[][] AccountData(){
         return new Object[][] {
-                {Constants.USERNAME_CASINO},
+                {Constants.USERNAME},
                 {Constants.USERNAME_THETHAO},
                 {Constants.USERNAME_LODE},
                 {Constants.USERNAME_QUAYSO},
+                {Constants.USERNAME_KENO},
+                {Constants.USERNAME_NUMBER},
+                {Constants.USERNAME_LOGIN}
 
         };
 

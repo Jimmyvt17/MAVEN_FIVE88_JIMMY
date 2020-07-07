@@ -12,7 +12,6 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.RegisterPageObject;
 
-import java.lang.reflect.Method;
 import java.util.Date;
 
 
@@ -39,8 +38,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	private final String phRegisErInput = "Số điện thoại bạn chưa nhập";
 
 	@Test
-	public void TC_01_RegisterUnsuccessfulWithoutInformation(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_01_RegisterUnsuccessfulWithoutInformation");
+	public void TC_01_RegisterUnsuccessfulWithoutInformation() {
+		ExtentTestManager.startTest("TC_01_RegisterUnsuccessfulWithoutInformation", "TC_01_RegisterUnsuccessfulWithoutInformation");
 
 		log.info("RegisterUnsuccessfulWithoutInformation - Step 01: Click submit without inputting data");
 		registerPage.clickToSubmitButton();
@@ -55,8 +54,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_02_RegisterUnsuccessfulWithoutName(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_02_RegisterUnsuccessfulWithoutName");
+	public void TC_02_RegisterUnsuccessfulWithoutName() {
+		ExtentTestManager.startTest("TC_02_RegisterUnsuccessfulWithoutName", "TC_02_RegisterUnsuccessfulWithoutName");
 
 		log.info("RegisterUnsuccessfulWithoutName - Step 01: Input data without username");
 		registerPage.inputToPasswordTextBox(Constants.PASSWORD);
@@ -71,8 +70,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_03_RegisterUnsuccessfulWithoutPass(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_03_RegisterUnsuccessfulWithoutPass");
+	public void TC_03_RegisterUnsuccessfulWithoutPass() {
+		ExtentTestManager.startTest("TC_03_RegisterUnsuccessfulWithoutPass", "TC_03_RegisterUnsuccessfulWithoutPass");
 
 		log.info("RegisterUnsuccessfulWithoutPass - Step 01: Input data without password");
 		registerPage.inputToUsernameTextBox(USERNAME_VALID);
@@ -88,8 +87,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_04_RegisterUnsuccessfulWithoutPhone(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_04_RegisterUnsuccessfulWithoutPhone");
+	public void TC_04_RegisterUnsuccessfulWithoutPhone() {
+		ExtentTestManager.startTest("TC_04_RegisterUnsuccessfulWithoutPhone", "TC_04_RegisterUnsuccessfulWithoutPhone");
 
 		log.info("RegisterUnsuccessfulWithoutPhone - Step 01: Input data without phone number");
 		registerPage.inputToUsernameTextBox(USERNAME_VALID);
@@ -105,8 +104,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_05_RegisterUnsuccessfulWithoutNamePass(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_05_RegisterUnsuccessfulWithoutNamePass");
+	public void TC_05_RegisterUnsuccessfulWithoutNamePass() {
+		ExtentTestManager.startTest("TC_05_RegisterUnsuccessfulWithoutNamePass", "TC_05_RegisterUnsuccessfulWithoutNamePass");
 
 		log.info("RegisterUnsuccessfulWithoutNamePass - Step 01: Input data without username and password");
 		registerPage.clearTextElement(driver, RegisterPageUI.usernameResgisLocator);
@@ -123,8 +122,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_06_RegisterUnsuccessfulWithoutNamePhone(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_06_RegisterUnsuccessfulWithoutNamePhone");
+	public void TC_06_RegisterUnsuccessfulWithoutNamePhone() {
+		ExtentTestManager.startTest("TC_06_RegisterUnsuccessfulWithoutNamePhone", "TC_06_RegisterUnsuccessfulWithoutNamePhone");
 
 		log.info("RegisterUnsuccessfulWithoutNamePhone - Step 01: Input data without username and phone number");
 		registerPage.clearTextElement(driver, RegisterPageUI.usernameResgisLocator);
@@ -141,8 +140,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_07_RegisterUnsuccessfulWithoutPassPhone(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_07_RegisterUnsuccessfulWithoutPassPhone");
+	public void TC_07_RegisterUnsuccessfulWithoutPassPhone() {
+		ExtentTestManager.startTest("TC_07_RegisterUnsuccessfulWithoutPassPhone", "TC_07_RegisterUnsuccessfulWithoutPassPhone");
 
 		log.info("RegisterUnsuccessfulWithoutPassPhone - Step 01: Input data without password and phone number");
 		registerPage.inputToUsernameTextBox(USERNAME_VALID);
@@ -159,8 +158,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_08_RegisterUnsuccessfulWithSpecialName(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_08_RegisterUnsuccessfulWithSpecialName");
+	public void TC_08_RegisterUnsuccessfulWithSpecialName() {
+		ExtentTestManager.startTest("TC_08_RegisterUnsuccessfulWithSpecialName", "TC_08_RegisterUnsuccessfulWithSpecialName");
 
 		log.info("RegisterUnsuccessfulWithSpecialName - Step 01: Input username with special character");
 		registerPage.inputToUsernameTextBox("setainvalid@");
@@ -174,8 +173,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_09_RegisterUnsuccessfulWithVietnameseName(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_09_RegisterUnsuccessfulWithVietnameseName");
+	public void TC_09_RegisterUnsuccessfulWithVietnameseName() {
+		ExtentTestManager.startTest("TC_09_RegisterUnsuccessfulWithVietnameseName", "TC_09_RegisterUnsuccessfulWithVietnameseName");
 
 		log.info("RegisterUnsuccessfulWithVietnameseName - Step 01: Ipnut username in Vietnamese");
 		registerPage.inputToUsernameTextBox("sétajim");
@@ -189,8 +188,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_10_RegisterUnsuccessfulWithNameUnder6Letters(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_10_RegisterUnsuccessfulWithNameUnder6Letters");
+	public void TC_10_RegisterUnsuccessfulWithNameUnder6Letters() {
+		ExtentTestManager.startTest("TC_10_RegisterUnsuccessfulWithNameUnder6Letters", "TC_10_RegisterUnsuccessfulWithNameUnder6Letters");
 
 		log.info("RegisterUnsuccessfulWithNameUnder6Letters - Step 01: Input username under 6 letters");
 		registerPage.inputToUsernameTextBox("seta");
@@ -204,8 +203,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_11_RegisterUnsuccessfulWithNameOver30Letters(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_11_RegisterUnsuccessfulWithNameOver30Letters");
+	public void TC_11_RegisterUnsuccessfulWithNameOver30Letters() {
+		ExtentTestManager.startTest("TC_11_RegisterUnsuccessfulWithNameOver30Letters", "TC_11_RegisterUnsuccessfulWithNameOver30Letters");
 
 		log.info("RegisterUnsuccessfulWithNameOver30Letters - Step 01: Input username over 30 letters");
 		registerPage.inputToUsernameTextBox("setajim123456789012345678901234");
@@ -219,8 +218,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_12_RegisterUnsuccessfulWithNameAlready(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_12_RegisterUnsuccessfulWithNameAlready");
+	public void TC_12_RegisterUnsuccessfulWithNameAlready() {
+		ExtentTestManager.startTest("TC_12_RegisterUnsuccessfulWithNameAlready", "TC_12_RegisterUnsuccessfulWithNameAlready");
 
 		log.info("RegisterUnsuccessfulWithNameAlready - Step 01: Input username already exists");
 		registerPage.inputToUsernameTextBox(Constants.USERNAME_LOGIN);
@@ -234,8 +233,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_12_RegisterUnsuccessfulWithPassUnder6Letters(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_12_RegisterUnsuccessfulWithPassUnder6Letters");
+	public void TC_12_RegisterUnsuccessfulWithPassUnder6Letters() {
+		ExtentTestManager.startTest("TC_12_RegisterUnsuccessfulWithPassUnder6Letters", "TC_12_RegisterUnsuccessfulWithPassUnder6Letters");
 
 		log.info("RegisterUnsuccessfulWithPassUnder6Letters - Step 01: Input password under 6 letters");
 		registerPage.inputToPasswordTextBox("jimmy");
@@ -249,8 +248,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_14_RegisterUnsuccessfulWithPhoneUnder10Letters(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_14_RegisterUnsuccessfulWithPhoneUnder10Letters");
+	public void TC_14_RegisterUnsuccessfulWithPhoneUnder10Letters() {
+		ExtentTestManager.startTest("TC_14_RegisterUnsuccessfulWithPhoneUnder10Letters", "TC_14_RegisterUnsuccessfulWithPhoneUnder10Letters");
 
 		log.info("RegisterUnsuccessfulWithPhoneUnder10Letters - Step 01: Input phone number under 10 letters");
 		registerPage.inputToPhoneTextBox("123456789");
@@ -264,8 +263,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_15_RegisterUnsuccessfulWithPhoneOver14Letters(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_15_RegisterUnsuccessfulWithPhoneOver14Letters");
+	public void TC_15_RegisterUnsuccessfulWithPhoneOver14Letters() {
+		ExtentTestManager.startTest("TC_15_RegisterUnsuccessfulWithPhoneOver14Letters", "TC_15_RegisterUnsuccessfulWithPhoneOver14Letters");
 
 		log.info("RegisterUnsuccessfulWithPhoneOver14Letters - Step 01: Input phone number over 14 letters");
 		registerPage.inputToPhoneTextBox("123456789012345");
@@ -279,8 +278,8 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_16_RegisterUnsuccessfulWithInvalidPhonea(Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_16_RegisterUnsuccessfulWithInvalidPhone");
+	public void TC_16_RegisterUnsuccessfulWithInvalidPhonea() {
+		ExtentTestManager.startTest("TC_16_RegisterUnsuccessfulWithInvalidPhone", "TC_16_RegisterUnsuccessfulWithInvalidPhone");
 
 		log.info("RegisterUnsuccessfulWithInvalidPhone - Step 01: Input invalid phone number");
 		registerPage.inputToPhoneTextBox("a");

@@ -14,6 +14,19 @@ public class Constants {
     public static final String TTHETHAO_URL = "https://five88.biz/tsports.aspx";
     public static final String STHETHAO_URL = "https://five88.biz/ssport.aspx";
 
+//    // Url clone
+//    public static final String HOME_URL = "https://fm88.com/";
+//    public static final String REGISTER_URL = "https://fm88.com/register.aspx";
+//    public static final String DEPOSIT_URL = "https://fm88.com/deposit.aspx";
+//    public static final String WITHDRAW_URL = "https://fm88.com/withdraw.aspx";
+//    public static final String TRANHISTORY_URL = "https://fm88.com/history/lsgd.aspx";
+//    public static final String QUAYSO_URL = "https://fm88.com/lottery.aspx";
+//    public static final String LODE_URL = "https://fm88.com/lode.aspx";
+//    public static final String CASINO_URL = "https://fm88.com/casino.aspx";
+//    public static final String ATHETHAO_URL = "https://fm88.com/fsport/live-sports.aspx";
+//    public static final String TTHETHAO_URL = "https://fm88.com/tsports.aspx";
+//    public static final String STHETHAO_URL = "https://fm88.com/ssport.aspx";
+
     // Timeout
     public static final int SHORT_TIMEOUT = 2;
     public static final int MID_TIMEOUT = 10;
@@ -30,6 +43,18 @@ public class Constants {
     public static final String USERNAME_LOGIN = "setalogin";
     public static final String PASSWORD = "testjimmy";
     public static final String PHONE = "1234567890";
+
+//    // User/pass clone
+//    public static final String USERNAME = "jimmyken";
+//    public static final String USERNAME_THETHAO = "jimmythethao";
+//    public static final String USERNAME_QUAYSO = "jimmyquayso";
+//    public static final String USERNAME_LODE = "jimmylode";
+//    public static final String USERNAME_CASINO = "jimmycasino";
+//    public static final String USERNAME_NUMBER = "jimmynumber";
+//    public static final String USERNAME_KENO = "jimmykeno";
+//    public static final String USERNAME_LOGIN = "jimmylogin";
+//    public static final String PASSWORD = "testjimmy";
+//    public static final String PHONE = "1234567890";
 
     // Payment
     public static final String SENDER = "tạo phiếu để test";
