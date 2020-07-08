@@ -72,7 +72,6 @@ public class Quayso2PageObject extends AbstractPage {
 
     public Integer getBetTimeCountDown(String value) {
         String tmp = String.format(Quayso2PageUI.dynamicBetTime, value);
-        highlightElementByLocator(driver, By.xpath(tmp));
         String number = (String) showTextByJS(driver, By.xpath(tmp));
         return NumberUtils.toInt(number.replace(" ", ""));
 
