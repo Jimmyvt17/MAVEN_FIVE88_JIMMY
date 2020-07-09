@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 
 public class ASportPageUI {
 
+    public static By aSportUpgradeLocator = By.xpath("//div[@class='text-center upgrade-side']//img[@class='server-upgrade']");
     public static By aSportBalanceLocator = By.xpath("//div[@class='widgetPanel personalAccount ']//div[@class='creditArea']//div[@class='infoItem']");
     public static By betASportLocator = By.xpath("//div[@class='betArea']//div[@style='cursor: pointer;']//span");
     public static By betConfirmASportLocator = By.xpath("//div[@class='quickBetPanel']//div[@id='singleQuickBetConfirm']//div[text()='Có']");

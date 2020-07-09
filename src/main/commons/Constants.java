@@ -78,6 +78,7 @@ public class Constants {
     public static final String dynamicIframe = "//iframe[@id='%s']";
     public static final String iframeContentError = "There is nothing in iframe. Please try again manually";
     public static final String iframeNoLoad = "There is no iframe. Please try again manually";
+    public static final String pageIsMaintenance = "Page is maintenance. Please try again later";
     public static final String elementIsRemoved = "Element is removed in DOM. Please try again manually";
     public static final String loadingTimeTooLong = "Loading time is too long to bet. Please try again manually";
     public static final String betUnsuccessful = "Betting unsuccessfully. Please try again manually";
