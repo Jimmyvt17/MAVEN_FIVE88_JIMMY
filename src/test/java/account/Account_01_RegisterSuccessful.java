@@ -153,6 +153,9 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 			verifyEquals(userName, username.toUpperCase());
 			log.info("Ten nguoi dung la " + userName);
 
+			log.info("Save " + userName + " vao data file");
+			registerPage.saveUsername(userName, password, phone);
+
 	}
 
 }

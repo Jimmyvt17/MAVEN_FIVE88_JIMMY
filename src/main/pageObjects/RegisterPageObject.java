@@ -76,4 +76,13 @@ public class RegisterPageObject extends AbstractPage {
 
     }
 
+    public void saveUsername(String... values) {
+        try {
+            writeToExcelFile(Constants.windowsFilePath, Constants.userDataFile, "UserData", values);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

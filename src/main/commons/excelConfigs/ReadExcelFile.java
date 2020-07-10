@@ -1,5 +1,6 @@
 package commons.excelConfigs;
 
+import commons.Constants;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -91,7 +92,7 @@ public class ReadExcelFile {
 
         //Call read file method of the class to read data
 
-        objExcelFile.readExcel(filePath,"LoadingTimeOfIframeInFive88.xlsx","Quayso");
+        objExcelFile.readExcel(filePath, Constants.userDataFile,"UserData");
 
     }
 

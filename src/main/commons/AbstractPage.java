@@ -843,7 +843,7 @@ public class AbstractPage {
     }
 
     // Excel
-    public void readExcel(String filePath,String fileName,String sheetName) throws IOException {
+    public static void readExcel(String filePath,String fileName,String sheetName) throws IOException {
 
         //Create an object of File class to open xlsx file
 
@@ -920,11 +920,11 @@ public class AbstractPage {
 
         //Call read file method of the class to read data
 
-        objExcelFile.readExcel(filePath,Constants.loadingTimeFile,"Quayso");
+        readExcel(filePath,Constants.loadingTimeFile,"Quayso");
 
     }
 
-    public void writeExcel(String filePath, String fileName, String sheetName, String[] dataToWrite) throws IOException {
+    public static void writeExcel(String filePath, String fileName, String sheetName, String[] dataToWrite) throws IOException {
 
         //Create an object of File class to open xlsx file
 
@@ -1018,7 +1018,7 @@ public class AbstractPage {
 
         //Write the file using file name, sheet name and the data to be filled
 
-        objExcelFile.writeExcel(filePath, fileName, sheetName, valueToWrite);
+        writeExcel(filePath, fileName, sheetName, valueToWrite);
 
     }
 

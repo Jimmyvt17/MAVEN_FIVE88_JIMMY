@@ -73,6 +73,7 @@ public class Constants {
     public static final String iOSFilePath = "/Users/jimmyvuong/Downloads";
     public static final String windowsFilePath = "C:\\Users\\Administrator\\Documents";
     public static final String loadingTimeFile = "LoadingTimeOfIframeInFive88.xlsx";
+    public static final String userDataFile = "RegisteredUserFive88.xlsx";
 
     // Others
     public static final String dynamicIframe = "//iframe[@id='%s']";
