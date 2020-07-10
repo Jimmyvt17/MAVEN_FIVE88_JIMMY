@@ -154,7 +154,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 			log.info("Ten nguoi dung la " + userName);
 
 			log.info("Save " + userName + " vao data file");
-			registerPage.saveUsername(userName, password, phone);
+			registerPage.saveUsername(userName);
 
 	}
 
