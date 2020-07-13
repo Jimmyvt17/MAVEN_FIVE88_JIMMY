@@ -1,33 +1,33 @@
 package commons;
 
 public class Constants {
-//    // Url
-//    public static final String HOME_URL = "https://five88.biz/";
-//    public static final String REGISTER_URL = "https://five88.biz/register.aspx";
-//    public static final String DEPOSIT_URL = "https://five88.biz/deposit.aspx";
-//    public static final String WITHDRAW_URL = "https://five88.biz/withdraw.aspx";
-//    public static final String TRANHISTORY_URL = "https://five88.biz/history/lsgd.aspx";
-//    public static final String QUAYSO_URL = "https://five88.biz/lottery.aspx";
-//    public static final String QUAYSO2_URL = "https://five88.biz/lotte2.aspx";
-//    public static final String LODE_URL = "https://five88.biz/lode.aspx";
-//    public static final String CASINO_URL = "https://five88.biz/casino.aspx";
-//    public static final String ATHETHAO_URL = "https://five88.biz/fsport/live-sports.aspx";
-//    public static final String TTHETHAO_URL = "https://five88.biz/tsports.aspx";
-//    public static final String STHETHAO_URL = "https://five88.biz/ssport.aspx";
+    // Url
+    public static final String HOME_URL = "https://five88.biz/";
+    public static final String REGISTER_URL = "https://five88.biz/register.aspx";
+    public static final String DEPOSIT_URL = "https://five88.biz/deposit.aspx";
+    public static final String WITHDRAW_URL = "https://five88.biz/withdraw.aspx";
+    public static final String TRANHISTORY_URL = "https://five88.biz/history/lsgd.aspx";
+    public static final String QUAYSO_URL = "https://five88.biz/lottery.aspx";
+    public static final String QUAYSO2_URL = "https://five88.biz/lotte2.aspx";
+    public static final String LODE_URL = "https://five88.biz/lode.aspx";
+    public static final String CASINO_URL = "https://five88.biz/casino.aspx";
+    public static final String ATHETHAO_URL = "https://five88.biz/fsport/live-sports.aspx";
+    public static final String TTHETHAO_URL = "https://five88.biz/tsports.aspx";
+    public static final String STHETHAO_URL = "https://five88.biz/ssport.aspx";
 
-    // Url stg
-    public static final String HOME_URL = "http://stg.five88.com/";
-    public static final String REGISTER_URL = "http://stg.five88.com/register.aspx";
-    public static final String DEPOSIT_URL = "http://stg.five88.com/deposit.aspx";
-    public static final String WITHDRAW_URL = "http://stg.five88.com/withdraw.aspx";
-    public static final String TRANHISTORY_URL = "http://stg.five88.com/history/lsgd.aspx";
-    public static final String QUAYSO_URL = "http://stg.five88.com/lottery.aspx";
-    public static final String QUAYSO2_URL = "http://stg.five88.com/lotte2.aspx";
-    public static final String LODE_URL = "http://stg.five88.com/lode.aspx";
-    public static final String CASINO_URL = "http://stg.five88.com/casino.aspx";
-    public static final String ATHETHAO_URL = "http://stg.five88.com/fsport/live-sports.aspx";
-    public static final String TTHETHAO_URL = "http://stg.five88.com/tsports.aspx";
-    public static final String STHETHAO_URL = "http://stg.five88.com/ssport.aspx";
+//    // Url stg
+//    public static final String HOME_URL = "http://stg.five88.com/";
+//    public static final String REGISTER_URL = "http://stg.five88.com/register.aspx";
+//    public static final String DEPOSIT_URL = "http://stg.five88.com/deposit.aspx";
+//    public static final String WITHDRAW_URL = "http://stg.five88.com/withdraw.aspx";
+//    public static final String TRANHISTORY_URL = "http://stg.five88.com/history/lsgd.aspx";
+//    public static final String QUAYSO_URL = "http://stg.five88.com/lottery.aspx";
+//    public static final String QUAYSO2_URL = "http://stg.five88.com/lotte2.aspx";
+//    public static final String LODE_URL = "http://stg.five88.com/lode.aspx";
+//    public static final String CASINO_URL = "http://stg.five88.com/casino.aspx";
+//    public static final String ATHETHAO_URL = "http://stg.five88.com/fsport/live-sports.aspx";
+//    public static final String TTHETHAO_URL = "http://stg.five88.com/tsports.aspx";
+//    public static final String STHETHAO_URL = "http://stg.five88.com/ssport.aspx";
 
 //    // Url clone
 //    public static final String HOME_URL = "https://fm88.com/";
@@ -48,29 +48,29 @@ public class Constants {
     public static final int MID_TIMEOUT = 10;
     public static final int LONG_TIMEOUT = 30;
 
-//    // User/pass
-//    public static final String USERNAME = "setajim";
-//    public static final String USERNAME_THETHAO = "setathethao";
-//    public static final String USERNAME_QUAYSO = "setaquayso";
-//    public static final String USERNAME_LODE = "setalode";
-//    public static final String USERNAME_CASINO = "setacasino";
-//    public static final String USERNAME_NUMBER = "setacasino";
-//    public static final String USERNAME_KENO = "setacasino";
-//    public static final String USERNAME_LOGIN = "setalogin";
-//    public static final String PASSWORD = "testjimmy";
-//    public static final String PHONE = "1234567890";
-
-    // User/pass stagging
-    public static final String USERNAME = "stgseta";
-    public static final String USERNAME_THETHAO = "stgthethao";
-    public static final String USERNAME_QUAYSO = "stgquayso";
-    public static final String USERNAME_LODE = "stglode";
-    public static final String USERNAME_CASINO = "stgcasino";
-    public static final String USERNAME_NUMBER = "stgnumber";
-    public static final String USERNAME_KENO = "stgkeno";
-    public static final String USERNAME_LOGIN = "stglogin";
+    // User/pass
+    public static final String USERNAME = "setajim";
+    public static final String USERNAME_THETHAO = "setathethao";
+    public static final String USERNAME_QUAYSO = "setaquayso";
+    public static final String USERNAME_LODE = "setalode";
+    public static final String USERNAME_CASINO = "setacasino";
+    public static final String USERNAME_NUMBER = "setacasino";
+    public static final String USERNAME_KENO = "setacasino";
+    public static final String USERNAME_LOGIN = "setalogin";
     public static final String PASSWORD = "testjimmy";
     public static final String PHONE = "1234567890";
+
+//    // User/pass stagging
+//    public static final String USERNAME = "stgseta";
+//    public static final String USERNAME_THETHAO = "stgthethao";
+//    public static final String USERNAME_QUAYSO = "stgquayso";
+//    public static final String USERNAME_LODE = "stglode";
+//    public static final String USERNAME_CASINO = "stgcasino";
+//    public static final String USERNAME_NUMBER = "stgnumber";
+//    public static final String USERNAME_KENO = "stgkeno";
+//    public static final String USERNAME_LOGIN = "stglogin";
+//    public static final String PASSWORD = "testjimmy";
+//    public static final String PHONE = "1234567890";
 
 //    // User/pass clone
 //    public static final String USERNAME = "jimmyken";

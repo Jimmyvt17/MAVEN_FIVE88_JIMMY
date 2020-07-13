@@ -127,7 +127,7 @@ public class Quayso2PageObject extends AbstractPage {
     }
 
     public void openQuayso2Page() {
-        openAnyUrl(driver, Constants.QUAYSO2_URL);
+        clickToElementByJSByLocator(driver, Quayso2PageUI.quayso2MenuLocator);
 
     }
 
