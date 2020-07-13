@@ -116,7 +116,7 @@ public class Bet_03_ASport extends BaseTest {
 				log.info("So tien sau khi bet la " + afterBalance + "\n");
 
 				log.info("Verify balance is updated correct\n");
-				verifyFalse(beforeBalance==afterBalance);
+				verifyFalse(beforeBalance.equals(afterBalance));
 
 				i = false;
 

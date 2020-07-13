@@ -33,7 +33,7 @@ public class Quayso2PageObject extends AbstractPage {
         String tmp1 = String.format(Quayso2PageUI.dynamicBetStart, value);
         List<WebElement> startList = getListElements(driver, By.xpath(tmp1));
         if (startList.size() > 0) {
-            scrollToQuaysoGame(value);
+            scrollToQuayso2Game(value);
             int remainTime = getBetTimeCountDown(value);
             if (remainTime < 0) {
                 System.out.println("Check for game id = " + value + "\n");
@@ -55,7 +55,7 @@ public class Quayso2PageObject extends AbstractPage {
 
     }
 
-    public void scrollToQuaysoGame(String value) {
+    public void scrollToQuayso2Game(String value) {
 
         String tmp = String.format(Quayso2PageUI.dynamicQuayso2Game, value);
         scrollToElementByLocator(driver, By.xpath(tmp));

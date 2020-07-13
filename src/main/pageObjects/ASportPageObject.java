@@ -67,7 +67,7 @@ public class ASportPageObject extends AbstractPage {
 
     public void closeWarningDialog() {
 
-        waitForElementVisibleByLocator(driver, ASportPageUI.betOKASportLocator);
+        waitForElementPresentByLocator(driver, ASportPageUI.betOKASportLocator);
         clickToElementByJSByLocator(driver, ASportPageUI.betOKASportLocator);
 
     }
