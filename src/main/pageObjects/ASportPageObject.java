@@ -51,6 +51,8 @@ public class ASportPageObject extends AbstractPage {
     }
 
     public void selectBetMoney(String value) {
+//        waitForElementVisibleByLocator(driver, ASportPageUI.inputBetMoneyLocator);
+//        sendKeyToElementByJS(driver, ASportPageUI.inputBetMoneyLocator, value);
 
         String tmp = String.format(ASportPageUI.dynamicBetMoney, value);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
@@ -66,6 +68,7 @@ public class ASportPageObject extends AbstractPage {
     }
 
     public void closeWarningDialog() {
+        waitForElementVisibleByLocator(driver, ASportPageUI.betOKASportLocator);
         clickToElementByJSByLocator(driver, ASportPageUI.betOKASportLocator);
 
     }
