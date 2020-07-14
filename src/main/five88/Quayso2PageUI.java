@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class Quayso2PageUI {
 
-    public static By quayso2MenuLocator = By.xpath("//ul[@class='nav navbar-nav']//ul[@class='dropdown']//a");
+    public static By quayso2MenuLocator = By.xpath("//ul[@class='nav navbar-nav']//ul[@class='dropdown']//a[text()='Quay Số 2']");
     public static By quayso2BalanceLocator = By.xpath("//div[@class='tool-content']//span[@class='username']/following-sibling::span");
     public static By betQuayso2ButtonLocator = By.xpath("//div[@class='btn-confirm']");
 

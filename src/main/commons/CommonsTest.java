@@ -289,15 +289,13 @@ public class CommonsTest {
             String cmd;
             if (osName.toLowerCase().contains("mac")) {
                 cmd = "networksetup -setairportnetwork en0 " + networkName + " " + networkPass;
-                Process process = Runtime.getRuntime().exec(cmd);
-                process.waitFor();
             } else {
                 cmd = "netsh wlan connect ssid=" + networkName + " name=" + networkName;
-                Process process = Runtime.getRuntime().exec(cmd);
-                process.waitFor();
             }
+            Process process = Runtime.getRuntime().exec(cmd);
+            process.waitFor();
         } catch (Throwable e) {
-            log.info(e.getMessage());
+            e.printStackTrace();
         }
 
     }
