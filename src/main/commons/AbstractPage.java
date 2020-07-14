@@ -602,7 +602,7 @@ public class AbstractPage {
         openSubMenu(driver, "Thể thao");
         String tmp = String.format(AbstractPageUI.dynamicSportButton, values);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
-        clickToElementByLocator(driver, By.xpath(tmp));
+        clickToElementByJSByLocator(driver, By.xpath(tmp));
         Assert.assertEquals(getCurrentPageUrl(driver), url);
 
     }
@@ -665,13 +665,6 @@ public class AbstractPage {
 
         waitForElementVisibleByLocator(driver, AbstractPageUI.loginFormLocator);
         isControlDisplayed(driver, AbstractPageUI.loginFormLocator);
-
-    }
-
-    public void minimizeLiveChat(WebDriver driver) {
-
-        waitForElementVisibleByLocator(driver, AbstractPageUI.minimizeLiveChatLocator);
-        clickToElementByJSByLocator(driver, AbstractPageUI.minimizeLiveChatLocator);
 
     }
 

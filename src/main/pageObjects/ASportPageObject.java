@@ -17,12 +17,6 @@ public class ASportPageObject extends AbstractPage {
         driver = mappingDriver;
     }
 
-    public void minimizeLiveChatBox() {
-
-        minimizeLiveChat(driver);
-
-    }
-
     public String getBalance() {
 
         waitForElementVisibleByLocator(driver, ASportPageUI.aSportBalanceLocator);
@@ -123,9 +117,9 @@ public class ASportPageObject extends AbstractPage {
 
     }
 
-    public void openASportPage() {
+    public void openASportPage(String... values) {
 
-        openAnyUrl(driver, Constants.ATHETHAO_URL);
+        openSportPage(driver, Constants.ATHETHAO_URL, values);
 
     }
 

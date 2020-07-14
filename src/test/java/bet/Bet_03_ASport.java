@@ -37,7 +37,7 @@ public class Bet_03_ASport extends BaseTest {
 		aSportPage.loginSportAccount();
 
 		log.info("ASport - Step02: Open ASport page");
-		aSportPage.openASportPage();
+		aSportPage.openASportPage("item-sb asport", "icon-vi-a");
 
 		log.info("ASport - Step03: Switch to sport iframe to play");
 		aSportPage.switchToASportIframe();
