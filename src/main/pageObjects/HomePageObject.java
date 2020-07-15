@@ -33,7 +33,7 @@ public class HomePageObject extends AbstractPage {
 
     }
 
-    public void logoutToHomePage() {
+    public void logout() {
 
         logout(driver);
 

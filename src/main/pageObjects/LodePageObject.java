@@ -103,7 +103,7 @@ public class LodePageObject extends AbstractPage {
 
     public void openLodePage() {
 
-        openSubMenu(driver, "Lô đề");
+        openSubMenu(driver, "Lô đề  ");
 
     }
 }

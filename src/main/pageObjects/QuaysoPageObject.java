@@ -130,7 +130,7 @@ public class QuaysoPageObject extends AbstractPage {
 
     public void openQuaysoPage() {
 
-        openSubMenu(driver, "Lottery");
+        openSubMenu(driver, "Quay Số ");
 
     }
 

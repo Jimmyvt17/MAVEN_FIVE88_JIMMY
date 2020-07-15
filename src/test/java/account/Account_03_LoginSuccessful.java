@@ -34,7 +34,7 @@ public class Account_03_LoginSuccessful extends CommonsTest {
 		homePage.loginAccount();
 
 		log.info("LoginSuccessful- Step 02: Logout");
-		homePage.logoutToHomePage();
+		homePage.logout();
 
 		log.info("Dang nhap thanh cong");
 

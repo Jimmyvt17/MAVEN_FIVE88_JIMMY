@@ -26,7 +26,7 @@ public class JackpotPageObject extends AbstractPage {
 
     public void openJackpotPage() {
 
-        openSubMenu(driver, "Nổ hũ");
+        openSubMenu(driver, "Nổ hũ ");
 
     }
 
