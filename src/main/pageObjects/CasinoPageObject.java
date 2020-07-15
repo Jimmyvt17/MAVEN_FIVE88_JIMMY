@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
 import java.util.List;
 
 public class CasinoPageObject extends AbstractPage {
@@ -25,6 +26,11 @@ public class CasinoPageObject extends AbstractPage {
         } catch (Throwable e) {
             e.printStackTrace();
         }
+
+    }
+
+    public String getPageID() {
+        return getPageID(driver);
 
     }
 
@@ -74,11 +80,24 @@ public class CasinoPageObject extends AbstractPage {
 
     }
 
-    public void openCasinoLobby(WebElement element) {
-
+    public void openCasinoTab(WebElement element) {
         waitForElementVisible(driver, element);
-        String casinoUrl = element.getAttribute("href");
-        openAnyUrl(driver, casinoUrl);
+        clickToElementByJS(driver, element);
+        try {
+            Thread.sleep(3 * 1000);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void switchToCasinoTab(String pageID) {
+        switchToChildWindowByID(driver, pageID);
+
+    }
+
+    public void returnToMainTab(String pageId) {
+        closeAllWithoutParentWindows(driver, pageId);
 
     }
 
@@ -296,6 +315,11 @@ public class CasinoPageObject extends AbstractPage {
             }
             Assert.assertTrue(i < 20);
         }
+    }
+
+    public void logoutToHomePage() {
+        logout(driver);
+
     }
 
 }

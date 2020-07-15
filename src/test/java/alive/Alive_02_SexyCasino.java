@@ -34,6 +34,8 @@ public class Alive_02_SexyCasino extends BaseTest {
     	log.info("Sexy - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();
 
+		String mainID = casinoPage.getPageID();
+
 		log.info("Sexy - Step 02: Switch to Casino page\n");
 		casinoPage.openCasinoPage();
 
@@ -44,10 +46,19 @@ public class Alive_02_SexyCasino extends BaseTest {
 		log.info("There are " + noBanner.size() + " game banners\n");
 
 		log.info("Sexy - Step 04: Enter Sexy lobby\n");
-		casinoPage.openCasinoLobby(noBanner.get(0));
+		casinoPage.openCasinoTab(noBanner.get(0));
+
+		log.info("Switch to Sexy casino tab\n");
+		casinoPage.switchToCasinoTab(mainID);
 
 		log.info("Sexy - Step 05: Wait for loading complete\n");
 		casinoPage.waitForSexyCasino();
+
+		log.info("Return to main page\n");
+		casinoPage.returnToMainTab(mainID);
+
+		log.info("Sexy - Step 06: Logout\n");
+		casinoPage.logoutToHomePage();
 
 	}
 

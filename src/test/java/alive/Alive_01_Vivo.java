@@ -1,9 +1,9 @@
 package alive;
 
-import commons.utility.BaseTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
+import commons.utility.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
@@ -35,6 +35,8 @@ public class Alive_01_Vivo extends BaseTest {
     	log.info("Vivo - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();
 
+    	String mainID = casinoPage.getPageID();
+
 		log.info("Vivo - Step 02: Switch to Casino page\n");
 		casinoPage.openCasinoPage();
 
@@ -45,7 +47,10 @@ public class Alive_01_Vivo extends BaseTest {
 		log.info("There are " + noBanner.size() + " game banners\n");
 
 		log.info("Vivo - Step 04: Enter Vivo lobby\n");
-		casinoPage.openCasinoLobby(noBanner.get(4));
+		casinoPage.openCasinoTab(noBanner.get(4));
+
+		log.info("Switch to Vivo tab\n");
+		casinoPage.switchToCasinoTab(mainID);
 
 		log.info("Vivo - Step 05: Wait for Vivo lobby\n");
 		casinoPage.waitForVivoLobbyLoadCompleted();
@@ -61,6 +66,12 @@ public class Alive_01_Vivo extends BaseTest {
 
 		log.info("Vivo - Step 08: Verify Hold'em games alive\n");
 		verifyVivoGameAlive("menu-nav-holdem", "col-4 table-view casinoholdem");
+
+		log.info("Return to main page\n");
+		casinoPage.returnToMainTab(mainID);
+
+		log.info("Vivo - Step 09: Logout\n");
+		casinoPage.logoutToHomePage();
 
 	}
 

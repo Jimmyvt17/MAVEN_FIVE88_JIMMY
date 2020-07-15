@@ -36,6 +36,8 @@ public class Alive_04_eBet extends BaseTest {
 		log.info("eBet - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();
 
+		String mainID = casinoPage.getPageID();
+
 		log.info("eBet - Step 02: Switch to Casino page\n");
 		casinoPage.openCasinoPage();
 
@@ -46,10 +48,19 @@ public class Alive_04_eBet extends BaseTest {
 		log.info("There are " + noBanner.size() + " game banners\n");
 
 		log.info("eBet - Step 04: Enter eBet lobby\n");
-		casinoPage.openCasinoLobby(noBanner.get(0));
+		casinoPage.openCasinoTab(noBanner.get(0));
+
+		log.info("Switch to Sexy casino tab\n");
+		casinoPage.switchToCasinoTab(mainID);
 
 		log.info("eBet - Step 05: Wait for eBet lobby\n");
 		casinoPage.waitForCasinoGame(CasinoPageUI.eBetLoadingPageLocator, CasinoPageUI.eBetLobbyLocator);
+
+		log.info("Return to main page\n");
+		casinoPage.returnToMainTab(mainID);
+
+		log.info("eBet - Step 06: Logout\n");
+		casinoPage.logoutToHomePage();
 
 	}
 

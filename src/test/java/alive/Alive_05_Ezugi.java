@@ -35,6 +35,8 @@ public class Alive_05_Ezugi extends BaseTest {
 		log.info("Ezugi - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();
 
+		String mainID = casinoPage.getPageID();
+
 		log.info("Ezugi - Step 02: Switch to Casino page\n");
 		casinoPage.openCasinoPage();
 
@@ -45,10 +47,19 @@ public class Alive_05_Ezugi extends BaseTest {
 		log.info("There are " + noBanner.size() + " game banners\n");
 
 		log.info("Ezugi - Step 04: Enter Ezugi lobby\n");
-		casinoPage.openCasinoLobby(noBanner.get(0));
+		casinoPage.openCasinoTab(noBanner.get(0));
+
+		log.info("Switch to Sexy casino tab\n");
+		casinoPage.switchToCasinoTab(mainID);
 
 		log.info("Ezugi - Step 05: Wait for Ezugi lobby\n");
 		casinoPage.waitForEzugiGame();
+
+		log.info("Return to main page\n");
+		casinoPage.returnToMainTab(mainID);
+
+		log.info("Ezugi - Step 06: Logout\n");
+		casinoPage.logoutToHomePage();
 
 	}
 

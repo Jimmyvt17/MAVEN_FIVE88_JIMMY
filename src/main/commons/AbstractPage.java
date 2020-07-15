@@ -316,6 +316,11 @@ public class AbstractPage {
 
     }
 
+    public String getPageID(WebDriver driver) {
+        return driver.getWindowHandle();
+
+    }
+
     public void switchToChildWindowByID(WebDriver driver, String parentID) {
 
         Set<String> allWindows = driver.getWindowHandles();
@@ -323,7 +328,7 @@ public class AbstractPage {
         for (String runWindow : allWindows) {
 
             driver.switchTo().window(runWindow);
-            String currentWin = driver.getTitle();
+            String currentWin = getPageID(driver);
 
             if (!currentWin.equals(parentID)) {
 
