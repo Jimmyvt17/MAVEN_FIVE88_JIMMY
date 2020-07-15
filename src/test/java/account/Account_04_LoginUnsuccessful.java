@@ -42,7 +42,7 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 
 		log.info("LoginUnsuccessfulWithoutInformation - Step 02: Verify warning dialog");
 		verifyEquals(homePage.getLoginErrorText(), usernameLoginError);
-		homePage.refreshHomePage();
+		homePage.closeWarningDialog();
 
 		log.info("Dang nhap ko thanh cong ko nhap thong tin");
 
@@ -57,7 +57,7 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 
 		log.info("LoginUnsuccessfulWithInvalidName - Step 02: Verify warning dialog");
 		verifyEquals(homePage.getLoginErrorText(), usernameLoginInvalid);
-		homePage.refreshHomePage();
+		homePage.closeWarningDialog();
 
 		log.info("Dang nhap ko thanh cong nhap ten sai");
 
@@ -72,7 +72,7 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 
 		log.info("LoginUnsuccessfulWithInvalidPass - Step 02: Verify warning dialog");
 		verifyEquals(homePage.getLoginErrorText(), usernameLoginInvalid);
-		homePage.refreshHomePage();
+		homePage.closeWarningDialog();
 
 		log.info("Dang nhap ko thanh cong nhap pass sai");
 
@@ -87,7 +87,7 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 
 		log.info("LoginUnsuccessfulWithInvalidNamePass - Step 02: Verify warning dialog");
 		verifyEquals(homePage.getLoginErrorText(), usernameLoginInvalid);
-		homePage.refreshHomePage();
+		homePage.closeWarningDialog();
 
 		log.info("Dang nhap ko thanh cong nhap ten va pass sai");
 
@@ -104,7 +104,7 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 
 		log.info("LoginUnsuccessfulWithoutName - Step 02: Verify warning dialog");
 		verifyEquals(homePage.getLoginErrorText(), usernameLoginError);
-		homePage.refreshHomePage();
+		homePage.closeWarningDialog();
 
 		log.info("Dang nhap ko thanh cong ko nhap ten");
 
@@ -121,7 +121,7 @@ public class Account_04_LoginUnsuccessful extends CommonsTest {
 
 		log.info("LoginUnsuccessfulWithoutPass - Step 02: Verify warning dialog");
 		verifyEquals(homePage.getLoginErrorText(), "Yêu cầu nhập mật khẩu đăng nhập");
-		homePage.refreshHomePage();
+		homePage.closeWarningDialog();
 
 		log.info("Dang nhap ko thanh cong ko nhap pass");
 

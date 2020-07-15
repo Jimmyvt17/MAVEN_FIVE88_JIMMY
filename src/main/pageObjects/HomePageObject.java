@@ -28,6 +28,11 @@ public class HomePageObject extends AbstractPage {
 
     }
 
+    public void closeWarningDialog() {
+        clickToElementByJSByLocator(driver, HomePageUI.closeDialogButtonLocator);
+
+    }
+
     public void logoutToHomePage() {
 
         logout(driver);
