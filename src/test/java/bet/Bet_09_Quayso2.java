@@ -30,7 +30,7 @@ public class Bet_09_Quayso2 extends BaseTest {
 
 	@Override
 	public void Run() {
-		ExtentTestManager.startTest("TC_1_Quayso", "TC_1_Quayso");
+		ExtentTestManager.startTest("TC_1_Quayso2", "TC_1_Quayso2");
 
 		log.info("Quayso - Step 01: Login with valid account");
 		quayso2Page.loginQuaysoAccount();
