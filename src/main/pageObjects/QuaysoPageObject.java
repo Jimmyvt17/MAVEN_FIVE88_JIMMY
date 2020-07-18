@@ -129,8 +129,7 @@ public class QuaysoPageObject extends AbstractPage {
     }
 
     public void openQuaysoPage() {
-
-        openSubMenu(driver, "Quay Số ");
+        clickToElementByJSByLocator(driver, QuaysoPageUI.quaysoMenuLocator);
 
     }
 

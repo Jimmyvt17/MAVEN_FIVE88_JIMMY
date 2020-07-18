@@ -13,6 +13,6 @@ public class AbstractPageUI {
     public static By minimizeLiveChatLocator = By.xpath("//button[@aria-label='Thu nhỏ cửa sổ']");
 
     public static String dynamicSubMenu = "//ul[@class='nav navbar-nav']//a[text()='%s']";
-    public static String dynamicSportButton = "//div[@class='%s']//div[@class='%s']/following-sibling::div//a[text()='Chơi Ngay']";
+    public static String dynamicSportButton = "//div[@class='%s']//div[@class='%s']/following-sibling::a";
 
 }
