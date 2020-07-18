@@ -24,6 +24,10 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -297,7 +301,31 @@ public class CommonsTest {
         } catch (Throwable e) {
             e.printStackTrace();
         }
+        boolean i = true;
+        while (i) {
+            if (isInternetReachable()) {
+                log.info("Network " + networkName + " is connected");
+                i = false;
+            }
+        }
 
+    }
+
+    public boolean isInternetReachable() {
+        try {
+            URL url = new URL("http://www.google.com");
+            HttpURLConnection urlConnect = (HttpURLConnection)url.openConnection();
+            Object objData = urlConnect.getContent();
+
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+            return false;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
     private boolean checkTrue(boolean condition) {
