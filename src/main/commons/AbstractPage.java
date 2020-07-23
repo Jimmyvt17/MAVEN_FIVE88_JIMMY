@@ -2,7 +2,6 @@ package commons;
 
 import commons.excelConfigs.ReadExcelFile;
 import commons.excelConfigs.WriteExcelFile;
-import five88.ASportPageUI;
 import five88.AbstractPageUI;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -428,19 +427,8 @@ public class AbstractPage {
         System.out.println("Switch to outer iframe");
         size = getSizeElements(driver, By.tagName("iframe"));
         System.out.println("Total  inner iframes --" + size);
-        if (size > 0) {
-            driver.switchTo().frame("sportsFrame");
-            System.out.println("Switch to asport iframe\n");
-        } else {
-            System.out.println("There is no asport iframe\n");
-            backToTopWindow(driver);
-            int noWarning = getSizeElements(driver, ASportPageUI.aSportUpgradeLocator);
-            if (noWarning > 0) {
-                throw new RuntimeException("Upgrade");
-            } else {
-                throw new RuntimeException("Nothing");
-            }
-        }
+        driver.switchTo().frame("sportsFrame");
+        System.out.println("Switch to asport iframe\n");
 
     }
 
@@ -455,10 +443,8 @@ public class AbstractPage {
                 throw new RuntimeException(Constants.elementIsRemoved);
             } else if (exceptionText.contains("iframe")) {
                 throw new RuntimeException(Constants.iframeNoLoad);
-            } else if (exceptionText.contains("Upgrade")) {
-                throw new RuntimeException(Constants.pageIsMaintenance);
             } else {
-                    throw new RuntimeException(Constants.iframeContentError);
+                throw new RuntimeException(Constants.iframeContentError);
             }
         }
 
@@ -608,7 +594,9 @@ public class AbstractPage {
         String tmp = String.format(AbstractPageUI.dynamicSportButton, values);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
         clickToElementByJSByLocator(driver, By.xpath(tmp));
-        Assert.assertEquals(getCurrentPageUrl(driver), url);
+        if (getCurrentPageUrl(driver).equals("https://five88.biz/bao-tri.aspx")) {
+            throw new RuntimeException(Constants.pageIsMaintenance);
+        }
 
     }
 
