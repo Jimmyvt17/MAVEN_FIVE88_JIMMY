@@ -190,38 +190,29 @@ public class AbstractPage {
     }
 
     public String getAttributeValue(WebDriver driver, By xPathLocator, String attributeName) {
-
-        element = getElement(driver, xPathLocator);
-        return element.getAttribute(attributeName);
+        return getElement(driver, xPathLocator).getAttribute(attributeName);
 
     }
 
     public String getTextElementByLocator(WebDriver driver, By xPathLocator) {
-
-        element = getElement(driver, xPathLocator);
-        return element.getText();
+        return getElement(driver, xPathLocator).getText();
 
     }
 
     public String getTextElement(WebDriver driver, WebElement element) {
-
         waitForElementVisible(driver, element);
         return element.getText();
 
     }
 
     public Integer getElementAsInt(WebDriver driver, By xPathLocator) {
-
-        element = getElement(driver, xPathLocator);
-        String value = element.getText().replace(".", "");
+        String value = getElement(driver, xPathLocator).getText().replace(".", "");
         return NumberUtils.toInt(value);
 
     }
 
     public Integer getSizeElements(WebDriver driver, By xPathLocator) {
-
-        elements = getListElements(driver, xPathLocator);
-        return elements.size();
+        return getListElements(driver, xPathLocator).size();
 
     }
 
@@ -252,14 +243,11 @@ public class AbstractPage {
     }
 
     public int countElementsNumber(WebDriver driver, By xPathLocator) {
-
-        elements = getListElements(driver, xPathLocator);
-        return elements.size();
+        return getListElements(driver, xPathLocator).size();
 
     }
 
     public void checkTheCheckbox(WebDriver driver, By xPathLocator) {
-
         element = getElement(driver, xPathLocator);
         if (!element.isSelected()) {
 
@@ -270,7 +258,6 @@ public class AbstractPage {
     }
 
     public void unCheckToCheckbox(WebDriver driver, By xPathLocator) {
-
         element = getElement(driver, xPathLocator);
         if (element.isSelected()) {
 
