@@ -51,23 +51,21 @@ public class Bet_03_ASport extends BaseTest {
 		log.info("ASport - Step06: Logout");
 		aSportPage.logoutToHomePage();
 
-		log.info("The thao A thanh cong\n====================\n");
-
 	}
 
 	protected void betASport() {
 		boolean i = true;
 
 		while (i) {
-			log.info("Ban dau dieu kien la " + i + "\n");
+			log.info("Now we have " + i + "\n");
 			String beforeBalance = aSportPage.getBalance();
-			log.info("So tien luc dau la " + beforeBalance + "\n");
+			log.info("Before balance is " + beforeBalance + "\n");
 
 			List<WebElement> listBet = aSportPage.getBets();
-			log.info("So luong cua bet la " + listBet.size() + "\n");
+			log.info("The number of odds is " + listBet.size() + "\n");
 
 			int betSelect = randomNumber(listBet.size());
-			log.info("Chon bet cua thu " + betSelect + "\n");
+			log.info("Select the odd in order " + betSelect + "\n");
 			try {
 				Thread.sleep(1000);
 			} catch (Throwable e) {
@@ -78,7 +76,7 @@ public class Bet_03_ASport extends BaseTest {
 			aSportPage.openBetPanel(listBet.get(betSelect));
 
 			String betOrderDetails = aSportPage.getBetDetails();
-			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
+			log.info("Bet details is\n" +betOrderDetails + "\n");
 
 			String BET_MONEY = "50";
 			log.info("Select money to bet = " + BET_MONEY + "\n");
@@ -107,27 +105,27 @@ public class Bet_03_ASport extends BaseTest {
 				log.info("Bet ticket in process\n");
 
 				String betTicketDetails = aSportPage.getTicketDetails();
-				log.info("Noi dung ve cuoc la\n" + betTicketDetails + "\n");
+				log.info("Ticket details is\n" + betTicketDetails + "\n");
 
 				log.info("Verify ticket is correct\n");
 				verifyEquals(betOrderDetails + "\n" + BET_MONEY, betTicketDetails);
 
 				String afterBalance = aSportPage.getBalance();
-				log.info("So tien sau khi bet la " + afterBalance + "\n");
+				log.info("After balance is " + afterBalance + "\n");
 
 				log.info("Verify balance is updated correct\n");
 				verifyFalse(beforeBalance.equals(afterBalance));
 
 				i = false;
 
-				log.info("Sau do dieu kien la " + i + "\n");
+				log.info("Then we have " + i + "\n");
 
 			} else {
 
 				i = true;
-				log.info("Sau do dieu kien la " + i + "\n");
+				log.info("Then we have " + i + "\n");
 
-				log.info("Bet ko thanh cong, thu lai\n==========\n");
+				log.info("Betting unsuccessfully, please try again\n==========\n");
 
 			}
 

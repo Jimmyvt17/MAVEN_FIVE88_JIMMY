@@ -55,16 +55,14 @@ public class Bet_02_Lode extends BaseTest {
 		log.info("Lode - Step 07: Logout");
 		lodePage.logoutToHomePage();
 
-		log.info("Lo de thanh cong");
-
 	}
 
 	protected void betLode() {
 		String beforeBet = lodePage.getBalance();
-		log.info("So tien truoc khi danh la " + beforeBet + "\n");
+		log.info("Before balance is " + beforeBet + "\n");
 
 		List<WebElement> betNo = lodePage.getBets();
-		log.info("Co " + betNo.size() + " so" + "\n");
+		log.info("There are " + betNo.size() + " odds" + "\n");
 
 		int number = randomNumber(betNo.size());
 		lodePage.selectNoBet(betNo.get(number));
@@ -75,20 +73,20 @@ public class Bet_02_Lode extends BaseTest {
 
 		verifyEquals(betNo.get(number).getText(), selectNo);
 
-		log.info("Bam nut dat cuoc\n");
+		log.info("Press bet button\n");
 		lodePage.clickBetButton();
 
-		log.info("Bam nut OK bang xac nhan\n");
+		log.info("Confirm betting\n");
 		lodePage.clickConfirmButton();
 
-		log.info("Close bang xac nhan\n");
+		log.info("Close warning dialog\n");
 		lodePage.closeConfirmDialog();
 
 		String afterBet = lodePage.getBalance;
-		log.info("So tien sau khi danh lo 2 so la " + afterBet + "\n");
-		verifyFalse(beforeBet==afterBet);
+		log.info("After balance is " + afterBet + "\n");
+		verifyFalse(beforeBet.equals(afterBet));
 
-		log.info("Danh lo thanh cong\n======================\n");
+		log.info("======================\n");
 
 	}
 

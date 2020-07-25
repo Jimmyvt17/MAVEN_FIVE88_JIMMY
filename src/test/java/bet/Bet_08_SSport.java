@@ -46,8 +46,6 @@ public class Bet_08_SSport extends BaseTest {
 		log.info("SSport - Step04: Betting\n");
 		betSSport();
 
-		log.info("The thao S thanh cong\n====================\n");
-
 	}
 
 	protected void betSSport() {
@@ -67,10 +65,10 @@ public class Bet_08_SSport extends BaseTest {
 		boolean i = true;
 		while (i) {
 			List<WebElement> listBet = sSportPage.getListBets(SSportPageUI.betAsiaSSportLocator);
-			log.info("So luong cua bet la " + listBet.size() + "\n");
+			log.info("The number of odd is " + listBet.size() + "\n");
 
 			int betSelect = randomNumber(listBet.size());
-			log.info("Chon bet cua thu " + betSelect + "\n");
+			log.info("Select odd at order " + betSelect + "\n");
 			try {
 				Thread.sleep(1000);
 			} catch (Throwable e) {
@@ -78,17 +76,17 @@ public class Bet_08_SSport extends BaseTest {
 			}
 
 			String oddBet = sSportPage.getAsiaOddBet(listBet.get(betSelect));
-			log.info("Ty le cuoc da chon la " + oddBet + "\n");
+			log.info("Selected odd is " + oddBet + "\n");
 
-			log.info("Tao phieu cuoc\n");
+			log.info("Create bet order\n");
 			sSportPage.createBetOder(listBet.get(betSelect));
 
-			log.info("Verify tao phieu cuoc thanh cong\n");
+			log.info("Verify bet oder is created\n");
 			if (sSportPage.isTicketCreated()) {
 				String oddSelect = sSportPage.getOddSelect();
-				log.info("Ty le cuoc trong phieu la " + oddSelect + "\n");
+				log.info("The odd is " + oddSelect + "\n");
 
-				log.info("Kiem tra ty le cuoc da chon va ty le cuoc trong phieu bang nhau");
+				log.info("Verify odd is correct\n");
 				verifyEquals(oddBet, oddSelect);
 
 //				String totalReturn = sSportPage.getReturn();
@@ -97,10 +95,10 @@ public class Bet_08_SSport extends BaseTest {
 //				log.info("Kiem tra tien thang cuoc chinh xac\n");
 //				sSportPage.verifyReturn(totalReturn, oddSelect, BET_MONEY);
 
-				log.info("Thuc hien cuoc\n");
+				log.info("Confirm betting\n");
 				i = !sSportPage.isAsiaBetSuccess(BET_MONEY);
 			} else {
-				log.info("Phieu cuoc chua duoc tao\n");
+				log.info("Order is not created successfully\n");
 				i = true;
 			}
 
@@ -112,14 +110,14 @@ public class Bet_08_SSport extends BaseTest {
 		boolean i = true;
 		while (i) {
 			List<WebElement> listBet = sSportPage.getListBets(SSportPageUI.betEuroSSportLocator);
-			log.info("So luong cua bet la " + listBet.size() + "\n");
+			log.info("The number of odds is " + listBet.size() + "\n");
 
 			List<WebElement> listOdd = sSportPage.getListBets(SSportPageUI.betOddEuroSSportLocator);
 
 			List<WebElement> listContentBet = sSportPage.getListBets(SSportPageUI.betContentEuroSSportLocator);
 
 			int betSelect = randomNumber((listBet.size() - 1));
-			log.info("Chon bet cua thu " + betSelect + "\n");
+			log.info("Select odd at order " + betSelect + "\n");
 			try {
 				Thread.sleep(1000);
 			} catch (Throwable e) {
@@ -127,26 +125,26 @@ public class Bet_08_SSport extends BaseTest {
 			}
 
 			String oddBet = sSportPage.getEuroOddBet(listOdd.get(betSelect));
-			log.info("Ty le cuoc da chon la: " + oddBet + "\n");
+			log.info("Selected odd is " + oddBet + "\n");
 
 			String contentBet = sSportPage.getContentBet(listContentBet.get(betSelect));
-			log.info("Noi dung cuoc da chon la: " + contentBet + "\n");
+			log.info("Odd details is " + contentBet + "\n");
 
-			log.info("Tao phieu cuoc\n");
+			log.info("Create bet order\n");
 			sSportPage.createBetOder(listBet.get(betSelect));
 
-			log.info("Verify tao phieu cuoc thanh cong\n");
+			log.info("Verify bet order is created\n");
 			if (sSportPage.isTicketCreated()) {
 				String oddSelect = sSportPage.getOddSelect();
-				log.info("Ty le cuoc trong phieu la: " + oddSelect + "\n");
+				log.info("The odd is " + oddSelect + "\n");
 
 				String contentSelect = sSportPage.getContentSelect();
-				log.info("Noi dung trong phieu cuoc la: " + contentSelect + "\n");
+				log.info("Order details is " + contentSelect + "\n");
 
-				log.info("Kiem tra ty le cuoc da chon va ty le cuoc trong phieu bang nhau");
+				log.info("Verify odd is correct\n");
 				verifyEquals(oddBet, oddSelect);
 
-				log.info("Kiem tra noi dung cuoc da chon va noi dung trong phieu cuoc giong nhau");
+				log.info("Verify odd details are correct\n");
 				verifyEquals(contentBet, contentSelect);
 
 //				String totalReturn = sSportPage.getReturn();
@@ -155,10 +153,10 @@ public class Bet_08_SSport extends BaseTest {
 //				log.info("Kiem tra tien thang cuoc chinh xac\n");
 //				sSportPage.verifyReturn(totalReturn, oddSelect, BET_MONEY);
 
-				log.info("Thuc hien cuoc\n");
+				log.info("Confirm betting\n");
 				i = !sSportPage.isEUBetSuccess(BET_MONEY);
 			} else {
-				log.info("Phieu cuoc chua duoc tao\n");
+				log.info("Bet order is not created successfully\n");
 				i = true;
 			}
 

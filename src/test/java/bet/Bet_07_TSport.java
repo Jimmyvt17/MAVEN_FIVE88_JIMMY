@@ -56,24 +56,22 @@ public class Bet_07_TSport extends BaseTest {
 		log.info("TSport - Step07: Logout\n");
 		tSportPage.logoutToHomePage();
 
-		log.info("The thao T thanh cong\n====================\n");
-
 	}
 
 	protected void betTSport() {
 		boolean i = true;
 
 		while (i) {
-			log.info("Ban dau dieu kien la " + i + "\n");
+			log.info("Now we have " + i + "\n");
 
 			String beforeBalance = tSportPage.getBalance();
-			log.info("So tien luc dau la " + beforeBalance + "\n");
+			log.info("Before balance is " + beforeBalance + "\n");
 
 			List<WebElement> listBet = tSportPage.getBets();
-			log.info("So luong cua bet la " + listBet.size() + "\n");
+			log.info("The number of odd is " + listBet.size() + "\n");
 
 			int betSelect = randomNumber(listBet.size());
-			log.info("Chon bet cua thu " + betSelect + "\n");
+			log.info("Select odd at order " + betSelect + "\n");
 			try {
 				Thread.sleep(1000);
 			} catch (Throwable e) {
@@ -94,7 +92,7 @@ public class Bet_07_TSport extends BaseTest {
 			log.info("Confirm betting\n");
 			tSportPage.confirmBet(listBet.get(betSelect), BET_MONEY);
 
-			log.info("Verify cuoc thanh cong\n");
+			log.info("Verify betting successful\n");
 			if (tSportPage.isTicketDisplayed()) {
 //				log.info("Mo bang cuoc dang dien ra\n");
 //				tSportPage.openBetBoard();
@@ -106,19 +104,19 @@ public class Bet_07_TSport extends BaseTest {
 //				verifyEquals(betOrderDetails, ticketDetails);
 
 				String afterBalance = tSportPage.getBalance();
-				log.info("So tien sau khi bet la " + afterBalance + "\n");
+				log.info("After balance is " + afterBalance + "\n");
 
 				log.info("Verify balance is updated correct\n");
 				verifyFalse(beforeBalance.equals(afterBalance));
 
 				i = false;
 
-				log.info("Sau do dieu kien la " + i + "\n");
+				log.info("Then we have " + i + "\n");
 			} else {
 				i = true;
-				log.info("Sau do dieu kien la " + i + "\n");
+				log.info("Then we have " + i + "\n");
 
-				log.info("Bet ko thanh cong, thu lai\n==========\n");
+				log.info("Betting unsuccessful, please try again\n==========\n");
 			}
 
 		}
@@ -128,16 +126,16 @@ public class Bet_07_TSport extends BaseTest {
 		boolean i = true;
 
 		while (i) {
-			log.info("Ban dau dieu kien la " + i + "\n");
+			log.info("Now we have " + i + "\n");
 
 			String beforeBalance = tSportPage.getBalance();
-			log.info("So tien luc dau la " + beforeBalance + "\n");
+			log.info("Before balance is " + beforeBalance + "\n");
 
 			List<WebElement> listBet = tSportPage.getBets();
-			log.info("So luong cua bet la " + listBet.size() + "\n");
+			log.info("The number of odd is " + listBet.size() + "\n");
 
 			int betSelect = randomNumber(100);
-			log.info("Chon bet cua thu " + betSelect + "\n");
+			log.info("Select odd at order " + betSelect + "\n");
 			try {
 				Thread.sleep(1000);
 			} catch (Throwable e) {
@@ -153,7 +151,7 @@ public class Bet_07_TSport extends BaseTest {
 			log.info("Confirm betting\n");
 			tSportPage.confirmBet(listBet.get(betSelect), BET_MONEY);
 
-			log.info("Verify cuoc thanh cong\n");
+			log.info("Verify betting successfully\n");
 			if (tSportPage.isTicketDisplayed()) {
 //				log.info("Mo bang cuoc dang dien ra\n");
 //				tSportPage.openBetBoard();
@@ -165,7 +163,7 @@ public class Bet_07_TSport extends BaseTest {
 //				verifyEquals(betOrderDetails, ticketDetails);
 
 				String afterBalance = tSportPage.getBalance();
-				log.info("So tien sau khi bet la " + afterBalance + "\n");
+				log.info("After balance is " + afterBalance + "\n");
 
 				log.info("Verify balance is updated correct\n");
 				verifyFalse(beforeBalance.equals(afterBalance));
@@ -173,7 +171,7 @@ public class Bet_07_TSport extends BaseTest {
 				i = true;
 			} else {
 				i = true;
-				log.info("Bet ko thanh cong, thu lai\n==========\n");
+				log.info("Betting unsuccessful, please try again\n==========\n");
 			}
 
 		}
@@ -185,10 +183,10 @@ public class Bet_07_TSport extends BaseTest {
 			log.info("i = " + i + "\n");
 
 			List<WebElement> listBet = tSportPage.getBets();
-			log.info("So luong cua bet la " + listBet.size() + "\n");
+			log.info("The number of odd is " + listBet.size() + "\n");
 
 			int betSelect = randomNumber(listBet.size());
-			log.info("Chon bet cua thu " + betSelect + "\n");
+			log.info("Select odd at order " + betSelect + "\n");
 			try {
 				Thread.sleep(1000);
 			} catch (Throwable e) {
@@ -199,10 +197,10 @@ public class Bet_07_TSport extends BaseTest {
 			tSportPage.openBetPanel(listBet.get(betSelect));
 
 			String betOrderDetails = tSportPage.getBetDetails();
-			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
+			log.info("Bet details is\n" +betOrderDetails + "\n");
 
 			String betTicketDetails = tSportPage.getBetTicketDetails();
-			log.info("Noi dung ve cuoc la\n" + betTicketDetails + "\n");
+			log.info("Ticket details is\n" + betTicketDetails + "\n");
 
 			log.info("Verify ticket is correct\n");
 			verifyEquals(betOrderDetails, betTicketDetails);

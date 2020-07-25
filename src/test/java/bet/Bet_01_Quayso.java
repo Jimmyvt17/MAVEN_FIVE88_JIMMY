@@ -51,8 +51,6 @@ public class Bet_01_Quayso extends BaseTest {
 		log.info("Quayso - Step 06: Logout");
 		quaysoPage.logoutToHomePage();
 
-		log.info("Quay so thanh cong\n================================================================================\n");
-
 	}
 
 	private void betLotteryGame() {

@@ -23,15 +23,15 @@ public abstract class BaseTest extends CommonsTest {
             if (!error.contains("StaleElementReferenceException")) {
                 if (!error.contains("AssertionError")) {
                     if (!error.contains("ElementNotInteractableException")) {
-                        err = prefix + error + "\n==================================================\n";
+                        err = prefix + error + "\n==============================================\n";
                     } else {
-                        err = prefix + Constants.elementIsOverlaying + "\n==================================================\n";
+                        err = prefix + Constants.elementIsOverlaying + "\n==============================================\n";
                     }
                 } else {
-                    err = prefix + Constants.loadingTimeTooLong + "\n==================================================\n";
+                    err = prefix + Constants.loadingTimeTooLong + "\n==============================================\n";
                 }
             } else {
-                err = prefix + Constants.elementIsRemoved + "\n==================================================\n";
+                err = prefix + Constants.elementIsRemoved + "\n==============================================\n";
             }
             sendBot(err);
             throw e;
