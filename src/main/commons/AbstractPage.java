@@ -220,7 +220,7 @@ public class AbstractPage {
 
     public Integer getSizeElements(WebDriver driver, By xPathLocator) {
 
-        elements = driver.findElements(xPathLocator);
+        elements = getListElements(driver, xPathLocator);
         return elements.size();
 
     }
@@ -251,7 +251,7 @@ public class AbstractPage {
 
     public int countElementsNumber(WebDriver driver, By xPathLocator) {
 
-        elements = driver.findElements(xPathLocator);
+        elements = getListElements(driver, xPathLocator);
         return elements.size();
 
     }
@@ -300,7 +300,7 @@ public class AbstractPage {
     public boolean isControlUndisplayed(WebDriver driver, By xPathLocator) {
 
         overrideTimeout(driver, Constants.SHORT_TIMEOUT);
-        List<WebElement> elements = driver.findElements(xPathLocator);
+        List<WebElement> elements = getListElements(driver, xPathLocator);
 
         if(elements.size() == 0) {
             overrideTimeout(driver, Constants.LONG_TIMEOUT);
@@ -410,7 +410,7 @@ public class AbstractPage {
 
         try {
             switchToIframe(driver);
-            List<WebElement> noElement = driver.findElements(xPathLocator);
+            List<WebElement> noElement = getListElements(driver, xPathLocator);
             for (int i = 0; i <= 20; i++) {
                 if (noElement.size() > 0) {
                     break;
