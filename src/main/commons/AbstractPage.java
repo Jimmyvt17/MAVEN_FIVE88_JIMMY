@@ -230,6 +230,7 @@ public class AbstractPage {
             elements = driver.findElements(xPathLocator);
         } catch (Throwable e) {
             if (e.toString().contains("StaleElementReferenceException")) {
+                System.out.println(Constants.elementIsRemoved);
                 elements = driver.findElements(xPathLocator);
             }
         }
@@ -242,6 +243,7 @@ public class AbstractPage {
             element = driver.findElement(xPathLocator);
         } catch (Throwable e) {
             if (e.toString().contains("StaleElementReferenceException")) {
+                System.out.println(Constants.elementIsRemoved);
                 element = getElement(driver, xPathLocator);
             }
         }
