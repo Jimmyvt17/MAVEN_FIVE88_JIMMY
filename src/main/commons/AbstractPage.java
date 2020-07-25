@@ -226,25 +226,25 @@ public class AbstractPage {
     }
 
     public List<WebElement> getListElements(WebDriver driver, By xPathLocator) {
-        try {
+//        try {
             elements = driver.findElements(xPathLocator);
-        } catch (Throwable e) {
-            if (e.toString().contains("StaleElementReferenceException")) {
-                elements = driver.findElements(xPathLocator);
-            }
-        }
+//        } catch (Throwable e) {
+//            if (e.toString().contains("StaleElementReferenceException")) {
+//                elements = driver.findElements(xPathLocator);
+//            }
+//        }
         return elements;
 
     }
 
     public WebElement getElement(WebDriver driver, By xPathLocator) {
-        try {
+        //try {
             element = getElement(driver, xPathLocator);
-        } catch (Throwable e) {
-            if (e.toString().contains("StaleElementReferenceException")) {
-                element = getElement(driver, xPathLocator);
-            }
-        }
+//        } catch (Throwable e) {
+//            if (e.toString().contains("StaleElementReferenceException")) {
+//                element = getElement(driver, xPathLocator);
+//            }
+//        }
         return element;
 
     }
