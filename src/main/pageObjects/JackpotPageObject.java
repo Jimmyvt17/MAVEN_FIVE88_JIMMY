@@ -1,9 +1,12 @@
 package pageObjects;
 
 import commons.AbstractPage;
+import commons.Constants;
 import five88.JackpotPageUI;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class JackpotPageObject extends AbstractPage {
 
@@ -13,9 +16,9 @@ public class JackpotPageObject extends AbstractPage {
         driver = mappingDriver;
     }
 
-    public void loginTestSlot(String username) {
+    public void loginTestSlot() {
 
-        login(driver, username, "@16WINner");
+        login(driver, Constants.USERNAME_LOGIN, Constants.PASSWORD);
         try {
             Thread.sleep(1000*5);
         } catch (Throwable e) {
@@ -30,10 +33,9 @@ public class JackpotPageObject extends AbstractPage {
 
     }
 
-    public void openJackpotGame(String value) {
-
-        String tmp = String.format(JackpotPageUI.dynamicJackpotGame, value);
-        clickToElementByJSByLocator(driver, By.xpath(tmp));
+    public void openJackpotGame() {
+        List<WebElement> noGame = getListElements(driver, JackpotPageUI.jackpotGame);
+        clickToElementByJS(driver, noGame.get(randomNumber(noGame.size())));
 
     }
 

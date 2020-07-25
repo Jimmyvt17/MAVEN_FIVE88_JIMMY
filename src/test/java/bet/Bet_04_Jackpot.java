@@ -12,8 +12,6 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.JackpotPageObject;
 
-import java.lang.reflect.Method;
-
 
 public class Bet_04_Jackpot extends CommonsTest {
 
@@ -30,19 +28,18 @@ public class Bet_04_Jackpot extends CommonsTest {
 
 	}
 
-	@Parameters({"username", "gameId"})
 	@Test
-	public void TC_1_Jackpot(String usernameData, String gameIdData, Method method) {
-		ExtentTestManager.startTest(method.getName(), "TC_1_Jackpot");
+	public void TC_1_Jackpot() {
+		ExtentTestManager.startTest("TC_1_Jackpot", "TC_1_Jackpot");
 
 		log.info("Jackpot - Step 01: Login test slot account");
-    	jackpotPage.loginTestSlot(usernameData);
+    	jackpotPage.loginTestSlot();
 
 		log.info("Jackpot - Step 02: Switch to Jackpot page");
 		jackpotPage.openJackpotPage();
 
 		log.info("Jackpot - Step 03: Open Jackpot game");
-		jackpotPage.openJackpotGame(gameIdData);
+		jackpotPage.openJackpotGame();
 
 //		log.info("Jackpot - Step 04: Delay 12 hours to finish");
 //		delayInHour(12, 1);

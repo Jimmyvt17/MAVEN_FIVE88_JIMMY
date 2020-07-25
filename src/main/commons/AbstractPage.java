@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -109,30 +110,26 @@ public class AbstractPage {
 
     // WebElement
     public void clickToElementByLocator(WebDriver driver, By xPathLocator) {
-
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         element.click();
 
     }
 
     public void clickToElement(WebDriver driver, WebElement element) {
-
         element.click();
 
     }
 
     public void clearTextElement(WebDriver driver, By xPathLocator) {
-
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         element.clear();
 
     }
 
     public void sendKeyToElement(WebDriver driver, By xPathLocator, String value) {
-
-        element = driver.findElement(xPathLocator);
-        element.clear();
-        element.sendKeys(value);
+            element = getElement(driver, xPathLocator);
+            element.clear();
+            element.sendKeys(value);
 
     }
 
@@ -147,7 +144,7 @@ public class AbstractPage {
 
     public void selectItemInDropDown(WebDriver driver, By xPathLocator, String value) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         Select select = new Select(element);
         select.selectByVisibleText(value);
 
@@ -155,7 +152,7 @@ public class AbstractPage {
 
     public String getSelectedItemInDropDown(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         Select select = new Select(element);
         return select.getFirstSelectedOption().getText();
 
@@ -194,14 +191,14 @@ public class AbstractPage {
 
     public String getAttributeValue(WebDriver driver, By xPathLocator, String attributeName) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         return element.getAttribute(attributeName);
 
     }
 
     public String getTextElementByLocator(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         return element.getText();
 
     }
@@ -215,7 +212,7 @@ public class AbstractPage {
 
     public Integer getElementAsInt(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         String value = element.getText().replace(".", "");
         return NumberUtils.toInt(value);
 
@@ -229,9 +226,26 @@ public class AbstractPage {
     }
 
     public List<WebElement> getListElements(WebDriver driver, By xPathLocator) {
-
-        elements = driver.findElements(xPathLocator);
+        try {
+            elements = driver.findElements(xPathLocator);
+        } catch (Throwable e) {
+            if (e.toString().contains("StaleElementReferenceException")) {
+                elements = driver.findElements(xPathLocator);
+            }
+        }
         return elements;
+
+    }
+
+    public WebElement getElement(WebDriver driver, By xPathLocator) {
+        try {
+            element = getElement(driver, xPathLocator);
+        } catch (Throwable e) {
+            if (e.toString().contains("StaleElementReferenceException")) {
+                element = getElement(driver, xPathLocator);
+            }
+        }
+        return element;
 
     }
 
@@ -244,7 +258,7 @@ public class AbstractPage {
 
     public void checkTheCheckbox(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         if (!element.isSelected()) {
 
             element.click();
@@ -255,7 +269,7 @@ public class AbstractPage {
 
     public void unCheckToCheckbox(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         if (element.isSelected()) {
 
             element.click();
@@ -268,7 +282,7 @@ public class AbstractPage {
 
         boolean status = true;
         try {
-            element = driver.findElement(xPathLocator);
+            element = getElement(driver, xPathLocator);
             if (element.isDisplayed()) {
                 return status;
             }
@@ -303,14 +317,14 @@ public class AbstractPage {
 
     public boolean isControlSelected(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         return element.isSelected();
 
     }
 
     public boolean isControlEnabled(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         return element.isEnabled();
 
     }
@@ -459,7 +473,7 @@ public class AbstractPage {
 
     public void hoverMouseToElement(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         action = new Actions(driver);
         action.moveToElement(element).perform();
 
@@ -467,7 +481,7 @@ public class AbstractPage {
 
     public void doubleClickToElementByLocator(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         action = new Actions(driver);
         action.doubleClick(element).perform();
 
@@ -482,7 +496,7 @@ public class AbstractPage {
 
     public void rightClickToElement(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         action = new Actions(driver);
         action.contextClick(element).perform();
 
@@ -499,7 +513,7 @@ public class AbstractPage {
 
     public void dragAndDropElement(WebDriver driver, By xPathLocator, int x, int y) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         action = new Actions(driver);
         action.dragAndDropBy(element, x, y).build().perform();
 
@@ -507,7 +521,7 @@ public class AbstractPage {
 
     public void sendKeyboardToElement(WebDriver driver, By xPathLocator, Keys key) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         action = new Actions(driver);
         action.sendKeys(key);
 
@@ -515,7 +529,7 @@ public class AbstractPage {
 
     public void uploadFile(WebDriver driver, By xPathLocator, String filePath) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         element.sendKeys(filePath);
 
     }
@@ -673,7 +687,7 @@ public class AbstractPage {
     public void highlightElementByLocator(WebDriver driver, By xPathLocator) {
 
         js = (JavascriptExecutor) driver;
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         String originalStyle = element.getAttribute("style");
         js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", "border: 3px solid red; border-style: dashed;");
         try {
@@ -707,8 +721,7 @@ public class AbstractPage {
     }
 
     public Object showTextByJS(WebDriver driver, By xPathLocator) {
-
-        elements = driver.findElements(xPathLocator);
+        elements = getListElements(driver, xPathLocator);
         if (elements.size() > 0) {
             js = (JavascriptExecutor) driver;
             return (String) js.executeScript("return arguments[0].textContent.toString()", elements.get(0));
@@ -729,13 +742,13 @@ public class AbstractPage {
     public Object clickToElementByJSByLocator(WebDriver driver, By xPathLocator) {
 
         js = (JavascriptExecutor) driver;
-        return  js.executeScript("arguments[0].click();", driver.findElement(xPathLocator));
+        return  js.executeScript("arguments[0].click();", getElement(driver, xPathLocator));
 
     }
 
     public void sendKeyToElementByJS(WebDriver driver, By xPathLocator, String value) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].setAttribute('value', '" + value + "')", element);
 
@@ -743,7 +756,7 @@ public class AbstractPage {
 
     public void removeAttributeInDOM(WebDriver driver, By xPathLocator, String attribute) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].removeAttribute('" + attribute + "');", element);
 
@@ -751,7 +764,7 @@ public class AbstractPage {
 
     public void setAttributeInDOM(WebDriver driver, By xPathLocator, String attribute, String value) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].setAttribute('" + attribute + "', '" + value + "');", element);
 
@@ -773,7 +786,7 @@ public class AbstractPage {
 
     public void scrollToElementByLocator(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
         try {
@@ -805,7 +818,7 @@ public class AbstractPage {
 
     public boolean isImageLoaded(WebDriver driver, By xPathLocator) {
 
-        element = driver.findElement(xPathLocator);
+        element = getElement(driver, xPathLocator);
         js = (JavascriptExecutor) driver;
         boolean status = (boolean) js.executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", element);
         if (status) {
@@ -1005,6 +1018,14 @@ public class AbstractPage {
         //Write the file using file name, sheet name and the data to be filled
 
         writeExcel(filePath, fileName, sheetName, valueToWrite);
+
+    }
+
+    // Others
+    public int randomNumber(int count) {
+
+        Random random = new Random();
+        return random.nextInt(count);
 
     }
 
