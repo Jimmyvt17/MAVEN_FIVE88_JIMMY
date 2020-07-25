@@ -687,7 +687,6 @@ public class AbstractPage {
 
     // Javascript
     public void highlightElementByLocator(WebDriver driver, By xPathLocator) {
-
         js = (JavascriptExecutor) driver;
         element = getElement(driver, xPathLocator);
         String originalStyle = element.getAttribute("style");
@@ -697,12 +696,18 @@ public class AbstractPage {
         } catch (Throwable e) {
             e.printStackTrace();
         }
-        js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
+        try {
+            js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
+        } catch (Throwable e) {
+            if (e.toString().contains("StaleElementReferenceException")) {
+                js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
+            }
+        }
+
 
     }
 
     public void highlightElement(WebDriver driver, WebElement element) {
-
         js = (JavascriptExecutor) driver;
         String originalStyle = element.getAttribute("style");
         js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", "border: 3px solid red; border-style: dashed;");
@@ -711,7 +716,13 @@ public class AbstractPage {
         } catch (Throwable e) {
             e.printStackTrace();
         }
-        js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
+        try {
+            js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
+        } catch (Throwable e) {
+            if (e.toString().contains("StaleElementReferenceException")) {
+                js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
+            }
+        }
 
     }
 
