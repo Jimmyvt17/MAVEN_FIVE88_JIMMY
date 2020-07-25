@@ -20,7 +20,7 @@ public abstract class BaseTest extends CommonsTest {
             } else {
                 error = e.toString().substring(0, e.toString().indexOf("\n"));
             }
-            if (!error.contains("StaleElementReferenceException")) {
+//            if (!error.contains("StaleElementReferenceException")) {
                 if (!error.contains("AssertionError")) {
                     if (!error.contains("ElementNotInteractableException")) {
                         err = prefix + error + "\n==================================================\n";
@@ -30,9 +30,9 @@ public abstract class BaseTest extends CommonsTest {
                 } else {
                     err = prefix + Constants.loadingTimeTooLong + "\n==================================================\n";
                 }
-            } else {
-                err = prefix + Constants.elementIsRemoved + "\n==================================================\n";
-            }
+//            } else {
+//                err = prefix + Constants.elementIsRemoved + "\n==================================================\n";
+//            }
             sendBot(err);
             throw e;
         }
