@@ -9,7 +9,7 @@ public class ExtentManager {
     public synchronized static ExtentReports getReporter() {
         if (extent == null) {
             String workingDir = System.getProperty("user.dir");
-            extent = new ExtentReports(workingDir + "/ExtentReports/Five88ExtentReportResults.html", true);
+            extent = new ExtentReports(workingDir + "/ExtentReports/Fm88ExtentReportResults.html", true);
         }
         return extent;
     }

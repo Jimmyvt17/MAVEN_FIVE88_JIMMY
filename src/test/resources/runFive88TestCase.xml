@@ -12,8 +12,6 @@
 
   <test name="Run on Chrome">
     <parameter name="browser" value="chrome" />
-    <parameter name="username" value="testslot001" />
-    <parameter name="gameId" value="9999" />
     <classes>
 <!--        <class name="bet.Bet_03_ASport"/>-->
 <!--        <class name="bet.Bet_08_SSport"/>-->
@@ -21,7 +19,6 @@
 <!--        <class name="bet.Bet_01_Quayso"/>-->
 <!--        <class name="bet.Bet_02_Lode"/>-->
 <!--        <class name="bet.Bet_05_NumberGame"/>-->
-<!--        <class name="payment.Payment_01_DepositSuccessful"/>-->
     </classes>
     <packages>
       <package name="account"/>

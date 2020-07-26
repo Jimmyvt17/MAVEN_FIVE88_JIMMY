@@ -50,7 +50,7 @@ public class CommonsTest {
 
         TelegramBot bot = new TelegramBot.Builder(Constants.FIVE88BOT).okHttpClient(client).build();
 
-        long chatId = Constants.FIVE88_FAIL_ROOM_ID;
+        long chatId = Constants.FM88_FAIL_ROOM_ID;
 
         SendMessage request = new SendMessage(chatId, text);
         // sync
@@ -63,7 +63,7 @@ public class CommonsTest {
 
         TelegramBot bot = new TelegramBot.Builder(Constants.FIVE88BOT).okHttpClient(client).build();
 
-        long chatId = Constants.FIVE88_FAIL_ROOM_ID;
+        long chatId = Constants.FM88_FAIL_ROOM_ID;
 
         SendMessage request = new SendMessage(chatId, text).parseMode(ParseMode.Markdown).replyToMessageId(userId);
         // sync
