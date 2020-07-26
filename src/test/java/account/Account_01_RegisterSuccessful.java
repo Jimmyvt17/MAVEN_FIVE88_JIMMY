@@ -46,27 +46,27 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 
 	}
 
-	@Test
-	public void TC_02_RegisterSuccessfulWithName6Letters() {
-		ExtentTestManager.startTest("TC_02_RegisterSuccessfulWithName6Letters", "TC_02_RegisterSuccessfulWithName6Letters");
-
-		log.info("RegisterSuccessful - Step 01: Register account with name 6 letters");
-		register(USERNAME_6, Constants.PASSWORD, Constants.PHONE);
-
-		log.info("RegisterSuccessful - Step 02: Logout");
-		accountPage.logoutToHomePage();
-		log.info("Register Successful With Name 6 Letters");
-
-	}
+//	@Test
+//	public void TC_02_RegisterSuccessfulWithName6Letters() {
+//		ExtentTestManager.startTest("TC_02_RegisterSuccessfulWithName6Letters", "TC_02_RegisterSuccessfulWithName6Letters");
+//
+//		log.info("RegisterSuccessfulWithName6Letters - Step 01: Register account with name 6 letters");
+//		register(USERNAME_6, Constants.PASSWORD, Constants.PHONE);
+//
+//		log.info("RegisterSuccessfulWithName6Letters - Step 02: Logout");
+//		accountPage.logoutToHomePage();
+//		log.info("Register Successful With Name 6 Letters");
+//
+//	}
 
 	@Test
 	public void TC_03_RegisterSuccessfulWithName30Letters() {
 		ExtentTestManager.startTest("TC_03_RegisterSuccessfulWithName30Letters", "TC_03_RegisterSuccessfulWithName30Letters");
 
-		log.info("RegisterSuccessful - Step 01: Register account with name 30 letters");
+		log.info("RegisterSuccessfulWithName30Letters - Step 01: Register account with name 30 letters");
 		register(USERNAME_30, Constants.PASSWORD, Constants.PHONE);
 
-		log.info("RegisterSuccessful - Step 02: Logout");
+		log.info("RegisterSuccessfulWithName30Letters - Step 02: Logout");
 		accountPage.logoutToHomePage();
 		log.info("Register Successful With Name 30 Letters");
 
@@ -78,10 +78,10 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 
 		String USERNAME_PASS6 = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 
-		log.info("RegisterSuccessful - Step 01: Register account with pass 6 letters");
+		log.info("RegisterSuccessfulWithPass6Letters - Step 01: Register account with pass 6 letters");
 		register(USERNAME_PASS6, PASSWORD_6, Constants.PHONE);
 
-		log.info("RegisterSuccessful - Step 02: Logout");
+		log.info("RegisterSuccessfulWithPass6Letters - Step 02: Logout");
 		accountPage.logoutToHomePage();
 		log.info("Register Successful With Pass 6 Letters");
 
@@ -93,10 +93,10 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 
 		String USERNAME_PHONE14 = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 
-		log.info("RegisterSuccessful - Step 01: Register account with phone 14 letters");
+		log.info("RegisterSuccessfulWithPhone14Letters - Step 01: Register account with phone 14 letters");
 		register(USERNAME_PHONE14, Constants.PASSWORD, PHONE_14);
 
-		log.info("RegisterSuccessful - Step 02: Logout");
+		log.info("RegisterSuccessfulWithPhone14Letters - Step 02: Logout");
 		accountPage.logoutToHomePage();
 		log.info("Register Successful With Phone 14 Letters");
 
