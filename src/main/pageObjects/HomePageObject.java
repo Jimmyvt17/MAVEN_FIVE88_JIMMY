@@ -39,9 +39,8 @@ public class HomePageObject extends AbstractPage {
 
     }
 
-    public void loginAccount() {
-
-        login(driver, Constants.USERNAME_LOGIN, Constants.PASSWORD);
+    public void loginAccount(String username) {
+        login(driver, username, Constants.PASSWORD);
 
     }
 

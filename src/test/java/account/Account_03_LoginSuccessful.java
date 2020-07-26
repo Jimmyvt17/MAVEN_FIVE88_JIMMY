@@ -31,7 +31,7 @@ public class Account_03_LoginSuccessful extends CommonsTest {
 		ExtentTestManager.startTest("TC_01_LoginSuccessful", "TC_01_LoginSuccessful");
 
 		log.info("LoginSuccessful- Step 01: Login with valid account");
-		homePage.loginAccount();
+		homePage.loginAccount(Constants.USERNAME_LOGIN);
 
 		log.info("LoginSuccessful- Step 02: Logout");
 		homePage.logout();

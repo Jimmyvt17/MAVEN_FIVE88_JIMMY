@@ -691,7 +691,6 @@ public class AbstractPage {
             }
         }
 
-
     }
 
     public void highlightElement(WebDriver driver, WebElement element) {
@@ -919,7 +918,7 @@ public class AbstractPage {
 
         //Call read file method of the class to read data
 
-        readExcel(filePath,Constants.loadingTimeFile,"Quayso");
+        readExcel(filePath, Constants.userDataFile,"Quayso");
 
     }
 
