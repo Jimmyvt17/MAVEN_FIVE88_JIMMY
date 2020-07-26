@@ -740,8 +740,10 @@ public class AbstractPage {
 
     public Object clickToElementByJSByLocator(WebDriver driver, By xPathLocator) {
 
+        element = getElement(driver, xPathLocator);
+        highlightElement(driver, element);
         js = (JavascriptExecutor) driver;
-        return  js.executeScript("arguments[0].click();", getElement(driver, xPathLocator));
+        return  js.executeScript("arguments[0].click();", element);
 
     }
 
