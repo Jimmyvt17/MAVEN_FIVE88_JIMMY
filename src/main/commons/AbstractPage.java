@@ -591,13 +591,12 @@ public class AbstractPage {
 
     }
 
-    public void openSportPage(WebDriver driver, String url, String... values) {
-
+    public void openSportPage(WebDriver driver, String... values) {
         openSubMenu(driver, "Thể thao");
         String tmp = String.format(AbstractPageUI.dynamicSportButton, values);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
         clickToElementByJSByLocator(driver, By.xpath(tmp));
-        if (getCurrentPageUrl(driver).equals("https://five88.biz/bao-tri.aspx")) {
+        if (getCurrentPageUrl(driver).equals("https://fm88.biz/bao-tri.aspx")) {
             throw new RuntimeException(Constants.pageIsMaintenance);
         }
 
