@@ -591,8 +591,7 @@ public class AbstractPage {
 
     }
 
-    public void openSportPage(WebDriver driver, String url, String... values) {
-
+    public void openSportPage(WebDriver driver, String... values) {
         openSubMenu(driver, "Thể thao");
         String tmp = String.format(AbstractPageUI.dynamicSportButton, values);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
@@ -690,7 +689,6 @@ public class AbstractPage {
                 js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
             }
         }
-
 
     }
 
