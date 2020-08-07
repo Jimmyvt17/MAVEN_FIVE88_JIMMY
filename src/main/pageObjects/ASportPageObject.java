@@ -119,7 +119,7 @@ public class ASportPageObject extends AbstractPage {
 
     public void openASportPage(String... values) {
 
-        openSportPage(driver, Constants.ATHETHAO_URL, values);
+        openSportPage(driver, values);
 
     }
 
