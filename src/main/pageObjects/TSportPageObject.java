@@ -170,7 +170,7 @@ public class TSportPageObject extends AbstractPage {
 
     public void openTSportPage(String... values) {
 
-        openSportPage(driver, Constants.TTHETHAO_URL, values);
+        openSportPage(driver, values);
 
     }
 

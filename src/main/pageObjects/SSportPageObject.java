@@ -228,7 +228,7 @@ public class SSportPageObject extends AbstractPage {
 
     public void openSSportPage(String... values) {
 
-        openSportPage(driver, Constants.STHETHAO_URL, values);
+        openSportPage(driver, values);
 
     }
 
