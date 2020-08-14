@@ -358,7 +358,7 @@
 
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/runFive88TestCase.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/runFm88TestCase.xml</suiteXmlFile>
                     </suiteXmlFiles>
 
                 </configuration>
