@@ -31,7 +31,7 @@ import java.net.UnknownHostException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class CommonsTest {
+public class CommonsTest extends AbstractPage {
     private WebDriver driver;
     protected final Log log;
 
@@ -69,15 +69,6 @@ public class CommonsTest {
         // sync
         SendResponse sendResponse = bot.execute(request);
 
-    }
-
-    public void convertExceptionToErrorText(Throwable e, String errorText) {
-        String exceptionText = e.toString();
-        if (errorText.contains("StaleElementReferenceException")) {
-            throw new RuntimeException(Constants.elementIsRemoved);
-        } else {
-            throw new RuntimeException(errorText);
-        }
     }
 
     public void delayInHour(Integer delayTime, Integer timeInHour) {
@@ -134,6 +125,34 @@ public class CommonsTest {
         } else {
             log.info("Folder " + pathOfFiles + " khong ton tai");
         }
+
+    }
+
+    public void convertException(Throwable e, String prefix) {
+        String error, err;
+        if (!e.toString().contains("\n")) {
+            error = e.toString();
+        } else {
+            error = e.toString().substring(0, e.toString().indexOf("\n"));
+        }
+        if (!error.contains("StaleElementReferenceException")) {
+            if (!error.contains("AssertionError")) {
+                if (!error.contains("ElementNotInteractableException")) {
+                    if (!error.contains("ERR_NAME_NOT_RESOLVED")) {
+                        err = prefix + error + "\n==============================================\n";
+                    } else {
+                        err = prefix + Constants.siteIsBanned + "\n==============================================\n";
+                    }
+                } else {
+                    err = prefix + Constants.elementIsOverlaying + "\n==============================================\n";
+                }
+            } else {
+                err = prefix + Constants.loadingTimeTooLong + "\n==============================================\n";
+            }
+        } else {
+            err = prefix + Constants.elementIsRemoved + "\n==============================================\n";
+        }
+        sendBot(err);
 
     }
 
@@ -228,12 +247,33 @@ public class CommonsTest {
         driver.manage().timeouts().implicitlyWait(Constants.LONG_TIMEOUT, TimeUnit.SECONDS);
         Dimension d = new Dimension(1792, 1120);
         driver.manage().window().setSize(d);
-        driver.get(url);
+        try {
+            driver.get(url);
+        } catch (Throwable e) {
+            log.info(Constants.siteIsBanned);
+            driver.quit();
+            convertException(e, url + "\n");
+            throw e;
+        }
 
         try {
             VideoRecorder.startRecord(getClass().getName());
         } catch (Throwable e) {
             e.printStackTrace();
+        }
+
+        log.info("Check for warning");
+        if (checkForBCA(driver)) {
+            closeBrowserAndDriver(driver);
+            sendBot(url + "\n" + Constants.siteIsWarning + "\n==============================================");
+            throw new RuntimeException(Constants.siteIsWarning);
+        }
+
+        log.info("Check for upgrading");
+        if (checkForUpgrading(driver)) {
+            closeBrowserAndDriver(driver);
+            sendBot(url + "\n" + Constants.pageIsMaintenance + "\n==============================================");
+            throw new RuntimeException(Constants.pageIsMaintenance);
         }
 
         return driver;

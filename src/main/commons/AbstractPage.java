@@ -48,6 +48,20 @@ public class AbstractPage {
 
     }
 
+    public boolean checkForBCA(WebDriver driver) {
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+        List<WebElement> ban = getListElements(driver, By.xpath("//*[contains(text(), 'BỘ CÔNG AN')]"));
+        return ban.size() > 0;
+
+    }
+
+    public boolean checkForUpgrading(WebDriver driver) {
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+        List<WebElement> upgrade = getListElements(driver, By.xpath("//div[@class='text-center upgrade-side']"));
+        return upgrade.size() > 0;
+
+    }
+
     public String getCurrentPageUrl(WebDriver driver) {
 
         return driver.getCurrentUrl();
