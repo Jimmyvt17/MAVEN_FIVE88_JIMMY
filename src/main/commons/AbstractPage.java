@@ -410,11 +410,10 @@ public class AbstractPage {
     }
 
     public void verifyIframeLoading(WebDriver driver, By xPathLocator) {
-
         try {
             switchToIframe(driver);
-            List<WebElement> noElement = getListElements(driver, xPathLocator);
             for (int i = 0; i <= 20; i++) {
+                List<WebElement> noElement = getListElements(driver, xPathLocator);
                 if (noElement.size() > 0) {
                     break;
                 } else {
@@ -453,7 +452,17 @@ public class AbstractPage {
 
         try {
             switchToIframes(driver);
-            waitForElementVisibleByLocator(driver, xPathLocator);
+//            waitForElementVisibleByLocator(driver, xPathLocator);
+            for (int i = 0; i <= 20; i++) {
+                List<WebElement> noElement = getListElements(driver, xPathLocator);
+                System.out.println(noElement.size());
+                if (noElement.size() > 0) {
+                    break;
+                } else {
+                    Assert.assertTrue(i < 20);
+                    Thread.sleep(3 * 1000);
+                }
+            }
         } catch (Throwable e) {
             String exceptionText = e.toString();
             if (exceptionText.contains("StaleElementReferenceException")) {
