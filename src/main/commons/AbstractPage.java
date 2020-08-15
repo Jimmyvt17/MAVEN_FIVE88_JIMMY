@@ -452,10 +452,8 @@ public class AbstractPage {
 
         try {
             switchToIframes(driver);
-//            waitForElementVisibleByLocator(driver, xPathLocator);
             for (int i = 0; i <= 20; i++) {
                 List<WebElement> noElement = getListElements(driver, xPathLocator);
-                System.out.println(noElement.size());
                 if (noElement.size() > 0) {
                     break;
                 } else {
