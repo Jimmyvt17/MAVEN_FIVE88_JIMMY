@@ -45,6 +45,11 @@ public class CommonsTest extends AbstractPage {
 
     }
 
+    public void verifyBalanceUpdated(String value1, String value2) {
+        Assert.assertNotEquals(value1, value2);
+
+    }
+
     public void sendBot(String text) {
         OkHttpClient client = new OkHttpClient();
 

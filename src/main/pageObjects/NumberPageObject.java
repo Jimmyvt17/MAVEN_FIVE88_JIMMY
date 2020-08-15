@@ -7,7 +7,6 @@ import org.apache.commons.lang3.math.NumberUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 import java.util.List;
 
@@ -138,11 +137,6 @@ public class NumberPageObject extends AbstractPage {
 
         waitForElementVisibleByLocator(driver, NumberPageUI.betContentLocator);
         return getTextElementByLocator(driver, NumberPageUI.betContentLocator);
-
-    }
-
-    public void verifyBalanceUpdated(String value1, String value2) {
-        Assert.assertNotEquals(value1, value2);
 
     }
 

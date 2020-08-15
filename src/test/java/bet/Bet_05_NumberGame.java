@@ -1,9 +1,9 @@
 package bet;
 
-import commons.utility.BaseTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
+import commons.utility.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
@@ -105,7 +105,7 @@ public class Bet_05_NumberGame extends BaseTest {
 				log.info("After balance = " + afterBalance + "\n");
 
 				log.info("Verify balance is updated correctly\n");
-				numberPage.verifyBalanceUpdated(beforeBalance, afterBalance);;
+				verifyBalanceUpdated(beforeBalance, afterBalance);;
 
 				i = false;
 				log.info("Then i = " + i + "\n");

@@ -108,7 +108,7 @@ public class Bet_06_Keno extends BaseTest {
 		log.info("After balance = " + afterBalance + "\n");
 
 		log.info("Verify balance is updated correctly\n");
-		kenoPage.verifyBalanceUpdated(beforeBalance, afterBalance);
+		verifyBalanceUpdated(beforeBalance, afterBalance);
 
 		log.info("Remove " + gameId + " from game list\n");
 		gameList.remove(gameId);
