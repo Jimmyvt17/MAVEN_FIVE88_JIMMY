@@ -102,7 +102,7 @@ public class Bet_09_Quayso2 extends BaseTest {
 		log.info("After balance = " + afterBet + "\n");
 
 		log.info("Verify that balance is updated correctly\n");
-		quayso2Page.verifyBalanceUpdated(beforeBet, afterBet);
+		verifyBalanceUpdated(beforeBet, afterBet);
 
 		log.info("Remove " + gameId + " from game list\n");
 		gameList.remove(gameId);
