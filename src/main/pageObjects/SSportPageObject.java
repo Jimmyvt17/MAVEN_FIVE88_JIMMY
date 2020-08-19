@@ -114,11 +114,11 @@ public class SSportPageObject extends AbstractPage {
     public boolean isAsiaBetSuccess(String value) {
 
         for (int i = 0; i <= 10; i++) {
-            List<WebElement> noBetInput = driver.findElements(SSportPageUI.inputBetSSportMoney);
+            List<WebElement> noBetInput = getListElements(driver, SSportPageUI.inputBetSSportMoney);
             if (noBetInput.size() > 0) {
-                System.out.println("Nhap so tien cuoc = " + value + "\n");
+                System.out.println("Bet money = " + value + "\n");
                 inputBetMoney(value);
-                System.out.println("Xac nhan cuoc\n");
+                System.out.println("Confirm betting\n");
                 confirmBet();
                 acceptConfirmAlert();
                 try {
@@ -126,13 +126,13 @@ public class SSportPageObject extends AbstractPage {
                 } catch (Throwable e) {
                     e.printStackTrace();
                 }
-                System.out.println("Kiem tra cuoc thanh cong\n");
-                List<WebElement> noSuccessText = driver.findElements(SSportPageUI.ticketOKSSportLocator);
+                System.out.println("Verify betting successfully\n");
+                List<WebElement> noSuccessText = getListElements(driver, SSportPageUI.ticketOKSSportLocator);
                 if (noSuccessText.size() > 0) {
-                    System.out.println("Cuoc thanh cong\n");
+                    System.out.println("Bet successfully\n");
                     return true;
                 } else {
-                    System.out.println("Cuoc loi. Thu lai\n");
+                    System.out.println("Bet unsuccessfully. Try again\n");
                 }
             } else {
                 return false;
@@ -144,24 +144,24 @@ public class SSportPageObject extends AbstractPage {
     public boolean isEUBetSuccess(String value) {
 
         for (int i = 0; i <= 10; i++) {
-            List<WebElement> noBetInput = driver.findElements(SSportPageUI.inputBetSSportMoney);
+            List<WebElement> noBetInput = getListElements(driver, SSportPageUI.inputBetSSportMoney);
             if (noBetInput.size() > 0) {
-                System.out.println("Nhap so tien cuoc = " + value + "\n");
+                System.out.println("Bet money = " + value + "\n");
                 inputBetMoney(value);
-                System.out.println("Xac nhan cuoc\n");
+                System.out.println("Confirm betting\n");
                 confirmBet();
                 try {
                     Thread.sleep(5 * 1000);
                 } catch (Throwable e) {
                     e.printStackTrace();
                 }
-                System.out.println("Kiem tra cuoc thanh cong\n");
-                List<WebElement> noSuccessText = driver.findElements(SSportPageUI.ticketOKSSportLocator);
+                System.out.println("Verify betting successfully\n");
+                List<WebElement> noSuccessText = getListElements(driver, SSportPageUI.ticketOKSSportLocator);
                 if (noSuccessText.size() > 0) {
-                    System.out.println("Cuoc thanh cong\n");
+                    System.out.println("Bet successfully\n");
                     return true;
                 } else {
-                    System.out.println("Cuoc loi. Thu lai\n");
+                    System.out.println("Bet unsuccessfully. Try again\n");
                 }
             } else {
                 return false;

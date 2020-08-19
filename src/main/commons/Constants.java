@@ -93,7 +93,6 @@ public class Constants {
     public static final String FIVE88BOT = "1229608956:AAGPgFoYgcb2nMH0V36vPGEFSO9EOwPU92U";
     public static final long FIVE88_FAIL_ROOM_ID = -459749874;
     public static final long FIVE88_PROCESS_ROOM_ID = -332719282;
-    public static final int BASTIAN_MESSAGE = 1337;
 
     // Excel
     public static final String iOSFilePath = "/Users/jimmyvuong/Downloads";
@@ -102,16 +101,15 @@ public class Constants {
     public static final String userDataFile = "RegisteredUserFive88.xlsx";
 
     // Others
-    public static final String dynamicIframe = "//iframe[@id='%s']";
     public static final String iframeContentError = "There is nothing in iframe. Please try again manually";
     public static final String iframeNoLoad = "There is no iframe. Please try again manually";
-    public static final String pageIsMaintenance = "Page is maintenance. Please try again later";
+    public static final String pageIsMaintenance = "Page is maintained. Please try again later";
     public static final String siteIsBanned = "This site is banned";
     public static final String siteIsWarning = "This site is warning by BCA";
     public static final String elementIsRemoved = "Element is removed in DOM. Please try again manually";
     public static final String loadingTimeTooLong = "Loading time is too long to bet. Please try again manually";
     public static final String betUnsuccessful = "Betting unsuccessfully. Please try again manually";
-    public static final String elementIsOverlaying = "Banking under maintenance";
+    public static final String elementIsOverlaying = "Banking is under maintenance";
 
     // Utility
     public static final String videoRecordPathName = "AutoRecordedVideo";

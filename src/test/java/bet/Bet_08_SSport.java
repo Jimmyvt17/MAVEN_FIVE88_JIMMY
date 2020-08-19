@@ -40,8 +40,8 @@ public class Bet_08_SSport extends BaseTest {
 		log.info("TSport - Step02: Open SSport page\n");
 		sSportPage.openSSportPage("item-sb ssport", "icon-vi-s");
 
-		log.info("SSport - Step03: Navigate sport iframe to play\n");
-		sSportPage.navigateToSSportIframe();
+//		log.info("SSport - Step03: Navigate sport iframe to play\n");
+//		sSportPage.navigateToSSportIframe();
 
 		log.info("SSport - Step04: Betting\n");
 		betSSport();
@@ -49,8 +49,10 @@ public class Bet_08_SSport extends BaseTest {
 	}
 
 	protected void betSSport() {
-		String viewMode = sSportPage.getViewMode();
+		log.info("Switch to SSport iframe\n");
+		sSportPage.switchToSSportIframe();
 
+		String viewMode = sSportPage.getViewMode();
 		if (viewMode.equalsIgnoreCase("Version Châu Âu")) {
 			log.info("Bet Asia version\n");
 			betAsiaSport();
@@ -95,7 +97,7 @@ public class Bet_08_SSport extends BaseTest {
 //				log.info("Kiem tra tien thang cuoc chinh xac\n");
 //				sSportPage.verifyReturn(totalReturn, oddSelect, BET_MONEY);
 
-				log.info("Confirm betting\n");
+				log.info("Process betting\n");
 				i = !sSportPage.isAsiaBetSuccess(BET_MONEY);
 			} else {
 				log.info("Order is not created successfully\n");
@@ -153,7 +155,7 @@ public class Bet_08_SSport extends BaseTest {
 //				log.info("Kiem tra tien thang cuoc chinh xac\n");
 //				sSportPage.verifyReturn(totalReturn, oddSelect, BET_MONEY);
 
-				log.info("Confirm betting\n");
+				log.info("Process betting\n");
 				i = !sSportPage.isEUBetSuccess(BET_MONEY);
 			} else {
 				log.info("Bet order is not created successfully\n");
