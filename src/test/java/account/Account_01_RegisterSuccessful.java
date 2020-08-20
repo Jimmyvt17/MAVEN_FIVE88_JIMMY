@@ -9,6 +9,7 @@ import org.testng.annotations.*;
 import pageObjects.AccountPageObject;
 import pageObjects.RegisterPageObject;
 
+import java.lang.reflect.Method;
 import java.util.Date;
 
 public class Account_01_RegisterSuccessful extends CommonsTest {
@@ -32,73 +33,88 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 	private final String PHONE_14 = randomString(14, false, true);
 
 	@Test
-	public void TC_01_RegisterSuccessful() {
-		ExtentTestManager.startTest("TC_01_RegisterSuccessful", "TC_01_RegisterSuccessful");
+	public void TC_01_RegisterSuccessful(Method method) {
+		try {
+			ExtentTestManager.startTest("TC_01_RegisterSuccessful", "TC_01_RegisterSuccessful");
 
-		String USERNAME_TODAY = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+			String USERNAME_TODAY = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 
-		log.info("RegisterSuccessful - Step 01: Register account");
-		register(USERNAME_TODAY, Constants.PASSWORD, Constants.PHONE);
+			log.info("RegisterSuccessful - Step 01: Register account");
+			register(USERNAME_TODAY, Constants.PASSWORD, Constants.PHONE);
 
-		log.info("RegisterSuccessful - Step 02: Logout");
-		accountPage.logoutToHomePage();
-		log.info("Register Successful");
-
-	}
-
-//	@Test
-//	public void TC_02_RegisterSuccessfulWithName6Letters() {
-//		ExtentTestManager.startTest("TC_02_RegisterSuccessfulWithName6Letters", "TC_02_RegisterSuccessfulWithName6Letters");
-//
-//		log.info("RegisterSuccessfulWithName6Letters - Step 01: Register account with name 6 letters");
-//		register(USERNAME_6, Constants.PASSWORD, Constants.PHONE);
-//
-//		log.info("RegisterSuccessfulWithName6Letters - Step 02: Logout");
-//		accountPage.logoutToHomePage();
-//		log.info("Register Successful With Name 6 Letters");
-//
-//	}
-
-	@Test
-	public void TC_03_RegisterSuccessfulWithName30Letters() {
-		ExtentTestManager.startTest("TC_03_RegisterSuccessfulWithName30Letters", "TC_03_RegisterSuccessfulWithName30Letters");
-
-		log.info("RegisterSuccessfulWithName30Letters - Step 01: Register account with name 30 letters");
-		register(USERNAME_30, Constants.PASSWORD, Constants.PHONE);
-
-		log.info("RegisterSuccessfulWithName30Letters - Step 02: Logout");
-		accountPage.logoutToHomePage();
-		log.info("Register Successful With Name 30 Letters");
+			log.info("RegisterSuccessful - Step 02: Logout");
+			accountPage.logoutToHomePage();
+		} catch (Throwable e) {
+			convertException(e, Constants.prefix + method.getName() + "\n");
+		}
 
 	}
 
 	@Test
-	public void TC_04_RegisterSuccessfulWithPass6Letters() {
-		ExtentTestManager.startTest("TC_04_RegisterSuccessfulWithPass6Letters", "TC_04_RegisterSuccessfulWithPass6Letters");
+	public void TC_02_RegisterSuccessfulWithName6Letters(Method method) {
+		try {
+			ExtentTestManager.startTest("TC_02_RegisterSuccessfulWithName6Letters", "TC_02_RegisterSuccessfulWithName6Letters");
 
-		String USERNAME_PASS6 = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+			log.info("RegisterSuccessfulWithName6Letters - Step 01: Register account with name 6 letters");
+			register(USERNAME_6, Constants.PASSWORD, Constants.PHONE);
 
-		log.info("RegisterSuccessfulWithPass6Letters - Step 01: Register account with pass 6 letters");
-		register(USERNAME_PASS6, PASSWORD_6, Constants.PHONE);
-
-		log.info("RegisterSuccessfulWithPass6Letters - Step 02: Logout");
-		accountPage.logoutToHomePage();
-		log.info("Register Successful With Pass 6 Letters");
+			log.info("RegisterSuccessfulWithName6Letters - Step 02: Logout");
+			accountPage.logoutToHomePage();
+		} catch (Throwable e) {
+			convertException(e, Constants.prefix + method.getName() + "\n");
+		}
 
 	}
 
 	@Test
-	public void TC_05_RegisterSuccessfulWithPhone14Letters() {
-		ExtentTestManager.startTest("TC_05_RegisterSuccessfulWithPhone14Letters", "TC_05_RegisterSuccessfulWithPhone14Letters");
+	public void TC_03_RegisterSuccessfulWithName30Letters(Method method) {
+		try {
+			ExtentTestManager.startTest("TC_03_RegisterSuccessfulWithName30Letters", "TC_03_RegisterSuccessfulWithName30Letters");
 
-		String USERNAME_PHONE14 = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+			log.info("RegisterSuccessfulWithName30Letters - Step 01: Register account with name 30 letters");
+			register(USERNAME_30, Constants.PASSWORD, Constants.PHONE);
 
-		log.info("RegisterSuccessfulWithPhone14Letters - Step 01: Register account with phone 14 letters");
-		register(USERNAME_PHONE14, Constants.PASSWORD, PHONE_14);
+			log.info("RegisterSuccessfulWithName30Letters - Step 02: Logout");
+			accountPage.logoutToHomePage();
+		} catch (Throwable e) {
+			convertException(e, Constants.prefix + method.getName() + "\n");
+		}
 
-		log.info("RegisterSuccessfulWithPhone14Letters - Step 02: Logout");
-		accountPage.logoutToHomePage();
-		log.info("Register Successful With Phone 14 Letters");
+	}
+
+	@Test
+	public void TC_04_RegisterSuccessfulWithPass6Letters(Method method) {
+		try {
+			ExtentTestManager.startTest("TC_04_RegisterSuccessfulWithPass6Letters", "TC_04_RegisterSuccessfulWithPass6Letters");
+
+			String USERNAME_PASS6 = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+
+			log.info("RegisterSuccessfulWithPass6Letters - Step 01: Register account with pass 6 letters");
+			register(USERNAME_PASS6, PASSWORD_6, Constants.PHONE);
+
+			log.info("RegisterSuccessfulWithPass6Letters - Step 02: Logout");
+			accountPage.logoutToHomePage();
+		} catch (Throwable e) {
+			convertException(e, Constants.prefix + method.getName() + "\n");
+		}
+
+	}
+
+	@Test
+	public void TC_05_RegisterSuccessfulWithPhone14Letters(Method method) {
+		try {
+			ExtentTestManager.startTest("TC_05_RegisterSuccessfulWithPhone14Letters", "TC_05_RegisterSuccessfulWithPhone14Letters");
+
+			String USERNAME_PHONE14 = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+
+			log.info("RegisterSuccessfulWithPhone14Letters - Step 01: Register account with phone 14 letters");
+			register(USERNAME_PHONE14, Constants.PASSWORD, PHONE_14);
+
+			log.info("RegisterSuccessfulWithPhone14Letters - Step 02: Logout");
+			accountPage.logoutToHomePage();
+		} catch (Throwable e) {
+			convertException(e, Constants.prefix + method.getName() + "\n");
+		}
 
 	}
 
@@ -148,10 +164,10 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
-			verifyEquals(accountPage.getAccountPageUrl(), Constants.DEPOSIT_URL);
+			accountPage.verifyAfterRegister(accountPage.getAccountPageUrl(), Constants.DEPOSIT_URL);
 			String userName = accountPage.getUsername();
 			verifyEquals(userName, username.toUpperCase());
-			log.info("Ten nguoi dung la " + userName);
+			log.info("Username = " + userName);
 
 			log.info("Record " + userName + " into data file");
 			registerPage.saveUsername(userName);

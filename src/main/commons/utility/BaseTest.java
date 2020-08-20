@@ -1,11 +1,12 @@
 package commons.utility;
 
 import commons.CommonsTest;
+import commons.Constants;
 import org.testng.annotations.Test;
 
 public abstract class BaseTest extends CommonsTest {
 
-    String prefix = "Failed test case: \n" + getClass().getName() + "\n";;
+    String prefix = Constants.prefix + getClass().getName() + "\n";;
     protected abstract void Run();
 
     @Test

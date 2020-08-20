@@ -1,17 +1,16 @@
 package account;
 
-import commons.CommonsTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
+import commons.utility.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 import pageObjects.HomePageObject;
 
-public class Account_03_LoginSuccessful extends CommonsTest {
+public class Account_03_LoginSuccessful extends BaseTest {
 
 	WebDriver driver;
 	HomePageObject homePage;
@@ -21,13 +20,12 @@ public class Account_03_LoginSuccessful extends CommonsTest {
 	public void preConditions(String browserName) {
 
 		driver = openMultiBrowser(browserName, Constants.HOME_URL);
-
 		homePage = PageFactoryManager.getHomePage(driver);
 
 	}
 
-	@Test
-	public void TC_01_LoginSuccessful(){
+	@Override
+	public void Run(){
 		ExtentTestManager.startTest("TC_01_LoginSuccessful", "TC_01_LoginSuccessful");
 
 		log.info("LoginSuccessful- Step 01: Login with valid account");
@@ -35,8 +33,6 @@ public class Account_03_LoginSuccessful extends CommonsTest {
 
 		log.info("LoginSuccessful- Step 02: Logout");
 		homePage.logout();
-
-		log.info("Dang nhap thanh cong");
 
 	}
 
