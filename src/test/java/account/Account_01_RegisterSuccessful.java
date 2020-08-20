@@ -27,7 +27,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 	}
 	
 	private final String USERNAME_6 = "seta" + randomString(2, true, true);
-	private final String USERNAME_25 = "seta" + randomString(21, true, true);
+	private final String USERNAME_30 = "seta" + randomString(26, true, true);
 	private final String PASSWORD_6 = randomString(6, false, true);
 	private final String PHONE_14 = randomString(14, false, true);
 
@@ -46,27 +46,27 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 
 	}
 
+//	@Test
+//	public void TC_02_RegisterSuccessfulWithName6Letters() {
+//		ExtentTestManager.startTest("TC_02_RegisterSuccessfulWithName6Letters", "TC_02_RegisterSuccessfulWithName6Letters");
+//
+//		log.info("RegisterSuccessfulWithName6Letters - Step 01: Register account with name 6 letters");
+//		register(USERNAME_6, Constants.PASSWORD, Constants.PHONE);
+//
+//		log.info("RegisterSuccessfulWithName6Letters - Step 02: Logout");
+//		accountPage.logoutToHomePage();
+//		log.info("Register Successful With Name 6 Letters");
+//
+//	}
+
 	@Test
-	public void TC_02_RegisterSuccessfulWithName6Letters() {
-		ExtentTestManager.startTest("TC_02_RegisterSuccessfulWithName6Letters", "TC_02_RegisterSuccessfulWithName6Letters");
+	public void TC_03_RegisterSuccessfulWithName30Letters() {
+		ExtentTestManager.startTest("TC_03_RegisterSuccessfulWithName30Letters", "TC_03_RegisterSuccessfulWithName30Letters");
 
-		log.info("RegisterSuccessfulWithName6Letters - Step 01: Register account with name 6 letters");
-		register(USERNAME_6, Constants.PASSWORD, Constants.PHONE);
+		log.info("RegisterSuccessfulWithName30Letters - Step 01: Register account with name 30 letters");
+		register(USERNAME_30, Constants.PASSWORD, Constants.PHONE);
 
-		log.info("RegisterSuccessfulWithName6Letters - Step 02: Logout");
-		accountPage.logoutToHomePage();
-		log.info("Register Successful With Name 6 Letters");
-
-	}
-
-	@Test
-	public void TC_03_RegisterSuccessfulWithName25Letters() {
-		ExtentTestManager.startTest("TC_03_RegisterSuccessfulWithName25Letters", "TC_03_RegisterSuccessfulWithName25Letters");
-
-		log.info("RegisterSuccessfulWithName25Letters - Step 01: Register account with name 25 letters");
-		register(USERNAME_25, Constants.PASSWORD, Constants.PHONE);
-
-		log.info("RegisterSuccessfulWithName25Letters - Step 02: Logout");
+		log.info("RegisterSuccessfulWithName30Letters - Step 02: Logout");
 		accountPage.logoutToHomePage();
 		log.info("Register Successful With Name 30 Letters");
 
@@ -153,7 +153,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 			verifyEquals(userName, username.toUpperCase());
 			log.info("Ten nguoi dung la " + userName);
 
-			log.info("Save " + userName + " vao data file");
+			log.info("Record " + userName + " into data file");
 			registerPage.saveUsername(userName);
 
 	}
