@@ -49,8 +49,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 		verifyEquals(registerPage.getPasswordError(), pwRegisErInput);
 		verifyEquals(registerPage.getPhoneError(), phRegisErInput);
 
-		log.info("Register Unsuccessful Without Information");
-
 	}
 
 	@Test
@@ -64,8 +62,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 
 		log.info("RegisterUnsuccessfulWithoutName - Step 02: Verify error of username");
 		verifyEquals(registerPage.getUsernameError(), usRegisErInput);
-
-		log.info("Dang ky ko thanh cong ko nhap name");
 
 	}
 
@@ -82,8 +78,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 		log.info("RegisterUnsuccessfulWithoutPass - Step 02: Verify error of password");
 		verifyEquals(registerPage.getPasswordError(), pwRegisErInput);
 
-		log.info("Dang ky ko thanh cong ko nhap pass");
-
 	}
 
 	@Test
@@ -98,8 +92,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 
 		log.info("RegisterUnsuccessfulWithoutPhone - Step 02: Verify error of phone number");
 		verifyEquals(registerPage.getPhoneError(), phRegisErInput);
-
-		log.info("Dang ky ko thanh cong ko nhap so phone");
 
 	}
 
@@ -117,8 +109,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 		verifyEquals(registerPage.getUsernameError(), usRegisErInput);
 		verifyEquals(registerPage.getPasswordError(), pwRegisErInput);
 
-		log.info("Dang ky ko thanh cong ko nhap name pass");
-
 	}
 
 	@Test
@@ -134,8 +124,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 		log.info("RegisterUnsuccessfulWithoutNamePhone - Step 02: Verify error of username, phone number");
 		verifyEquals(registerPage.getUsernameError(), usRegisErInput);
 		verifyEquals(registerPage.getPhoneError(), phRegisErInput);
-
-		log.info("Dang ky ko thanh cong ko nhap name phone");
 
 	}
 
@@ -153,8 +141,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 		verifyEquals(registerPage.getPasswordError(), pwRegisErInput);
 		verifyEquals(registerPage.getPhoneError(), phRegisErInput);
 
-		log.info("Dang ky ko thanh cong ko nhap pass phone");
-
 	}
 
 	@Test
@@ -167,8 +153,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 
 		log.info("RegisterUnsuccessfulWithSpecialName - Step 02: Verify error of username");
 		verifyEquals(registerPage.getUsernameError(), usRegisErInvalid);
-
-		log.info("Dang ky ko thanh cong nhap ten chua ky tu dac biet");
 
 	}
 
@@ -183,8 +167,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 		log.info("RegisterUnsuccessfulWithVietnameseName - Step 02: Verify error of username");
 		verifyEquals(registerPage.getUsernameError(), usRegisErInvalid);
 
-		log.info("Dang ky ko thanh cong nhap ten tieng Viet");
-
 	}
 
 	@Test
@@ -198,22 +180,18 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 		log.info("RegisterUnsuccessfulWithNameUnder6Letters - Step 02: Verify error of username");
 		verifyEquals(registerPage.getUsernameError(), "Tên đăng nhập không hợp lệ, phải có ít nhất 6 ký tự và không quá 30 ký tự.");
 
-		log.info("Dang ky ko thanh cong ten duoi 6 ky tu");
-
 	}
 
 	@Test
-	public void TC_11_RegisterUnsuccessfulWithNameOver30Letters() {
-		ExtentTestManager.startTest("TC_11_RegisterUnsuccessfulWithNameOver30Letters", "TC_11_RegisterUnsuccessfulWithNameOver30Letters");
+	public void TC_11_RegisterUnsuccessfulWithNameOver25Letters() {
+		ExtentTestManager.startTest("TC_11_RegisterUnsuccessfulWithNameOver25Letters", "TC_11_RegisterUnsuccessfulWithNameOver25Letters");
 
-		log.info("RegisterUnsuccessfulWithNameOver30Letters - Step 01: Input username over 30 letters");
+		log.info("RegisterUnsuccessfulWithNameOver25Letters - Step 01: Input username over 25 letters");
 		registerPage.inputToUsernameTextBox("setajim123456789012345678901234");
 		registerPage.clickToSubmitButton();
 
-		log.info("RegisterUnsuccessfulWithNameOver30Letters - Step 02: Verify error of username");
+		log.info("RegisterUnsuccessfulWithNameOver25Letters - Step 02: Verify error of username");
 		verifyEquals(registerPage.getUsernameError(), "Tên đăng nhập không được nhiều hơn 30 ký tự");
-
-		log.info("Dang ky ko thanh cong ten hon 30 ky tu");
 
 	}
 
@@ -228,8 +206,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 		log.info("RegisterUnsuccessfulWithNameAlready - Step 02: Verify error of username");
 		verifyEquals(registerPage.getUsernameError(), "Tên đăng nhập đã được sử dụng");
 
-		log.info("Dang ky ko thanh cong ten da ton tai");
-
 	}
 
 	@Test
@@ -242,8 +218,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 
 		log.info("RegisterUnsuccessfulWithPassUnder6Letters - Step 02: Verify error of password");
 		verifyEquals(registerPage.getPasswordError(), "Mật khẩu quá ngắn, phải ít nhất 6 ký tự.");
-
-		log.info("Dang ky ko thanh cong pass duoi 6 ky tu");
 
 	}
 
@@ -258,8 +232,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 		log.info("RegisterUnsuccessfulWithPhoneUnder10Letters - Step 02: Verify error of phone number");
 		verifyEquals(registerPage.getPhoneError(), "Số điện thoại không được ít hơn 10 ký tự");
 
-		log.info("Dang ky ko thanh cong so phone duoi 10 ky tu");
-
 	}
 
 	@Test
@@ -273,8 +245,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 		log.info("RegisterUnsuccessfulWithPhoneOver14Letters - Step 02: Verify error of phone number");
 		verifyEquals(registerPage.getPhoneError(), "Số điện thoại không được nhiều hơn 14 ký tự");
 
-		log.info("Dang ky ko thanh cong so phone hon 14 ky tu");
-
 	}
 
 	@Test
@@ -287,8 +257,6 @@ public class Account_02_RegisterUnsuccessful extends CommonsTest {
 
 		log.info("RegisterUnsuccessfulWithInvalidPhone - Step 02: Verify error of phone number");
 		verifyEquals(registerPage.getPhoneError(), "Số điện thoại không hợp lệ");
-
-		log.info("Dang ky ko thanh cong so phone chua ky tu la");
 
 	}
 

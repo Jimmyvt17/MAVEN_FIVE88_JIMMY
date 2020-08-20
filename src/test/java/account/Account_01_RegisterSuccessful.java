@@ -28,7 +28,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 	}
 	
 	private final String USERNAME_6 = "seta" + randomString(2, true, true);
-	private final String USERNAME_30 = "seta" + randomString(26, true, true);
+	private final String USERNAME_30 = "seta" + randomString(21, true, true);
 	private final String PASSWORD_6 = randomString(6, false, true);
 	private final String PHONE_14 = randomString(14, false, true);
 
@@ -67,14 +67,14 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 	}
 
 	@Test
-	public void TC_03_RegisterSuccessfulWithName30Letters(Method method) {
+	public void TC_03_RegisterSuccessfulWithName25Letters(Method method) {
 		try {
-			ExtentTestManager.startTest("TC_03_RegisterSuccessfulWithName30Letters", "TC_03_RegisterSuccessfulWithName30Letters");
+			ExtentTestManager.startTest("TC_03_RegisterSuccessfulWithName25Letters", "TC_03_RegisterSuccessfulWithName25Letters");
 
-			log.info("RegisterSuccessfulWithName30Letters - Step 01: Register account with name 30 letters");
+			log.info("RegisterSuccessfulWithName25Letters - Step 01: Register account with name 25 letters");
 			register(USERNAME_30, Constants.PASSWORD, Constants.PHONE);
 
-			log.info("RegisterSuccessfulWithName30Letters - Step 02: Logout");
+			log.info("RegisterSuccessfulWithName25Letters - Step 02: Logout");
 			accountPage.logoutToHomePage();
 		} catch (Throwable e) {
 			convertException(e, Constants.prefix + method.getName() + "\n");
