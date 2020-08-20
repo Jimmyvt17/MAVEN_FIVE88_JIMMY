@@ -617,8 +617,8 @@ public class AbstractPage {
         String tmp = String.format(AbstractPageUI.dynamicSportButton, values);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
         clickToElementByJSByLocator(driver, By.xpath(tmp));
-        if (getCurrentPageUrl(driver).equals("https://fm88.biz/bao-tri.aspx")) {
-            throw new RuntimeException(Constants.pageIsMaintenance);
+        if (getCurrentPageUrl(driver).equals(Constants.MAINTENANCE_URL)) {
+            throw new RuntimeException(Constants.pageIsMaintained);
         }
 
     }
