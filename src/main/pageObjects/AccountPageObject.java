@@ -5,6 +5,7 @@ import commons.Constants;
 import five88.AccountPageUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class AccountPageObject extends AbstractPage {
 
@@ -235,6 +236,13 @@ public class AccountPageObject extends AbstractPage {
 
     }
 
+    public void verifyAfterRegister(String value1, String value2) {
+        try {
+            Assert.assertEquals(value1, value2);
+        } catch (Throwable e) {
+            throw new RuntimeException("Register unsuccessful");
+        }
+    }
 }
 
 

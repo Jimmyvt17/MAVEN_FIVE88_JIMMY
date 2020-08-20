@@ -48,6 +48,20 @@ public class AbstractPage {
 
     }
 
+    public boolean checkForBCA(WebDriver driver) {
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+        List<WebElement> ban = getListElements(driver, By.xpath("//*[contains(text(), 'BỘ CÔNG AN')]"));
+        return ban.size() > 0;
+
+    }
+
+    public boolean checkForUpgrading(WebDriver driver) {
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+        List<WebElement> upgrade = getListElements(driver, By.xpath("//div[@class='text-center upgrade-side']"));
+        return upgrade.size() > 0;
+
+    }
+
     public String getCurrentPageUrl(WebDriver driver) {
 
         return driver.getCurrentUrl();
@@ -396,11 +410,10 @@ public class AbstractPage {
     }
 
     public void verifyIframeLoading(WebDriver driver, By xPathLocator) {
-
         try {
             switchToIframe(driver);
-            List<WebElement> noElement = getListElements(driver, xPathLocator);
             for (int i = 0; i <= 20; i++) {
+                List<WebElement> noElement = getListElements(driver, xPathLocator);
                 if (noElement.size() > 0) {
                     break;
                 } else {
@@ -439,7 +452,15 @@ public class AbstractPage {
 
         try {
             switchToIframes(driver);
-            waitForElementVisibleByLocator(driver, xPathLocator);
+            for (int i = 0; i <= 20; i++) {
+                List<WebElement> noElement = getListElements(driver, xPathLocator);
+                if (noElement.size() > 0) {
+                    break;
+                } else {
+                    Assert.assertTrue(i < 20);
+                    Thread.sleep(3 * 1000);
+                }
+            }
         } catch (Throwable e) {
             String exceptionText = e.toString();
             if (exceptionText.contains("StaleElementReferenceException")) {

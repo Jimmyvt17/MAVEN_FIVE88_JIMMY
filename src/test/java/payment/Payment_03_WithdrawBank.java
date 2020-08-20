@@ -32,22 +32,20 @@ public class Payment_03_WithdrawBank extends BaseTest {
 
         log.info("WithdrawBanking - Step 01: Get current balance");
         Integer curBalance = accountPage.beforeWithdrawing();
-        log.info("Tai khoan truoc khi rut = " + curBalance);
+        log.info("Before balance = " + curBalance);
 
         log.info("WithdrawBanking - Step 02: Do a bank withdrawing");
         accountPage.bankWithdraw();
 
         log.info("WithdrawBanking - Step 03: Get after balance");
         Integer aftBalance = accountPage.getBalance();
-        log.info("Tai khoan sau khi rut = " + aftBalance);
+        log.info("After balance = " + aftBalance);
 
         log.info("WithdrawBanking - Step 04: Verify that withdrawing is correct");
         verifyEquals(curBalance - aftBalance, NumberUtils.toInt(Constants.MONEY_WIT));
 
         log.info("WithdrawBanking - Step 05: Log out");
         accountPage.logoutToHomePage();
-
-        log.info("Rut tien ngan hang thanh cong");
 
     }
 

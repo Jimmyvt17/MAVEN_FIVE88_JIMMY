@@ -139,6 +139,7 @@ public class NumberPageObject extends AbstractPage {
         return getTextElementByLocator(driver, NumberPageUI.betContentLocator);
 
     }
+
 }
 
 

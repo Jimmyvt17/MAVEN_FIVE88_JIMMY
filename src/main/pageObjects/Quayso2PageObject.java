@@ -7,7 +7,6 @@ import org.apache.commons.lang.math.NumberUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 import java.util.List;
 
@@ -131,8 +130,4 @@ public class Quayso2PageObject extends AbstractPage {
 
     }
 
-    public void verifyBalanceUpdated(String value1, String value2) {
-        Assert.assertNotEquals(value1, value2);
-
-    }
 }
