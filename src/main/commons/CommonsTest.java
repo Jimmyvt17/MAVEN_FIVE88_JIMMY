@@ -151,7 +151,7 @@ public class CommonsTest extends AbstractPage {
                     if (!error.contains("ERR_NAME_NOT_RESOLVED")) {
                         err = prefix + error + "\n==============================================\n";
                     } else {
-                        err = prefix + Constants.siteIsBanned + "\n==============================================\n";
+                        err = prefix + Constants.banningSite + "\n==============================================\n";
                     }
                 } else {
                     err = prefix + Constants.elementIsOverlaying + "\n==============================================\n";
@@ -260,7 +260,7 @@ public class CommonsTest extends AbstractPage {
         try {
             driver.get(url);
         } catch (Throwable e) {
-            log.info(Constants.siteIsBanned);
+            log.info(Constants.banningSite);
             driver.quit();
             convertException(e, url + "\n");
             throw e;
@@ -275,15 +275,15 @@ public class CommonsTest extends AbstractPage {
         log.info("Check for warning");
         if (checkForBCA(driver)) {
             closeBrowserAndDriver(driver);
-            sendBot(url + "\n" + Constants.siteIsWarning + "\n==============================================");
-            throw new RuntimeException(Constants.siteIsWarning);
+            sendBot(url + "\n" + Constants.WarningSite + "\n==============================================");
+            throw new RuntimeException(Constants.WarningSite);
         }
 
         log.info("Check for upgrading");
         if (checkForUpgrading(driver)) {
             closeBrowserAndDriver(driver);
-            sendBot(url + "\n" + Constants.pageIsMaintenance + "\n==============================================");
-            throw new RuntimeException(Constants.pageIsMaintenance);
+            sendBot(url + "\n" + Constants.pageIsMaintained + "\n==============================================");
+            throw new RuntimeException(Constants.pageIsMaintained);
         }
 
         return driver;

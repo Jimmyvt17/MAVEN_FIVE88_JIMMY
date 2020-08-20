@@ -3,6 +3,7 @@ package commons;
 public class Constants {
     // Url
     public static final String HOME_URL = "https://five88.biz/";
+    public static final String MAINTENANCE_URL = "https://five88.biz/bao-tri.aspx";
     public static final String REGISTER_URL = "https://five88.biz/register.aspx";
     public static final String DEPOSIT_URL = "https://five88.biz/deposit.aspx";
     public static final String WITHDRAW_URL = "https://five88.biz/withdraw.aspx";
@@ -103,9 +104,9 @@ public class Constants {
     // Others
     public static final String iframeContentError = "There is nothing in iframe. Please try again manually";
     public static final String iframeNoLoad = "There is no iframe. Please try again manually";
-    public static final String pageIsMaintenance = "Page is maintained. Please try again later";
-    public static final String siteIsBanned = "This site is banned";
-    public static final String siteIsWarning = "This site is warning by BCA";
+    public static final String pageIsMaintained = "Page is maintained. Please try again later";
+    public static final String banningSite = "This site is banned";
+    public static final String WarningSite = "This site is warning by BCA";
     public static final String elementIsRemoved = "Element is removed in DOM. Please try again manually";
     public static final String loadingTimeTooLong = "Loading time is too long to bet. Please try again manually";
     public static final String betUnsuccessful = "Betting unsuccessfully. Please try again manually";
