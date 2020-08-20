@@ -94,6 +94,7 @@ public class Constants {
     public static final String FIVE88BOT = "1229608956:AAGPgFoYgcb2nMH0V36vPGEFSO9EOwPU92U";
     public static final long FIVE88_FAIL_ROOM_ID = -459749874;
     public static final long FIVE88_PROCESS_ROOM_ID = -332719282;
+    public static final long SPORTBOOK_ROOM_ID = -382720675;
 
     // Excel
     public static final String iOSFilePath = "/Users/jimmyvuong/Downloads";

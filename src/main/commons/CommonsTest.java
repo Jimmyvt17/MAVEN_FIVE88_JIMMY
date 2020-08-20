@@ -60,11 +60,17 @@ public class CommonsTest extends AbstractPage {
 
         TelegramBot bot = new TelegramBot.Builder(Constants.FIVE88BOT).okHttpClient(client).build();
 
-        long chatId = Constants.FIVE88_FAIL_ROOM_ID;
-
-        SendMessage request = new SendMessage(chatId, text);
-        // sync
-        SendResponse sendResponse = bot.execute(request);
+        if (text.contains("TSport")) {
+            long chatId = Constants.SPORTBOOK_ROOM_ID;
+            SendMessage request = new SendMessage(chatId, text);
+            // sync
+            SendResponse sendResponse = bot.execute(request);
+        } else {
+            long chatId = Constants.FIVE88_FAIL_ROOM_ID;
+            SendMessage request = new SendMessage(chatId, text);
+            // sync
+            SendResponse sendResponse = bot.execute(request);
+        }
 
     }
 
