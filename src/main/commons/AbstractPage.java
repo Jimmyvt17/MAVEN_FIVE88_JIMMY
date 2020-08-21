@@ -525,7 +525,7 @@ public class AbstractPage {
 
     public void waitForElementPresentByLocator(WebDriver driver, By xPathLocator) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.MID_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         try {
             waitExplicit.until(ExpectedConditions.presenceOfElementLocated(xPathLocator));
         } catch (Exception ex) {
@@ -540,7 +540,7 @@ public class AbstractPage {
 
     public void waitForElementVisibleByLocator(WebDriver driver, By xPathLocator) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.MID_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         try {
             waitExplicit.until(ExpectedConditions.visibilityOfElementLocated(xPathLocator));
         } catch (Exception ex) {
@@ -555,7 +555,7 @@ public class AbstractPage {
 
     public void waitForElementVisible(WebDriver driver, WebElement element) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.MID_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         try {
             waitExplicit.until(ExpectedConditions.visibilityOf(element));
         } catch (Exception ex) {
@@ -570,7 +570,7 @@ public class AbstractPage {
 
     public void waitForElementClickable(WebDriver driver, By xPathLocator) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.MID_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         waitExplicit.until(ExpectedConditions.elementToBeClickable(xPathLocator));
         highlightElementByLocator(driver, xPathLocator);
 
@@ -578,7 +578,7 @@ public class AbstractPage {
 
     public void waitForElementInvisible(WebDriver driver, By xPathLocator) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.MID_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(xPathLocator));
         overrideTimeout(driver, Constants.LONG_TIMEOUT);
 
@@ -586,7 +586,7 @@ public class AbstractPage {
 
     public void waitForAlertPresence(WebDriver driver) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.MID_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         waitExplicit.until(ExpectedConditions.alertIsPresent());
 
     }
