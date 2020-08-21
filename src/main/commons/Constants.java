@@ -113,6 +113,7 @@ public class Constants {
     public static final String betUnsuccessful = "Betting unsuccessfully. Please try again manually";
     public static final String elementIsOverlaying = "Banking is under maintenance";
     public static final String prefix = "Failed test case:\n";
+    public static final String notEnoughBalance = "Not enough balance. Please make a deposit";
 
     // Utility
     public static final String videoRecordPathName = "AutoRecordedVideo";
