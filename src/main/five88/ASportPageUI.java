@@ -10,6 +10,7 @@ public class ASportPageUI {
     public static By inputBetMoneyLocator = By.xpath("//input[@id='betSlipStake']");
     public static By betConfirmASportLocator = By.xpath("//div[@class='quickBetPanel']//div[@id='singleQuickBetConfirm']//div[text()='Có']");
     public static By betOKASportLocator = By.xpath("//div[@id='popupPanel']//div[@title='OK']");
+    public static By warningLocator = By.xpath("//div[@class='quickBetPanel']//span[text()='Rất tiếc, giá trị đặt cược của bạn lớn hơn Quỹ Tiền Hiện Có']");
     public static By betBoardASportLocator = By.xpath("//span[text()='Đang Chạy']");
     public static By ticketOKASportLocator = By.xpath("//div[text()='Đang Diễn Ra']");
     public static By betOrderLocator = By.xpath("//div[@class='quickBetPanel']//div[@class='betDetial']");

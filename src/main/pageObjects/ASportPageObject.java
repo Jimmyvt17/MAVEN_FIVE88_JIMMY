@@ -122,4 +122,12 @@ public class ASportPageObject extends AbstractPage {
 
     }
 
+    public void verifyWarningDisplayed() {
+        List<WebElement> noWarning = getListElements(driver, ASportPageUI.warningLocator);
+        if (noWarning.size() > 0) {
+            System.out.println("Not enough balance\n");
+            throw new RuntimeException(Constants.notEnoughBalance);
+        }
+
+    }
 }
