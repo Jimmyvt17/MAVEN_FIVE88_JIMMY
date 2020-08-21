@@ -408,9 +408,11 @@ public class AbstractPage {
             }
         } catch (Throwable e) {
             String exceptionText = e.toString();
-            if (exceptionText.contains("iframe")) {
+            if (exceptionText.contains("StaleElementReferenceException")) {
+                throw new RuntimeException(Constants.elementIsRemoved);
+            } else if (exceptionText.contains("iframe")) {
                 throw new RuntimeException(Constants.iframeNoLoad);
-            } else if (!exceptionText.contains("StaleElementReferenceException")){
+            } else {
                 throw new RuntimeException(Constants.iframeContentError);
             }
         }
@@ -446,9 +448,11 @@ public class AbstractPage {
             }
         } catch (Throwable e) {
             String exceptionText = e.toString();
-            if (exceptionText.contains("iframe")) {
+            if (exceptionText.contains("StaleElementReferenceException")) {
+                throw new RuntimeException(Constants.elementIsRemoved);
+            } else if (exceptionText.contains("iframe")) {
                 throw new RuntimeException(Constants.iframeNoLoad);
-            } else if (!exceptionText.contains("StaleElementReferenceException")){
+            } else {
                 throw new RuntimeException(Constants.iframeContentError);
             }
         }
@@ -580,14 +584,13 @@ public class AbstractPage {
 
     public void waitForElementInvisible(WebDriver driver, By xPathLocator) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.MID_TIMEOUT);
         waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(xPathLocator));
         overrideTimeout(driver, Constants.LONG_TIMEOUT);
 
     }
 
     public void overrideTimeout(WebDriver driver, long timeout) {
-
         driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
 
     }
@@ -908,7 +911,7 @@ public class AbstractPage {
 
         //Call read file method of the class to read data
 
-        readExcel(filePath, Constants.userDataFile,"Quayso");
+        readExcel(filePath,Constants.loadingTimeFile,"Quayso");
 
     }
 

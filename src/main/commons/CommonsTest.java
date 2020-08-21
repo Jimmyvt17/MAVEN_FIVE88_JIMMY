@@ -66,7 +66,7 @@ public class CommonsTest extends AbstractPage {
             // sync
             SendResponse sendResponse = bot.execute(request);
         } else {
-            long chatId = Constants.FM88_FAIL_ROOM_ID;
+            long chatId = Constants.FIVE88_FAIL_ROOM_ID;
             SendMessage request = new SendMessage(chatId, text);
             // sync
             SendResponse sendResponse = bot.execute(request);
@@ -79,7 +79,7 @@ public class CommonsTest extends AbstractPage {
 
         TelegramBot bot = new TelegramBot.Builder(Constants.FIVE88BOT).okHttpClient(client).build();
 
-        long chatId = Constants.FM88_FAIL_ROOM_ID;
+        long chatId = Constants.FIVE88_FAIL_ROOM_ID;
 
         SendMessage request = new SendMessage(chatId, text).parseMode(ParseMode.Markdown).replyToMessageId(userId);
         // sync
@@ -309,8 +309,8 @@ public class CommonsTest extends AbstractPage {
         log.info("Check for warning");
         if (checkForBCA(driver)) {
             closeBrowserAndDriver(driver);
-            sendBot(url + "\n" + Constants.warningSite + "\n==============================================");
-            throw new RuntimeException(Constants.warningSite);
+            sendBot(url + "\n" + Constants.WarningSite + "\n==============================================");
+            throw new RuntimeException(Constants.WarningSite);
         }
 
         log.info("Check for upgrading");

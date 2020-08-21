@@ -85,6 +85,9 @@ public class Bet_03_ASport extends BaseTest {
 			log.info("Confirm betting\n");
 			aSportPage.confirmBet();
 
+			log.info("Verify warning text\n");
+			aSportPage.verifyWarningDisplayed();
+
 			log.info("Close bet panel\n");
 			aSportPage.closeWarningDialog();
 			try {
