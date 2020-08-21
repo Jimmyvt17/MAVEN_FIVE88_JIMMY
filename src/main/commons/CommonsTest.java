@@ -66,7 +66,7 @@ public class CommonsTest extends AbstractPage {
             // sync
             SendResponse sendResponse = bot.execute(request);
         } else {
-            long chatId = Constants.FIVE88_FAIL_ROOM_ID;
+            long chatId = Constants.FM88_FAIL_ROOM_ID;
             SendMessage request = new SendMessage(chatId, text);
             // sync
             SendResponse sendResponse = bot.execute(request);
@@ -79,7 +79,7 @@ public class CommonsTest extends AbstractPage {
 
         TelegramBot bot = new TelegramBot.Builder(Constants.FIVE88BOT).okHttpClient(client).build();
 
-        long chatId = Constants.FIVE88_FAIL_ROOM_ID;
+        long chatId = Constants.FM88_FAIL_ROOM_ID;
 
         SendMessage request = new SendMessage(chatId, text).parseMode(ParseMode.Markdown).replyToMessageId(userId);
         // sync
