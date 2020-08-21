@@ -410,6 +410,7 @@ public class AbstractPage {
     }
 
     public void verifyIframeLoading(WebDriver driver, By xPathLocator) {
+        overrideTimeout(driver, Constants.MID_TIMEOUT);
         try {
             switchToIframe(driver);
             for (int i = 0; i <= 20; i++) {
@@ -449,7 +450,7 @@ public class AbstractPage {
     }
 
     public void verifyIframesLoading(WebDriver driver, By xPathLocator) {
-
+        overrideTimeout(driver, Constants.MID_TIMEOUT);
         try {
             switchToIframes(driver);
             for (int i = 0; i <= 20; i++) {

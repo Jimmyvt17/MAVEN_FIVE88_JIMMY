@@ -45,8 +45,8 @@ public class Constants {
 //    public static final String STHETHAO_URL = "https://fm88.com/ssport.aspx";
 
     // Timeout
-    public static final int SHORT_TIMEOUT = 2;
-    public static final int MID_TIMEOUT = 10;
+    public static final int SHORT_TIMEOUT = 5;
+    public static final int MID_TIMEOUT = 15;
     public static final int LONG_TIMEOUT = 30;
 
     // User/pass

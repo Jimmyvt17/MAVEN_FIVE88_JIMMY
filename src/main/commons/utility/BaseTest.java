@@ -15,7 +15,6 @@ public abstract class BaseTest extends CommonsTest {
             Run();
         } catch (Throwable e) {
             convertException(e, prefix);
-            throw e;
         }
 
     }
