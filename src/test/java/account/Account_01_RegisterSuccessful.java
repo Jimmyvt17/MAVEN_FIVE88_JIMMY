@@ -46,7 +46,6 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 			accountPage.logoutToHomePage();
 		} catch (Throwable e) {
 			convertException(e, Constants.prefix + method.getName() + "\n");
-			throw e;
 		}
 
 	}
@@ -63,7 +62,6 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 			accountPage.logoutToHomePage();
 		} catch (Throwable e) {
 			convertException(e, Constants.prefix + method.getName() + "\n");
-			throw e;
 		}
 
 	}
@@ -80,7 +78,6 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 			accountPage.logoutToHomePage();
 		} catch (Throwable e) {
 			convertException(e, Constants.prefix + method.getName() + "\n");
-			throw e;
 		}
 
 	}
@@ -99,7 +96,6 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 			accountPage.logoutToHomePage();
 		} catch (Throwable e) {
 			convertException(e, Constants.prefix + method.getName() + "\n");
-			throw e;
 		}
 
 	}
@@ -118,7 +114,6 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 			accountPage.logoutToHomePage();
 		} catch (Throwable e) {
 			convertException(e, Constants.prefix + method.getName() + "\n");
-			throw e;
 		}
 
 	}

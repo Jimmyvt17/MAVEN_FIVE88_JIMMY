@@ -144,6 +144,34 @@ public class CommonsTest extends AbstractPage {
 
     }
 
+//    public void convertException(Throwable e, String prefix) {
+//        String error, err;
+//        if (!e.toString().contains("\n")) {
+//            error = e.toString();
+//        } else {
+//            error = e.toString().substring(0, e.toString().indexOf("\n"));
+//        }
+//        if (!error.contains("StaleElementReferenceException")) {
+//            if (!error.contains("AssertionError")) {
+//                if (!error.contains("ElementNotInteractableException")) {
+//                    if (!error.contains("ERR_NAME_NOT_RESOLVED")) {
+//                        err = prefix + error + "\n==============================================\n";
+//                    } else {
+//                        err = prefix + Constants.banningSite + "\n==============================================\n";
+//                    }
+//                } else {
+//                    err = prefix + Constants.elementIsOverlaying + "\n==============================================\n";
+//                }
+//            } else {
+//                err = prefix + Constants.loadingTimeTooLong + "\n==============================================\n";
+//            }
+//        } else {
+//            err = prefix + Constants.elementIsRemoved + "\n==============================================\n";
+//        }
+//        sendBot(err);
+//
+//    }
+
     public void convertException(Throwable e, String prefix) {
         String error, err;
         if (!e.toString().contains("\n")) {
@@ -151,24 +179,25 @@ public class CommonsTest extends AbstractPage {
         } else {
             error = e.toString().substring(0, e.toString().indexOf("\n"));
         }
-        if (!error.contains("StaleElementReferenceException")) {
-            if (!error.contains("AssertionError")) {
-                if (!error.contains("ElementNotInteractableException")) {
-                    if (!error.contains("ERR_NAME_NOT_RESOLVED")) {
-                        err = prefix + error + "\n==============================================\n";
-                    } else {
-                        err = prefix + Constants.banningSite + "\n==============================================\n";
-                    }
-                } else {
-                    err = prefix + Constants.elementIsOverlaying + "\n==============================================\n";
-                }
-            } else {
-                err = prefix + Constants.loadingTimeTooLong + "\n==============================================\n";
-            }
+        if (error.contains("AssertionError")) {
+            err = prefix + Constants.loadingTimeTooLong + "\n==============================================\n";
+            sendBot(err);
+            throw new RuntimeException(error);
+        } else if (error.contains("ElementNotInteractableException")) {
+            err = prefix + Constants.elementIsOverlaying + "\n==============================================\n";
+            sendBot(err);
+            throw new RuntimeException(error);
+        } else if (error.contains("ERR_NAME_NOT_RESOLVED")) {
+            err = prefix + Constants.banningSite + "\n==============================================\n";
+            sendBot(err);
+            throw new RuntimeException(error);
+        } else if (error.contains("StaleElementReferenceException")) {
+            e.printStackTrace();
         } else {
-            err = prefix + Constants.elementIsRemoved + "\n==============================================\n";
+            err = prefix + error + "\n==============================================\n";
+            sendBot(err);
+            throw new RuntimeException(error);
         }
-        sendBot(err);
 
     }
 
@@ -269,7 +298,6 @@ public class CommonsTest extends AbstractPage {
             log.info(Constants.banningSite);
             driver.quit();
             convertException(e, url + "\n");
-            throw e;
         }
 
         try {

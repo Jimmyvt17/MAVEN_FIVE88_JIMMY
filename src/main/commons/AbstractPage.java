@@ -231,28 +231,12 @@ public class AbstractPage {
     }
 
     public List<WebElement> getListElements(WebDriver driver, By xPathLocator) {
-        try {
-            elements = driver.findElements(xPathLocator);
-        } catch (Throwable e) {
-            if (e.toString().contains("StaleElementReferenceException")) {
-                System.out.println(Constants.elementIsRemoved);
-                elements = driver.findElements(xPathLocator);
-            }
-        }
-        return elements;
+        return driver.findElements(xPathLocator);
 
     }
 
     public WebElement getElement(WebDriver driver, By xPathLocator) {
-        try {
-            element = driver.findElement(xPathLocator);
-        } catch (Throwable e) {
-            if (e.toString().contains("StaleElementReferenceException")) {
-                System.out.println(Constants.elementIsRemoved);
-                element = getElement(driver, xPathLocator);
-            }
-        }
-        return element;
+        return driver.findElement(xPathLocator);
 
     }
 
@@ -412,6 +396,7 @@ public class AbstractPage {
     public void verifyIframeLoading(WebDriver driver, By xPathLocator) {
         try {
             switchToIframe(driver);
+            overrideTimeout(driver, Constants.MID_TIMEOUT);
             for (int i = 0; i <= 20; i++) {
                 List<WebElement> noElement = getListElements(driver, xPathLocator);
                 if (noElement.size() > 0) {
@@ -423,11 +408,9 @@ public class AbstractPage {
             }
         } catch (Throwable e) {
             String exceptionText = e.toString();
-            if (exceptionText.contains("StaleElementReferenceException")) {
-                throw new RuntimeException(Constants.elementIsRemoved);
-            } else if (exceptionText.contains("iframe")) {
+            if (exceptionText.contains("iframe")) {
                 throw new RuntimeException(Constants.iframeNoLoad);
-            } else {
+            } else if (!exceptionText.contains("StaleElementReferenceException")){
                 throw new RuntimeException(Constants.iframeContentError);
             }
         }
@@ -449,9 +432,9 @@ public class AbstractPage {
     }
 
     public void verifyIframesLoading(WebDriver driver, By xPathLocator) {
-
         try {
             switchToIframes(driver);
+            overrideTimeout(driver, Constants.MID_TIMEOUT);
             for (int i = 0; i <= 20; i++) {
                 List<WebElement> noElement = getListElements(driver, xPathLocator);
                 if (noElement.size() > 0) {
@@ -463,11 +446,9 @@ public class AbstractPage {
             }
         } catch (Throwable e) {
             String exceptionText = e.toString();
-            if (exceptionText.contains("StaleElementReferenceException")) {
-                throw new RuntimeException(Constants.elementIsRemoved);
-            } else if (exceptionText.contains("iframe")) {
+            if (exceptionText.contains("iframe")) {
                 throw new RuntimeException(Constants.iframeNoLoad);
-            } else {
+            } else if (!exceptionText.contains("StaleElementReferenceException")){
                 throw new RuntimeException(Constants.iframeContentError);
             }
         }
@@ -546,7 +527,7 @@ public class AbstractPage {
 
     public void waitForElementPresentByLocator(WebDriver driver, By xPathLocator) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.MID_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         try {
             waitExplicit.until(ExpectedConditions.presenceOfElementLocated(xPathLocator));
         } catch (Exception ex) {
@@ -561,7 +542,7 @@ public class AbstractPage {
 
     public void waitForElementVisibleByLocator(WebDriver driver, By xPathLocator) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.MID_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         try {
             waitExplicit.until(ExpectedConditions.visibilityOfElementLocated(xPathLocator));
         } catch (Exception ex) {
@@ -576,7 +557,7 @@ public class AbstractPage {
 
     public void waitForElementVisible(WebDriver driver, WebElement element) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.MID_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         try {
             waitExplicit.until(ExpectedConditions.visibilityOf(element));
         } catch (Exception ex) {
@@ -591,7 +572,7 @@ public class AbstractPage {
 
     public void waitForElementClickable(WebDriver driver, By xPathLocator) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.MID_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         waitExplicit.until(ExpectedConditions.elementToBeClickable(xPathLocator));
         highlightElementByLocator(driver, xPathLocator);
 
@@ -599,8 +580,7 @@ public class AbstractPage {
 
     public void waitForElementInvisible(WebDriver driver, By xPathLocator) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.MID_TIMEOUT);
-        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(xPathLocator));
         overrideTimeout(driver, Constants.LONG_TIMEOUT);
 
@@ -625,7 +605,7 @@ public class AbstractPage {
 
     public void waitForAlertPresence(WebDriver driver) {
 
-        waitExplicit = new WebDriverWait(driver, Constants.LONG_TIMEOUT);
+        waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
         waitExplicit.until(ExpectedConditions.alertIsPresent());
 
     }
@@ -703,13 +683,7 @@ public class AbstractPage {
         } catch (Throwable e) {
             e.printStackTrace();
         }
-        try {
-            js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
-        } catch (Throwable e) {
-            if (e.toString().contains("StaleElementReferenceException")) {
-                js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
-            }
-        }
+        js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
 
     }
 
@@ -722,13 +696,7 @@ public class AbstractPage {
         } catch (Throwable e) {
             e.printStackTrace();
         }
-        try {
-            js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
-        } catch (Throwable e) {
-            if (e.toString().contains("StaleElementReferenceException")) {
-                js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
-            }
-        }
+        js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",originalStyle);
 
     }
 
