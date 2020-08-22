@@ -239,8 +239,12 @@ public class SSportPageObject extends AbstractPage {
     }
 
     public boolean isStreamingVideoDisplayed() {
-        List<WebElement> streaming = getListElements(driver, SSportPageUI.streamingVideoLocator);
-        return streaming.size() > 0;
+        try {
+            List<WebElement> streaming = getListElements(driver, SSportPageUI.streamingVideoLocator);
+            return streaming.size() > 0;
+        } catch (Throwable e) {
+            throw new RuntimeException("Streaming video is not displayed");
+        }
 
     }
 

@@ -61,8 +61,8 @@ public class Bet_08_SSport extends BaseTest {
 		log.info("Change to EU view\n");
 		sSportPage.changeToEUView();
 
-		List<WebElement> noVideo = sSportPage.getListBets(SSportPageUI.betEuroStreamingVideoLocator);
-		if (noVideo.size() > 0) {
+		try {
+			List<WebElement> noVideo = sSportPage.getListBets(SSportPageUI.betEuroStreamingVideoLocator);
 			log.info("There are " + noVideo.size() + " streaming videos\n");
 
 			int videoSelect = randomNumber(noVideo.size());
@@ -76,15 +76,20 @@ public class Bet_08_SSport extends BaseTest {
 				e.printStackTrace();
 			}
 
-			log.info("Verify video is displayed\n");
-			if (!sSportPage.isStreamingVideoDisplayed()) {
-				throw new RuntimeException("Streaming video is not displayed");
+			log.info("Verify video is displayed\n" + sSportPage.isStreamingVideoDisplayed() + "\n");
+
+		} catch (Throwable e) {
+			String error;
+			if (!e.toString().contains("\n")) {
+				error = e.toString();
+			} else {
+				error = e.toString().substring(0, e.toString().indexOf("\n"));
+			}
+			if (error.contains("NoSuchElementException")) {
+				throw new RuntimeException("There is no streaming video");
 			}
 
-		} else {
-			sendBot(Constants.prefix + getClass().getName() + "\nThere is no streaming video\n==============================================\n");
 		}
-
 
 	}
 
