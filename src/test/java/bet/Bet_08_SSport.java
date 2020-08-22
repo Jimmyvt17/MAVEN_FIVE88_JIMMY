@@ -37,11 +37,17 @@ public class Bet_08_SSport extends BaseTest {
 		log.info("SSport - Step01: Login with valid account\n");
 		sSportPage.loginSportAccount();
 
-		log.info("TSport - Step02: Open SSport page\n");
+		log.info("SSport - Step02: Open SSport page\n");
 		sSportPage.openSSportPage("item-sb ssport", "icon-vi-s");
 
 		log.info("SSport - Step03: Betting\n");
 		betSSport();
+
+		log.info("SSport - Step04: Exit SSport iframe\n");
+		sSportPage.quitSSportIframe();
+
+		log.info("SSport - Step05: Logout\n");
+		sSportPage.logoutToHomePage();
 
 	}
 
@@ -49,14 +55,36 @@ public class Bet_08_SSport extends BaseTest {
 		log.info("Switch to SSport iframe\n");
 		sSportPage.switchToSSportIframe();
 
-		String viewMode = sSportPage.getViewMode();
-		if (viewMode.equalsIgnoreCase("Version Châu Âu")) {
-			log.info("Bet Asia version\n");
-			betAsiaSport();
+		log.info("Bet Asia version\n");
+		betAsiaSport();
+
+		log.info("Change to EU view\n");
+		sSportPage.changeToEUView();
+
+		List<WebElement> noVideo = sSportPage.getListBets(SSportPageUI.betEuroStreamingVideoLocator);
+		if (noVideo.size() > 0) {
+			log.info("There are " + noVideo.size() + " streaming videos\n");
+
+			int videoSelect = randomNumber(noVideo.size());
+			log.info("Select streaming video at order " + videoSelect + "\n");
+
+			log.info("Open a streaming video\n");
+			sSportPage.createBetOder(noVideo.get(videoSelect));
+			try {
+				Thread.sleep(3 * 1000);
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
+
+			log.info("Verify video is displayed\n");
+			if (!sSportPage.isStreamingVideoDisplayed()) {
+				throw new RuntimeException("Streaming video is not displayed");
+			}
+
 		} else {
-			log.info("Bet Euro version\n");
-			betEUSport();
+			sendBot(Constants.prefix + getClass().getName() + "\nThere is no streaming video\n==============================================\n");
 		}
+
 
 	}
 

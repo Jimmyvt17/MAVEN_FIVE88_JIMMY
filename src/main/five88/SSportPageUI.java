@@ -18,5 +18,7 @@ public class SSportPageUI {
     public static By betEuroSSportLocator = By.xpath("//button[@data-uat='bet-button']");
     public static By betContentEuroSSportLocator = By.xpath("//button[@data-uat='bet-button']//span[@class='bet-description ']");
     public static By betOddEuroSSportLocator = By.xpath("//button[@data-uat='bet-button']//span[@class='bet-odds-number']");
+    public static By betEuroStreamingVideoLocator = By.xpath("//span[@class='icon i-24-16 event-icons-icon i-o-ev-streaming']");
+    public static By streamingVideoLocator = By.xpath("//div[@id='iFrameContainer-live-betting']//iframe[@src]");
 
 }

@@ -232,4 +232,26 @@ public class SSportPageObject extends AbstractPage {
 
     }
 
+    public void changeToEUView() {
+        waitForElementVisibleByLocator(driver, SSportPageUI.modeUILocator);
+        clickToElementByJSByLocator(driver, SSportPageUI.modeUILocator);
+
+    }
+
+    public boolean isStreamingVideoDisplayed() {
+        List<WebElement> streaming = getListElements(driver, SSportPageUI.streamingVideoLocator);
+        return streaming.size() > 0;
+
+    }
+
+    public void quitSSportIframe() {
+        backToTopWindow(driver);
+
+    }
+
+    public void logoutToHomePage() {
+        logout(driver);
+
+    }
+
 }
