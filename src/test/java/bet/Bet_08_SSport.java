@@ -51,7 +51,7 @@ public class Bet_08_SSport extends BaseTest {
 
 	}
 
-	protected void betSSport() {
+	private void betSSport() {
 		log.info("Switch to SSport iframe\n");
 		sSportPage.switchToSSportIframe();
 
@@ -61,40 +61,13 @@ public class Bet_08_SSport extends BaseTest {
 		log.info("Change to EU view\n");
 		sSportPage.changeToEUView();
 
-		try {
-			List<WebElement> noVideo = sSportPage.getListBets(SSportPageUI.betEuroStreamingVideoLocator);
-			log.info("There are " + noVideo.size() + " streaming videos\n");
-
-			int videoSelect = randomNumber(noVideo.size());
-			log.info("Select streaming video at order " + videoSelect + "\n");
-
-			log.info("Open a streaming video\n");
-			sSportPage.createBetOder(noVideo.get(videoSelect));
-			try {
-				Thread.sleep(3 * 1000);
-			} catch (Throwable e) {
-				e.printStackTrace();
-			}
-
-			log.info("Verify video is displayed\n" + sSportPage.isStreamingVideoDisplayed() + "\n");
-
-		} catch (Throwable e) {
-			String error;
-			if (!e.toString().contains("\n")) {
-				error = e.toString();
-			} else {
-				error = e.toString().substring(0, e.toString().indexOf("\n"));
-			}
-			if (error.contains("NoSuchElementException")) {
-				throw new RuntimeException("There is no streaming video");
-			}
-
-		}
+		log.info("Check for streaming video\n");
+		checkForStreamingVideo();
 
 	}
 
-	protected void betAsiaSport() {
-		for (int x = 0; x < 10; x++) {
+	private void betAsiaSport() {
+		for (int x = 0; x < 5; x++) {
 			boolean i = true;
 			boolean y = true;
 			while (i) {
@@ -140,8 +113,8 @@ public class Bet_08_SSport extends BaseTest {
 
 	}
 
-	protected void betEUSport() {
-		for (int x = 0; x < 10; x++) {
+	private void betEUSport() {
+		for (int x = 0; x < 5; x++) {
 			boolean i = true;
 			boolean y = true;
 			while (i) {
@@ -198,6 +171,39 @@ public class Bet_08_SSport extends BaseTest {
 			}
 		}
 
+	}
+
+	private void checkForStreamingVideo() {
+		try {
+			List<WebElement> noVideo = sSportPage.getListBets(SSportPageUI.betEuroStreamingVideoLocator);
+			log.info("There are " + noVideo.size() + " streaming videos\n");
+
+			int videoSelect = randomNumber(noVideo.size());
+			log.info("Select streaming video at order " + videoSelect + "\n");
+
+			log.info("Open a streaming video\n");
+			sSportPage.createBetOder(noVideo.get(videoSelect));
+
+			log.info("Verify video is displayed\n" + sSportPage.isStreamingVideoDisplayed() + "\n");
+			if (!sSportPage.isStreamingVideoDisplayed()) {
+				throw new RuntimeException("Streaming video is not displayed");
+			}
+
+
+		} catch (Throwable e) {
+			String error;
+			if (!e.toString().contains("\n")) {
+				error = e.toString();
+			} else {
+				error = e.toString().substring(0, e.toString().indexOf("\n"));
+			}
+			if (error.contains("NoSuchElementException")) {
+				throw new RuntimeException("There is no streaming video");
+			} else {
+				throw e;
+			}
+
+		}
 	}
 
 	@AfterClass(alwaysRun=true)
