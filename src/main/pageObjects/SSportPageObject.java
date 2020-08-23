@@ -113,7 +113,7 @@ public class SSportPageObject extends AbstractPage {
 
     public boolean isAsiaBetSuccess(String value) {
 
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 5; i++) {
             List<WebElement> noBetInput = getListElements(driver, SSportPageUI.inputBetSSportMoney);
             if (noBetInput.size() > 0) {
                 System.out.println("Bet money = " + value + "\n");
@@ -143,7 +143,7 @@ public class SSportPageObject extends AbstractPage {
 
     public boolean isEUBetSuccess(String value) {
 
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 5; i++) {
             List<WebElement> noBetInput = getListElements(driver, SSportPageUI.inputBetSSportMoney);
             if (noBetInput.size() > 0) {
                 System.out.println("Bet money = " + value + "\n");
@@ -201,13 +201,6 @@ public class SSportPageObject extends AbstractPage {
 
     }
 
-//    public void switchToEUMode() {
-//
-//        waitForElementVisibleByLocator(driver, SSportPageUI.modeUILocator);
-//        clickToElementByLocator(driver, SSportPageUI.modeUILocator);
-//
-//    }
-
     public String getEuroOddBet(WebElement element) {
 
         return getTextElement(driver, element);
@@ -239,12 +232,8 @@ public class SSportPageObject extends AbstractPage {
     }
 
     public boolean isStreamingVideoDisplayed() {
-        try {
-            List<WebElement> streaming = getListElements(driver, SSportPageUI.streamingVideoLocator);
-            return streaming.size() > 0;
-        } catch (Throwable e) {
-            throw new RuntimeException("Streaming video is not displayed");
-        }
+        List<WebElement> streaming = getListElements(driver, SSportPageUI.streamingVideoLocator);
+        return streaming.size() > 0;
 
     }
 
