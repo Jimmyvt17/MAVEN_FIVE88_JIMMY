@@ -35,7 +35,7 @@ public class SSportPageObject extends AbstractPage {
 
     public List<WebElement> getListBets(By xPathLocator) {
 
-        waitForElementVisibleByLocator(driver, xPathLocator);
+        //waitForElementVisibleByLocator(driver, xPathLocator);
         return getListElements(driver, xPathLocator);
 
     }

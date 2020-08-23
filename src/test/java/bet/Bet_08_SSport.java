@@ -174,8 +174,8 @@ public class Bet_08_SSport extends BaseTest {
 	}
 
 	private void checkForStreamingVideo() {
-		try {
-			List<WebElement> noVideo = sSportPage.getListBets(SSportPageUI.betEuroStreamingVideoLocator);
+		List<WebElement> noVideo = sSportPage.getListBets(SSportPageUI.betEuroStreamingVideoLocator);
+		if (noVideo.size() > 0) {
 			log.info("There are " + noVideo.size() + " streaming videos\n");
 
 			int videoSelect = randomNumber(noVideo.size());
@@ -188,22 +188,10 @@ public class Bet_08_SSport extends BaseTest {
 			if (!sSportPage.isStreamingVideoDisplayed()) {
 				throw new RuntimeException("Streaming video is not displayed");
 			}
-
-
-		} catch (Throwable e) {
-			String error;
-			if (!e.toString().contains("\n")) {
-				error = e.toString();
-			} else {
-				error = e.toString().substring(0, e.toString().indexOf("\n"));
-			}
-			if (error.contains("NoSuchElementException")) {
-				throw new RuntimeException("There is no streaming video");
-			} else {
-				throw e;
-			}
-
+		} else {
+			throw new RuntimeException("There is no streaming video");
 		}
+
 	}
 
 	@AfterClass(alwaysRun=true)

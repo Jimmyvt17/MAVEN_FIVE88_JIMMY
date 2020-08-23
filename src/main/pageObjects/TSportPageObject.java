@@ -27,7 +27,6 @@ public class TSportPageObject extends AbstractPage {
 
     public List<WebElement> getBets() {
 
-        waitForElementVisibleByLocator(driver, TSportPageUI.betTSportLocator);
         return getListElements(driver, TSportPageUI.betTSportLocator);
 
     }
