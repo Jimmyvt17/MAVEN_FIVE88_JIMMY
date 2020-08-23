@@ -51,7 +51,7 @@ public class Constants {
 
     // User/pass
     public static final String USERNAME = "setajim";
-    public static final String USERNAME_THETHAO = "setagthethao";
+    public static final String USERNAME_THETHAO = "setathethao";
     public static final String USERNAME_QUAYSO = "setaquayso";
     public static final String USERNAME_LODE = "setalode";
     public static final String USERNAME_CASINO = "setacasino";
