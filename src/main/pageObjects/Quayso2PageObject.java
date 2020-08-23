@@ -21,7 +21,6 @@ public class Quayso2PageObject extends AbstractPage {
     public List<WebElement> getBets(String value) {
 
         String tmp = String.format(Quayso2PageUI.dynamicGameOdd, value);
-        waitForElementPresentByLocator(driver, By.xpath(tmp));
         return getListElements(driver, By.xpath(tmp));
 
     }
