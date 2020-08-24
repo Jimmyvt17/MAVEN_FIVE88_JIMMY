@@ -9,7 +9,7 @@ public class Constants {
     public static final String WITHDRAW_URL = "https://five88.biz/withdraw.aspx";
     public static final String TRANHISTORY_URL = "https://five88.biz/history/lsgd.aspx";
     public static final String QUAYSO_URL = "https://five88.biz/lottery.aspx";
-    public static final String QUAYSO2_URL = "https://five88.biz/lotte2.aspx";
+    public static final String QUAYSO2_URL = "https://five88.biz/vgames.aspx";
     public static final String LODE_URL = "https://five88.biz/lode.aspx";
     public static final String CASINO_URL = "https://five88.biz/casino.aspx";
     public static final String ATHETHAO_URL = "https://five88.biz/fsport/live-sports.aspx";
@@ -108,7 +108,6 @@ public class Constants {
     public static final String pageIsMaintained = "Page is maintained. Please try again later";
     public static final String banningSite = "This site is banned";
     public static final String WarningSite = "This site is warning by BCA";
-    public static final String elementIsRemoved = "Element is removed in DOM. Please try again manually";
     public static final String loadingTimeTooLong = "Loading time is too long to bet. Please try again manually";
     public static final String betUnsuccessful = "Betting unsuccessfully. Please try again manually";
     public static final String elementIsOverlaying = "Banking is under maintenance";
