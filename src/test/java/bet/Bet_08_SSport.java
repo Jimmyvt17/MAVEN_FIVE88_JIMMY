@@ -186,10 +186,11 @@ public class Bet_08_SSport extends BaseTest {
 
 			log.info("Verify video is displayed\n" + sSportPage.isStreamingVideoDisplayed() + "\n");
 			if (!sSportPage.isStreamingVideoDisplayed()) {
-				throw new RuntimeException("Streaming video is not displayed");
+				throw new RuntimeException(Constants.streamingVideoError);
 			}
 		} else {
-			throw new RuntimeException("There is no streaming video");
+			log.info(Constants.noStreamingVideo + "\n");
+			sendBot(getClass().getName() + ":\n" + Constants.noStreamingVideo);
 		}
 
 	}
