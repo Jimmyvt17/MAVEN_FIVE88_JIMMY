@@ -32,14 +32,13 @@ public class TSportPageObject extends AbstractPage {
     }
 
     public void openBetPanel(WebElement element) {
-
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 1; i <= 5; i++) {
             clickToElementByJS(driver, element);
             List<WebElement> noBetPanel = driver.findElements(TSportPageUI.betPanelLocator);
             if (noBetPanel.size() > 0) {
                 highlightElementByLocator(driver, TSportPageUI.betPanelLocator);
                 break;
-            } else if (i==10) {
+            } else if (i==5) {
                 throw new RuntimeException("Can not open bet panel");
             }
         }
@@ -47,7 +46,6 @@ public class TSportPageObject extends AbstractPage {
     }
 
     public String getBetDetails() {
-
         waitForElementVisibleByLocator(driver, TSportPageUI.betOrderLocator);
         return getTextElementByLocator(driver, TSportPageUI.betOrderLocator);
 
@@ -97,13 +95,6 @@ public class TSportPageObject extends AbstractPage {
 
     }
 
-    public void openBetBoard() {
-
-        waitForElementVisibleByLocator(driver, TSportPageUI.inProcessTicketTSportLocator);
-        clickToElementByLocator(driver, TSportPageUI.inProcessTicketTSportLocator);
-
-    }
-
     public boolean isTicketDisplayed() {
 
         overrideTimeout(driver, Constants.MID_TIMEOUT);
@@ -117,13 +108,6 @@ public class TSportPageObject extends AbstractPage {
         }
 
     }
-
-    public String getTicketDetails() {
-
-        return getTextElementByLocator(driver, TSportPageUI.ticketDetailTSportLocator);
-
-    }
-
 
     public String getBetTicketDetails() {
 

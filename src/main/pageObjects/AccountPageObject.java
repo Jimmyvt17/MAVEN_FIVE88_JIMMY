@@ -65,14 +65,6 @@ public class AccountPageObject extends AbstractPage {
 
     }
 
-    public boolean isTicketStatusDisplayed(String... values) {
-
-        String tmp = String.format(AccountPageUI.dynamicTicketStatus, values);
-        waitForElementVisibleByLocator(driver, By.xpath(tmp));
-        return isControlDisplayed(driver, By.xpath(tmp));
-
-    }
-
     public void selectAnOption(String... values) {
 
         String tmp = String.format(AccountPageUI.dynamicSelectDropBox, values);

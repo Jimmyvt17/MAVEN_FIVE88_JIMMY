@@ -26,16 +26,7 @@ public class SSportPageObject extends AbstractPage {
 
     }
 
-    public String getBalance() {
-
-        waitForElementVisibleByLocator(driver, SSportPageUI.sSportBalanceLocator);
-        return getTextElementByLocator(driver, SSportPageUI.sSportBalanceLocator);
-
-    }
-
     public List<WebElement> getListBets(By xPathLocator) {
-
-        //waitForElementVisibleByLocator(driver, xPathLocator);
         return getListElements(driver, xPathLocator);
 
     }
@@ -54,29 +45,25 @@ public class SSportPageObject extends AbstractPage {
     }
 
     public boolean isTicketCreated() {
-
-        overrideTimeout(driver, Constants.MID_TIMEOUT);
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
         List<WebElement> noBetSelect = driver.findElements(SSportPageUI.oddSelectedLocator);
         return noBetSelect.size() > 0;
 
     }
 
     public String getOddSelect() {
-
         waitForElementVisibleByLocator(driver, SSportPageUI.oddSelectedLocator);
         return getTextElementByLocator(driver, SSportPageUI.oddSelectedLocator);
 
     }
 
     public void inputBetMoney(String value) {
-
         waitForElementVisibleByLocator(driver, SSportPageUI.inputBetSSportMoney);
         sendKeyToElement(driver, SSportPageUI.inputBetSSportMoney, value);
 
     }
 
     public String getReturn() {
-
         return getTextElementByLocator(driver, SSportPageUI.totalReturnLocator);
 
     }
@@ -97,7 +84,6 @@ public class SSportPageObject extends AbstractPage {
     }
 
     public void confirmBet() {
-
         overrideTimeout(driver, Constants.SHORT_TIMEOUT);
         waitForElementVisibleByLocator(driver, SSportPageUI.betConfirmSSportLocator);
         clickToElementByJSByLocator(driver, SSportPageUI.betConfirmSSportLocator);
@@ -112,8 +98,7 @@ public class SSportPageObject extends AbstractPage {
     }
 
     public boolean isAsiaBetSuccess(String value) {
-
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 0; i < 5; i++) {
             List<WebElement> noBetInput = getListElements(driver, SSportPageUI.inputBetSSportMoney);
             if (noBetInput.size() > 0) {
                 System.out.println("Bet money = " + value + "\n");
@@ -121,35 +106,6 @@ public class SSportPageObject extends AbstractPage {
                 System.out.println("Confirm betting\n");
                 confirmBet();
                 acceptConfirmAlert();
-                try {
-                    Thread.sleep(5 * 1000);
-                } catch (Throwable e) {
-                    e.printStackTrace();
-                }
-                System.out.println("Verify betting successfully\n");
-                List<WebElement> noSuccessText = getListElements(driver, SSportPageUI.ticketOKSSportLocator);
-                if (noSuccessText.size() > 0) {
-                    System.out.println("Bet successfully\n");
-                    return true;
-                } else {
-                    System.out.println("Bet unsuccessfully. Try again\n");
-                }
-            } else {
-                return false;
-            }
-        }
-        return false;
-    }
-
-    public boolean isEUBetSuccess(String value) {
-
-        for (int i = 0; i <= 5; i++) {
-            List<WebElement> noBetInput = getListElements(driver, SSportPageUI.inputBetSSportMoney);
-            if (noBetInput.size() > 0) {
-                System.out.println("Bet money = " + value + "\n");
-                inputBetMoney(value);
-                System.out.println("Confirm betting\n");
-                confirmBet();
                 try {
                     Thread.sleep(5 * 1000);
                 } catch (Throwable e) {
@@ -184,20 +140,6 @@ public class SSportPageObject extends AbstractPage {
     public void switchToSSportIframe() {
 
         switchToIframe(driver);
-
-    }
-
-    public void navigateToSSportIframe() {
-
-        String iframeLink = getAttributeValue(driver, By.id("iframe"), "src");
-        openAnyUrl(driver, iframeLink);
-
-    }
-
-    public String getViewMode() {
-
-        waitForElementVisibleByLocator(driver, SSportPageUI.modeUILocator);
-        return getTextElementByLocator(driver, SSportPageUI.modeUILocator);
 
     }
 

@@ -99,8 +99,6 @@ public class NumberPageObject extends AbstractPage {
     }
 
     public void clickToBetPoint(WebElement element) {
-
-        //waitForElementVisible(driver, element);
         clickToElementByJS(driver, element);
 
     }

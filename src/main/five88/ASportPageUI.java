@@ -4,10 +4,8 @@ import org.openqa.selenium.By;
 
 public class ASportPageUI {
 
-    public static By aSportUpgradeLocator = By.xpath("//div[@class='text-center upgrade-side']//img[@class='server-upgrade']");
     public static By aSportBalanceLocator = By.xpath("//div[@class='widgetPanel personalAccount ']//div[@class='creditArea']//div[@class='infoItem']");
     public static By betASportLocator = By.xpath("//div[@class='betArea']//div[@style='cursor: pointer;']//span");
-    public static By inputBetMoneyLocator = By.xpath("//input[@id='betSlipStake']");
     public static By betConfirmASportLocator = By.xpath("//div[@class='quickBetPanel']//div[@id='singleQuickBetConfirm']//div[text()='Có']");
     public static By betOKASportLocator = By.xpath("//div[@id='popupPanel']//div[@title='OK']");
     public static By warningLocator = By.xpath("//div[@class='quickBetPanel']//span[text()='Rất tiếc, giá trị đặt cược của bạn lớn hơn Quỹ Tiền Hiện Có']");

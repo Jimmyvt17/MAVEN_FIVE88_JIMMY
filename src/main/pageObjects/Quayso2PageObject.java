@@ -80,14 +80,6 @@ public class Quayso2PageObject extends AbstractPage {
 
     }
 
-    public void selectMoneyToBet(Integer value) {
-
-        String tmp = String.format(Quayso2PageUI.dynamicBetMoney, value);
-        waitForElementPresentByLocator(driver, By.xpath(tmp));
-        clickToElementByJSByLocator(driver, By.xpath(tmp));
-
-    }
-
     public void clickBetButton() {
 
         waitForElementPresentByLocator(driver, Quayso2PageUI.betQuayso2ButtonLocator);
