@@ -23,7 +23,6 @@ public class Bet_07_TSport extends BaseTest {
 	public void preConditions(String browserName) {
 
 		driver = openMultiBrowser(browserName, Constants.HOME_URL);
-
 		tSportPage = PageFactoryManager.getTSportPage(driver);
 
 	}
@@ -48,7 +47,7 @@ public class Bet_07_TSport extends BaseTest {
 		//betTSportManyTimes();
 
 		log.info("TSport - Step05: Verify min bet and max bet\n");
-//		verifyTSport();
+		//verifyTSport();
 
 		log.info("TSport - Step06: Exit iframe\n");
 		tSportPage.quitTSportIframe();
@@ -78,31 +77,11 @@ public class Bet_07_TSport extends BaseTest {
 				e.printStackTrace();
 			}
 
-//			log.info("Click to open bet panel\n");
-//			tSportPage.openBetPanel(listBet.get(betSelect));
-
-//			String betOrderDetails = tSportPage.getBetDetails();
-//			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
-//			try {
-//				Thread.sleep(3 * 1000);
-//			} catch (Throwable e) {
-//				e.printStackTrace();
-//			}
-
 			log.info("Confirm betting\n");
 			tSportPage.confirmBet(listBet.get(betSelect), BET_MONEY);
 
 			log.info("Verify betting successful\n");
 			if (tSportPage.isTicketDisplayed()) {
-//				log.info("Mo bang cuoc dang dien ra\n");
-//				tSportPage.openBetBoard();
-//
-//				String ticketDetails = tSportPage.getTicketDetails();
-//				log.info("Noi dung ve cuoc la\n" + ticketDetails + "\n");
-//
-//				log.info("Verify ticket is correct\n");
-//				verifyEquals(betOrderDetails, ticketDetails);
-
 				String afterBalance = tSportPage.getBalance();
 				log.info("After balance is " + afterBalance + "\n");
 
@@ -142,26 +121,11 @@ public class Bet_07_TSport extends BaseTest {
 				e.printStackTrace();
 			}
 
-//			log.info("Click to open bet panel\n");
-//			tSportPage.openBetPanel(listBet.get(betSelect));
-//
-//			String betOrderDetails = tSportPage.getBetDetails();
-//			log.info("Noi dung dat cuoc la\n" +betOrderDetails + "\n");
-
 			log.info("Confirm betting\n");
 			tSportPage.confirmBet(listBet.get(betSelect), BET_MONEY);
 
 			log.info("Verify betting successfully\n");
 			if (tSportPage.isTicketDisplayed()) {
-//				log.info("Mo bang cuoc dang dien ra\n");
-//				tSportPage.openBetBoard();
-//
-//				String ticketDetails = tSportPage.getTicketDetails();
-//				log.info("Noi dung ve cuoc la\n" + ticketDetails + "\n");
-//
-//				log.info("Verify ticket is correct\n");
-//				verifyEquals(betOrderDetails, ticketDetails);
-
 				String afterBalance = tSportPage.getBalance();
 				log.info("After balance is " + afterBalance + "\n");
 

@@ -11,7 +11,5 @@ public class RegisterPageUI {
     public static By phoneRegisLocator = By.xpath("//div[@class='col-xs-6']//input[@name='phone']");
     public static By phoneRegisError = By.xpath("//form[@id='frmRegister']//div[@id='phone-error']");
     public static By submitButtonLocator = By.xpath("//div[@class='col-xs-6']//button[@type='submit']");
-    public static String dynamicRegister = "//div[@class='col-xs-6']//input[@name='%s']";
-    public static String dynamicRegisError = "//form[@id='frmRegister']//div[@id='%s']";
 
 }

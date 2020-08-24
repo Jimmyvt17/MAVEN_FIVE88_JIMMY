@@ -22,12 +22,6 @@ public class HomePageObject extends AbstractPage {
 
     }
 
-    public void refreshHomePage() {
-
-        refreshCurrentPage(driver);
-
-    }
-
     public void closeWarningDialog() {
         clickToElementByJSByLocator(driver, HomePageUI.closeDialogButtonLocator);
 
