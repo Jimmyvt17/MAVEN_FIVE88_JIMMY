@@ -47,8 +47,8 @@ public class Constants {
     // Excel
     public static final String iOSFilePath = "/Users/jimmyvuong/Downloads";
     public static final String windowsFilePath = "C:\\Users\\Administrator\\Documents";
-    public static final String loadingTimeFile = "LoadingTimeOfIframeInFive88.xlsx";
-    public static final String userDataFile = "RegisteredUserFive88.xlsx";
+    public static final String loadingTimeFile = "LoadingTimeOfIframeInFm88.xlsx";
+    public static final String userDataFile = "RegisteredUserFm88.xlsx";
 
     // Others
     public static final String iframeContentError = "There is nothing in iframe. Please try again manually";
