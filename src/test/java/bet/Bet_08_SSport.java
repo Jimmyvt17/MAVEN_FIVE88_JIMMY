@@ -97,7 +97,7 @@ public class Bet_08_SSport extends BaseTest {
 						break;
 					}
 				} else {
-					log.info("Order is not created successfully\n");
+					log.info(Constants.betUnsuccessful);
 				}
 			} else {
 				throw new RuntimeException(Constants.betUnsuccessful);

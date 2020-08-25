@@ -66,7 +66,7 @@ public class TSportPageObject extends AbstractPage {
 
     public void confirmBet(WebElement element, String value) {
 
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 1; i <= 5; i++) {
             System.out.println("Click to open bet panel\n");
             openBetPanel(element);
             try {
@@ -83,10 +83,10 @@ public class TSportPageObject extends AbstractPage {
                 highlightElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
                 break;
             } else {
-                if (i==10) {
+                if (i==5) {
                     throw new RuntimeException("There is error when get odd. Please try again manually");
                 } else {
-                    System.out.println("Not success, please try again\n");
+                    System.out.println(Constants.betUnsuccessful);
                 }
             }
         }
@@ -100,10 +100,10 @@ public class TSportPageObject extends AbstractPage {
         overrideTimeout(driver, Constants.MID_TIMEOUT);
         List<WebElement> noBetTicket = driver.findElements(TSportPageUI.ticketDetailTSportLocator);
         if (noBetTicket.size() > 0) {
-            System.out.println("Tao phieu cuoc thanh cong\n");
+            System.out.println("True\n");
             return true;
         } else {
-            System.out.println("Tao phieu cuoc loi. Thu lai\n");
+            System.out.println("False. Please try again\n");
             return false;
         }
 
@@ -154,6 +154,15 @@ public class TSportPageObject extends AbstractPage {
     public void openTSportPage(String... values) {
 
         openSportPage(driver, values);
+
+    }
+
+    public void verifyBalanceUpdated(String value1, String value2) {
+        try {
+            Assert.assertNotEquals(value1, value2);
+        } catch (Throwable e) {
+            throw new RuntimeException(Constants.betUnsuccessful);
+        }
 
     }
 
