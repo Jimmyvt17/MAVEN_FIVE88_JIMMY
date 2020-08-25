@@ -117,7 +117,7 @@ public class Bet_03_ASport extends BaseTest {
 				log.info("After balance is " + afterBalance + "\n");
 
 				log.info("Verify balance is updated correct\n");
-				verifyFalse(beforeBalance.equals(afterBalance));
+				aSportPage.verifyBalanceUpdated(beforeBalance, afterBalance);
 
 				i = false;
 
@@ -128,7 +128,7 @@ public class Bet_03_ASport extends BaseTest {
 				i = true;
 				log.info("Then we have " + i + "\n");
 
-				log.info("Betting unsuccessfully, please try again\n==========\n");
+				log.info(Constants.betUnsuccessful);
 
 			}
 

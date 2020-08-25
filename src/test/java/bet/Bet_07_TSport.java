@@ -58,87 +58,80 @@ public class Bet_07_TSport extends BaseTest {
 	}
 
 	protected void betTSport() {
-		boolean i = true;
+		for (int i = 0; i <= 5; i++) {
+			if (i < 5) {
+				String beforeBalance = tSportPage.getBalance();
+				log.info("Before balance is " + beforeBalance + "\n");
 
-		while (i) {
-			log.info("Now we have " + i + "\n");
+				List<WebElement> listBet = tSportPage.getBets();
+				log.info("The number of odd is " + listBet.size() + "\n");
 
-			String beforeBalance = tSportPage.getBalance();
-			log.info("Before balance is " + beforeBalance + "\n");
+				int betSelect = randomNumber(listBet.size());
+				log.info("Select odd at order " + betSelect + "\n");
+				try {
+					Thread.sleep(1000);
+				} catch (Throwable e) {
+					e.printStackTrace();
+				}
 
-			List<WebElement> listBet = tSportPage.getBets();
-			log.info("The number of odd is " + listBet.size() + "\n");
+				log.info("Confirm betting\n");
+				tSportPage.confirmBet(listBet.get(betSelect), BET_MONEY);
 
-			int betSelect = randomNumber(listBet.size());
-			log.info("Select odd at order " + betSelect + "\n");
-			try {
-				Thread.sleep(1000);
-			} catch (Throwable e) {
-				e.printStackTrace();
-			}
+				log.info("Verify betting successful");
+				if (tSportPage.isTicketDisplayed()) {
+					String afterBalance = tSportPage.getBalance();
+					log.info("After balance is " + afterBalance + "\n");
 
-			log.info("Confirm betting\n");
-			tSportPage.confirmBet(listBet.get(betSelect), BET_MONEY);
-
-			log.info("Verify betting successful\n");
-			if (tSportPage.isTicketDisplayed()) {
-				String afterBalance = tSportPage.getBalance();
-				log.info("After balance is " + afterBalance + "\n");
-
-				log.info("Verify balance is updated correct\n");
-				verifyFalse(beforeBalance.equals(afterBalance));
-
-				i = false;
-
-				log.info("Then we have " + i + "\n");
+					log.info("Verify balance is updated correct\n");
+					tSportPage.verifyBalanceUpdated(beforeBalance, afterBalance);
+					break;
+				} else {
+					log.info(Constants.betUnsuccessful);
+				}
 			} else {
-				i = true;
-				log.info("Then we have " + i + "\n");
-
-				log.info("Betting unsuccessful, please try again\n==========\n");
+				throw new RuntimeException(Constants.betUnsuccessful);
 			}
-
 		}
+
 	}
 
 	protected void betTSportManyTimes() {
-		boolean i = true;
+		for (int i = 0; i <= 5; i++) {
+			if (i < 5) {
+				log.info("Now we have " + i + "\n");
 
-		while (i) {
-			log.info("Now we have " + i + "\n");
+				String beforeBalance = tSportPage.getBalance();
+				log.info("Before balance is " + beforeBalance + "\n");
 
-			String beforeBalance = tSportPage.getBalance();
-			log.info("Before balance is " + beforeBalance + "\n");
+				List<WebElement> listBet = tSportPage.getBets();
+				log.info("The number of odd is " + listBet.size() + "\n");
 
-			List<WebElement> listBet = tSportPage.getBets();
-			log.info("The number of odd is " + listBet.size() + "\n");
+				int betSelect = randomNumber(100);
+				log.info("Select odd at order " + betSelect + "\n");
+				try {
+					Thread.sleep(1000);
+				} catch (Throwable e) {
+					e.printStackTrace();
+				}
 
-			int betSelect = randomNumber(100);
-			log.info("Select odd at order " + betSelect + "\n");
-			try {
-				Thread.sleep(1000);
-			} catch (Throwable e) {
-				e.printStackTrace();
-			}
+				log.info("Confirm betting\n");
+				tSportPage.confirmBet(listBet.get(betSelect), BET_MONEY);
 
-			log.info("Confirm betting\n");
-			tSportPage.confirmBet(listBet.get(betSelect), BET_MONEY);
+				log.info("Verify betting successfully\n");
+				if (tSportPage.isTicketDisplayed()) {
+					String afterBalance = tSportPage.getBalance();
+					log.info("After balance is " + afterBalance + "\n");
 
-			log.info("Verify betting successfully\n");
-			if (tSportPage.isTicketDisplayed()) {
-				String afterBalance = tSportPage.getBalance();
-				log.info("After balance is " + afterBalance + "\n");
-
-				log.info("Verify balance is updated correct\n");
-				verifyFalse(beforeBalance.equals(afterBalance));
-
-				i = true;
+					log.info("Verify balance is updated correct\n");
+					tSportPage.verifyBalanceUpdated(beforeBalance, afterBalance);
+				} else {
+					log.info(Constants.betUnsuccessful);
+				}
 			} else {
-				i = true;
-				log.info("Betting unsuccessful, please try again\n==========\n");
+				throw new RuntimeException(Constants.betUnsuccessful);
 			}
-
 		}
+
 	}
 
 
