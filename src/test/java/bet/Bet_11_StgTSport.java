@@ -13,7 +13,7 @@ import pageObjects.TSportPageObject;
 
 import java.util.List;
 
-public class Bet_10_StgTsport extends BaseTest {
+public class Bet_11_StgTSport extends BaseTest {
 	WebDriver driver;
 	TSportPageObject tSportPage;
 
