@@ -30,6 +30,7 @@ public class Constants {
     public static final String USERNAME_NUMBER = "jimmynumber";
     public static final String USERNAME_KENO = "jimmykeno";
     public static final String USERNAME_LOGIN = "jimmylogin";
+    public static final String USERNAME_STG = "jimmythethao";
     public static final String PASSWORD = "testjimmy";
     public static final String PHONE = "1234567890";
 

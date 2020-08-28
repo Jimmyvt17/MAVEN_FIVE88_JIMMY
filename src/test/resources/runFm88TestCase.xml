@@ -13,7 +13,7 @@
   <test name="Run on Chrome">
     <parameter name="browser" value="chrome" />
     <classes>
-<!--        <class name="bet.Bet_03_ASport"/>-->
+        <class name="bet.Bet_10_StgTsport"/>
 <!--        <class name="bet.Bet_08_SSport"/>-->
 <!--        <class name="bet.Bet_07_TSport"/>-->
 <!--        <class name="bet.Bet_01_Quayso"/>-->
@@ -21,10 +21,10 @@
 <!--        <class name="bet.Bet_05_NumberGame"/>-->
     </classes>
     <packages>
-      <package name="account"/>
-      <package name="alive"/>
-      <package name="bet"/>
-      <package name="payment"/>
+<!--      <package name="account"/>-->
+<!--      <package name="alive"/>-->
+<!--      <package name="bet"/>-->
+<!--      <package name="payment"/>-->
     </packages>
   </test> <!-- Test -->
 
