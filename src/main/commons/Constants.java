@@ -58,6 +58,7 @@ public class Constants {
     public static final String USERNAME_NUMBER = "setacasino";
     public static final String USERNAME_KENO = "setacasino";
     public static final String USERNAME_LOGIN = "setalogin";
+    public static final String USERNAME_STG = "setagamma";
     public static final String PASSWORD = "testjimmy";
     public static final String PHONE = "1234567890";
 
@@ -108,7 +109,7 @@ public class Constants {
     public static final String pageIsMaintained = "Page is maintained. Please try again later";
     public static final String banningSite = "This site is banned";
     public static final String WarningSite = "This site is warning by BCA";
-    public static final String loadingTimeTooLong = "Loading time is too long to bet. Please try again manually";
+    public static final String loadingTimeTooLong = "Loading time is too long. Please try again manually";
     public static final String betUnsuccessful = "Betting unsuccessfully. Please try again manually";
     public static final String elementIsOverlaying = "Element is locked temporary";
     public static final String prefix = "Failed test case:\n";

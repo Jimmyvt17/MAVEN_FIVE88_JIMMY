@@ -3,6 +3,7 @@ package pageObjects;
 import commons.AbstractPage;
 import commons.Constants;
 import five88.TSportPageUI;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -163,6 +164,24 @@ public class TSportPageObject extends AbstractPage {
         } catch (Throwable e) {
             throw new RuntimeException(Constants.betUnsuccessful);
         }
+
+    }
+
+    public void loginSportStgAccount() {
+
+        login(driver, Constants.USERNAME_STG, Constants.PASSWORD);
+        try {
+            Thread.sleep(5 * 1000);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void openStaggingUrl() {
+        String prodUrl = getAttributeValue(driver, By.xpath("//iframe[@class='frm-lottery']"), "src");
+        String stgUrl = prodUrl.replaceAll("sport", "sport-stg");
+        openAnyUrl(driver, stgUrl);
 
     }
 
