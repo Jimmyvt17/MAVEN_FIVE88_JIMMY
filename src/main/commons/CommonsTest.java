@@ -60,7 +60,7 @@ public class CommonsTest extends AbstractPage {
 
         TelegramBot bot = new TelegramBot.Builder(Constants.FIVE88BOT).okHttpClient(client).build();
 
-        if (text.contains("StgTsport")) {
+        if (text.contains("TSport")) {
             long chatId = Constants.SPORTBOOK_ROOM_ID;
             SendMessage request = new SendMessage(chatId, text);
             // sync
