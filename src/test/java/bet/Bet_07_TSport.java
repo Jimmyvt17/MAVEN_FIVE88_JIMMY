@@ -27,8 +27,6 @@ public class Bet_07_TSport extends BaseTest {
 
 	}
 
-	private final String BET_MONEY = "30";
-
 	@Override
 	public void Run() {
 		ExtentTestManager.startTest("TC_1_TSport", "TC_1_TSport");
@@ -44,15 +42,11 @@ public class Bet_07_TSport extends BaseTest {
 
 		log.info("TSport - Step04: Betting\n");
 		betTSport();
-		//betTSportManyTimes();
 
-		log.info("TSport - Step05: Verify min bet and max bet\n");
-		//verifyTSport();
-
-		log.info("TSport - Step06: Exit iframe\n");
+		log.info("TSport - Step05: Exit iframe\n");
 		tSportPage.quitTSportIframe();
 
-		log.info("TSport - Step07: Logout\n");
+		log.info("TSport - Step06: Logout\n");
 		tSportPage.logoutToHomePage();
 
 	}
@@ -75,7 +69,7 @@ public class Bet_07_TSport extends BaseTest {
 				}
 
 				log.info("Confirm betting\n");
-				tSportPage.confirmBet(listBet.get(betSelect), BET_MONEY);
+				tSportPage.confirmBet(listBet.get(betSelect), "30");
 
 				log.info("Verify betting successful");
 				String ticketWarning = tSportPage.ticketDisplayed();
@@ -88,7 +82,7 @@ public class Bet_07_TSport extends BaseTest {
 					break;
 				} else {
 					log.info(ticketWarning);
-					sendBot(getClass().getName() + ticketWarning);
+					sendBot(getClass().getName() + "\n" + ticketWarning);
 				}
 			} else {
 				throw new RuntimeException(Constants.betUnsuccessful);

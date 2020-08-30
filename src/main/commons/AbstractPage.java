@@ -599,10 +599,23 @@ public class AbstractPage {
     public void openSportPage(WebDriver driver, String... values) {
         openSubMenu(driver, "Thể thao");
         String tmp = String.format(AbstractPageUI.dynamicSportButton, values);
-        waitForElementVisibleByLocator(driver, By.xpath(tmp));
-        clickToElementByJSByLocator(driver, By.xpath(tmp));
+        try {
+            waitForElementVisibleByLocator(driver, By.xpath(tmp));
+            clickToElementByJSByLocator(driver, By.xpath(tmp));
+        } catch (Throwable e) {
+            throw new RuntimeException(Constants.loadingTimeTooLong);
+        }
         if (getCurrentPageUrl(driver).equals(Constants.MAINTENANCE_URL)) {
             throw new RuntimeException(Constants.pageIsMaintained);
+        }
+
+    }
+
+    public void verifyNotEqual(String value1, String value2) {
+        try {
+            Assert.assertNotEquals(value1, value2);
+        } catch (Throwable e) {
+            throw new RuntimeException(Constants.balanceNotUpdated);
         }
 
     }

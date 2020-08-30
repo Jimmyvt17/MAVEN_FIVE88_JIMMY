@@ -111,6 +111,7 @@ public class Constants {
     public static final String WarningSite = "This site is warning by BCA";
     public static final String loadingTimeTooLong = "Loading time is too long. Please try again manually";
     public static final String betUnsuccessful = "Betting unsuccessfully. Please try again manually";
+    public static final String balanceNotUpdated = "Balance is not updated correctly. Please try again manually";
     public static final String elementIsOverlaying = "Element is locked temporary";
     public static final String prefix = "Failed test case:\n";
     public static final String notEnoughBalance = "Not enough balance. Please make a deposit";

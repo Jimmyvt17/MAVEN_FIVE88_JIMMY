@@ -106,4 +106,10 @@ public class LodePageObject extends AbstractPage {
         openSubMenu(driver, "Lô đề  ");
 
     }
+
+    public void verifyBalanceUpdated(String value1, String value2) {
+        verifyNotEqual(value1, value2);
+
+    }
+
 }

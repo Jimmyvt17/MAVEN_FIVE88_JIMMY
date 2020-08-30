@@ -121,4 +121,9 @@ public class Quayso2PageObject extends AbstractPage {
 
     }
 
+    public void verifyBalanceUpdated(String value1, String value2) {
+        verifyNotEqual(value1, value2);
+
+    }
+
 }
