@@ -6,7 +6,6 @@ import five88.ASportPageUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 import java.util.List;
 
@@ -128,11 +127,7 @@ public class ASportPageObject extends AbstractPage {
     }
 
     public void verifyBalanceUpdated(String value1, String value2) {
-        try {
-            Assert.assertNotEquals(value1, value2);
-        } catch (Throwable e) {
-            throw new RuntimeException(Constants.betUnsuccessful);
-        }
+        verifyNotEqual(value1, value2);
 
     }
 

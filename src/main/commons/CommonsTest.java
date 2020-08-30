@@ -45,16 +45,6 @@ public class CommonsTest extends AbstractPage {
 
     }
 
-    public void verifyBalanceUpdated(String value1, String value2) {
-        try {
-            Assert.assertNotEquals(value1, value2);
-        }
-        catch (Throwable e) {
-            throw new RuntimeException(Constants.betUnsuccessful);
-        }
-
-    }
-
     public void sendBot(String text) {
         OkHttpClient client = new OkHttpClient();
 
