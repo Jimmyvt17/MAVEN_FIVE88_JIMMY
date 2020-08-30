@@ -13,7 +13,6 @@
     <classes>
         <class name="bet.Bet_11_StgTSport"/>
     </classes>
-
   </test> <!-- Test -->
 
 </suite> <!-- Suite -->

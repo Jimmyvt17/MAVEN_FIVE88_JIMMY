@@ -65,7 +65,8 @@ public class Bet_11_StgTSport extends BaseTest {
 				tSportPage.confirmBet(listBet.get(betSelect), "30");
 
 				log.info("Verify betting successful");
-				if (tSportPage.isTicketDisplayed()) {
+				String ticketWarning = tSportPage.ticketDisplayed();
+				if (ticketWarning.contains("Bet successfully")) {
 					String afterBalance = tSportPage.getBalance();
 					log.info("After balance is " + afterBalance + "\n");
 
@@ -73,7 +74,8 @@ public class Bet_11_StgTSport extends BaseTest {
 					tSportPage.verifyBalanceUpdated(beforeBalance, afterBalance);
 					break;
 				} else {
-					log.info(Constants.betUnsuccessful);
+					log.info(ticketWarning);
+					sendBot(ticketWarning);
 				}
 			} else {
 				throw new RuntimeException(Constants.betUnsuccessful);
