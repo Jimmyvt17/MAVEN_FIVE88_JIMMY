@@ -75,7 +75,7 @@ public class Bet_11_StgTSport extends BaseTest {
 					break;
 				} else {
 					log.info(ticketWarning);
-					sendBot(getClass().getName() + ticketWarning);
+					sendBot(getClass().getName() + "\n" + ticketWarning);
 				}
 			} else {
 				throw new RuntimeException(Constants.betUnsuccessful);
