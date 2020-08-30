@@ -105,7 +105,7 @@ public class Bet_05_NumberGame extends BaseTest {
 				log.info("After balance = " + afterBalance + "\n");
 
 				log.info("Verify balance is updated correctly\n");
-				verifyBalanceUpdated(beforeBalance, afterBalance);;
+				numberPage.verifyBalanceUpdated(beforeBalance, afterBalance);;
 
 				i = false;
 				log.info("Then i = " + i + "\n");

@@ -84,9 +84,7 @@ public class Bet_02_Lode extends BaseTest {
 
 		String afterBet = lodePage.getBalance;
 		log.info("After balance is " + afterBet + "\n");
-		verifyBalanceUpdated(beforeBet, afterBet);
-
-		log.info("======================\n");
+		lodePage.verifyBalanceUpdated(beforeBet, afterBet);
 
 	}
 

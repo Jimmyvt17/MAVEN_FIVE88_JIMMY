@@ -161,17 +161,12 @@ public class TSportPageObject extends AbstractPage {
     }
 
     public void openTSportPage(String... values) {
-
         openSportPage(driver, values);
 
     }
 
     public void verifyBalanceUpdated(String value1, String value2) {
-        try {
-            Assert.assertNotEquals(value1, value2);
-        } catch (Throwable e) {
-            throw new RuntimeException(Constants.betUnsuccessful);
-        }
+        verifyNotEqual(value1, value2);
 
     }
 
