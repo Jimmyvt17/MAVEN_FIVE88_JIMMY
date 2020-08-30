@@ -37,7 +37,7 @@ public class Bet_11_StgTSport extends BaseTest {
         tSportPage.openTSportPage("item-sb tsport", "icon-vi-s");
 
         log.info("STG_TSPORT - Step03: Open stg tsport page\n");
-        tSportPage.openStaggingUrl();
+        tSportPage.openStgUrl();
 
 		log.info("STG_TSPORT - Step04: Betting\n");
 		betTSport();
@@ -50,8 +50,12 @@ public class Bet_11_StgTSport extends BaseTest {
 				String beforeBalance = tSportPage.getBalance();
 				log.info("Before balance is " + beforeBalance + "\n");
 
-				List<WebElement> listBet = tSportPage.getBets();
-				log.info("The number of odd is " + listBet.size() + "\n");
+				List<WebElement> listBet = tSportPage.getLiveBets();
+				if (listBet.size() == 0) {
+					throw new RuntimeException("There is no live odd");
+				} else {
+					log.info("The number of live odd is " + listBet.size() + "\n");
+				}
 
 				int betSelect = randomNumber(listBet.size());
 				log.info("Select odd at order " + betSelect + "\n");
@@ -78,6 +82,7 @@ public class Bet_11_StgTSport extends BaseTest {
 			} else {
 				throw new RuntimeException(Constants.betUnsuccessful);
 			}
+
 		}
 
 	}

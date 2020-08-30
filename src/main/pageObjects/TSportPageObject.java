@@ -178,11 +178,15 @@ public class TSportPageObject extends AbstractPage {
 
     }
 
-    public void openStaggingUrl() {
+    public void openStgUrl() {
         String prodUrl = getAttributeValue(driver, By.xpath("//iframe[@class='frm-lottery']"), "src");
         String stgUrl = prodUrl.replaceAll("sport", "sport-stg");
         openAnyUrl(driver, stgUrl);
 
     }
 
+    public List<WebElement> getLiveBets() {
+        return getListElements(driver, TSportPageUI.betLiveTSportLocator);
+
+    }
 }
