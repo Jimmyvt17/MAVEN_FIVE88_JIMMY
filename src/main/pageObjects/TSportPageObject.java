@@ -99,9 +99,13 @@ public class TSportPageObject extends AbstractPage {
     public boolean isTicketDisplayed() {
 
         overrideTimeout(driver, Constants.MID_TIMEOUT);
-        List<WebElement> noBetTicket = driver.findElements(TSportPageUI.ticketDetailTSportLocator);
+        List<WebElement> noBetTicket = getListElements(driver, TSportPageUI.ticketDetailTSportLocator);
+        List<WebElement> noSuccess = getListElements(driver, TSportPageUI.betSuccessfulTSportLocator);
         if (noBetTicket.size() > 0) {
-            System.out.println("True\n");
+            System.out.println("Ticket True\n");
+            return true;
+        } else if (noSuccess.size() > 0) {
+            System.out.println("Success True\n");
             return true;
         } else {
             System.out.println("False. Please try again\n");
