@@ -37,7 +37,7 @@ public class Bet_11_StgTSport extends BaseTest {
         tSportPage.openTSportPage("item-sb tsport", "icon-vi-s");
 
         log.info("STG_TSPORT - Step03: Open stg tsport page\n");
-        tSportPage.openStaggingUrl();
+        tSportPage.openStgUrl();
 
 		log.info("STG_TSPORT - Step04: Betting\n");
 		betTSport();
