@@ -104,16 +104,16 @@ public class TSportPageObject extends AbstractPage {
         List<WebElement> noOddPaused = getListElements(driver, TSportPageUI.oddPausedTSportLocator);
         if (noBetTicket.size() > 0) {
             System.out.println("Ticket true\n");
-            return "TSport_Bet successfully";
+            return "Bet successfully";
         } else if (noSuccess.size() > 0) {
             System.out.println("Success true\n");
-            return "TSport_Bet successfully";
+            return "Bet successfully";
         } else if (noOddPaused.size() > 0) {
             System.out.println("Odd is paused\n");
-            return "TSport_Odd is paused";
+            return "Odd is paused";
         } else {
             System.out.println("False. Please try again\n");
-            return "TSport_False. Please try again";
+            return "False. Please try again";
         }
 
     }
