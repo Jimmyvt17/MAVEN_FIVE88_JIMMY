@@ -6,6 +6,7 @@ public class TSportPageUI {
 
     public static By tSportBalanceLocator = By.xpath("//div[text()='Số tiền khả dụng']/following-sibling::div");
     public static By betTSportLocator = By.xpath("//div[@class='odd-item ']//div");
+    public static By betLiveTSportLocator = By.xpath("//div[@id='stg-live']//div[@class='odd-item ']//div");
     public static By minBetTSportLocator = By.xpath("//div[text()='Mức cược tối thiểu']");
     public static By inputBetMoneyLocator = By.xpath("//bet-slip-component[@data-radium='true']//input[@type='tel']");
     public static By betButtonLocator = By.xpath("//bet-slip-component[@data-radium='true']//div[text()='Đặt cược ngay']");
