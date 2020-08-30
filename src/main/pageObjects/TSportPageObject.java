@@ -99,9 +99,13 @@ public class TSportPageObject extends AbstractPage {
     public boolean isTicketDisplayed() {
 
         overrideTimeout(driver, Constants.MID_TIMEOUT);
-        List<WebElement> noBetTicket = driver.findElements(TSportPageUI.ticketDetailTSportLocator);
+        List<WebElement> noBetTicket = getListElements(driver, TSportPageUI.ticketDetailTSportLocator);
+        List<WebElement> noSuccess = getListElements(driver, TSportPageUI.betSuccessLocator);
         if (noBetTicket.size() > 0) {
-            System.out.println("True\n");
+            System.out.println("Ticket true\n");
+            return true;
+        } else if (noSuccess.size() > 0) {
+            System.out.println("Success true\n");
             return true;
         } else {
             System.out.println("False. Please try again\n");
@@ -182,6 +186,11 @@ public class TSportPageObject extends AbstractPage {
         String prodUrl = getAttributeValue(driver, By.xpath("//iframe[@class='frm-lottery']"), "src");
         String stgUrl = prodUrl.replaceAll("sport", "sport-stg");
         openAnyUrl(driver, stgUrl);
+
+    }
+
+    public List<WebElement> getLiveBets() {
+        return getListElements(driver, TSportPageUI.betLiveTSportLocator);
 
     }
 

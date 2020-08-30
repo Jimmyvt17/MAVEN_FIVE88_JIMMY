@@ -50,7 +50,7 @@ public class Bet_11_StgTSport extends BaseTest {
 				String beforeBalance = tSportPage.getBalance();
 				log.info("Before balance is " + beforeBalance + "\n");
 
-				List<WebElement> listBet = tSportPage.getBets();
+				List<WebElement> listBet = tSportPage.getLiveBets();
 				log.info("The number of odd is " + listBet.size() + "\n");
 
 				int betSelect = randomNumber(listBet.size());
