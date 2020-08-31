@@ -2,11 +2,13 @@ package pageObjects;
 
 import commons.AbstractPage;
 import commons.Constants;
+import five88.AbstractPageUI;
 import five88.NumberPageUI;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -23,9 +25,10 @@ public class NumberPageObject extends AbstractPage {
 
         login(driver, Constants.USERNAME_NUMBER, Constants.PASSWORD);
         try {
-            Thread.sleep(1000*5);
+            Thread.sleep(5 * 1000);
+            Assert.assertTrue(isControlDisplayed(driver, AbstractPageUI.loggedInFormLocator));
         } catch (Throwable e) {
-            e.printStackTrace();
+            throw new RuntimeException("Login not successful");
         }
 
     }

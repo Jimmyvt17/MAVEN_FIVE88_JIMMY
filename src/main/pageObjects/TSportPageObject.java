@@ -2,6 +2,7 @@ package pageObjects;
 
 import commons.AbstractPage;
 import commons.Constants;
+import five88.AbstractPageUI;
 import five88.TSportPageUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -180,8 +181,9 @@ public class TSportPageObject extends AbstractPage {
         login(driver, Constants.USERNAME_THETHAO, Constants.PASSWORD);
         try {
             Thread.sleep(5 * 1000);
+            Assert.assertTrue(isControlDisplayed(driver, AbstractPageUI.loggedInFormLocator));
         } catch (Throwable e) {
-            e.printStackTrace();
+            throw new RuntimeException("Login not successful");
         }
 
     }
@@ -220,8 +222,9 @@ public class TSportPageObject extends AbstractPage {
         login(driver, Constants.USERNAME_STG, Constants.PASSWORD);
         try {
             Thread.sleep(5 * 1000);
+            Assert.assertTrue(isControlDisplayed(driver, AbstractPageUI.loggedInFormLocator));
         } catch (Throwable e) {
-            e.printStackTrace();
+            throw new RuntimeException("Login not successful");
         }
 
     }
