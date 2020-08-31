@@ -1,9 +1,9 @@
 package alive;
 
-import commons.utility.BaseTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
+import commons.utility.BaseTest;
 import five88.CasinoPageUI;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +14,7 @@ import pageObjects.CasinoPageObject;
 
 import java.util.List;
 
-public class Alive_05_Ezugi extends BaseTest {
+public class Alive_06_Evo extends BaseTest {
 
 	WebDriver driver;
 	CasinoPageObject casinoPage;
@@ -31,35 +31,35 @@ public class Alive_05_Ezugi extends BaseTest {
 
 	@Override
 	public void Run() {
-		ExtentTestManager.startTest("TC_1_Ezugi", "TC_1_Ezugi");
+		ExtentTestManager.startTest("TC_1_Evo", "TC_1_Evo");
 
-		log.info("Ezugi - Step 01: Login valid account\n");
+		log.info("Evo - Step 01: Login valid account\n");
     	casinoPage.loginCasinoAccount();
 
 		String mainID = casinoPage.getPageID();
 
-		log.info("Ezugi - Step 02: Switch to Casino page\n");
+		log.info("Evo - Step 02: Switch to Casino page\n");
 		casinoPage.openCasinoPage();
 
-		log.info("Ezugi - Step 03: Select Ezugi casino\n");
-		casinoPage.selectCasinoProvider("ezugi");
+		log.info("Evo - Step 03: Select Ezugi casino\n");
+		casinoPage.selectCasinoProvider("evo");
 
 		List<WebElement> noBanner = casinoPage.getGameBanners();
 		log.info("There are " + noBanner.size() + " game banners\n");
 
-		log.info("Ezugi - Step 04: Enter Ezugi lobby\n");
+		log.info("Evo - Step 04: Enter Evo lobby\n");
 		casinoPage.openCasinoTab(noBanner.get(0));
 
-		log.info("Switch to Ezugi tab\n");
+		log.info("Switch to Evo tab\n");
 		casinoPage.switchToCasinoTab(mainID);
 
-		log.info("Ezugi - Step 05: Wait for Ezugi lobby\n");
-		casinoPage.waitForCasinoGame(CasinoPageUI.ezugiLoadingLocator, CasinoPageUI.ezugiGamesLocator);
+		log.info("Evo - Step 05: Wait for Evo lobby\n");
+		casinoPage.waitForCasinoGame(CasinoPageUI.evoLoadingLocator, CasinoPageUI.evoGamesLocator);
 
-		log.info("Ezugi - Step 06: Return to main page\n");
+		log.info("Evo - Step 06: Return to main page\n");
 		casinoPage.returnToMainTab(mainID);
 
-		log.info("Ezugi - Step 07: Logout\n");
+		log.info("Evo - Step 07: Logout\n");
 		casinoPage.logoutToHomePage();
 
 	}
