@@ -46,7 +46,7 @@ public class SSportPageObject extends AbstractPage {
 
     public boolean isTicketCreated() {
         overrideTimeout(driver, Constants.SHORT_TIMEOUT);
-        List<WebElement> noBetSelect = driver.findElements(SSportPageUI.oddSelectedLocator);
+        List<WebElement> noBetSelect = getListElements(driver, SSportPageUI.oddSelectedLocator);
         return noBetSelect.size() > 0;
 
     }

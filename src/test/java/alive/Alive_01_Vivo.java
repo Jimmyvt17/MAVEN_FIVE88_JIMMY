@@ -67,10 +67,10 @@ public class Alive_01_Vivo extends BaseTest {
 		log.info("Vivo - Step 08: Verify Hold'em games alive\n");
 		verifyVivoGameAlive("menu-nav-holdem", "col-4 table-view casinoholdem");
 
-		log.info("Return to main page\n");
+		log.info("Vivo - Step 09: Return to main page\n");
 		casinoPage.returnToMainTab(mainID);
 
-		log.info("Vivo - Step 09: Logout\n");
+		log.info("Vivo - Step 10: Logout\n");
 		casinoPage.logoutToHomePage();
 
 	}

@@ -35,7 +35,7 @@ public class TSportPageObject extends AbstractPage {
 //    public void openBetPanel(WebElement element) {
 //        for (int i = 1; i <= 5; i++) {
 //            clickToElementByJS(driver, element);
-//            List<WebElement> noBetPanel = driver.findElements(TSportPageUI.betPanelLocator);
+//            List<WebElement> noBetPanel = getListElements(driver, TSportPageUI.betPanelLocator);
 //            if (noBetPanel.size() > 0) {
 //                highlightElementByLocator(driver, TSportPageUI.betPanelLocator);
 //                break;
@@ -91,7 +91,7 @@ public class TSportPageObject extends AbstractPage {
 //            inputBetMoney(value);
 //            System.out.println("Click bet button\n");
 //            clickToBetButton();
-//            List<WebElement> noConfirmButton = driver.findElements(TSportPageUI.betConfirmTSportLocator);
+//            List<WebElement> noConfirmButton = getListElements(driver, TSportPageUI.betConfirmTSportLocator);
 //            if (noConfirmButton.size() > 0) {
 //                highlightElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
 //                break;
@@ -116,7 +116,7 @@ public class TSportPageObject extends AbstractPage {
                 System.out.println("Click bet button");
                 clickToBetButton();
 
-                List<WebElement> noConfirmButton = driver.findElements(TSportPageUI.betConfirmTSportLocator);
+                List<WebElement> noConfirmButton = getListElements(driver, TSportPageUI.betConfirmTSportLocator);
                 if (noConfirmButton.size() > 0) {
                     highlightElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
                     break;

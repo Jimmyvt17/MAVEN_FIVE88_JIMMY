@@ -56,10 +56,10 @@ public class Alive_04_eBet extends BaseTest {
 		log.info("eBet - Step 05: Wait for eBet lobby\n");
 		casinoPage.waitForCasinoGame(CasinoPageUI.eBetLoadingPageLocator, CasinoPageUI.eBetLobbyLocator);
 
-		log.info("Return to main page\n");
+		log.info("eBet - Step 06: Return to main page\n");
 		casinoPage.returnToMainTab(mainID);
 
-		log.info("eBet - Step 06: Logout\n");
+		log.info("eBet - Step 07: Logout\n");
 		casinoPage.logoutToHomePage();
 
 	}
