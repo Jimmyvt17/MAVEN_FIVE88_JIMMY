@@ -60,37 +60,41 @@ public class Bet_07_TSport extends BaseTest {
 				List<WebElement> listBet = tSportPage.getBets();
 				log.info("The number of odd is " + listBet.size() + "\n");
 
-				for (int x = 0; x <= 5; x++) {
-					if (x < 5) {
-						int betSelect = randomNumber(listBet.size());
-						log.info("Select odd at order " + betSelect);
-
-						String betStatus = tSportPage.isOddCanBet(listBet.get(betSelect));
-						if (betStatus.equals("Odd can be bet")) {
-							break;
-						} else {
-							sendBot(getClass().getName() + "\n" + betStatus);
-						}
-					} else {
-						throw new RuntimeException(Constants.betUnsuccessful);
-					}
-				}
-
-				log.info("Confirm betting\n");
-				tSportPage.confirmBet("30");
-
-				log.info("Verify betting successful");
-				String ticketWarning = tSportPage.ticketDisplayed();
-				if (ticketWarning.contains("Bet successfully")) {
-					String afterBalance = tSportPage.getBalance();
-					log.info("After balance is " + afterBalance + "\n");
-
-					log.info("Verify balance is updated correct\n");
-					tSportPage.verifyBalanceUpdated(beforeBalance, afterBalance);
+				if (listBet.size() == 0) {
 					break;
 				} else {
-					log.info(ticketWarning);
-					sendBot(getClass().getName() + "\n" + ticketWarning);
+					for (int x = 0; x <= 5; x++) {
+						if (x < 5) {
+							int betSelect = randomNumber(listBet.size());
+							log.info("Select odd at order " + betSelect);
+
+							String betStatus = tSportPage.isOddCanBet(listBet.get(betSelect));
+							if (betStatus.equals("Odd can be bet")) {
+								break;
+							} else {
+								sendBot(getClass().getName() + "\n" + betStatus);
+							}
+						} else {
+							throw new RuntimeException(Constants.betUnsuccessful);
+						}
+					}
+
+					log.info("Confirm betting\n");
+					tSportPage.confirmBet("30");
+
+					log.info("Verify betting successful");
+					String ticketWarning = tSportPage.ticketDisplayed();
+					if (ticketWarning.contains("Bet successfully")) {
+						String afterBalance = tSportPage.getBalance();
+						log.info("After balance is " + afterBalance + "\n");
+
+						log.info("Verify balance is updated correct\n");
+						tSportPage.verifyBalanceUpdated(beforeBalance, afterBalance);
+						break;
+					} else {
+						log.info(ticketWarning);
+						sendBot(getClass().getName() + "\n" + ticketWarning);
+					}
 				}
 			} else {
 				throw new RuntimeException(Constants.betUnsuccessful);
