@@ -154,7 +154,7 @@ public class AbstractPage {
     public void sendKeyToElement(WebDriver driver, String xPath, String value, String... values) {
 
         xPath = String.format(xPath, (Object[]) values);
-        element = driver.findElement(By.xpath(xPath));
+        element = getElement(driver, By.xpath(xPath));
         element.clear();
         element.sendKeys(value);
 
@@ -177,12 +177,12 @@ public class AbstractPage {
     }
 
     public void selectCustomDropdownList(WebDriver driver, By parentXpathLocator, By allItemXpathLocator, String valueExpected) throws Exception {
-        WebElement parent = driver.findElement(parentXpathLocator);
+        WebElement parent = getElement(driver, parentXpathLocator);
         js.executeScript("arguments[0].click();", parent);
 
         waitExplicit.until(ExpectedConditions.presenceOfAllElementsLocatedBy(allItemXpathLocator));
 
-        List<WebElement> allItems = driver.findElements(allItemXpathLocator);
+        List<WebElement> allItems = getListElements(driver, allItemXpathLocator);
 
         for (WebElement child : allItems) {
 
@@ -497,8 +497,8 @@ public class AbstractPage {
 
     public void dragAndDropElementToElement(WebDriver driver, By fromXpathLocator, By toXpathLocator) {
 
-        WebElement from = driver.findElement(fromXpathLocator);
-        WebElement to = driver.findElement(toXpathLocator);
+        WebElement from = getElement(driver, fromXpathLocator);
+        WebElement to = getElement(driver, toXpathLocator);
         action = new Actions(driver);
         action.dragAndDrop(from, to).perform();
 

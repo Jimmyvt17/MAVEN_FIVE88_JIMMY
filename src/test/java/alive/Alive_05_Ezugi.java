@@ -4,6 +4,7 @@ import commons.utility.BaseTest;
 import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
+import five88.CasinoPageUI;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
@@ -53,12 +54,12 @@ public class Alive_05_Ezugi extends BaseTest {
 		casinoPage.switchToCasinoTab(mainID);
 
 		log.info("Ezugi - Step 05: Wait for Ezugi lobby\n");
-		casinoPage.waitForEzugiGame();
+		casinoPage.waitForCasinoGame(CasinoPageUI.ezugiLoadingLocator, CasinoPageUI.ezugiGamesLocator);
 
-		log.info("Return to main page\n");
+		log.info("Ezugi - Step 06: Return to main page\n");
 		casinoPage.returnToMainTab(mainID);
 
-		log.info("Ezugi - Step 06: Logout\n");
+		log.info("Ezugi - Step 07: Logout\n");
 		casinoPage.logoutToHomePage();
 
 	}

@@ -18,8 +18,8 @@ public class CasinoPageUI {
     public static By eBetLoadingPageLocator = By.xpath("//div[@id='loadingUi']");
     public static By eBetLobbyLocator = By.xpath("//div[@id='gameMainDiv']//canvas");
 
-    public static By ezugiLoadingLocator = By.xpath("//div[@class='css-193esvl e1bi9tuq5']");
-    public static By ezugiHeaderLocator = By.xpath("//header[@class='css-ndyj6m ehpbs950']");
+    public static By ezugiLoadingLocator = By.xpath("//div[@class='preloader__preloader_top___2oRZV']");
+    public static By ezugiGamesLocator = By.xpath("//div[@class='category_page__wrapper___cimJA']");
 
     public static String dynamicCasinoProvider = "//div[@class='custom-options']//span[@data-filtergame='%s']";
     public static String dynamicVivoCategory = "//li[@id='%s']//span";

@@ -62,10 +62,10 @@ public class Alive_03_HoGaming extends BaseTest {
 		log.info("Hogaming - Step 07: Verify Roulette games alive\n");
 		verifyHoGaimgGameAlive("Cò quay");
 
-		log.info("Return to main page\n");
+		log.info("Hogaming - Step 08: Return to main page\n");
 		casinoPage.returnToMainTab(mainID);
 
-		log.info("Hogaming - Step 08: Logout\n");
+		log.info("Hogaming - Step 09: Logout\n");
 		casinoPage.logoutToHomePage();
 
 	}
