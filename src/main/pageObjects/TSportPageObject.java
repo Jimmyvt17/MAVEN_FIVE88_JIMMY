@@ -32,16 +32,29 @@ public class TSportPageObject extends AbstractPage {
 
     }
 
-    public void openBetPanel(WebElement element) {
-        for (int i = 1; i <= 5; i++) {
-            clickToElementByJS(driver, element);
-            List<WebElement> noBetPanel = driver.findElements(TSportPageUI.betPanelLocator);
-            if (noBetPanel.size() > 0) {
-                highlightElementByLocator(driver, TSportPageUI.betPanelLocator);
-                break;
-            } else if (i==5) {
-                throw new RuntimeException("Can not open bet panel");
-            }
+//    public void openBetPanel(WebElement element) {
+//        for (int i = 1; i <= 5; i++) {
+//            clickToElementByJS(driver, element);
+//            List<WebElement> noBetPanel = driver.findElements(TSportPageUI.betPanelLocator);
+//            if (noBetPanel.size() > 0) {
+//                highlightElementByLocator(driver, TSportPageUI.betPanelLocator);
+//                break;
+//            } else if (i==5) {
+//                throw new RuntimeException("Can not open bet panel");
+//            }
+//        }
+//
+//    }
+
+    public String isOddCanBet(WebElement element) {
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+        clickToElementByJS(driver, element);
+        List<WebElement> noOddPaused = getListElements(driver, TSportPageUI.oddPausedTSportLocator);
+        if (noOddPaused.size() > 0) {
+            System.out.println("Odd is paused\n");
+            return "Odd is paused";
+        } else {
+            return "Odd can be bet";
         }
 
     }
@@ -65,52 +78,84 @@ public class TSportPageObject extends AbstractPage {
 
     }
 
-    public void confirmBet(WebElement element, String value) {
+//    public void confirmBet(WebElement element, String value) {
+//        for (int i = 1; i <= 5; i++) {
+//            System.out.println("Click to open bet panel\n");
+//            openBetPanel(element);
+//            try {
+//                Thread.sleep(3 * 1000);
+//            } catch (Throwable e) {
+//                e.printStackTrace();
+//            }
+//            System.out.println("Input money to bet = " + value + "\n");
+//            inputBetMoney(value);
+//            System.out.println("Click bet button\n");
+//            clickToBetButton();
+//            List<WebElement> noConfirmButton = driver.findElements(TSportPageUI.betConfirmTSportLocator);
+//            if (noConfirmButton.size() > 0) {
+//                highlightElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
+//                break;
+//            } else {
+//                if (i==5) {
+//                    throw new RuntimeException("There is error when get odd. Please try again manually");
+//                } else {
+//                    System.out.println(Constants.betUnsuccessful);
+//                }
+//            }
+//        }
+//        System.out.println("Click to confirm\n");
+//        clickToElementByJSByLocator(driver, TSportPageUI.betConfirmTSportLocator);
+//
+//    }
 
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("Click to open bet panel\n");
-            openBetPanel(element);
-            try {
-                Thread.sleep(3 * 1000);
-            } catch (Throwable e) {
-                e.printStackTrace();
-            }
-            System.out.println("Input money to bet = " + value + "\n");
-            inputBetMoney(value);
-            System.out.println("Click bet button\n");
-            clickToBetButton();
-            List<WebElement> noConfirmButton = driver.findElements(TSportPageUI.betConfirmTSportLocator);
-            if (noConfirmButton.size() > 0) {
-                highlightElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
-                break;
-            } else {
-                if (i==5) {
-                    throw new RuntimeException("There is error when get odd. Please try again manually");
+    public void confirmBet(String value) {
+        try {
+            for (int i = 1; i <= 5; i++) {
+                System.out.println("Input money to bet = " + value + "");
+                inputBetMoney(value);
+                System.out.println("Click bet button");
+                clickToBetButton();
+
+                List<WebElement> noConfirmButton = driver.findElements(TSportPageUI.betConfirmTSportLocator);
+                if (noConfirmButton.size() > 0) {
+                    highlightElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
+                    break;
                 } else {
-                    System.out.println(Constants.betUnsuccessful);
+                    if (i==5) {
+                        throw new RuntimeException("There is error when get odd. Please try again manually");
+                    } else {
+                        System.out.println(Constants.betUnsuccessful);
+                    }
                 }
             }
-        }
-        System.out.println("Click to confirm\n");
-        clickToElementByJSByLocator(driver, TSportPageUI.betConfirmTSportLocator);
+            System.out.println("Click to confirm\n");
+            clickToElementByJSByLocator(driver, TSportPageUI.betConfirmTSportLocator);
+            } catch (Throwable e) {
+                String error;
+                if (!e.toString().contains("\n")) {
+                    error = e.toString();
+                } else {
+                    error = e.toString().substring(0, e.toString().indexOf("\n"));
+                }
+                if (error.contains("NoSuchElementException")) {
+                    throw new RuntimeException("Bet panel is closed");
+                } else {
+                    throw e;
+                }
+            }
 
     }
 
     public String ticketDisplayed() {
-
         overrideTimeout(driver, Constants.MID_TIMEOUT);
         List<WebElement> noBetTicket = getListElements(driver, TSportPageUI.ticketDetailTSportLocator);
         List<WebElement> noSuccess = getListElements(driver, TSportPageUI.betSuccessfulTSportLocator);
-        List<WebElement> noOddPaused = getListElements(driver, TSportPageUI.oddPausedTSportLocator);
         if (noBetTicket.size() > 0) {
             System.out.println("Ticket true\n");
             return "Bet successfully";
         } else if (noSuccess.size() > 0) {
             System.out.println("Success true\n");
             return "Bet successfully";
-        } else if (noOddPaused.size() > 0) {
-            System.out.println("Odd is paused\n");
-            return "Odd is paused";
         } else {
             System.out.println("False. Please try again\n");
             return "False. Please try again";
