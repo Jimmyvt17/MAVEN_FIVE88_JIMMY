@@ -60,16 +60,24 @@ public class Bet_07_TSport extends BaseTest {
 				List<WebElement> listBet = tSportPage.getBets();
 				log.info("The number of odd is " + listBet.size() + "\n");
 
-				int betSelect = randomNumber(listBet.size());
-				log.info("Select odd at order " + betSelect + "\n");
-				try {
-					Thread.sleep(1000);
-				} catch (Throwable e) {
-					e.printStackTrace();
+				for (int x = 0; x <= 5; x++) {
+					if (x < 5) {
+						int betSelect = randomNumber(listBet.size());
+						log.info("Select odd at order " + betSelect);
+
+						String betStatus = tSportPage.isOddCanBet(listBet.get(betSelect));
+						if (betStatus.equals("Odd can be bet")) {
+							break;
+						} else {
+							sendBot(getClass().getName() + "\n" + betStatus);
+						}
+					} else {
+						throw new RuntimeException(Constants.betUnsuccessful);
+					}
 				}
 
 				log.info("Confirm betting\n");
-				tSportPage.confirmBet(listBet.get(betSelect), "30");
+				tSportPage.confirmBet("30");
 
 				log.info("Verify betting successful");
 				String ticketWarning = tSportPage.ticketDisplayed();

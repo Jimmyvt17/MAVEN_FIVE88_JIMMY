@@ -1,8 +1,12 @@
 package commons;
 
+import com.pengrad.telegrambot.TelegramBot;
+import com.pengrad.telegrambot.request.SendMessage;
+import com.pengrad.telegrambot.response.SendResponse;
 import commons.excelConfigs.ReadExcelFile;
 import commons.excelConfigs.WriteExcelFile;
 import five88.AbstractPageUI;
+import okhttp3.OkHttpClient;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -837,6 +841,25 @@ public class AbstractPage {
         js = (JavascriptExecutor) driver;
         String textActual = (String) js.executeScript("return document.documentElement.innerText.match('" + textExpected + "')[0]");
         return textActual.equals(textExpected);
+
+    }
+
+    public void sendBot(String text) {
+        OkHttpClient client = new OkHttpClient();
+
+        TelegramBot bot = new TelegramBot.Builder(Constants.FIVE88BOT).okHttpClient(client).build();
+
+        if (text.contains("TSport")) {
+            long chatId = Constants.SPORTBOOK_ROOM_ID;
+            SendMessage request = new SendMessage(chatId, text);
+            // sync
+            SendResponse sendResponse = bot.execute(request);
+        } else {
+            long chatId = Constants.FIVE88_FAIL_ROOM_ID;
+            SendMessage request = new SendMessage(chatId, text);
+            // sync
+            SendResponse sendResponse = bot.execute(request);
+        }
 
     }
 
