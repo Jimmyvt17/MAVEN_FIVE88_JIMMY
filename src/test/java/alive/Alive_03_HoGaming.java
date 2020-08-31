@@ -50,7 +50,7 @@ public class Alive_03_HoGaming extends BaseTest {
 		log.info("Hogaming - Step 04: Enter Hogaming lobby\n");
 		casinoPage.openCasinoTab(noBanner.get(0));
 
-		log.info("Switch to Sexy casino tab\n");
+		log.info("Switch to Hogaming tab\n");
 		casinoPage.switchToCasinoTab(mainID);
 
 		log.info("Hogaming - Step 05: Wait for Hogaming lobby\n");
