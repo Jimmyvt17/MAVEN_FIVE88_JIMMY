@@ -78,11 +78,11 @@ public class CasinoPageObject extends AbstractPage {
     public void openCasinoTab(WebElement element) {
         waitForElementVisible(driver, element);
         clickToElementByJS(driver, element);
-        try {
-            Thread.sleep(3 * 1000);
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(3 * 1000);
+//        } catch (Throwable e) {
+//            e.printStackTrace();
+//        }
 
     }
 
@@ -223,7 +223,7 @@ public class CasinoPageObject extends AbstractPage {
                     e.printStackTrace();
                 }
             } else {
-                System.out.println("Loading complete\n");
+                System.out.println("Loading complete");
                 break;
             }
             Assert.assertTrue(i < 20);

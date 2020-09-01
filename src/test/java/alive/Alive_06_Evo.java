@@ -41,7 +41,7 @@ public class Alive_06_Evo extends BaseTest {
 		log.info("Evo - Step 02: Switch to Casino page\n");
 		casinoPage.openCasinoPage();
 
-		log.info("Evo - Step 03: Select Ezugi casino\n");
+		log.info("Evo - Step 03: Select Evo casino\n");
 		casinoPage.selectCasinoProvider("evo");
 
 		List<WebElement> noBanner = casinoPage.getGameBanners();
@@ -53,7 +53,7 @@ public class Alive_06_Evo extends BaseTest {
 		log.info("Switch to Evo tab\n");
 		casinoPage.switchToCasinoTab(mainID);
 
-		log.info("Evo - Step 05: Wait for Evo lobby\n");
+		log.info("Evo - Step 05: Wait for Evo lobby");
 		casinoPage.waitForCasinoGame(CasinoPageUI.evoLoadingLocator, CasinoPageUI.evoGamesLocator);
 
 		log.info("Evo - Step 06: Return to main page\n");
