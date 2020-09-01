@@ -53,7 +53,7 @@ public class Alive_03_HoGaming extends BaseTest {
 		log.info("Switch to Hogaming tab\n");
 		casinoPage.switchToCasinoTab(mainID);
 
-		log.info("Hogaming - Step 05: Wait for Hogaming lobby\n");
+		log.info("Hogaming - Step 05: Wait for Hogaming lobby");
 		casinoPage.waitForCasinoGame(CasinoPageUI.hoGamingLoadingLocator, CasinoPageUI.hoGamingLobbyMenuLocator);
 
 		log.info("Hogaming - Step 06: Verify Baccarat games alive\n");

@@ -53,7 +53,7 @@ public class Alive_04_eBet extends BaseTest {
 		log.info("Switch to eBet tab\n");
 		casinoPage.switchToCasinoTab(mainID);
 
-		log.info("eBet - Step 05: Wait for eBet lobby\n");
+		log.info("eBet - Step 05: Wait for eBet lobby");
 		casinoPage.waitForCasinoGame(CasinoPageUI.eBetLoadingPageLocator, CasinoPageUI.eBetLobbyLocator);
 
 		log.info("eBet - Step 06: Return to main page\n");

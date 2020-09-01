@@ -51,7 +51,7 @@ public class Alive_02_SexyCasino extends BaseTest {
 		log.info("Switch to Sexy casino tab\n");
 		casinoPage.switchToCasinoTab(mainID);
 
-		log.info("Sexy - Step 05: Wait for loading complete\n");
+		log.info("Sexy - Step 05: Wait for loading complete");
 		casinoPage.waitForSexyCasino();
 
 		log.info("Sexy - Step 06: Return to main page\n");

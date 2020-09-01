@@ -52,7 +52,7 @@ public class Alive_01_Vivo extends BaseTest {
 		log.info("Switch to Vivo tab\n");
 		casinoPage.switchToCasinoTab(mainID);
 
-		log.info("Vivo - Step 05: Wait for Vivo lobby\n");
+		log.info("Vivo - Step 05: Wait for Vivo lobby");
 		casinoPage.waitForVivoLobbyLoadCompleted();
 
 		log.info("Vivo - Step 06: Verify Baccarat games alive\n");

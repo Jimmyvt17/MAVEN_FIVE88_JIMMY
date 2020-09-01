@@ -53,7 +53,7 @@ public class Alive_05_Ezugi extends BaseTest {
 		log.info("Switch to Ezugi tab\n");
 		casinoPage.switchToCasinoTab(mainID);
 
-		log.info("Ezugi - Step 05: Wait for Ezugi lobby\n");
+		log.info("Ezugi - Step 05: Wait for Ezugi lobby");
 		casinoPage.waitForCasinoGame(CasinoPageUI.ezugiLoadingLocator, CasinoPageUI.ezugiGamesLocator);
 
 		log.info("Ezugi - Step 06: Return to main page\n");
