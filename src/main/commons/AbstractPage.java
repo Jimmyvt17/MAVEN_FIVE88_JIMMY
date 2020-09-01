@@ -855,7 +855,7 @@ public class AbstractPage {
             // sync
             SendResponse sendResponse = bot.execute(request);
         } else {
-            long chatId = Constants.FIVE88_FAIL_ROOM_ID;
+            long chatId = Constants.FM88_FAIL_ROOM_ID;
             SendMessage request = new SendMessage(chatId, text);
             // sync
             SendResponse sendResponse = bot.execute(request);
