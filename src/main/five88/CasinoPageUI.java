@@ -21,8 +21,7 @@ public class CasinoPageUI {
     public static By ezugiLoadingLocator = By.xpath("//div[@class='preloader__preloader_top___2oRZV']");
     public static By ezugiGamesLocator = By.xpath("//div[@class='category_page__wrapper___cimJA']");
 
-    public static By evoLoadingLocator = By.xpath("//div[@class='loading-screen-desktop-content narrow']");
-    public static By evoGamesLocator = By.xpath("//div[@class='TablesWrapper--2ILyO']");
+    public static By evoLoadingFinishLocator = By.xpath("//div[@class='loading-screen-desktop finish-progress']");
 
     public static String dynamicCasinoProvider = "//div[@class='custom-options']//span[@data-filtergame='%s']";
     public static String dynamicVivoCategory = "//li[@id='%s']//span";

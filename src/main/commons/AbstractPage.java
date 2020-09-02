@@ -437,7 +437,7 @@ public class AbstractPage {
     public void verifyIframesLoading(WebDriver driver, By xPathLocator) {
         try {
             switchToIframes(driver);
-            overrideTimeout(driver, Constants.MID_TIMEOUT);
+            overrideTimeout(driver, Constants.LONG_TIMEOUT);
             for (int i = 0; i <= 20; i++) {
                 List<WebElement> noElement = getListElements(driver, xPathLocator);
                 if (noElement.size() > 0) {

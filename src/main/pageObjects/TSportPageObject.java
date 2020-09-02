@@ -148,7 +148,7 @@ public class TSportPageObject extends AbstractPage {
     }
 
     public String ticketDisplayed() {
-        overrideTimeout(driver, Constants.MID_TIMEOUT);
+        overrideTimeout(driver, Constants.LONG_TIMEOUT);
         List<WebElement> noBetTicket = getListElements(driver, TSportPageUI.ticketDetailTSportLocator);
         List<WebElement> noSuccess = getListElements(driver, TSportPageUI.betSuccessfulTSportLocator);
         if (noBetTicket.size() > 0) {
