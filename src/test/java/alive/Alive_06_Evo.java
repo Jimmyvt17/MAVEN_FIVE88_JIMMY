@@ -4,7 +4,6 @@ import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
 import commons.utility.BaseTest;
-import five88.CasinoPageUI;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
@@ -54,7 +53,7 @@ public class Alive_06_Evo extends BaseTest {
 		casinoPage.switchToCasinoTab(mainID);
 
 		log.info("Evo - Step 05: Wait for Evo lobby");
-		casinoPage.waitForCasinoGame(CasinoPageUI.evoLoadingLocator, CasinoPageUI.evoGamesLocator);
+		casinoPage.waitForEvoCasino();
 
 		log.info("Evo - Step 06: Return to main page\n");
 		casinoPage.returnToMainTab(mainID);

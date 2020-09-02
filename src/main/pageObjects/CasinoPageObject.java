@@ -97,7 +97,6 @@ public class CasinoPageObject extends AbstractPage {
     }
 
     public void waitForVivoLobbyLoadCompleted() {
-
         overrideTimeout(driver, Constants.SHORT_TIMEOUT);
         for (int i = 1; i <= 20; i++) {
             List<WebElement> icon = getListElements(driver, CasinoPageUI.vivoVideoLocator);
@@ -120,7 +119,6 @@ public class CasinoPageObject extends AbstractPage {
     }
 
     public void waitForSexyCasino() {
-
         overrideTimeout(driver, Constants.SHORT_TIMEOUT);
         for (int i = 1; i <= 20; i++) {
             WebElement icon = getElement(driver, CasinoPageUI.logoLiveSexyCasinoLocator);
@@ -166,30 +164,6 @@ public class CasinoPageObject extends AbstractPage {
 
         waitForElementVisibleByLocator(driver, CasinoPageUI.hoGamingOpeningLocator);
         return getListElements(driver, CasinoPageUI.hoGamingOpeningLocator);
-
-    }
-
-    public void waitForEzugiGame() {
-
-        for (int i = 1; i <= 20; i++) {
-            WebElement icon = getElement(driver, CasinoPageUI.ezugiLoadingLocator);
-            if (verifyIconDisplayed(i, icon)) break;
-        }
-        for (int i = 1; i <= 20; i++) {
-            List<WebElement> lobbies = getListElements(driver, CasinoPageUI.ezugiGamesLocator);
-            if (lobbies.size() == 0) {
-                System.out.println("Wait for Ezugi lobby... " + i * 3 + "s");
-                try {
-                    Thread.sleep(3000);
-                } catch (Throwable e) {
-                    e.printStackTrace();
-                }
-            } else {
-                System.out.println("Ezugi lobby complete\n");
-                break;
-            }
-            Assert.assertTrue(i < 20);
-        }
 
     }
 
@@ -250,6 +224,32 @@ public class CasinoPageObject extends AbstractPage {
             Assert.assertTrue(i < 20);
         }
     }
+
+    public void waitForEvoCasino() {
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+        for (int i = 1; i <= 20; i++) {
+            List<WebElement> lobbies = getListElements(driver, CasinoPageUI.evoLoadingFinishLocator);
+            if (lobbies.size() == 0) {
+                System.out.println("Wait for Evo lobby... " + i * 3 + "s");
+                try {
+                    Thread.sleep(3000);
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+            } else {
+                highlightElement(driver, lobbies.get(0));
+                System.out.println("Evo lobby completes\n");
+                break;
+            }
+            try {
+                Thread.sleep(3 * 1000);
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+            Assert.assertTrue(i < 20);
+        }
+    }
+
 
     public void logoutToHomePage() {
         logout(driver);

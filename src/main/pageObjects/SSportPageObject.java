@@ -108,7 +108,7 @@ public class SSportPageObject extends AbstractPage {
                 confirmBet();
                 acceptConfirmAlert();
                 try {
-                    Thread.sleep(5 * 1000);
+                    Thread.sleep(10 * 1000);
                 } catch (Throwable e) {
                     e.printStackTrace();
                 }
@@ -172,6 +172,11 @@ public class SSportPageObject extends AbstractPage {
     public void changeToEUView() {
         waitForElementVisibleByLocator(driver, SSportPageUI.modeUILocator);
         clickToElementByJSByLocator(driver, SSportPageUI.modeUILocator);
+        try {
+            Thread.sleep(2 * 1000);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
 
     }
 
