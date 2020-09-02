@@ -56,22 +56,28 @@ public class Alive_03_HoGaming extends BaseTest {
 		log.info("Hogaming - Step 05: Wait for Hogaming lobby");
 		casinoPage.waitForCasinoGame(CasinoPageUI.hoGamingLoadingLocator, CasinoPageUI.hoGamingLobbyMenuLocator);
 
-		log.info("Hogaming - Step 06: Verify Baccarat games alive\n");
+		log.info("Hogaming - Step 06: Verify Baccarat games alive");
 		verifyHoGaimgGameAlive("Bài cào 3 lá");
 
-		log.info("Hogaming - Step 07: Verify Roulette games alive\n");
+		log.info("Hogaming - Step 07: Verify Roulette games alive");
 		verifyHoGaimgGameAlive("Cò quay");
 
-		log.info("Hogaming - Step 08: Return to main page\n");
+		log.info("Hogaming - Step 08: Verify Blackjack games alive");
+		verifyHoGaimgGameAlive("Xì lát");
+
+		log.info("Hogaming - Step 09: Verify Dragon-Tiger games alive");
+		verifyHoGaimgGameAlive("Rồng Hổ");
+
+		log.info("Hogaming - Step 10: Return to main page\n");
 		casinoPage.returnToMainTab(mainID);
 
-		log.info("Hogaming - Step 09: Logout\n");
+		log.info("Hogaming - Step 11: Logout\n");
 		casinoPage.logoutToHomePage();
 
 	}
 
 	private void verifyHoGaimgGameAlive(String category) {
-		log.info("Select a category\n");
+		log.info("Select " + category);
 		casinoPage.selectHoGamingCategory(category);
 
 		List<WebElement> gameNo = casinoPage.getHoGamingGames();
