@@ -93,7 +93,7 @@ public class Bet_07_TSport extends BaseTest {
 						break;
 					} else {
 						log.info(ticketWarning);
-						sendBot(getClass().getName() + "\n" + ticketWarning);
+//						sendBot(getClass().getName() + "\n" + ticketWarning);
 					}
 				}
 			} else {
