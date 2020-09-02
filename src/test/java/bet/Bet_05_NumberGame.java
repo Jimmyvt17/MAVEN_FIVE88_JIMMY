@@ -108,10 +108,7 @@ public class Bet_05_NumberGame extends BaseTest {
 				numberPage.verifyBalanceUpdated(beforeBalance, afterBalance);;
 
 				i = false;
-				log.info("Then i = " + i + "\n");
-
-				log.info("====================\n");
-
+				log.info("Then i = " + i + "\n====================\n");
 			} else {
 				i = true;
 				log.info("Then i = " + i + "\n");
