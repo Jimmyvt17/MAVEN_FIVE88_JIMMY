@@ -33,10 +33,10 @@ public class Bet_02_Lode extends BaseTest {
 	public void Run() {
 		ExtentTestManager.startTest("TC_1_Lode", "TC_1_Lode");
 
-		log.info("Lode - Step 01: Login with valid account");
+		log.info("Lode - Step 01: Login with valid account\n");
 		lodePage.loginLodeAccount();
 
-		log.info("Lode - Step 02: Switch to Lode page");
+		log.info("Lode - Step 02: Switch to Lode page\n");
 		lodePage.openLodePage();
 
 		log.info("Lode - Step 03: Switch to iframe to play");
@@ -49,10 +49,10 @@ public class Bet_02_Lode extends BaseTest {
 		lodePage.switchToLo3So();
 		betLode();
 
-		log.info("Lode - Step 06: Exit iframe");
+		log.info("Lode - Step 06: Exit iframe\n");
 		lodePage.quitLodeIframe();
 
-		log.info("Lode - Step 07: Logout");
+		log.info("Lode - Step 07: Logout\n");
 		lodePage.logoutToHomePage();
 
 	}

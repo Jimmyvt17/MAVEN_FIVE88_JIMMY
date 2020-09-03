@@ -32,13 +32,13 @@ public class Bet_04_Jackpot extends CommonsTest {
 	public void TC_1_Jackpot() {
 		ExtentTestManager.startTest("TC_1_Jackpot", "TC_1_Jackpot");
 
-		log.info("Jackpot - Step 01: Login test slot account");
+		log.info("Jackpot - Step 01: Login test slot account\n");
     	jackpotPage.loginTestSlot();
 
-		log.info("Jackpot - Step 02: Switch to Jackpot page");
+		log.info("Jackpot - Step 02: Switch to Jackpot page\n");
 		jackpotPage.openJackpotPage();
 
-		log.info("Jackpot - Step 03: Open Jackpot game");
+		log.info("Jackpot - Step 03: Open Jackpot game\n");
 		jackpotPage.openJackpotGame();
 
 //		log.info("Jackpot - Step 04: Delay 12 hours to finish");

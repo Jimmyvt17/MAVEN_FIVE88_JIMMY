@@ -40,19 +40,19 @@ public class Bet_05_NumberGame extends BaseTest {
 		log.info("NumberGame - Step 02: Switch to Number page\n");
 		numberPage.openNumberGamePage();
 
-		log.info("NumberGame - Step 03: Switch to number iframe\n");
+		log.info("NumberGame - Step 03: Switch to number iframe");
 		numberPage.switchToNumberIframe();
 
-		log.info("NumberGame - Step 04: Play Turbo Number Game\n");
+		log.info("NumberGame - Step 04: Play Turbo Number Game");
 		betNumberGame("nb-100123");
 
 		log.info("NumberGame - Step 05: Play Number Game\n");
 		betNumberGame("nb-100127");
 
-		log.info("NumberGame - Step 06: Exit Number iframe");
+		log.info("NumberGame - Step 06: Exit Number iframe\n");
 		numberPage.quitNumberIframe();
 
-		log.info("NumberGame - Step 07: Logout");
+		log.info("NumberGame - Step 07: Logout\n");
 		numberPage.logoutToHomePage();
 
 	}

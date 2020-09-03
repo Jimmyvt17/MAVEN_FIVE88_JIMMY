@@ -38,7 +38,7 @@ public class Bet_08_SSport extends BaseTest {
 		log.info("SSport - Step02: Open SSport page\n");
 		sSportPage.openSSportPage("item-sb ssport", "icon-vi-s");
 
-		log.info("SSport - Step03: Betting\n");
+		log.info("SSport - Step03: Betting");
 		betSSport();
 
 		log.info("SSport - Step04: Exit SSport iframe\n");
@@ -50,10 +50,10 @@ public class Bet_08_SSport extends BaseTest {
 	}
 
 	private void betSSport() {
-		log.info("Switch to SSport iframe\n");
+		log.info("Switch to SSport iframe");
 		sSportPage.switchToSSportIframe();
 
-		log.info("Bet Asia version\n");
+		log.info("Bet Asia version");
 		betAsiaSport();
 
 		log.info("Change to EU view\n");
