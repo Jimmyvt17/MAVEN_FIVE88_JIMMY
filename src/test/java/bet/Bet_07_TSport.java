@@ -65,7 +65,7 @@ public class Bet_07_TSport extends BaseTest {
 				} else {
 					for (int x = 0; x <= 5; x++) {
 						if (x < 5) {
-							int betSelect = randomNumber(listBet.size());
+							int betSelect = randomNumber(30);
 							log.info("Select odd at order " + betSelect);
 
 							String betStatus = tSportPage.isOddCanBet(listBet.get(betSelect));
