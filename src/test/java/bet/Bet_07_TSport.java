@@ -61,7 +61,7 @@ public class Bet_07_TSport extends BaseTest {
 				log.info("The number of odd is " + listBet.size() + "\n");
 
 				if (listBet.size() == 0) {
-					break;
+					throw new RuntimeException("There is no available bet");
 				} else {
 					for (int x = 0; x <= 5; x++) {
 						if (x < 5) {
@@ -79,7 +79,7 @@ public class Bet_07_TSport extends BaseTest {
 						}
 					}
 
-					log.info("Confirm betting\n");
+					log.info("Confirm betting");
 					tSportPage.confirmBet("30");
 
 					log.info("Verify betting successful");
@@ -93,7 +93,6 @@ public class Bet_07_TSport extends BaseTest {
 						break;
 					} else {
 						log.info(ticketWarning);
-//						sendBot(getClass().getName() + "\n" + ticketWarning);
 					}
 				}
 			} else {
