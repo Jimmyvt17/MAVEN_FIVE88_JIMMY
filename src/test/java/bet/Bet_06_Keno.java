@@ -42,16 +42,16 @@ public class Bet_06_Keno extends BaseTest {
 		log.info("Keno - Step 02: Switch to Keno page\n");
 		kenoPage.openKenoPage();
 
-		log.info("Keno - Step 03: Switch to keno iframe\n");
+		log.info("Keno - Step 03: Switch to keno iframe");
 		kenoPage.switchToKenoIframe();
 
-		log.info("Keno - Step 04: Play Quick Keno 1\n");
+		log.info("Keno - Step 04: Play Quick Keno 1");
 		betKenoGame();
 
-		log.info("Keno - Step 05: Exit Keno iframe");
+		log.info("Keno - Step 05: Exit Keno iframe\n");
 		kenoPage.quitKenoIframe();
 
-		log.info("Keno - Step 06: Logout");
+		log.info("Keno - Step 06: Logout\n");
 		kenoPage.logoutToHomePage();
 
 	}
@@ -106,9 +106,6 @@ public class Bet_06_Keno extends BaseTest {
 
 		String afterBalance = kenoPage.getBalance();
 		log.info("After balance = " + afterBalance + "\n");
-
-//		log.info("Verify balance is updated correctly\n");
-//		kenoPage.verifyNotEqual(beforeBalance, afterBalance);
 
 		log.info("Remove " + gameId + " from game list\n");
 		gameList.remove(gameId);

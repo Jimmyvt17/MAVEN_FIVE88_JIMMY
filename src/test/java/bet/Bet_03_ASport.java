@@ -33,10 +33,10 @@ public class Bet_03_ASport extends BaseTest {
 	public void Run() {
 		ExtentTestManager.startTest("TC_1_ASport", "TC_1_ASport");
 
-		log.info("ASport - Step01: Login with valid account");
+		log.info("ASport - Step01: Login with valid account\n");
 		aSportPage.loginSportAccount();
 
-		log.info("ASport - Step02: Open ASport page");
+		log.info("ASport - Step02: Open ASport page\n");
 		aSportPage.openASportPage("item-sb asport", "icon-vi-a");
 
 		log.info("ASport - Step03: Switch to sport iframe to play");
@@ -45,10 +45,10 @@ public class Bet_03_ASport extends BaseTest {
 		log.info("ASport - Step04: Betting");
 		betASport();
 
-		log.info("ASport - Step05: Exit iframe");
+		log.info("ASport - Step05: Exit iframe\n");
 		aSportPage.quitASportIframe();
 
-		log.info("ASport - Step06: Logout");
+		log.info("ASport - Step06: Logout\n");
 		aSportPage.logoutToHomePage();
 
 	}

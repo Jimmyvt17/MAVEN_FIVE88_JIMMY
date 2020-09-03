@@ -37,7 +37,7 @@ public class Bet_07_TSport extends BaseTest {
 		log.info("TSport - Step02: Open TSport page\n");
 		tSportPage.openTSportPage("item-sb tsport", "icon-vi-s");
 
-		log.info("TSport - Step03: Switch to sport iframe to play\n");
+		log.info("TSport - Step03: Switch to sport iframe to play");
 		tSportPage.switchToTSportIframe();
 
 		log.info("TSport - Step04: Betting\n");

@@ -32,10 +32,10 @@ public class Bet_09_Quayso2 extends BaseTest {
 	public void Run() {
 		ExtentTestManager.startTest("TC_1_Quayso2", "TC_1_Quayso2");
 
-		log.info("Quayso2 - Step 01: Login with valid account");
+		log.info("Quayso2 - Step 01: Login with valid account\n");
 		quayso2Page.loginQuaysoAccount();
 
-		log.info("Quayso2 - Step 02: Switch to Quayso page");
+		log.info("Quayso2 - Step 02: Switch to Quayso page\n");
 		quayso2Page.openQuayso2Page();
 
 		log.info("Quayso2 - Step 03: Switch to iframe to play");
@@ -44,10 +44,10 @@ public class Bet_09_Quayso2 extends BaseTest {
 		log.info("Quayso2 - Step 04: Play lottery");
 		betLotteryGame();
 
-		log.info("Quayso2 - Step 05: Exit iframe");
+		log.info("Quayso2 - Step 05: Exit iframe\n");
 		quayso2Page.quitLottery2Iframe();
 
-		log.info("Quayso2 - Step 06: Logout");
+		log.info("Quayso2 - Step 06: Logout\n");
 		quayso2Page.logoutToHomePage();
 
 	}

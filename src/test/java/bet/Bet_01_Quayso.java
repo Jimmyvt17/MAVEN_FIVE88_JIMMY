@@ -33,22 +33,22 @@ public class Bet_01_Quayso extends BaseTest {
 	public void Run() {
 		ExtentTestManager.startTest("TC_1_Quayso", "TC_1_Quayso");
 
-		log.info("Quayso - Step 01: Login with valid account");
+		log.info("Quayso - Step 01: Login with valid account\n");
 		quaysoPage.loginQuaysoAccount();
 
-		log.info("Quayso - Step 02: Switch to Quayso page");
+		log.info("Quayso - Step 02: Switch to Quayso page\n");
 		quaysoPage.openQuaysoPage();
 
 		log.info("Quayso - Step 03: Switch to iframe to play");
 		quaysoPage.switchToLotteryIframe();
 
-		log.info("Quayso - Step 04: Play lottery");
+		log.info("Quayso - Step 04: Play lottery\n");
 		betLotteryGame();
 
-		log.info("Quayso - Step 05: Exit iframe");
+		log.info("Quayso - Step 05: Exit iframe\n");
 		quaysoPage.quitLotteryIframe();
 
-		log.info("Quayso - Step 06: Logout");
+		log.info("Quayso - Step 06: Logout\n");
 		quaysoPage.logoutToHomePage();
 
 	}
@@ -61,7 +61,7 @@ public class Bet_01_Quayso extends BaseTest {
 		listA.add("101");
 		listA.add("102");
 		listA.add("106");
-		log.info("First game list = " + listA + "\n");
+		log.info("First game list = " + listA);
 
 		while (listA.size() > 0) {
 			for (int count = 1; count <= 20; count++) {
@@ -86,7 +86,7 @@ public class Bet_01_Quayso extends BaseTest {
 		log.info("Before balance = " + beforeBet + "\n");
 
 		List<WebElement> noBet = quaysoPage.getBets(gameId);
-		log.info("There are " + noBet.size() + " bet points " + "\n");
+		log.info("There are " + noBet.size() + " bet points" + "\n");
 
 		int  number = randomNumber(noBet.size() - 1);
 
