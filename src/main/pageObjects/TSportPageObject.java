@@ -62,7 +62,10 @@ public class TSportPageObject extends AbstractPage {
 
     public String getBetDetails() {
         waitForElementVisibleByLocator(driver, TSportPageUI.betOrderLocator);
-        return getTextElementByLocator(driver, TSportPageUI.betOrderLocator);
+        String betOdd = getTextElementByLocator(driver, TSportPageUI.betOrderLocator);
+        waitForElementVisibleByLocator(driver, TSportPageUI.betMatchLocator);
+        String betMatch = getTextElementByLocator(driver, TSportPageUI.betMatchLocator);
+        return betOdd + "\n" + betMatch;
 
     }
 

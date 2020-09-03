@@ -72,7 +72,8 @@ public class Bet_07_TSport extends BaseTest {
 							if (betStatus.equals("Odd can be bet")) {
 								break;
 							} else {
-								sendBot(getClass().getName() + "\n" + listBet.get(betSelect).getText() + "\n" + betStatus);
+								String oddDetails = tSportPage.getBetDetails();
+								sendBot(getClass().getName() + "\n" + oddDetails + "\n" + betStatus);
 							}
 						} else {
 							throw new RuntimeException(Constants.betUnsuccessful);

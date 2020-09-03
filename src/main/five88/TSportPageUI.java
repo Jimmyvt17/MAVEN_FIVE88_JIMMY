@@ -14,8 +14,9 @@ public class TSportPageUI {
     public static By ticketDetailTSportLocator = By.xpath("//bet-item-component//div[@style='border-left: 3px solid rgb(58, 128, 181); padding-left: 8px;']");
     public static By betSuccessfulTSportLocator = By.xpath("//div[text()='Cược đặt thành công']");
     public static By oddPausedTSportLocator = By.xpath("//div[text()='Tỷ lệ cược tạm dừng. Vui lòng chọn tỷ lệ cược khác']");
-    public static By betOrderLocator = By.xpath("//quick-bet-component[@data-radium='true']//div[@style='border-left: 3px solid rgb(235, 99, 7); padding-left: 8px;']");
-    public static By betPanelLocator = By.xpath("//quick-bet-component");
+    public static By betOrderLocator = By.xpath("//bet-slip-component[@data-radium='true']//div[@style='background: rgb(239, 224, 213); padding: 8px; border-radius: 3px; margin-bottom: 8px;']");
+    public static By betMatchLocator = By.xpath("//bet-slip-component[@data-radium='true']//div[@style='text-align: left; padding-left: 8px; margin-bottom: 8px;']");
+
     public static By betTicketLocator = By.xpath("//div[@id='bet-slip']//div[@style='border-left: 3px solid rgb(235, 99, 7); padding-left: 8px;']");
 
 }
