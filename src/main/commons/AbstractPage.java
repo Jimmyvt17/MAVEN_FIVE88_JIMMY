@@ -425,7 +425,7 @@ public class AbstractPage {
         waitForElementPresentByLocator(driver, By.tagName("iframe"));
         int size = getSizeElements(driver, By.tagName("iframe"));
         System.out.println("Total iframes --" + size);
-        driver.switchTo().frame(0);
+        driver.switchTo().frame("iframe");
         System.out.println("Switch to outer iframe");
         size = getSizeElements(driver, By.tagName("iframe"));
         System.out.println("Total  inner iframes --" + size);
