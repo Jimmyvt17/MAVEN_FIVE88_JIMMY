@@ -121,6 +121,7 @@ public class ASportPageObject extends AbstractPage {
     }
 
     public void verifyWarningDisplayed() {
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
         List<WebElement> noWarning = getListElements(driver, ASportPageUI.warningLocator);
         if (noWarning.size() > 0) {
             System.out.println("Not enough balance\n");
