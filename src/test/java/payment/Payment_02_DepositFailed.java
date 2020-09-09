@@ -30,7 +30,7 @@ public class Payment_02_DepositFailed extends BaseTest {
         ExtentTestManager.startTest("TC_01_DepositFailed", "TC_01_DepositFailed");
 
         log.info("DepositFailed - Step 01: Go to deposit page");
-        accountPage.beforeDepositing(Constants.USERNAME, Constants.PASSWORD);
+        accountPage.beforeDepositing(Constants.USERNAME_LOGIN, Constants.PASSWORD);
 
         log.info("DepositFailed - Step 02: Deposit without selecting bank");
         depositWithoutBank();
