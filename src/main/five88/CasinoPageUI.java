@@ -20,6 +20,7 @@ public class CasinoPageUI {
 
     public static By ezugiLoadingLocator = By.xpath("//div[@class='preloader__preloader_top___2oRZV']");
     public static By ezugiGamesLocator = By.xpath("//div[@class='category_page__wrapper___cimJA']");
+    public static By ezugiMaintainedLocator = By.xpath("//span[text()='Chế Độ Bảo Trì']");
 
     public static By evoLoadingFinishLocator = By.xpath("//div[@class='loading-screen-desktop finish-progress']");
 
