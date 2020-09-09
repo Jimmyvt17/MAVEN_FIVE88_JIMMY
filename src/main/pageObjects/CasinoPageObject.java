@@ -186,6 +186,11 @@ public class CasinoPageObject extends AbstractPage {
 
     public void waitForCasinoGame(By xPathLocator1, By xPathLocator2) {
         overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+        System.out.println("Check for maintenance");
+        List<WebElement> maintenance = getListElements(driver,CasinoPageUI.ezugiMaintainedLocator);
+        if (maintenance.size() > 0) {
+            throw new RuntimeException(Constants.pageIsMaintained);
+        }
         for (int i = 1; i <= 20; i++) {
             List<WebElement> icons = getListElements(driver, xPathLocator1);
             if (icons.size() > 0) {
