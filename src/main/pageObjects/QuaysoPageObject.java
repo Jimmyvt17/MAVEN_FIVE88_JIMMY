@@ -131,6 +131,7 @@ public class QuaysoPageObject extends AbstractPage {
 
     public void openQuaysoPage() {
         clickToElementByJSByLocator(driver, QuaysoPageUI.quaysoMenuLocator);
+        checkForUpgrading(driver);
 
     }
 

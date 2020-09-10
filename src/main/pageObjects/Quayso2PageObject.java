@@ -121,6 +121,7 @@ public class Quayso2PageObject extends AbstractPage {
 
     public void openQuayso2Page() {
         clickToElementByJSByLocator(driver, Quayso2PageUI.quayso2MenuLocator);
+        checkForUpgrading(driver);
 
     }
 
