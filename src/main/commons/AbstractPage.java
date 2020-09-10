@@ -59,10 +59,12 @@ public class AbstractPage {
 
     }
 
-    public boolean checkForUpgrading(WebDriver driver) {
+    public void checkForUpgrading(WebDriver driver) {
         overrideTimeout(driver, Constants.SHORT_TIMEOUT);
-        List<WebElement> upgrade = getListElements(driver, By.xpath("//div[@class='text-center upgrade-side']"));
-        return upgrade.size() > 0;
+        List<WebElement> upgrade = getListElements(driver, AbstractPageUI.maintainedPageLocator);
+        if (upgrade.size() > 0) {
+            throw new RuntimeException(getCurrentPageUrl(driver) + ": " + Constants.pageIsMaintained);
+        }
 
     }
 
@@ -610,9 +612,7 @@ public class AbstractPage {
         } catch (Throwable e) {
             throw new RuntimeException(Constants.loadingTimeTooLong);
         }
-        if (getCurrentPageUrl(driver).equals(Constants.MAINTENANCE_URL)) {
-            throw new RuntimeException(Constants.pageIsMaintained);
-        }
+        checkForUpgrading(driver);
 
     }
 
@@ -680,10 +680,10 @@ public class AbstractPage {
     }
 
     public void openSubMenu(WebDriver driver, String value) {
-
         String tmp = String.format(AbstractPageUI.dynamicSubMenu, value);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
         clickToElementByJSByLocator(driver, By.xpath(tmp));
+        checkForUpgrading(driver);
 
     }
 

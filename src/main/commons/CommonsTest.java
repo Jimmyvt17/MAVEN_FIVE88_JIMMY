@@ -304,10 +304,18 @@ public class CommonsTest extends AbstractPage {
         }
 
         log.info("Check for upgrading");
-        if (checkForUpgrading(driver)) {
+//        if (checkForUpgrading(driver)) {
+//            closeBrowserAndDriver(driver);
+//            sendBot(url + "\n" + Constants.pageIsMaintained + "\n==============================================");
+//            throw new RuntimeException(Constants.pageIsMaintained);
+//        }
+        try {
+            checkForUpgrading(driver);
+        } catch (Throwable e) {
             closeBrowserAndDriver(driver);
-            sendBot(url + "\n" + Constants.pageIsMaintained + "\n==============================================");
-            throw new RuntimeException(Constants.pageIsMaintained);
+            String error = e.toString();
+            sendBot(getClass().getName() + "\n" + error);
+            throw e;
         }
 
         return driver;
