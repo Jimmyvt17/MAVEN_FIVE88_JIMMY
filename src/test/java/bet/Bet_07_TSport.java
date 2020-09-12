@@ -93,7 +93,7 @@ public class Bet_07_TSport extends BaseTest {
 						tSportPage.verifyBalanceUpdated(beforeBalance, afterBalance);
 						break;
 					} else {
-						log.info(ticketWarning);
+						log.info(ticketWarning + "\n");
 					}
 				}
 			} else {

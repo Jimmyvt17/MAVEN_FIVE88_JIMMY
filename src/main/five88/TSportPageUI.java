@@ -10,7 +10,7 @@ public class TSportPageUI {
     public static By minBetTSportLocator = By.xpath("//div[text()='Mức cược tối thiểu']");
     public static By inputBetMoneyLocator = By.xpath("//bet-slip-component[@data-radium='true']//input[@type='tel']");
     public static By betButtonLocator = By.xpath("//bet-slip-component[@data-radium='true']//div[text()='Đặt cược ngay']");
-    public static By betConfirmTSportLocator = By.xpath("//div[@id='yes-betting-btn']");
+    public static By betConfirmTSportLocator = By.xpath("//bet-confirm-component//div[@id='yes-betting-btn']");
     public static By ticketDetailTSportLocator = By.xpath("//bet-item-component//div[@style='border-left: 3px solid rgb(58, 128, 181); padding-left: 8px;']");
     public static By betSuccessfulTSportLocator = By.xpath("//div[text()='Cược đặt thành công']");
     public static By oddPausedTSportLocator = By.xpath("//div[text()='Tỷ lệ cược tạm dừng. Vui lòng chọn tỷ lệ cược khác']");
