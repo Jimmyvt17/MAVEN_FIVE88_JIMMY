@@ -83,22 +83,23 @@ public class TSportPageObject extends AbstractPage {
     }
 
     public void confirmBet(String value) {
-        for (int i = 1; i <= 5; i++) {
             try {
-                System.out.println("Input money to bet = " + value);
-                inputBetMoney(value);
-                System.out.println("Click bet button");
-                clickToBetButton();
+                for (int i = 1; i <= 5; i++) {
+                    System.out.println("Input money to bet = " + value);
+                    inputBetMoney(value);
+                    System.out.println("Click bet button");
+                    clickToBetButton();
 
-                List<WebElement> noConfirmButton = getListElements(driver, TSportPageUI.betConfirmTSportLocator);
-                if (noConfirmButton.size() > 0) {
-                    highlightElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
-                    break;
-                } else {
-                    if (i==5) {
-                        throw new RuntimeException("There is error when get odd. Please try again manually");
+                    List<WebElement> noConfirmButton = getListElements(driver, TSportPageUI.betConfirmTSportLocator);
+                    if (noConfirmButton.size() > 0) {
+                        highlightElementByLocator(driver, TSportPageUI.betConfirmTSportLocator);
+                        break;
                     } else {
-                        System.out.println(Constants.betUnsuccessful);
+                        if (i == 5) {
+                            throw new RuntimeException("There is error when get odd. Please try again manually");
+                        } else {
+                            System.out.println(Constants.betUnsuccessful + "\n");
+                        }
                     }
                 }
                 System.out.println("Click to confirm\n");
@@ -116,8 +117,8 @@ public class TSportPageObject extends AbstractPage {
                     throw e;
                 }
             }
-        }
     }
+
 
 //    public void confirmBet(String value) {
 //        try {
@@ -158,18 +159,31 @@ public class TSportPageObject extends AbstractPage {
 //    }
 
     public String ticketDisplayed() {
-        overrideTimeout(driver, Constants.LONG_TIMEOUT);
-        List<WebElement> noBetTicket = getListElements(driver, TSportPageUI.ticketDetailTSportLocator);
+        overrideTimeout(driver, Constants.MID_TIMEOUT);
         List<WebElement> noSuccess = getListElements(driver, TSportPageUI.betSuccessfulTSportLocator);
-        if (noBetTicket.size() > 0) {
-            System.out.println("Ticket true\n");
-            return "Bet successfully";
-        } else if (noSuccess.size() > 0) {
+        if (noSuccess.size() > 0) {
             System.out.println("Success true\n");
             return "Bet successfully";
-        } else {
-            System.out.println("False. Please try again\n");
-            return "False. Please try again";
+        } else{
+            overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+            List<WebElement> noBetTicket = getListElements(driver, TSportPageUI.ticketDetailTSportLocator);
+            if (noBetTicket.size() > 0) {
+                System.out.println("Ticket true\n");
+                return "Bet successfully";
+            } else {
+                List<WebElement> noWarning = getListElements(driver, TSportPageUI.warningTextLocator);
+                if (noWarning.size() > 0) {
+                    String warning = getTextElementByLocator(driver, TSportPageUI.warningTextLocator);
+                    if (warning.equals("Tài khoản của bạn không đủ. Vui lòng nạp thêm tiền.")) {
+                        throw new RuntimeException(warning);
+                    } else {
+                        System.out.println(warning);
+                        return "False. Please try again";
+                    }
+                } else {
+                    return "Bet panel is closed. Please try again";
+                }
+            }
         }
 
     }
