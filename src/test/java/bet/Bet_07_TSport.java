@@ -76,7 +76,7 @@ public class Bet_07_TSport extends BaseTest {
 								sendBot(getClass().getName() + "\n" + oddDetails + "\n" + betStatus);
 							}
 						} else {
-							throw new RuntimeException(Constants.betUnsuccessful);
+							throw new RuntimeException("Odd is paused");
 						}
 					}
 

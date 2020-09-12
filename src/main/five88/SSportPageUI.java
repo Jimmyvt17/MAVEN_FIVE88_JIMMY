@@ -12,6 +12,7 @@ public class SSportPageUI {
     public static By totalReturnLocator = By.xpath("//span[@data-uat='bet-slip-total-return-value']");
     public static By betConfirmSSportLocator = By.xpath("//button[@id='PlaceBetButton']");
     public static By ticketOKSSportLocator = By.xpath("//div[contains(text(),'Đặt cược được chấp nhận')]");
+    public static By notEnoughLocator = By.xpath("//span[text()='Số dư không đủ']");
 
     public static By betEuroStreamingVideoLocator = By.xpath("//span[@class='icon i-24-16 event-icons-icon i-o-ev-streaming']");
     public static By streamingVideoLocator = By.xpath("//div[@id='iFrameContainer-live-betting']//iframe[@src]");
