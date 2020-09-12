@@ -114,10 +114,13 @@ public class SSportPageObject extends AbstractPage {
                 }
                 System.out.println("Verify betting successfully\n");
                 List<WebElement> noSuccessText = getListElements(driver, SSportPageUI.ticketOKSSportLocator);
+                List<WebElement> noEnoughText = getListElements(driver, SSportPageUI.notEnoughLocator);
                 if (noSuccessText.size() > 0) {
                     System.out.println("Bet successfully\n");
                     return true;
-                } else {
+                } else if (noEnoughText.size() > 0) {
+                    throw new RuntimeException(Constants.notEnoughBalance);
+                } else  {
                     System.out.println("Bet unsuccessfully. Try again\n");
                 }
             } else {
