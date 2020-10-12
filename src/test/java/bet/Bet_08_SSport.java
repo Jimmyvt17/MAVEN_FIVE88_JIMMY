@@ -5,6 +5,7 @@ import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
 import five88.SSportPageUI;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
@@ -56,11 +57,17 @@ public class Bet_08_SSport extends BaseTest {
 		log.info("Bet Asia version");
 		betAsiaSport();
 
+		log.info("Change to Asia live odds\n");
+		sSportPage.changeToLiveBet();
+
+		log.info("Check for Asia streaming video\n");
+		checkForStreamingVideo("Asian view", SSportPageUI.betAsiaStreamingVideoLocator);
+
 		log.info("Change to EU view\n");
 		sSportPage.changeToEUView();
 
-		log.info("Check for streaming video\n");
-		checkForStreamingVideo();
+		log.info("Check for EU streaming video\n");
+		checkForStreamingVideo("EU view", SSportPageUI.betEuroStreamingVideoLocator);
 
 	}
 
@@ -105,8 +112,8 @@ public class Bet_08_SSport extends BaseTest {
 		}
 	}
 
-	private void checkForStreamingVideo() {
-		List<WebElement> noVideo = sSportPage.getListBets(SSportPageUI.betEuroStreamingVideoLocator);
+	private void checkForStreamingVideo(String viewMode, By xPathLocator) {
+		List<WebElement> noVideo = sSportPage.getListBets(xPathLocator);
 		if (noVideo.size() > 0) {
 			log.info("There are " + noVideo.size() + " streaming videos\n");
 
@@ -118,11 +125,11 @@ public class Bet_08_SSport extends BaseTest {
 
 			log.info("Verify video is displayed\n" + sSportPage.isStreamingVideoDisplayed() + "\n");
 			if (!sSportPage.isStreamingVideoDisplayed()) {
-				throw new RuntimeException(Constants.streamingVideoError);
+				throw new RuntimeException(viewMode + "\n" + Constants.streamingVideoError);
 			}
 		} else {
 			log.info(Constants.noStreamingVideo + "\n");
-			sendBot(getClass().getName() + ":\n" + Constants.noStreamingVideo);
+			sendBot(getClass().getName() + ":\n" + viewMode + "\n" + Constants.noStreamingVideo);
 		}
 
 	}
