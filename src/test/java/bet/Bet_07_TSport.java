@@ -71,10 +71,10 @@ public class Bet_07_TSport extends BaseTest {
 							String betStatus = tSportPage.isOddCanBet(listBet.get(betSelect));
 							if (betStatus.equals("Odd can be bet")) {
 								break;
-							} else {
-								String oddDetails = tSportPage.getBetDetails();
-								sendBot(getClass().getName() + "\n" + oddDetails + "\n" + betStatus);
-							}
+							} //else {
+//								String oddDetails = tSportPage.getBetDetails();
+//								sendBot(getClass().getName() + "\n" + oddDetails + "\n" + betStatus);
+//							}
 						} else {
 							throw new RuntimeException("Odd is paused");
 						}

@@ -604,7 +604,7 @@ public class AbstractPage {
     }
 
     public void openSportPage(WebDriver driver, String... values) {
-        openSubMenu(driver, "Thể thao");
+        //openSubMenu(driver, "Thể thao");
         String tmp = String.format(AbstractPageUI.dynamicSportButton, values);
         try {
             waitForElementVisibleByLocator(driver, By.xpath(tmp));

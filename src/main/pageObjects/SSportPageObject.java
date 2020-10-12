@@ -199,4 +199,9 @@ public class SSportPageObject extends AbstractPage {
 
     }
 
+    public void changeToLiveBet() {
+        waitForElementVisibleByLocator(driver, SSportPageUI.betAsiaLiveMatchLocator);
+        clickToElementByJSByLocator(driver, SSportPageUI.betAsiaLiveMatchLocator);
+
+    }
 }
