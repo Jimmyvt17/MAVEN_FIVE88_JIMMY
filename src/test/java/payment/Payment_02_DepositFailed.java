@@ -69,6 +69,7 @@ public class Payment_02_DepositFailed extends BaseTest {
 
     public void depositMoneyUnder50() {
         accountPage.selectAnOption("bank_code_option", "VCB");
+        accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
         accountPage.inputToTextBox("49", "amount-money");
         accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
         accountPage.clickToSubmitButton("frmDeposit");
@@ -76,6 +77,7 @@ public class Payment_02_DepositFailed extends BaseTest {
 
     public void depositWithoutCode() {
         accountPage.selectAnOption("bank_code_option", "VCB");
+        accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
         accountPage.inputToTextBox(Constants.MONEY_DEP, "amount-money");
         accountPage.clearTextBox("bank_trancode");
         accountPage.clickToSubmitButton("frmDeposit");
@@ -83,12 +85,14 @@ public class Payment_02_DepositFailed extends BaseTest {
 
     public void depositWithoutMoney() {
         accountPage.selectAnOption("bank_code_option", "VCB");
+        accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
         accountPage.clearTextBox("amount-money");
         accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
         accountPage.clickToSubmitButton("frmDeposit");
     }
 
     public void depositWithoutBank() {
+        accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
         accountPage.inputToTextBox(Constants.MONEY_DEP, "amount-money");
         accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
         accountPage.clickToSubmitButton("frmDeposit");
