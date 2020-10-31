@@ -111,7 +111,7 @@ public class Payment_01_DepositSuccessful extends BaseTest {
 
         accountPage.selectAnOption("bank_code_option", "VCB");
 
-        //accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
+        accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
 
         accountPage.inputToTextBox(value, "amount-money");
 

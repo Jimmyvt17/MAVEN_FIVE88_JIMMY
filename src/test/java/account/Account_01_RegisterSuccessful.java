@@ -28,7 +28,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 	}
 	
 	private final String USERNAME_6 = "seta" + randomString(2, true, true);
-	private final String USERNAME_30 = "seta" + randomString(21, true, true);
+	private final String USERNAME_30 = "auto-seta" + randomString(16, true, true);
 	private final String PASSWORD_6 = randomString(6, false, true);
 	private final String PHONE_14 = randomString(14, false, true);
 
@@ -37,7 +37,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 		try {
 			ExtentTestManager.startTest("TC_01_RegisterSuccessful", "TC_01_RegisterSuccessful");
 
-			String USERNAME_TODAY = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+			String USERNAME_TODAY = "auto-seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 
 			log.info("RegisterSuccessful - Step 01: Register account");
 			register(USERNAME_TODAY, Constants.PASSWORD, Constants.PHONE);
@@ -87,7 +87,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 		try {
 			ExtentTestManager.startTest("TC_04_RegisterSuccessfulWithPass6Letters", "TC_04_RegisterSuccessfulWithPass6Letters");
 
-			String USERNAME_PASS6 = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+			String USERNAME_PASS6 = "auto-seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 
 			log.info("RegisterSuccessfulWithPass6Letters - Step 01: Register account with pass 6 letters");
 			register(USERNAME_PASS6, PASSWORD_6, Constants.PHONE);
@@ -105,7 +105,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 		try {
 			ExtentTestManager.startTest("TC_05_RegisterSuccessfulWithPhone14Letters", "TC_05_RegisterSuccessfulWithPhone14Letters");
 
-			String USERNAME_PHONE14 = "seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+			String USERNAME_PHONE14 = "auto-seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 
 			log.info("RegisterSuccessfulWithPhone14Letters - Step 01: Register account with phone 14 letters");
 			register(USERNAME_PHONE14, Constants.PASSWORD, PHONE_14);

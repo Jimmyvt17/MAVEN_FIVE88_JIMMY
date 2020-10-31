@@ -22,14 +22,14 @@ public class Constants {
     public static final int LONG_TIMEOUT = 30;
 
     // User/pass clone
-    public static final String USERNAME = "jimmyken";
-    public static final String USERNAME_THETHAO = "jimmythethao";
-    public static final String USERNAME_QUAYSO = "jimmyquayso";
-    public static final String USERNAME_LODE = "jimmylode";
-    public static final String USERNAME_CASINO = "jimmycasino";
-    public static final String USERNAME_NUMBER = "jimmynumber";
-    public static final String USERNAME_KENO = "jimmykeno";
-    public static final String USERNAME_LOGIN = "jimmylogin";
+    public static final String USERNAME = "jimmyfmken";
+    public static final String USERNAME_THETHAO = "jimmyfmthethao";
+    public static final String USERNAME_QUAYSO = "jimmyfmquayso";
+    public static final String USERNAME_LODE = "jimmyfmlode";
+    public static final String USERNAME_CASINO = "jimmyfmcasino";
+    public static final String USERNAME_NUMBER = "jimmyfmnumber";
+    public static final String USERNAME_KENO = "jimmyfmkeno";
+    public static final String USERNAME_LOGIN = "jimmyfmlogin";
     public static final String USERNAME_STG = "jimmythethao";
     public static final String PASSWORD = "testjimmy";
     public static final String PHONE = "1234567890";
