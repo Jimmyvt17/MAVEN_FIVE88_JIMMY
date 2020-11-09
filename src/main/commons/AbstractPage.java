@@ -68,6 +68,15 @@ public class AbstractPage {
 
     }
 
+    public void checkForServerError(WebDriver driver) {
+        overrideTimeout(driver, Constants.SHORT_TIMEOUT);
+        List<WebElement> error = getListElements(driver, AbstractPageUI.error522Locator);
+        if (error.size() > 0) {
+            throw new RuntimeException(getCurrentPageUrl(driver) + ": " + Constants.serverError);
+        }
+
+    }
+
     public String getCurrentPageUrl(WebDriver driver) {
 
         return driver.getCurrentUrl();

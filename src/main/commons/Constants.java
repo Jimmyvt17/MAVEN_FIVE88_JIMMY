@@ -107,6 +107,7 @@ public class Constants {
     public static final String iframeContentError = "There is nothing in iframe. Please try again manually";
     public static final String iframeNoLoad = "There is no iframe. Please try again manually";
     public static final String pageIsMaintained = "Page is maintained. Please try again later";
+    public static final String serverError = "Server error. Please try again later";
     public static final String banningSite = "This site is banned";
     public static final String WarningSite = "This site is warning by BCA";
     public static final String loadingTimeTooLong = "Loading time is too long. Please try again manually";
