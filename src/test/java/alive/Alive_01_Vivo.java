@@ -47,7 +47,7 @@ public class Alive_01_Vivo extends BaseTest {
 		log.info("There are " + noBanner.size() + " game banners\n");
 
 		log.info("Vivo - Step 04: Enter Vivo lobby\n");
-		casinoPage.openCasinoTab(noBanner.get(4));
+		casinoPage.openCasinoTab(noBanner.get(1));
 
 		log.info("Switch to Vivo tab\n");
 		casinoPage.switchToCasinoTab(mainID);
