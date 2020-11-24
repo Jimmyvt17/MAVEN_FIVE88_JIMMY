@@ -32,6 +32,8 @@ public class AccountPageObject extends AbstractPage {
 
         waitForElementVisibleByLocator(driver, AccountPageUI.depositButtonLocator);
         clickToElementByJSByLocator(driver, AccountPageUI.depositButtonLocator);
+        waitForElementVisibleByLocator(driver, AccountPageUI.chuyenkhoanLocator);
+        clickToElementByJSByLocator(driver, AccountPageUI.chuyenkhoanLocator);
 
     }
 
@@ -86,6 +88,8 @@ public class AccountPageObject extends AbstractPage {
         String tmp = String.format(AccountPageUI.dynamicSubAccount, value);
         waitForElementVisibleByLocator(driver, By.xpath(tmp));
         clickToElementByJSByLocator(driver, By.xpath(tmp));
+        waitForElementVisibleByLocator(driver, AccountPageUI.chuyenkhoanLocator);
+        clickToElementByJSByLocator(driver, AccountPageUI.chuyenkhoanLocator);
 
     }
 
