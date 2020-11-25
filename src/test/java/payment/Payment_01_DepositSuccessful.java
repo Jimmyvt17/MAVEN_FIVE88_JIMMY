@@ -52,6 +52,7 @@ public class Payment_01_DepositSuccessful extends BaseTest {
 
         log.info("DepositSuccessful - Step 06: Return to deposit page");
         accountPage.goToSubAccount("Nạp tiền");
+        accountPage.clickToDepositButton();
 
         log.info("DepositSuccessful - Step 07: Do a depositing more");
         deposit(Constants.MONEY_DEP);
