@@ -37,21 +37,18 @@ public class Payment_02_DepositFailed extends BaseTest {
 
         log.info("DepositFailed - Step 03: Verify bank error");
         verifyTrue(accountPage.isBankErrorDisplayed());
-        log.info("Nap ko thanh cong ko chon ngan hang");
 
         log.info("DepositFailed - Step 04: Deposit without inputting money");
         depositWithoutMoney();
 
         log.info("DepositFailed - Step 05: Verify Money error");
         verifyTrue(accountPage.isMoneyErrorDisplayed());
-        log.info("Nap ko thanh cong ko nhap tien");
 
         log.info("DepositFailed - Step 06: Deposit without inputting trancode");
         depositWithoutCode();
 
         log.info("DepositFailed - Step 07: Verify trancode error");
         verifyTrue(accountPage.isCodeErrorDisplayed());
-        log.info("Nap ko thanh cong ko nhap ma giao dich");
 
         log.info("DepositFailed - Step 08: Deposit money under 50");
         depositMoneyUnder50();
@@ -69,7 +66,7 @@ public class Payment_02_DepositFailed extends BaseTest {
 
     public void depositMoneyUnder50() {
         accountPage.selectAnOption("bank_code_option", "VCB");
-        accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
+        //accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
         accountPage.inputToTextBox("49", "amount-money");
         accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
         accountPage.clickToSubmitButton("frmDeposit");
@@ -77,7 +74,7 @@ public class Payment_02_DepositFailed extends BaseTest {
 
     public void depositWithoutCode() {
         accountPage.selectAnOption("bank_code_option", "VCB");
-        accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
+        //accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
         accountPage.inputToTextBox(Constants.MONEY_DEP, "amount-money");
         accountPage.clearTextBox("bank_trancode");
         accountPage.clickToSubmitButton("frmDeposit");
@@ -85,14 +82,14 @@ public class Payment_02_DepositFailed extends BaseTest {
 
     public void depositWithoutMoney() {
         accountPage.selectAnOption("bank_code_option", "VCB");
-        accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
+        //accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
         accountPage.clearTextBox("amount-money");
         accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
         accountPage.clickToSubmitButton("frmDeposit");
     }
 
     public void depositWithoutBank() {
-        accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
+        //accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
         accountPage.inputToTextBox(Constants.MONEY_DEP, "amount-money");
         accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
         accountPage.clickToSubmitButton("frmDeposit");

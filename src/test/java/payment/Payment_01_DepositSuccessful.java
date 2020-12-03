@@ -66,8 +66,6 @@ public class Payment_01_DepositSuccessful extends BaseTest {
         log.info("DepositSuccessful - Step 10: Log out");
         accountPage.logoutToHomePage();
 
-        log.info("Nap tien thanh cong");
-
     }
 
 //    @Test(dataProvider= "network")
@@ -109,17 +107,11 @@ public class Payment_01_DepositSuccessful extends BaseTest {
 
     private void deposit(String value) {
         verifyEquals(accountPage.getAccountPageUrl(), Constants.DEPOSIT_URL);
-
         accountPage.selectAnOption("bank_code_option", "VCB");
-
-        accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
-
+        //accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
         accountPage.inputToTextBox(value, "amount-money");
-
         accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
-
         //accountPage.select158Promo();
-
         accountPage.clickToSubmitButton("frmDeposit");
 
     }
