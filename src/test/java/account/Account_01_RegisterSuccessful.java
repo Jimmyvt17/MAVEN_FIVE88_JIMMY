@@ -66,21 +66,21 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 //
 //	}
 
-	@Test
-	public void TC_03_RegisterSuccessfulWithName30Letters(Method method) {
-		try {
-			ExtentTestManager.startTest("TC_03_RegisterSuccessfulWithName30Letters", "TC_03_RegisterSuccessfulWithName30Letters");
-
-			log.info("RegisterSuccessfulWithName30Letters - Step 01: Register account with name 30 letters");
-			register(USERNAME_30, Constants.PASSWORD, Constants.PHONE);
-
-			log.info("RegisterSuccessfulWithName30Letters - Step 02: Logout");
-			accountPage.logoutToHomePage();
-		} catch (Throwable e) {
-			convertException(e, Constants.prefix + method.getName() + "\n");
-		}
-
-	}
+//	@Test
+//	public void TC_03_RegisterSuccessfulWithName30Letters(Method method) {
+//		try {
+//			ExtentTestManager.startTest("TC_03_RegisterSuccessfulWithName30Letters", "TC_03_RegisterSuccessfulWithName30Letters");
+//
+//			log.info("RegisterSuccessfulWithName30Letters - Step 01: Register account with name 30 letters");
+//			register(USERNAME_30, Constants.PASSWORD, Constants.PHONE);
+//
+//			log.info("RegisterSuccessfulWithName30Letters - Step 02: Logout");
+//			accountPage.logoutToHomePage();
+//		} catch (Throwable e) {
+//			convertException(e, Constants.prefix + method.getName() + "\n");
+//		}
+//
+//	}
 
 	@Test
 	public void TC_04_RegisterSuccessfulWithPass6Letters(Method method) {
