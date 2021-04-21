@@ -6,6 +6,8 @@ import commons.PageFactoryManager;
 import five88.RegisterPageUI;
 import org.openqa.selenium.WebDriver;
 
+import java.util.List;
+
 public class RegisterPageObject extends AbstractPage {
 
     private final WebDriver driver;
@@ -14,11 +16,11 @@ public class RegisterPageObject extends AbstractPage {
         driver = mappingDriver;
     }
 
-    public void openRegisterPage() {
-
-        openAnyUrl(driver, Constants.REGISTER_URL);
-
-    }
+//    public void openRegisterPage() {
+//
+//        openAnyUrl(driver, Constants.REGISTER_URL);
+//
+//    }
 
     public void inputToUsernameTextBox(String username) {
 
@@ -82,6 +84,24 @@ public class RegisterPageObject extends AbstractPage {
         } catch (Throwable e) {
             e.printStackTrace();
         }
+
+    }
+
+    public void registers() {
+        try {
+            List<String> usernames = getListFromExcel(Constants.iOSFilePath, Constants.userDataFile, "username");
+            for (int i = 0; i < usernames.size(); i++) {
+                inputToUsernameTextBox(usernames.get(i));
+                inputToPasswordTextBox(Constants.PASSWORD);
+                inputToPhoneTextBox(Constants.PHONE);
+                clickToSubmitButton();
+
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+
 
     }
 

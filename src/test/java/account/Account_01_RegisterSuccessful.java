@@ -1,20 +1,29 @@
 package account;
 
-//public class Account_01_RegisterSuccessful extends CommonsTest {
-//
-//	WebDriver driver;
-//	RegisterPageObject registerPage;
-//	AccountPageObject accountPage;
-//
-//	@Parameters("browser")
-//	@BeforeClass
-//	public void preConditions(String browserName) {
-//
-//		driver = openMultiBrowser(browserName, Constants.HOME_URL);
-//		registerPage = PageFactoryManager.getRegisterPage(driver);
-//
-//	}
-//
+import commons.CommonsTest;
+import commons.Constants;
+import commons.PageFactoryManager;
+import commons.reportConfig.ExtentTestManager;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.*;
+import pageObjects.AccountPageObject;
+import pageObjects.RegisterPageObject;
+
+public class Account_01_RegisterSuccessful extends CommonsTest {
+
+	WebDriver driver;
+	RegisterPageObject registerPage;
+	AccountPageObject accountPage;
+
+	@Parameters("browser")
+	@BeforeClass
+	public void preConditions(String browserName) {
+
+		driver = openMultiBrowser(browserName, Constants.REGISTER_URL);
+		registerPage = PageFactoryManager.getRegisterPage(driver);
+
+	}
+
 //	private final String USERNAME_6 = "auto-" + randomString(1, true, true);
 //	private final String USERNAME_30 = "auto-seta" + randomString(21, true, true);
 //	private final String PASSWORD_6 = randomString(6, false, true);
@@ -106,60 +115,63 @@ package account;
 //
 //	}
 //
-////	@Test(dataProvider = "network")
-////	public void TC_06_RegisterData(String usernameData) {
-////		ExtentTestManager.startTest("TC_06_RegisterData", "TC_06_RegisterData");
-////
-////		log.info("RegisterData - Step 01: Register account");
-////		register(usernameData, Constants.PASSWORD, Constants.PHONE);
-////
-////		log.info("RegisterData - Step 02: Logout");
-////		accountPage.logoutToHomePage();
-////
-////	}
-//
-//	@DataProvider(name = "network")
-//	public static Object[][] AccountData(){
-//		return new Object[][] {
-//				{Constants.USERNAME},
-//				{Constants.USERNAME_CASINO},
-//				{Constants.USERNAME_KENO},
-//				{Constants.USERNAME_LODE},
-//				{Constants.USERNAME_LOGIN},
-//				{Constants.USERNAME_NUMBER},
-//				{Constants.USERNAME_QUAYSO},
-//				{Constants.USERNAME_THETHAO}
-//
-//		};
-//
-//	}
-//
-//	@AfterClass(alwaysRun=true)
-//	public void afterClass() {
-//
-//		closeBrowserAndDriver(driver);
-//
-//	}
-//
-//	private void register(String username, String password, String phone) {
-//			registerPage.openRegisterPage();
-//			registerPage.inputToUsernameTextBox(username);
-//			registerPage.inputToPasswordTextBox(password);
-//			registerPage.inputToPhoneTextBox(phone);
-//			accountPage = registerPage.clickToSubmitButton();
-//			try {
-//				Thread.sleep(1000);
-//			} catch (Throwable e) {
-//				e.printStackTrace();
-//			}
-//			accountPage.verifyAfterRegister(accountPage.getAccountPageUrl(), Constants.DEPOSIT_URL);
-//			String userName = accountPage.getUsername();
-//			verifyEquals(userName, username.toUpperCase());
-//			log.info("Username = " + userName);
-//
-//			log.info("Record " + userName + " into data file");
-//			registerPage.saveUsername(userName);
-//
-//	}
-//
-//}
+	@Test(dataProvider = "network")
+	public void TC_06_RegisterData(String usernameData) {
+		ExtentTestManager.startTest("TC_06_RegisterData", "TC_06_RegisterData");
+
+		log.info("RegisterData - Step 01: Register account");
+		register(usernameData, Constants.PASSWORD, Constants.PHONE);
+
+		log.info("RegisterData - Step 02: Logout");
+		accountPage.logoutToHomePage();
+
+	}
+
+	@DataProvider(name = "network")
+	public static Object[][] AccountData(){
+		return new Object[][] {
+				{"setastgxocdia9"},
+				{"setastgxocdia10"},
+				{"setastgxocdia11"},
+				{"setastgxocdia12"},
+				{"setastgxocdia13"},
+				{"setastgxocdia14"},
+				{"setastgxocdia15"},
+				{"setastgxocdia16"},
+				{"setastgxocdia17"},
+				{"setastgxocdia18"},
+				{"setastgxocdia19"},
+				{"setastgxocdia20"}
+
+		};
+
+	}
+
+	@AfterClass(alwaysRun=true)
+	public void afterClass() {
+
+		closeBrowserAndDriver(driver);
+
+	}
+
+	private void register(String username, String password, String phone) {
+			registerPage.inputToUsernameTextBox(username);
+			registerPage.inputToPasswordTextBox(password);
+			registerPage.inputToPhoneTextBox(phone);
+			accountPage = registerPage.clickToSubmitButton();
+			try {
+				Thread.sleep(1000);
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
+			accountPage.verifyAfterRegister(accountPage.getAccountPageUrl(), Constants.DEPOSIT_URL);
+			String userName = accountPage.getUsername();
+			verifyEquals(userName, username.toUpperCase());
+			log.info("Username = " + userName);
+
+			log.info("Record " + userName + " into data file");
+			registerPage.saveUsername(userName);
+
+	}
+
+}

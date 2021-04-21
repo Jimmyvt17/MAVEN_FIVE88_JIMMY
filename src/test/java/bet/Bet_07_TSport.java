@@ -27,7 +27,7 @@ public class Bet_07_TSport extends BaseTest {
 
 	}
 
-	@Override
+	@Override()
 	public void Run() {
 		ExtentTestManager.startTest("TC_1_TSport", "TC_1_TSport");
 

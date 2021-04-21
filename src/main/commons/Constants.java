@@ -16,19 +16,19 @@ public class Constants {
     public static final String TTHETHAO_URL = "https://five88.biz/tsports.aspx";
     public static final String STHETHAO_URL = "https://five88.biz/ssport.aspx";
 
-//    // Url stg
-//    public static final String HOME_URL = "http://stg.five88.com/";
-//    public static final String REGISTER_URL = "http://stg.five88.com/register.aspx";
-//    public static final String DEPOSIT_URL = "http://stg.five88.com/deposit.aspx";
-//    public static final String WITHDRAW_URL = "http://stg.five88.com/withdraw.aspx";
-//    public static final String TRANHISTORY_URL = "http://stg.five88.com/history/lsgd.aspx";
-//    public static final String QUAYSO_URL = "http://stg.five88.com/lottery.aspx";
-//    public static final String QUAYSO2_URL = "http://stg.five88.com/lotte2.aspx";
-//    public static final String LODE_URL = "http://stg.five88.com/lode.aspx";
-//    public static final String CASINO_URL = "http://stg.five88.com/casino.aspx";
-//    public static final String ATHETHAO_URL = "http://stg.five88.com/fsport/live-sports.aspx";
-//    public static final String TTHETHAO_URL = "http://stg.five88.com/tsports.aspx";
-//    public static final String STHETHAO_URL = "http://stg.five88.com/ssport.aspx";
+//    // Url stgz
+//    public static final String HOME_URL = "http://stgz.five88.com/";
+//    public static final String REGISTER_URL = "http://stgz.five88.com/register.aspx";
+//    public static final String DEPOSIT_URL = "http://stgz.five88.com/deposit.aspx";
+//    public static final String WITHDRAW_URL = "http://stgz.five88.com/withdraw.aspx";
+//    public static final String TRANHISTORY_URL = "http://stgz.five88.com/history/lsgd.aspx";
+//    public static final String QUAYSO_URL = "http://stgz.five88.com/lottery.aspx";
+//    public static final String QUAYSO2_URL = "http://stgz.five88.com/lotte2.aspx";
+//    public static final String LODE_URL = "http://stgz.five88.com/lode.aspx";
+//    public static final String CASINO_URL = "http://stgz.five88.com/casino.aspx";
+//    public static final String ATHETHAO_URL = "http://stgz.five88.com/fsport/live-sports.aspx";
+//    public static final String TTHETHAO_URL = "http://stgz.five88.com/tsports.aspx";
+//    public static final String STHETHAO_URL = "http://stgz.five88.com/ssport.aspx";
 
 //    // Url clone
 //    public static final String HOME_URL = "https://fm88.com/";
@@ -51,6 +51,8 @@ public class Constants {
 
     // User/pass
     public static final String USERNAME = "setajim";
+    public static final String USERNAME_158 = "setaprdkm158";
+    public static final String USERNAME_100 = "setaprdkm900";
     public static final String USERNAME_THETHAO = "setathethao";
     public static final String USERNAME_QUAYSO = "setaquayso";
     public static final String USERNAME_LODE = "setalode";
@@ -101,7 +103,7 @@ public class Constants {
     public static final String iOSFilePath = "/Users/jimmyvuong/Downloads";
     public static final String windowsFilePath = "C:\\Users\\Administrator\\Documents";
     public static final String loadingTimeFile = "LoadingTimeOfIframeInFive88.xlsx";
-    public static final String userDataFile = "RegisteredUserFive88.xlsx";
+    public static final String userDataFile = "Xocdia.xlsx";
 
     // Others
     public static final String iframeContentError = "There is nothing in iframe. Please try again manually";

@@ -6,8 +6,8 @@
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 <!--    <listener class-name="commons.ExtentReportListener"/>-->
 <!--    <listener class-name="commons.retryTestFailed.RetryListener"/>-->
-    <listener class-name="commons.reportConfig.ExtentTestListener" />
-    <listener class-name="commons.reportConfig.ReportNGListener" />
+<!--    <listener class-name="commons.reportConfig.ExtentTestListener" />-->
+<!--    <listener class-name="commons.reportConfig.ReportNGListener" />-->
   </listeners>
 
   <test name="Run on Chrome">
@@ -19,13 +19,13 @@
 <!--        <class name="bet.Bet_01_Quayso"/>-->
 <!--        <class name="bet.Bet_02_Lode"/>-->
 <!--        <class name="bet.Bet_05_NumberGame"/>-->
-<!--        <class name="payment.Payment_01_DepositSuccessful"/>-->
+        <class name="bet.Bet_10_Test"/>
     </classes>
     <packages>
-      <package name="account"/>
-      <package name="alive"/>
-      <package name="bet"/>
-      <package name="payment"/>
+<!--      <package name="account"/>-->
+<!--      <package name="alive"/>-->
+<!--      <package name="bet"/>-->
+<!--      <package name="payment"/>-->
     </packages>
   </test> <!-- Test -->
 

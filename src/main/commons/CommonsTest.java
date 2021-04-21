@@ -22,6 +22,7 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import pageObjects.HomePageObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,6 +43,12 @@ public class CommonsTest extends AbstractPage {
 
     public WebDriver getDriver() {
         return driver;
+
+    }
+
+    public HomePageObject returnHomePage() {
+        openAnyUrl(driver, Constants.HOME_URL);
+        return PageFactoryManager.getHomePage(driver);
 
     }
 

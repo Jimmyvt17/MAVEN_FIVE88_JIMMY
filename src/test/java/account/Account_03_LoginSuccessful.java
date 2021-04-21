@@ -34,6 +34,8 @@ public class Account_03_LoginSuccessful extends BaseTest {
 		log.info("LoginSuccessful- Step 02: Logout");
 		homePage.logout();
 
+		//homePage.loginAccounts();
+
 	}
 
 	@AfterClass(alwaysRun=true)
