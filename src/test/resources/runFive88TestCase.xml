@@ -19,7 +19,7 @@
 <!--        <class name="bet.Bet_01_Quayso"/>-->
 <!--        <class name="bet.Bet_02_Lode"/>-->
 <!--        <class name="bet.Bet_05_NumberGame"/>-->
-        <class name="bet.Bet_10_Test"/>
+        <class name="payment.Payment_01_DepositSuccessful"/>
     </classes>
     <packages>
 <!--      <package name="account"/>-->

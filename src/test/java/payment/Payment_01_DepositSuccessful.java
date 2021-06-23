@@ -105,10 +105,10 @@ public class Payment_01_DepositSuccessful extends CommonsTest {
     private void deposit(String value) {
         verifyEquals(accountPage.getAccountPageUrl(), Constants.DEPOSIT_URL);
         accountPage.selectAnOption("bank_code_option", "VCB");
-//        accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
+        accountPage.inputToTextBox(Constants.SENDER, "from_bank_name");
         accountPage.inputToTextBox(value, "amount-money");
         accountPage.inputToTextBox(Constants.PHONE, "bank_trancode");
-//        accountPage.select158Promo();
+        accountPage.select158Promo();
         accountPage.clickToSubmitButton("frmDeposit");
 
     }
@@ -116,26 +116,16 @@ public class Payment_01_DepositSuccessful extends CommonsTest {
     @DataProvider(name = "network")
     public static Object[][] AccountData(){
         return new Object[][] {
-//                {"setastgxocdia1"},
-//                {"setastgxocdia2"},
-//                {"setastgxocdia3"},
-//                {"setastgxocdia4"},
-//                {"setastgxocdia5"},
-//                {"setastgxocdia6"},
-//                {"setastgxocdia7"},
-//                {"setastgxocdia8"},
-                {"setastgxocdia9"},
-                {"setastgxocdia10"},
-                {"setastgxocdia11"},
-                {"setastgxocdia12"},
-                {"setastgxocdia13"},
-                {"setastgxocdia14"},
-                {"setastgxocdia15"},
-                {"setastgxocdia16"},
-                {"setastgxocdia17"},
-                {"setastgxocdia18"},
-                {"setastgxocdia19"},
-                {"setastgxocdia20"}
+                {"setaprdxocdia1"},
+                {"setaprdxocdia2"},
+                {"setaprdxocdia3"},
+                {"setaprdxocdia4"},
+                {"setaprdxocdia5"},
+                {"setaprdxocdia6"},
+                {"setaprdxocdia7"},
+                {"setaprdxocdia8"},
+                {"setaprdxocdia9"},
+                {"setaprdxocdia10"}
 
         };
 

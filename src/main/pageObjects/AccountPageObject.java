@@ -28,6 +28,15 @@ public class AccountPageObject extends AbstractPage {
 
     }
 
+    public void saveUsername(String... values) {
+        try {
+            writeToExcelFile(Constants.windowsFilePath, Constants.userDataFile, "UserData", values);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void clickToDepositButton() {
 
         waitForElementVisibleByLocator(driver, AccountPageUI.depositButtonLocator);

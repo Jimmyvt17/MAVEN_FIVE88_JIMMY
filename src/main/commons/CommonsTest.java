@@ -303,32 +303,32 @@ public class CommonsTest extends AbstractPage {
             e.printStackTrace();
         }
 
-        log.info("Check for warning");
-        if (checkForBCA(driver)) {
-            closeBrowserAndDriver(driver);
-            sendBot(url + "\n" + Constants.WarningSite + "\n==============================================");
-            throw new RuntimeException(Constants.WarningSite);
-        }
-
-        log.info("Check for upgrading");
-        try {
-            checkForUpgrading(driver);
-        } catch (Throwable e) {
-            closeBrowserAndDriver(driver);
-            String error = e.toString();
-            sendBot(getClass().getName() + "\n" + error);
-            throw e;
-        }
-
-        log.info("Check for server error");
-        try {
-            checkForServerError(driver);
-        } catch (Throwable e) {
-            closeBrowserAndDriver(driver);
-            String error = e.toString();
-            sendBot(getClass().getName() + "\n" + error);
-            throw e;
-        }
+//        log.info("Check for warning");
+//        if (checkForBCA(driver)) {
+//            closeBrowserAndDriver(driver);
+//            sendBot(url + "\n" + Constants.WarningSite + "\n==============================================");
+//            throw new RuntimeException(Constants.WarningSite);
+//        }
+//
+//        log.info("Check for upgrading");
+//        try {
+//            checkForUpgrading(driver);
+//        } catch (Throwable e) {
+//            closeBrowserAndDriver(driver);
+//            String error = e.toString();
+//            sendBot(getClass().getName() + "\n" + error);
+//            throw e;
+//        }
+//
+//        log.info("Check for server error");
+//        try {
+//            checkForServerError(driver);
+//        } catch (Throwable e) {
+//            closeBrowserAndDriver(driver);
+//            String error = e.toString();
+//            sendBot(getClass().getName() + "\n" + error);
+//            throw e;
+//        }
 
         return driver;
 

@@ -5,9 +5,15 @@ import commons.Constants;
 import commons.PageFactoryManager;
 import commons.reportConfig.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import pageObjects.AccountPageObject;
 import pageObjects.RegisterPageObject;
+
+import java.lang.reflect.Method;
+import java.util.Date;
 
 public class Account_01_RegisterSuccessful extends CommonsTest {
 
@@ -29,23 +35,24 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 //	private final String PASSWORD_6 = randomString(6, false, true);
 //	private final String PHONE_14 = randomString(14, false, true);
 //
-//	@Test
-//	public void TC_01_RegisterSuccessful(Method method) {
-//		try {
-//			ExtentTestManager.startTest("TC_01_RegisterSuccessful", "TC_01_RegisterSuccessful");
-//
-//			String USERNAME_TODAY = "auto-seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-//
-//			log.info("RegisterSuccessful - Step 01: Register account");
-//			register(USERNAME_TODAY, Constants.PASSWORD, Constants.PHONE);
-//
-//			log.info("RegisterSuccessful - Step 02: Logout");
-//			accountPage.logoutToHomePage();
-//		} catch (Throwable e) {
-//			convertException(e, Constants.prefix + method.getName() + "\n");
-//		}
-//
-//	}
+	@Test
+	public void TC_01_RegisterSuccessful(Method method) {
+		try {
+			ExtentTestManager.startTest("TC_01_RegisterSuccessful", "TC_01_RegisterSuccessful");
+
+			String USERNAME_TODAY = "auto-seta" + new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+
+			log.info("RegisterSuccessful - Step 01: Register account");
+			register(USERNAME_TODAY, Constants.PASSWORD, Constants.PHONE);
+
+			log.info("RegisterSuccessful - Step 02: Logout");
+			accountPage.logoutToHomePage();
+//			registerPage.registers();
+		} catch (Throwable e) {
+			convertException(e, Constants.prefix + method.getName() + "\n");
+		}
+
+	}
 //
 ////	@Test
 ////	public void TC_02_RegisterSuccessfulWithName6Letters(Method method) {
@@ -115,37 +122,37 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 //
 //	}
 //
-	@Test(dataProvider = "network")
-	public void TC_06_RegisterData(String usernameData) {
-		ExtentTestManager.startTest("TC_06_RegisterData", "TC_06_RegisterData");
+//	@Test(dataProvider = "network")
+//	public void TC_06_RegisterData(String usernameData) {
+//		ExtentTestManager.startTest("TC_06_RegisterData", "TC_06_RegisterData");
+//
+//		log.info("RegisterData - Step 01: Register account");
+//		register(usernameData, Constants.PASSWORD, Constants.PHONE);
+//
+//		log.info("RegisterData - Step 02: Logout");
+//		accountPage.logoutToHomePage();
+//
+//	}
 
-		log.info("RegisterData - Step 01: Register account");
-		register(usernameData, Constants.PASSWORD, Constants.PHONE);
-
-		log.info("RegisterData - Step 02: Logout");
-		accountPage.logoutToHomePage();
-
-	}
-
-	@DataProvider(name = "network")
-	public static Object[][] AccountData(){
-		return new Object[][] {
-				{"setastgxocdia9"},
-				{"setastgxocdia10"},
-				{"setastgxocdia11"},
-				{"setastgxocdia12"},
-				{"setastgxocdia13"},
-				{"setastgxocdia14"},
-				{"setastgxocdia15"},
-				{"setastgxocdia16"},
-				{"setastgxocdia17"},
-				{"setastgxocdia18"},
-				{"setastgxocdia19"},
-				{"setastgxocdia20"}
-
-		};
-
-	}
+//	@DataProvider(name = "network")
+//	public static Object[][] AccountData(){
+//		return new Object[][] {
+//				{"setastgxocdia9"},
+//				{"setastgxocdia10"},
+//				{"setastgxocdia11"},
+//				{"setastgxocdia12"},
+//				{"setastgxocdia13"},
+//				{"setastgxocdia14"},
+//				{"setastgxocdia15"},
+//				{"setastgxocdia16"},
+//				{"setastgxocdia17"},
+//				{"setastgxocdia18"},
+//				{"setastgxocdia19"},
+//				{"setastgxocdia20"}
+//
+//		};
+//
+//	}
 
 	@AfterClass(alwaysRun=true)
 	public void afterClass() {
@@ -170,7 +177,7 @@ public class Account_01_RegisterSuccessful extends CommonsTest {
 			log.info("Username = " + userName);
 
 			log.info("Record " + userName + " into data file");
-			registerPage.saveUsername(userName);
+			accountPage.saveUsername(userName);
 
 	}
 

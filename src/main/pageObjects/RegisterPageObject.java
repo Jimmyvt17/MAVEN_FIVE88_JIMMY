@@ -16,11 +16,11 @@ public class RegisterPageObject extends AbstractPage {
         driver = mappingDriver;
     }
 
-//    public void openRegisterPage() {
-//
-//        openAnyUrl(driver, Constants.REGISTER_URL);
-//
-//    }
+    public void openRegisterPage() {
+
+        openAnyUrl(driver, Constants.REGISTER_URL);
+
+    }
 
     public void inputToUsernameTextBox(String username) {
 
@@ -78,23 +78,17 @@ public class RegisterPageObject extends AbstractPage {
 
     }
 
-    public void saveUsername(String... values) {
-        try {
-            writeToExcelFile(Constants.windowsFilePath, Constants.userDataFile, "UserData", values);
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
-
-    }
-
     public void registers() {
         try {
             List<String> usernames = getListFromExcel(Constants.iOSFilePath, Constants.userDataFile, "username");
-            for (int i = 0; i < usernames.size(); i++) {
-                inputToUsernameTextBox(usernames.get(i));
+            for (String username : usernames) {
+                openRegisterPage();
+                inputToUsernameTextBox(username);
                 inputToPasswordTextBox(Constants.PASSWORD);
                 inputToPhoneTextBox(Constants.PHONE);
                 clickToSubmitButton();
+                Thread.sleep(3000);
+                logoutToHomePage();
 
             }
         } catch (Throwable e) {
